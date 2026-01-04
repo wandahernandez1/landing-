@@ -1,0 +1,81 @@
+@import 'tailwindcss';
+
+@theme {
+    --color-navy-50: #f8fafc;
+    --color-navy-100: #f1f5f9;
+    --color-navy-200: #e2e8f0;
+    --color-navy-300: #cbd5e1;
+    --color-navy-400: #94a3b8;
+    --color-navy-500: #64748b;
+    --color-navy-600: #475569;
+    --color-navy-700: #334155;
+    --color-navy-800: #1e293b;
+    --color-navy-900: #0f172a;
+    --color-navy-950: #020617;
+
+    --color-gold-400: #facc15;
+    --color-gold-500: #eab308;
+    --color-gold-600: #ca8a04;
+
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.compound {
+    background-color: #0f172a;
+    color: #f8fafc;
+}
+
+.compound .glass {
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+
+.compound .btn-primary {
+    background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%);
+    color: #0f172a;
+    transition: all 0.3s ease;
+}
+
+.compound .btn-primary:hover {
+    box-shadow: 0 10px 30px rgba(234, 179, 8, 0.3);
+    transform: translateY(-2px);
+}
+
+.compound .btn-secondary {
+    background: transparent;
+    border: 1px solid #eab308;
+    color: #facc15;
+    transition: all 0.3s ease;
+}
+
+.compound .btn-secondary:hover {
+    background: rgba(234, 179, 8, 0.1);
+}
+
+.compound .text-gradient {
+    background: linear-gradient(135deg, #facc15 0%, #eab308 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.compound .card {
+    background: linear-gradient(135deg, rgba(234, 179, 8, 0.05) 0%, rgba(15, 23, 42, 0.9) 100%);
+    border: 1px solid rgba(234, 179, 8, 0.15);
+    transition: all 0.4s ease;
+}
+
+.compound .card:hover {
+    border-color: rgba(234, 179, 8, 0.3);
+    box-shadow: 0 0 40px rgba(234, 179, 8, 0.1);
+}
+
+.compound .bg-glow {
+    background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(234, 179, 8, 0.1), transparent 70%);
+}
+
+.compound .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(234, 179, 8, 0.2), transparent);
+}

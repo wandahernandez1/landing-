@@ -1,0 +1,56 @@
+import { Link } from 'react-router-dom'
+import { Globe, Instagram, Twitter } from 'lucide-react'
+import { COMPANY, FOOTER_LINKS } from './constants'
+
+export function Footer() {
+  return (
+    <footer className="border-t border-sand-200 bg-sand-50">
+      <div className="container-custom py-12 md:py-16">
+        <div className="flex flex-col items-center gap-8 md:flex-row md:justify-between">
+          <Link to="/nomadatlas" className="flex items-center gap-2 text-xl font-bold">
+            <Globe className="h-6 w-6 text-teal-500" />
+            <span className="text-gradient">{COMPANY.name}</span>
+          </Link>
+
+          <nav>
+            <ul className="flex items-center gap-6">
+              {FOOTER_LINKS.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="text-sm text-sand-800/60 transition-colors hover:text-teal-600"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div className="flex items-center gap-4">
+            <a href="#" className="text-sand-800/60 hover:text-teal-600 transition-colors">
+              <Instagram className="h-5 w-5" />
+            </a>
+            <a href="#" className="text-sand-800/60 hover:text-teal-600 transition-colors">
+              <Twitter className="h-5 w-5" />
+            </a>
+          </div>
+        </div>
+
+        <div className="divider mt-8" />
+
+        <div className="mt-8 flex flex-col items-center gap-4 md:flex-row md:justify-between">
+          <p className="text-sm text-sand-800/50">
+            {COMPANY.year} {COMPANY.name}. Made by nomads, for nomads.
+          </p>
+          <Link
+            to="/"
+            className="text-sm text-teal-600 hover:text-teal-700 transition-colors"
+          >
+            ← Volver
+          </Link>
+        </div>
+      </div>
+    </footer>
+  )
+}

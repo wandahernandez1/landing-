@@ -1,0 +1,89 @@
+@import 'tailwindcss';
+
+@theme {
+    --color-cyan-50: #ecfeff;
+    --color-cyan-100: #cffafe;
+    --color-cyan-200: #a5f3fc;
+    --color-cyan-300: #67e8f9;
+    --color-cyan-400: #22d3ee;
+    --color-cyan-500: #06b6d4;
+    --color-cyan-600: #0891b2;
+    --color-cyan-700: #0e7490;
+    --color-cyan-800: #155e75;
+    --color-cyan-900: #164e63;
+
+    --color-slate-50: #f8fafc;
+    --color-slate-100: #f1f5f9;
+    --color-slate-200: #e2e8f0;
+    --color-slate-300: #cbd5e1;
+    --color-slate-400: #94a3b8;
+    --color-slate-500: #64748b;
+    --color-slate-600: #475569;
+    --color-slate-700: #334155;
+    --color-slate-800: #1e293b;
+    --color-slate-900: #0f172a;
+    --color-slate-950: #020617;
+
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.helixbank {
+    background-color: #020617;
+    color: #f8fafc;
+}
+
+.helixbank .glass {
+    background: rgba(2, 6, 23, 0.85);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+
+.helixbank .btn-primary {
+    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.helixbank .btn-primary:hover {
+    box-shadow: 0 0 40px rgba(6, 182, 212, 0.4);
+    transform: translateY(-2px);
+}
+
+.helixbank .btn-secondary {
+    background: transparent;
+    border: 1px solid rgba(6, 182, 212, 0.5);
+    color: #22d3ee;
+    transition: all 0.3s ease;
+}
+
+.helixbank .btn-secondary:hover {
+    background: rgba(6, 182, 212, 0.1);
+    border-color: #06b6d4;
+}
+
+.helixbank .text-gradient {
+    background: linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.helixbank .card {
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.02) 100%);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    transition: all 0.4s ease;
+}
+
+.helixbank .card:hover {
+    border-color: rgba(6, 182, 212, 0.4);
+    box-shadow: 0 0 60px rgba(6, 182, 212, 0.1);
+}
+
+.helixbank .bg-glow {
+    background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(6, 182, 212, 0.15), transparent 70%);
+}
+
+.helixbank .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.3), transparent);
+}

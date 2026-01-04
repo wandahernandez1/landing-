@@ -1,0 +1,82 @@
+@import 'tailwindcss';
+
+@theme {
+    --color-violet-400: #a78bfa;
+    --color-violet-500: #8b5cf6;
+    --color-violet-600: #7c3aed;
+    --color-violet-700: #6d28d9;
+    --color-violet-900: #4c1d95;
+
+    --color-slate-800: #1e293b;
+    --color-slate-900: #0f172a;
+    --color-slate-950: #020617;
+
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+.devcanvas {
+    background-color: #0f172a;
+    color: #f1f5f9;
+}
+
+.devcanvas .glass {
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+
+.devcanvas .btn-primary {
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.devcanvas .btn-primary:hover {
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.4);
+    transform: translateY(-2px);
+}
+
+.devcanvas .btn-secondary {
+    background: transparent;
+    border: 1px solid rgba(139, 92, 246, 0.5);
+    color: #a78bfa;
+    transition: all 0.3s ease;
+}
+
+.devcanvas .btn-secondary:hover {
+    background: rgba(139, 92, 246, 0.1);
+}
+
+.devcanvas .text-gradient {
+    background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.devcanvas .card {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(15, 23, 42, 0.9) 100%);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    transition: all 0.4s ease;
+}
+
+.devcanvas .card:hover {
+    border-color: rgba(139, 92, 246, 0.4);
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.1);
+}
+
+.devcanvas .bg-glow {
+    background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(139, 92, 246, 0.12), transparent 70%);
+}
+
+.devcanvas .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.3), transparent);
+}
+
+.devcanvas .code-block {
+    background: #0a0f1a;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    font-family: var(--font-mono);
+}

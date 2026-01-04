@@ -1,0 +1,41 @@
+import { Link } from 'react-router-dom'
+import { COMPANY, NAV_LINKS } from './constants'
+import { Sparkles } from 'lucide-react'
+
+export function Navbar() {
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50">
+      <div className="glass border-b border-amber-200">
+        <nav className="container-custom flex h-16 items-center justify-between" aria-label="Navegación principal">
+          <Link to="/lumina" className="flex items-center gap-2">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-amber-400 to-amber-600">
+              <Sparkles className="h-5 w-5 text-white" />
+            </div>
+            <span className="text-xl font-bold text-indigo-950">{COMPANY.name}</span>
+          </Link>
+
+          <div className="hidden md:flex items-center gap-8">
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-sm text-indigo-900/70 transition-colors hover:text-indigo-900"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+
+          <div className="flex items-center gap-4">
+            <Link to="/" className="text-sm text-indigo-900/60 hover:text-indigo-900 transition-colors">
+              ← Volver
+            </Link>
+            <button className="btn-primary rounded-xl px-6 py-2.5 text-sm font-medium">
+              Comenzar
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+  )
+}

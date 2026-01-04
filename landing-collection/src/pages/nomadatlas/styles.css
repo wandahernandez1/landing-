@@ -1,0 +1,89 @@
+@import 'tailwindcss';
+
+@theme {
+    --color-teal-400: #2dd4bf;
+    --color-teal-500: #14b8a6;
+    --color-teal-600: #0d9488;
+    --color-teal-700: #0f766e;
+
+    --color-orange-400: #fb923c;
+    --color-orange-500: #f97316;
+    --color-orange-600: #ea580c;
+
+    --color-sand-50: #fefdfb;
+    --color-sand-100: #fdf9f3;
+    --color-sand-200: #f5ebe0;
+    --color-sand-800: #3d3526;
+    --color-sand-900: #2a251a;
+
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.nomadatlas {
+    background-color: #fefdfb;
+    color: #2a251a;
+}
+
+.nomadatlas .glass {
+    background: rgba(254, 253, 251, 0.9);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+
+.nomadatlas .btn-primary {
+    background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.nomadatlas .btn-primary:hover {
+    box-shadow: 0 10px 30px rgba(20, 184, 166, 0.3);
+    transform: translateY(-2px);
+}
+
+.nomadatlas .btn-secondary {
+    background: transparent;
+    border: 1px solid #14b8a6;
+    color: #0f766e;
+    transition: all 0.3s ease;
+}
+
+.nomadatlas .btn-secondary:hover {
+    background: rgba(20, 184, 166, 0.08);
+}
+
+.nomadatlas .text-gradient {
+    background: linear-gradient(135deg, #14b8a6 0%, #f97316 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nomadatlas .card {
+    background: white;
+    border: 1px solid #f5ebe0;
+    box-shadow: 0 4px 20px rgba(42, 37, 26, 0.05);
+    transition: all 0.4s ease;
+}
+
+.nomadatlas .card:hover {
+    box-shadow: 0 12px 40px rgba(42, 37, 26, 0.1);
+    transform: translateY(-4px);
+}
+
+.nomadatlas .bg-gradient-hero {
+    background: linear-gradient(180deg, #fefdfb 0%, #f5ebe0 100%);
+}
+
+.nomadatlas .bg-gradient-section {
+    background: linear-gradient(180deg, #f5ebe0 0%, #fefdfb 100%);
+}
+
+.nomadatlas .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #e5ddd0, transparent);
+}
+
+.nomadatlas .icon-box {
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(249, 115, 22, 0.1) 100%);
+}
