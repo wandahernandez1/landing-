@@ -1,38 +1,17 @@
 @import 'tailwindcss';
 
 @theme {
-    --color-purple-50: #faf5ff;
-    --color-purple-100: #f3e8ff;
-    --color-purple-200: #e9d5ff;
-    --color-purple-300: #d8b4fe;
     --color-purple-400: #c084fc;
     --color-purple-500: #a855f7;
     --color-purple-600: #9333ea;
     --color-purple-700: #7e22ce;
-    --color-purple-800: #6b21a8;
     --color-purple-900: #581c87;
-    --color-purple-950: #3b0764;
-
-    --color-neutral-50: #fafafa;
-    --color-neutral-100: #f5f5f5;
-    --color-neutral-200: #e5e5e5;
-    --color-neutral-300: #d4d4d4;
-    --color-neutral-400: #a3a3a3;
-    --color-neutral-500: #737373;
-    --color-neutral-600: #525252;
-    --color-neutral-700: #404040;
+    --color-violet-500: #8b5cf6;
+    --color-violet-600: #7c3aed;
     --color-neutral-800: #262626;
     --color-neutral-900: #171717;
     --color-neutral-950: #0a0a0a;
-
-    --color-background: #030014;
-    --color-surface: #0a0a0a;
-    --color-surface-elevated: #171717;
-
-    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display',
-        'Segoe UI', Roboto, sans-serif;
-    --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display',
-        'Segoe UI', Roboto, sans-serif;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .nexusai {
@@ -40,58 +19,266 @@
     color: #fafafa;
 }
 
+/* Premium Glass Effect */
 .nexusai .glass {
-    background: rgba(3, 0, 20, 0.72);
-    backdrop-filter: saturate(180%) blur(20px);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    background: rgba(3, 0, 20, 0.85);
+    backdrop-filter: saturate(180%) blur(24px);
+    -webkit-backdrop-filter: saturate(180%) blur(24px);
+    border-bottom: 1px solid rgba(168, 85, 247, 0.1);
 }
 
+/* Primary Button - Premium */
 .nexusai .btn-primary {
-    background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);
+    background: linear-gradient(135deg, #a855f7 0%, #7c3aed 50%, #6d28d9 100%);
     color: white;
-    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    box-shadow: 0 0 0 0 rgba(168, 85, 247, 0);
+}
+
+.nexusai .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #c084fc 0%, #a855f7 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
 .nexusai .btn-primary:hover {
-    box-shadow: 0 0 30px rgba(168, 85, 247, 0.4);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px -10px rgba(168, 85, 247, 0.5),
+        0 0 60px -10px rgba(168, 85, 247, 0.3);
 }
 
+.nexusai .btn-primary:hover::before {
+    opacity: 1;
+}
+
+.nexusai .btn-primary span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Secondary Button */
 .nexusai .btn-secondary {
     background: transparent;
-    border: 1px solid rgba(168, 85, 247, 0.5);
+    border: 1px solid rgba(168, 85, 247, 0.4);
     color: #c084fc;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.nexusai .btn-secondary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
 .nexusai .btn-secondary:hover {
-    background: rgba(168, 85, 247, 0.1);
-    border-color: #a855f7;
+    border-color: rgba(168, 85, 247, 0.8);
+    box-shadow: 0 0 30px -5px rgba(168, 85, 247, 0.2);
 }
 
+.nexusai .btn-secondary:hover::before {
+    opacity: 1;
+}
+
+/* Text Gradient */
 .nexusai .text-gradient {
-    background: linear-gradient(135deg, #c084fc 0%, #a855f7 50%, #7e22ce 100%);
+    background: linear-gradient(135deg, #e9d5ff 0%, #c084fc 30%, #a855f7 60%, #7c3aed 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
-.nexusai .card-glow {
-    background: linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(126, 34, 206, 0.05) 100%);
-    border: 1px solid rgba(168, 85, 247, 0.2);
-    transition: all 0.4s ease;
+/* Premium Card */
+.nexusai .card {
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.08) 0%, rgba(3, 0, 20, 0.95) 100%);
+    border: 1px solid rgba(168, 85, 247, 0.15);
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
-.nexusai .card-glow:hover {
+.nexusai .card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(168, 85, 247, 0.15), transparent 40%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.nexusai .card:hover {
     border-color: rgba(168, 85, 247, 0.4);
-    box-shadow: 0 0 40px rgba(168, 85, 247, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px -15px rgba(168, 85, 247, 0.2),
+        0 0 0 1px rgba(168, 85, 247, 0.1);
 }
 
+.nexusai .card:hover::before {
+    opacity: 1;
+}
+
+/* Glow Effects */
 .nexusai .bg-glow {
-    background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(168, 85, 247, 0.15), transparent 70%);
+    background: radial-gradient(ellipse 80% 60% at 50% -20%, rgba(168, 85, 247, 0.25), transparent 60%);
 }
 
+.nexusai .bg-glow-bottom {
+    background: radial-gradient(ellipse 80% 60% at 50% 120%, rgba(124, 58, 237, 0.15), transparent 60%);
+}
+
+/* Orb Animation */
+.nexusai .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.5;
+    animation: orbFloat 20s ease-in-out infinite;
+}
+
+.nexusai .orb-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.5) 0%, transparent 70%);
+    top: -200px;
+    left: -200px;
+}
+
+.nexusai .orb-2 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.4) 0%, transparent 70%);
+    bottom: -150px;
+    right: -150px;
+    animation-delay: -10s;
+}
+
+@keyframes orbFloat {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    25% {
+        transform: translate(30px, -30px) scale(1.05);
+    }
+
+    50% {
+        transform: translate(-20px, 20px) scale(0.95);
+    }
+
+    75% {
+        transform: translate(20px, 30px) scale(1.02);
+    }
+}
+
+/* Divider */
 .nexusai .divider {
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.3), transparent);
+    background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.4), transparent);
+}
+
+/* Grid Pattern */
+.nexusai .grid-pattern {
+    background-image:
+        linear-gradient(rgba(168, 85, 247, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(168, 85, 247, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 50% at 50% 50%, black, transparent);
+}
+
+/* Icon Box Premium */
+.nexusai .icon-box {
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(124, 58, 237, 0.1) 100%);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+}
+
+/* Pricing Card Popular */
+.nexusai .pricing-popular {
+    background: linear-gradient(180deg, rgba(168, 85, 247, 0.12) 0%, rgba(3, 0, 20, 0.98) 100%);
+    border: 2px solid rgba(168, 85, 247, 0.5);
+    position: relative;
+}
+
+.nexusai .pricing-popular::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg, #a855f7, #7c3aed, #a855f7);
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0.3;
+    filter: blur(20px);
+}
+
+/* Floating Animation */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.nexusai .animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Pulse Glow */
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 40px rgba(168, 85, 247, 0.5), 0 0 60px rgba(168, 85, 247, 0.2);
+    }
+}
+
+.nexusai .pulse-glow {
+    animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* Shine Effect */
+.nexusai .shine {
+    position: relative;
+    overflow: hidden;
+}
+
+.nexusai .shine::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(to right, transparent 0%, rgba(168, 85, 247, 0.1) 50%, transparent 100%);
+    transform: rotate(30deg);
+    animation: shine 8s ease-in-out infinite;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) rotate(30deg);
+    }
+
+    100% {
+        transform: translateX(100%) rotate(30deg);
+    }
 }

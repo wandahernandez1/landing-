@@ -1,48 +1,124 @@
-import { Check } from 'lucide-react'
+import { Check, Zap } from 'lucide-react'
 import { PRICING_PLANS } from './constants'
 import { cn } from '@/shared/utils/cn'
+import { useEffect, useRef } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 export function PricingSection() {
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Header animation
+      gsap.from('.pricing-header', {
+        y: 40,
+        opacity: 0,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.pricing-header',
+          start: 'top 85%',
+        },
+      })
+
+      // Cards with 3D effect
+      gsap.from('.pricing-card', {
+        y: 80,
+        opacity: 0,
+        rotateY: -15,
+        duration: 1,
+        stagger: 0.2,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.pricing-grid',
+          start: 'top 80%',
+        },
+      })
+
+      // Features list stagger
+      gsap.from('.feature-item', {
+        x: -20,
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.05,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.pricing-grid',
+          start: 'top 60%',
+        },
+      })
+
+      // Popular badge pulse
+      gsap.to('.popular-badge', {
+        scale: 1.05,
+        duration: 1,
+        repeat: -1,
+        yoyo: true,
+        ease: 'power1.inOut',
+      })
+    }, sectionRef)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <section id="pricing" className="relative py-32 md:py-40">
-      <div className="container-custom">
-        <header className="mx-auto mb-20 max-w-3xl text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-violet-500">
+    <section 
+      ref={sectionRef}
+      id="pricing" 
+      className="relative py-32 md:py-40"
+      aria-labelledby="pricing-title"
+    >
+      {/* Background effects */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-violet-500/[0.02] to-transparent" />
+      <div className="absolute inset-0 dev-grid opacity-10" />
+
+      <div className="container-custom relative z-10">
+        <header className="pricing-header mx-auto mb-20 max-w-3xl text-center">
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-violet-400">
             Pricing
           </p>
-          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+          <h2 id="pricing-title" className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
             Simple y{' '}
             <span className="text-gradient">transparente</span>
           </h2>
         </header>
 
-        <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-3">
-          {PRICING_PLANS.map((plan, idx) => (
+        <div className="pricing-grid mx-auto grid max-w-5xl gap-8 md:grid-cols-3" style={{ perspective: '1000px' }}>
+          {PRICING_PLANS.map((plan) => (
             <article
-              key={idx}
+              key={plan.name}
               className={cn(
-                'card rounded-2xl p-8 flex flex-col',
-                plan.popular && 'ring-2 ring-violet-500 relative'
+                'pricing-card card card-spotlight rounded-2xl p-8 flex flex-col relative',
+                plan.popular && 'border-violet-500 ring-1 ring-violet-500 scale-105'
               )}
+              style={{ transformStyle: 'preserve-3d' }}
             >
               {plan.popular && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-violet-500 px-3 py-1 text-xs font-medium text-white">
-                  Popular
-                </span>
+                <div className="popular-badge absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-violet-500 to-violet-600 px-4 py-1 text-sm font-medium text-white shadow-lg shadow-violet-500/30">
+                  <div className="flex items-center gap-2">
+                    <Zap className="w-3 h-3" />
+                    Popular
+                  </div>
+                </div>
               )}
               
-              <h3 className="text-xl font-semibold text-white">{plan.name}</h3>
-              <p className="mt-2 text-sm text-slate-400">{plan.description}</p>
+              <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
+              <p className="text-slate-400 text-sm mb-6">{plan.description}</p>
               
-              <div className="mt-6 flex items-baseline gap-1">
-                <span className="text-4xl font-bold text-white">{plan.price}</span>
-                <span className="text-slate-500">{plan.period}</span>
+              <div className="mb-8">
+                <span className="text-5xl font-bold text-violet-400">{plan.price}</span>
+                {plan.period && <span className="text-slate-500 text-sm">{plan.period}</span>}
               </div>
 
-              <ul className="mt-8 flex-1 space-y-4">
-                {plan.features.map((feature, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-violet-500 shrink-0 mt-0.5" />
+              <ul className="flex-1 space-y-4 mb-8">
+                {plan.features.map((feature) => (
+                  <li key={feature} className="feature-item flex items-start gap-3">
+                    <div className="flex-shrink-0 mt-0.5">
+                      <Check className="h-5 w-5 text-violet-400" aria-hidden="true" />
+                    </div>
                     <span className="text-slate-300">{feature}</span>
                   </li>
                 ))}
@@ -51,7 +127,7 @@ export function PricingSection() {
               <a
                 href="#"
                 className={cn(
-                  'mt-8 rounded-xl px-6 py-3 text-center font-medium transition-all',
+                  'w-full rounded-xl px-6 py-3 text-center font-semibold transition-all',
                   plan.popular
                     ? 'btn-primary'
                     : 'btn-secondary'

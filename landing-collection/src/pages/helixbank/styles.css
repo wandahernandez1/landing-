@@ -41,49 +41,285 @@
 .helixbank .btn-primary {
     background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
     color: white;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.helixbank .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.helixbank .btn-primary:hover::before {
+    left: 100%;
 }
 
 .helixbank .btn-primary:hover {
-    box-shadow: 0 0 40px rgba(6, 182, 212, 0.4);
-    transform: translateY(-2px);
+    box-shadow: 0 0 50px rgba(6, 182, 212, 0.5), 0 0 100px rgba(6, 182, 212, 0.2);
+    transform: translateY(-3px);
 }
 
 .helixbank .btn-secondary {
     background: transparent;
     border: 1px solid rgba(6, 182, 212, 0.5);
     color: #22d3ee;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.helixbank .btn-secondary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.2) 0%, rgba(6, 182, 212, 0.05) 100%);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease;
+}
+
+.helixbank .btn-secondary:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
 }
 
 .helixbank .btn-secondary:hover {
-    background: rgba(6, 182, 212, 0.1);
     border-color: #06b6d4;
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.2);
 }
 
 .helixbank .text-gradient {
-    background: linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%);
+    background: linear-gradient(135deg, #22d3ee 0%, #06b6d4 50%, #67e8f9 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
 .helixbank .card {
-    background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.02) 100%);
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.08) 0%, rgba(6, 182, 212, 0.02) 100%);
     border: 1px solid rgba(6, 182, 212, 0.2);
-    transition: all 0.4s ease;
+    transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.helixbank .card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.helixbank .card:hover::before {
+    opacity: 1;
 }
 
 .helixbank .card:hover {
-    border-color: rgba(6, 182, 212, 0.4);
-    box-shadow: 0 0 60px rgba(6, 182, 212, 0.1);
+    border-color: rgba(6, 182, 212, 0.5);
+    box-shadow: 0 0 80px rgba(6, 182, 212, 0.15), inset 0 1px 0 rgba(6, 182, 212, 0.2);
+    transform: translateY(-6px);
 }
 
 .helixbank .bg-glow {
-    background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(6, 182, 212, 0.15), transparent 70%);
+    background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(6, 182, 212, 0.2), transparent 70%);
 }
 
 .helixbank .divider {
     height: 1px;
     background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.3), transparent);
+}
+
+/* Neon Grid Pattern */
+.helixbank .neon-grid {
+    background-image:
+        linear-gradient(rgba(6, 182, 212, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(6, 182, 212, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+/* Neon Line Animation */
+@keyframes neonLine {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scaleX(0.5);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+}
+
+.helixbank .neon-line {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #22d3ee, transparent);
+    animation: neonLine 3s ease-in-out infinite;
+}
+
+/* Cyber Glow Orbs */
+@keyframes cyberGlow {
+
+    0%,
+    100% {
+        opacity: 0.4;
+        transform: scale(1);
+        filter: blur(60px);
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: scale(1.2);
+        filter: blur(80px);
+    }
+}
+
+.helixbank .cyber-orb {
+    position: absolute;
+    border-radius: 50%;
+    animation: cyberGlow 6s ease-in-out infinite;
+}
+
+/* Scan Line Effect */
+@keyframes scanLine {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+.helixbank .scan-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.3), transparent);
+    animation: scanLine 8s linear infinite;
+    pointer-events: none;
+}
+
+/* Card Neon Border Glow */
+.helixbank .neon-border {
+    position: relative;
+}
+
+.helixbank .neon-border::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg, #22d3ee, #06b6d4, #22d3ee);
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    filter: blur(8px);
+}
+
+.helixbank .neon-border:hover::after {
+    opacity: 0.5;
+}
+
+/* Data Flow Animation */
+@keyframes dataFlow {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+.helixbank .data-flow {
+    background: linear-gradient(45deg,
+            transparent 0%,
+            rgba(6, 182, 212, 0.1) 25%,
+            transparent 50%,
+            rgba(6, 182, 212, 0.1) 75%,
+            transparent 100%);
+    background-size: 400% 400%;
+    animation: dataFlow 4s linear infinite;
+}
+
+/* Holographic Effect */
+.helixbank .holographic {
+    background: linear-gradient(135deg,
+            rgba(6, 182, 212, 0.1) 0%,
+            rgba(34, 211, 238, 0.15) 25%,
+            rgba(6, 182, 212, 0.1) 50%,
+            rgba(103, 232, 249, 0.15) 75%,
+            rgba(6, 182, 212, 0.1) 100%);
+    background-size: 200% 200%;
+    animation: dataFlow 6s ease infinite;
+}
+
+/* Floating Stats */
+.helixbank .stat-float {
+    transition: all 0.4s ease;
+}
+
+.helixbank .stat-float:hover {
+    transform: translateY(-5px);
+    text-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+}
+
+/* Card spotlight mouse tracking */
+.helixbank .card-spotlight {
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+}
+
+.helixbank .card-spotlight::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y),
+            rgba(6, 182, 212, 0.15),
+            transparent 60%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: inherit;
+}
+
+.helixbank .card-spotlight:hover::after {
+    opacity: 1;
+}
+
+/* Pricing Popular Glow */
+.helixbank .pricing-popular {
+    box-shadow:
+        0 0 60px rgba(6, 182, 212, 0.2),
+        inset 0 1px 0 rgba(6, 182, 212, 0.3),
+        inset 0 -1px 0 rgba(6, 182, 212, 0.1);
+}
+
+/* Pulse Indicator */
+@keyframes cyanPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.7);
+    }
+
+    50% {
+        box-shadow: 0 0 0 10px rgba(6, 182, 212, 0);
+    }
+}
+
+.helixbank .pulse-indicator {
+    animation: cyanPulse 2s ease-out infinite;
 }

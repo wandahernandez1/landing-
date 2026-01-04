@@ -36,6 +36,23 @@
     background: linear-gradient(135deg, #166534 0%, #15803d 100%);
     color: white;
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.keystone .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.keystone .btn-primary:hover::before {
+    left: 100%;
 }
 
 .keystone .btn-primary:hover {
@@ -48,6 +65,23 @@
     border: 1px solid rgba(234, 179, 8, 0.5);
     color: #facc15;
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.keystone .btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(234, 179, 8, 0.15), transparent);
+    transition: left 0.5s ease;
+}
+
+.keystone .btn-secondary:hover::before {
+    left: 100%;
 }
 
 .keystone .btn-secondary:hover {
@@ -87,4 +121,327 @@
 
 .keystone .icon-box {
     background: linear-gradient(135deg, rgba(22, 101, 52, 0.2) 0%, rgba(234, 179, 8, 0.1) 100%);
+}
+
+/* ============================================
+   KEYSTONE PREMIUM ANIMATIONS
+   ============================================ */
+
+/* Building Rise Animation */
+@keyframes buildingRise {
+    0% {
+        transform: translateY(100px) scale(0.9);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translateY(-10px) scale(1.02);
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.keystone .building-rise {
+    animation: buildingRise 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Map Ping Animation */
+@keyframes mapPing {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+@keyframes mapPingPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.keystone .map-ping {
+    position: relative;
+}
+
+.keystone .map-ping::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border: 2px solid #22c55e;
+    border-radius: 50%;
+    animation: mapPing 2s ease-out infinite;
+}
+
+.keystone .map-ping-pulse {
+    animation: mapPingPulse 2s ease-in-out infinite;
+}
+
+/* Card Spotlight Effect */
+.keystone .card-spotlight {
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+.keystone .card-spotlight::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y),
+            rgba(34, 197, 94, 0.1),
+            transparent 40%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.keystone .card-spotlight:hover::before {
+    opacity: 1;
+}
+
+/* Property Glow Effect */
+@keyframes propertyGlow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(22, 101, 52, 0.2),
+            0 0 40px rgba(22, 101, 52, 0.1);
+    }
+
+    50% {
+        box-shadow: 0 0 30px rgba(22, 101, 52, 0.4),
+            0 0 60px rgba(22, 101, 52, 0.2),
+            0 0 80px rgba(234, 179, 8, 0.1);
+    }
+}
+
+.keystone .property-glow {
+    animation: propertyGlow 3s ease-in-out infinite;
+}
+
+/* Blueprint Grid Pattern */
+.keystone .blueprint-grid {
+    background-image:
+        linear-gradient(rgba(22, 101, 52, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(22, 101, 52, 0.03) 1px, transparent 1px),
+        linear-gradient(rgba(22, 101, 52, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(22, 101, 52, 0.02) 1px, transparent 1px);
+    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
+}
+
+/* Stat Pulse Animation */
+@keyframes statPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        text-shadow: 0 0 20px rgba(234, 179, 8, 0.3);
+    }
+
+    50% {
+        transform: scale(1.02);
+        text-shadow: 0 0 30px rgba(234, 179, 8, 0.5);
+    }
+}
+
+.keystone .stat-pulse {
+    animation: statPulse 3s ease-in-out infinite;
+}
+
+/* Icon Glow Animation */
+@keyframes iconGlow {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 8px rgba(34, 197, 94, 0.4));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 16px rgba(34, 197, 94, 0.6));
+    }
+}
+
+.keystone .icon-glow {
+    animation: iconGlow 2s ease-in-out infinite;
+}
+
+/* Floating Property Icons */
+@keyframes floatProperty {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    25% {
+        transform: translateY(-15px) rotate(3deg);
+    }
+
+    50% {
+        transform: translateY(-5px) rotate(-2deg);
+    }
+
+    75% {
+        transform: translateY(-20px) rotate(2deg);
+    }
+}
+
+.keystone .float-property {
+    animation: floatProperty 6s ease-in-out infinite;
+}
+
+.keystone .float-property-delayed {
+    animation: floatProperty 7s ease-in-out infinite;
+    animation-delay: -2s;
+}
+
+.keystone .float-property-slow {
+    animation: floatProperty 8s ease-in-out infinite;
+    animation-delay: -4s;
+}
+
+/* Popular Badge Pulse */
+@keyframes popularPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(234, 179, 8, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 0 10px rgba(234, 179, 8, 0);
+    }
+}
+
+.keystone .popular-pulse {
+    animation: popularPulse 2s ease-in-out infinite;
+}
+
+/* Quote Float Animation */
+@keyframes quoteFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-2deg);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(2deg);
+        opacity: 0.5;
+    }
+}
+
+.keystone .quote-float {
+    animation: quoteFloat 5s ease-in-out infinite;
+}
+
+/* Verified Badge Animation */
+@keyframes verifiedShine {
+    0% {
+        background-position: -200% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.keystone .verified-badge {
+    background: linear-gradient(90deg,
+            #166534 0%,
+            #22c55e 25%,
+            #4ade80 50%,
+            #22c55e 75%,
+            #166534 100%);
+    background-size: 200% auto;
+    animation: verifiedShine 3s linear infinite;
+}
+
+/* CTA Glow Pulse */
+@keyframes ctaGlowPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 30px rgba(22, 101, 52, 0.3),
+            inset 0 0 30px rgba(22, 101, 52, 0.1);
+    }
+
+    50% {
+        box-shadow: 0 0 50px rgba(22, 101, 52, 0.5),
+            inset 0 0 50px rgba(22, 101, 52, 0.2);
+    }
+}
+
+.keystone .cta-glow-pulse {
+    animation: ctaGlowPulse 3s ease-in-out infinite;
+}
+
+/* 3D Card Rotation */
+.keystone .card-3d {
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.keystone .card-3d:hover {
+    transform: perspective(1000px) rotateY(5deg) translateZ(20px);
+}
+
+/* Trust Badge Animation */
+@keyframes trustBadgeFade {
+
+    0%,
+    100% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.keystone .trust-badge {
+    animation: trustBadgeFade 4s ease-in-out infinite;
+}
+
+/* Benefit Badge Bounce */
+@keyframes benefitBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.keystone .benefit-bounce {
+    animation: benefitBounce 2s ease-in-out infinite;
 }

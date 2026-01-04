@@ -1,31 +1,178 @@
-import { ArrowRight, Brain } from 'lucide-react'
+import { useEffect, useRef } from 'react'
+import { ArrowRight, Brain, Building, Home, MapPin, Key, Search, Shield, Award, Users } from 'lucide-react'
 import { COMPANY } from './constants'
+import gsap from 'gsap'
 
 export function HeroSection() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const badgeRef = useRef<HTMLDivElement>(null)
+  const titleRef = useRef<HTMLHeadingElement>(null)
+  const subtitleRef = useRef<HTMLParagraphElement>(null)
+  const ctaRef = useRef<HTMLDivElement>(null)
+  const statsRef = useRef<HTMLDivElement>(null)
+  const trustRef = useRef<HTMLDivElement>(null)
+  const floatingIconsRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
+
+      // Floating icons animation
+      if (floatingIconsRef.current) {
+        gsap.set(floatingIconsRef.current.children, { 
+          opacity: 0, 
+          scale: 0,
+          rotation: -15
+        })
+        
+        tl.to(floatingIconsRef.current.children, {
+          opacity: 1,
+          scale: 1,
+          rotation: 0,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: 'back.out(1.7)'
+        }, 0.2)
+      }
+
+      // Badge animation
+      if (badgeRef.current) {
+        gsap.set(badgeRef.current, { opacity: 0, y: 30, scale: 0.9 })
+        tl.to(badgeRef.current, {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.8
+        }, 0.3)
+      }
+
+      // Title animation with split
+      if (titleRef.current) {
+        gsap.set(titleRef.current, { opacity: 0, y: 50 })
+        tl.to(titleRef.current, {
+          opacity: 1,
+          y: 0,
+          duration: 1
+        }, 0.5)
+      }
+
+      // Subtitle animation
+      if (subtitleRef.current) {
+        gsap.set(subtitleRef.current, { opacity: 0, y: 30 })
+        tl.to(subtitleRef.current, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8
+        }, 0.7)
+      }
+
+      // CTA buttons animation
+      if (ctaRef.current) {
+        gsap.set(ctaRef.current.children, { opacity: 0, y: 20, scale: 0.95 })
+        tl.to(ctaRef.current.children, {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.6,
+          stagger: 0.15
+        }, 0.9)
+      }
+
+      // Stats animation
+      if (statsRef.current) {
+        gsap.set(statsRef.current.children, { opacity: 0, y: 40 })
+        tl.to(statsRef.current.children, {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          stagger: 0.1
+        }, 1.1)
+      }
+
+      // Trust badges animation
+      if (trustRef.current) {
+        gsap.set(trustRef.current.children, { opacity: 0, x: -20 })
+        tl.to(trustRef.current.children, {
+          opacity: 1,
+          x: 0,
+          duration: 0.5,
+          stagger: 0.1
+        }, 1.4)
+      }
+    }, sectionRef)
+
+    return () => ctx.revert()
+  }, [])
+
+  const floatingIcons = [
+    { Icon: Building, className: 'top-20 left-[10%] float-property', delay: '0s' },
+    { Icon: Home, className: 'top-40 right-[12%] float-property-delayed', delay: '1s' },
+    { Icon: MapPin, className: 'bottom-40 left-[8%] float-property-slow', delay: '2s' },
+    { Icon: Key, className: 'top-32 right-[8%] float-property', delay: '1.5s' },
+    { Icon: Search, className: 'bottom-32 right-[15%] float-property-delayed', delay: '0.5s' },
+  ]
+
+  const stats = [
+    { value: '$12B+', label: 'Assets Analizados' },
+    { value: '98%', label: 'Precisión Valuación' },
+    { value: '500+', label: 'Clientes Enterprise' },
+    { value: '2.3M', label: 'Propiedades en DB' },
+  ]
+
+  const trustBadges = [
+    { Icon: Shield, label: 'SOC 2 Certified' },
+    { Icon: Award, label: 'Top PropTech 2024' },
+    { Icon: Users, label: '+500 Enterprise' },
+  ]
+
   return (
-    <section className="relative min-h-screen pt-20 md:pt-24">
+    <section ref={sectionRef} className="relative min-h-screen pt-20 md:pt-24 blueprint-grid overflow-hidden">
       <div className="bg-glow absolute inset-0" />
       
+      {/* Floating Property Icons */}
+      <div ref={floatingIconsRef} className="absolute inset-0 pointer-events-none hidden lg:block">
+        {floatingIcons.map(({ Icon, className }, idx) => (
+          <div
+            key={idx}
+            className={`absolute ${className}`}
+            style={{ animationDelay: floatingIcons[idx].delay }}
+          >
+            <div className="p-3 rounded-xl bg-forest-800/20 border border-forest-700/30 backdrop-blur-sm">
+              <Icon className="h-6 w-6 text-forest-400 icon-glow" />
+            </div>
+          </div>
+        ))}
+      </div>
+      
       <div className="container-custom relative flex min-h-[calc(100vh-5rem)] flex-col items-center justify-center py-20">
-        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-gold-500/30 bg-gold-500/10 px-4 py-1.5 text-sm text-gold-400">
-          <Brain className="h-4 w-4" />
+        <div 
+          ref={badgeRef}
+          className="mb-6 inline-flex items-center gap-2 rounded-full border border-gold-500/30 bg-gold-500/10 px-4 py-1.5 text-sm text-gold-400"
+        >
+          <Brain className="h-4 w-4 map-ping-pulse" />
           Inteligencia Artificial para Real Estate
         </div>
 
-        <h1 className="max-w-4xl text-center text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+        <h1 
+          ref={titleRef}
+          className="max-w-4xl text-center text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
+        >
           Decisiones de{' '}
           <span className="text-gradient">inversión</span>
           <br />
           basadas en datos
         </h1>
 
-        <p className="mt-6 max-w-2xl text-center text-lg text-stone-400 md:text-xl">
+        <p 
+          ref={subtitleRef}
+          className="mt-6 max-w-2xl text-center text-lg text-stone-400 md:text-xl"
+        >
           {COMPANY.name} es la plataforma de inteligencia artificial 
           para profesionales del sector inmobiliario. Valuación, análisis 
           y predicciones con precisión institucional.
         </p>
 
-        <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
+        <div ref={ctaRef} className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
           <a
             href="#pricing"
             className="btn-primary flex items-center gap-2 rounded-xl px-8 py-3.5 font-medium"
@@ -41,16 +188,29 @@ export function HeroSection() {
           </a>
         </div>
 
-        <div className="mt-20 grid grid-cols-2 gap-8 md:grid-cols-4">
-          {[
-            { value: '$12B+', label: 'Assets Analizados' },
-            { value: '98%', label: 'Precisión Valuación' },
-            { value: '500+', label: 'Clientes Enterprise' },
-            { value: '2.3M', label: 'Propiedades en DB' },
-          ].map((stat, idx) => (
-            <div key={idx} className="text-center">
-              <p className="text-3xl font-bold text-gold md:text-4xl">{stat.value}</p>
-              <p className="mt-1 text-sm text-stone-500">{stat.label}</p>
+        {/* Trust Badges */}
+        <div ref={trustRef} className="mt-12 flex flex-wrap items-center justify-center gap-6">
+          {trustBadges.map((badge, idx) => (
+            <div 
+              key={idx}
+              className="trust-badge flex items-center gap-2 rounded-full bg-stone-900/50 border border-stone-800 px-4 py-2"
+              style={{ animationDelay: `${idx * 0.5}s` }}
+            >
+              <badge.Icon className="h-4 w-4 text-forest-500" />
+              <span className="text-xs text-stone-400">{badge.label}</span>
+            </div>
+          ))}
+        </div>
+
+        <div ref={statsRef} className="mt-16 grid grid-cols-2 gap-8 md:grid-cols-4">
+          {stats.map((stat, idx) => (
+            <div key={idx} className="text-center group">
+              <p className="text-3xl font-bold text-gold-400 md:text-4xl stat-pulse" style={{ animationDelay: `${idx * 0.2}s` }}>
+                {stat.value}
+              </p>
+              <p className="mt-1 text-sm text-stone-500 group-hover:text-stone-400 transition-colors">
+                {stat.label}
+              </p>
             </div>
           ))}
         </div>

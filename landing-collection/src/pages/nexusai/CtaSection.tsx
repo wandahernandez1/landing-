@@ -1,34 +1,199 @@
-import { ArrowRight, Sparkles } from 'lucide-react'
+import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { ArrowRight, Sparkles, Zap, Shield, Clock } from 'lucide-react'
+
+gsap.registerPlugin(ScrollTrigger)
 
 export function CtaSection() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const contentRef = useRef<HTMLDivElement>(null)
+  const orbsRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Main content reveal animation
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: contentRef.current,
+          start: 'top 80%',
+          toggleActions: 'play none none reverse'
+        }
+      })
+
+      tl.from('[data-cta-badge]', {
+        opacity: 0,
+        scale: 0.8,
+        duration: 0.6,
+        ease: 'back.out(1.7)'
+      })
+      .from('[data-cta-title]', {
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        ease: 'power3.out'
+      }, '-=0.3')
+      .from('[data-cta-description]', {
+        opacity: 0,
+        y: 30,
+        duration: 0.6,
+        ease: 'power3.out'
+      }, '-=0.4')
+      .from('[data-cta-button]', {
+        opacity: 0,
+        y: 20,
+        scale: 0.9,
+        duration: 0.6,
+        ease: 'back.out(1.7)'
+      }, '-=0.3')
+      .from('[data-cta-features] > *', {
+        opacity: 0,
+        y: 20,
+        stagger: 0.1,
+        duration: 0.5,
+        ease: 'power2.out'
+      }, '-=0.2')
+
+      // Floating orbs animation
+      const orbs = orbsRef.current?.querySelectorAll('[data-orb]')
+      if (orbs) {
+        orbs.forEach((orb, index) => {
+          gsap.to(orb, {
+            y: index % 2 === 0 ? -30 : 30,
+            x: index % 2 === 0 ? 20 : -20,
+            duration: 4 + index,
+            repeat: -1,
+            yoyo: true,
+            ease: 'sine.inOut'
+          })
+        })
+      }
+
+      // Pulse animation for sparkles
+      gsap.to('[data-sparkle]', {
+        scale: 1.2,
+        opacity: 0.8,
+        duration: 1.5,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut'
+      })
+    }, sectionRef)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <section className="relative py-32 bg-[#050010]" aria-labelledby="cta-title">
-      <div className="bg-glow absolute inset-0" />
+    <section 
+      ref={sectionRef}
+      className="relative py-32 md:py-40 bg-[#050010] overflow-hidden" 
+      aria-labelledby="cta-title"
+    >
+      {/* Animated orbs background */}
+      <div ref={orbsRef} className="absolute inset-0 pointer-events-none">
+        <div 
+          data-orb
+          className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-purple-600/20 rounded-full blur-[100px]" 
+        />
+        <div 
+          data-orb
+          className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-violet-500/20 rounded-full blur-[80px]" 
+        />
+        <div 
+          data-orb
+          className="absolute top-1/2 right-1/3 w-[200px] h-[200px] bg-fuchsia-500/15 rounded-full blur-[60px]" 
+        />
+      </div>
+
+      {/* Grid pattern overlay */}
+      <div className="absolute inset-0 grid-pattern opacity-30" />
+
+      {/* Radial gradient glow */}
+      <div className="absolute inset-0 bg-gradient-radial from-purple-500/10 via-transparent to-transparent" />
       
       <div className="container-custom relative">
-        <div className="mx-auto max-w-3xl text-center">
-          <div className="mb-6 inline-flex items-center gap-2">
-            <Sparkles className="h-6 w-6 text-purple-400" />
+        <div ref={contentRef} className="mx-auto max-w-4xl text-center">
+          {/* Badge */}
+          <div 
+            data-cta-badge
+            className="mb-8 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-500/20 to-violet-500/20 border border-purple-500/30 px-5 py-2.5"
+          >
+            <Sparkles data-sparkle className="h-5 w-5 text-purple-400" />
+            <span className="text-sm font-semibold text-purple-300">Oferta especial por tiempo limitado</span>
           </div>
 
-          <h2 id="cta-title" className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl mb-6">
+          {/* Title */}
+          <h2 
+            data-cta-title
+            id="cta-title" 
+            className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl mb-8"
+          >
             Comienza tu transformación
             <br />
-            <span className="text-gradient">hoy mismo</span>
+            <span className="text-gradient bg-gradient-to-r from-purple-400 via-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
+              hoy mismo
+            </span>
           </h2>
 
-          <p className="text-lg text-neutral-400 mb-10 max-w-xl mx-auto">
-            Únete a más de 10,000 empresas que ya están potenciando su productividad con IA.
+          {/* Description */}
+          <p 
+            data-cta-description
+            className="text-lg md:text-xl text-neutral-400 mb-12 max-w-2xl mx-auto leading-relaxed"
+          >
+            Únete a más de <span className="text-white font-semibold">10,000 empresas</span> que ya están 
+            potenciando su productividad con inteligencia artificial de última generación.
           </p>
 
-          <button className="btn-primary inline-flex items-center gap-2 rounded-xl px-8 py-4 text-lg font-semibold">
-            Comenzar Gratis
-            <ArrowRight className="h-5 w-5" />
-          </button>
+          {/* CTA Button */}
+          <div data-cta-button className="mb-10">
+            <button className="group relative btn-primary inline-flex items-center gap-3 rounded-2xl px-10 py-5 text-lg font-semibold overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(168,85,247,0.4)]">
+              {/* Shine effect */}
+              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+              <span className="relative flex items-center gap-3">
+                Comenzar Gratis
+                <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+              </span>
+            </button>
+          </div>
 
-          <p className="mt-6 text-sm text-neutral-500">
-            Sin tarjeta de crédito · Prueba gratuita de 14 días
-          </p>
+          {/* Features list */}
+          <div 
+            data-cta-features
+            className="flex flex-wrap justify-center gap-6 md:gap-10 text-sm text-neutral-400"
+          >
+            <div className="flex items-center gap-2 group">
+              <div className="p-1.5 rounded-full bg-green-500/10 group-hover:bg-green-500/20 transition-colors duration-300">
+                <Shield className="h-4 w-4 text-green-400" />
+              </div>
+              <span className="group-hover:text-neutral-300 transition-colors">Sin tarjeta de crédito</span>
+            </div>
+            <div className="flex items-center gap-2 group">
+              <div className="p-1.5 rounded-full bg-purple-500/10 group-hover:bg-purple-500/20 transition-colors duration-300">
+                <Clock className="h-4 w-4 text-purple-400" />
+              </div>
+              <span className="group-hover:text-neutral-300 transition-colors">Prueba gratuita de 14 días</span>
+            </div>
+            <div className="flex items-center gap-2 group">
+              <div className="p-1.5 rounded-full bg-amber-500/10 group-hover:bg-amber-500/20 transition-colors duration-300">
+                <Zap className="h-4 w-4 text-amber-400" />
+              </div>
+              <span className="group-hover:text-neutral-300 transition-colors">Configuración en 5 minutos</span>
+            </div>
+          </div>
+
+          {/* Trust logos placeholder */}
+          <div className="mt-16 pt-12 border-t border-white/5">
+            <p className="text-xs uppercase tracking-widest text-neutral-600 mb-6">
+              Empresas que confían en nosotros
+            </p>
+            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-40 hover:opacity-60 transition-opacity duration-500">
+              {['Google', 'Microsoft', 'Amazon', 'Meta', 'Apple'].map((company) => (
+                <span key={company} className="text-lg md:text-xl font-semibold text-neutral-500">
+                  {company}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

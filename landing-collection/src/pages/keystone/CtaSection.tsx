@@ -1,27 +1,146 @@
-import { ArrowRight, Building2 } from 'lucide-react'
+import { useEffect, useRef } from 'react'
+import { ArrowRight, Building2, Home, MapPin, TrendingUp, CheckCircle2 } from 'lucide-react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 export function CtaSection() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const iconRef = useRef<HTMLDivElement>(null)
+  const contentRef = useRef<HTMLDivElement>(null)
+  const ctaRef = useRef<HTMLDivElement>(null)
+  const benefitsRef = useRef<HTMLDivElement>(null)
+  const floatingRef = useRef<HTMLDivElement>(null)
+
+  const benefits = [
+    'Demo personalizada',
+    'Sin compromiso',
+    'Onboarding incluido',
+  ]
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 70%',
+          toggleActions: 'play none none reverse'
+        }
+      })
+
+      // Floating decorative elements
+      if (floatingRef.current) {
+        gsap.set(floatingRef.current.children, { opacity: 0, scale: 0 })
+        tl.to(floatingRef.current.children, {
+          opacity: 1,
+          scale: 1,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: 'back.out(1.7)'
+        }, 0)
+      }
+
+      // Icon with glow pulse
+      if (iconRef.current) {
+        gsap.set(iconRef.current, { opacity: 0, scale: 0, rotation: -45 })
+        tl.to(iconRef.current, {
+          opacity: 1,
+          scale: 1,
+          rotation: 0,
+          duration: 0.8,
+          ease: 'back.out(1.7)'
+        }, 0.2)
+      }
+
+      // Content animation (title + subtitle)
+      if (contentRef.current) {
+        gsap.set(contentRef.current.children, { opacity: 0, y: 40 })
+        tl.to(contentRef.current.children, {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          stagger: 0.15,
+          ease: 'power3.out'
+        }, 0.4)
+      }
+
+      // CTA buttons
+      if (ctaRef.current) {
+        gsap.set(ctaRef.current.children, { opacity: 0, y: 20, scale: 0.95 })
+        tl.to(ctaRef.current.children, {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.5,
+          stagger: 0.12,
+          ease: 'power3.out'
+        }, 0.7)
+      }
+
+      // Benefits badges
+      if (benefitsRef.current) {
+        gsap.set(benefitsRef.current.children, { opacity: 0, x: -20 })
+        tl.to(benefitsRef.current.children, {
+          opacity: 1,
+          x: 0,
+          duration: 0.4,
+          stagger: 0.1,
+          ease: 'power2.out'
+        }, 0.9)
+      }
+    }, sectionRef)
+
+    return () => ctx.revert()
+  }, [])
+
+  const floatingElements = [
+    { Icon: Home, position: 'top-10 left-[10%]', delay: '0s' },
+    { Icon: MapPin, position: 'top-20 right-[12%]', delay: '1s' },
+    { Icon: TrendingUp, position: 'bottom-20 left-[15%]', delay: '2s' },
+  ]
+
   return (
-    <section className="relative py-32 md:py-40">
+    <section ref={sectionRef} className="relative py-32 md:py-40 overflow-hidden">
       <div className="bg-glow absolute inset-0" />
+      
+      {/* Floating Decorative Elements */}
+      <div ref={floatingRef} className="absolute inset-0 pointer-events-none hidden lg:block">
+        {floatingElements.map(({ Icon, position, delay }, idx) => (
+          <div
+            key={idx}
+            className={`absolute ${position} float-property`}
+            style={{ animationDelay: delay }}
+          >
+            <div className="p-3 rounded-xl bg-forest-800/20 border border-forest-700/30 backdrop-blur-sm">
+              <Icon className="h-5 w-5 text-forest-400/60" />
+            </div>
+          </div>
+        ))}
+      </div>
       
       <div className="container-custom relative">
         <div className="mx-auto max-w-4xl text-center">
-          <div className="icon-box mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-2xl">
-            <Building2 className="h-10 w-10 text-forest-500" />
+          <div 
+            ref={iconRef}
+            className="icon-box mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-2xl cta-glow-pulse"
+          >
+            <Building2 className="h-10 w-10 text-forest-500 icon-glow" />
           </div>
 
-          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Transforma tus{' '}
-            <span className="text-gradient">inversiones</span>
-          </h2>
-          
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-stone-400 md:text-xl">
-            Únete a los principales fondos y desarrolladoras que usan 
-            Keystone AI para tomar decisiones basadas en datos.
-          </p>
+          <div ref={contentRef}>
+            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+              Transforma tus{' '}
+              <span className="text-gradient">inversiones</span>
+            </h2>
+            
+            <p className="mx-auto mt-6 max-w-2xl text-lg text-stone-400 md:text-xl">
+              Únete a los principales fondos y desarrolladoras que usan 
+              Keystone AI para tomar decisiones basadas en datos.
+            </p>
+          </div>
 
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div ref={ctaRef} className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
               href="#pricing"
               className="btn-primary flex items-center gap-2 rounded-xl px-8 py-4 font-medium"
@@ -37,9 +156,19 @@ export function CtaSection() {
             </a>
           </div>
 
-          <p className="mt-6 text-sm text-stone-500">
-            Demo personalizada • Sin compromiso
-          </p>
+          {/* Benefit Badges */}
+          <div ref={benefitsRef} className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            {benefits.map((benefit, idx) => (
+              <div 
+                key={idx}
+                className="benefit-bounce flex items-center gap-2 rounded-full bg-forest-900/30 border border-forest-800/40 px-4 py-2"
+                style={{ animationDelay: `${idx * 0.3}s` }}
+              >
+                <CheckCircle2 className="h-4 w-4 text-forest-500" />
+                <span className="text-sm text-stone-400">{benefit}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

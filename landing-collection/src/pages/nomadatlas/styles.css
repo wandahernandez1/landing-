@@ -34,6 +34,26 @@
     background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
     color: white;
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.nomadatlas .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.3),
+            transparent);
+    transition: left 0.5s ease;
+}
+
+.nomadatlas .btn-primary:hover::before {
+    left: 100%;
 }
 
 .nomadatlas .btn-primary:hover {
@@ -46,6 +66,26 @@
     border: 1px solid #14b8a6;
     color: #0f766e;
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.nomadatlas .btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(20, 184, 166, 0.15),
+            transparent);
+    transition: left 0.5s ease;
+}
+
+.nomadatlas .btn-secondary:hover::before {
+    left: 100%;
 }
 
 .nomadatlas .btn-secondary:hover {
@@ -64,6 +104,7 @@
     border: 1px solid #f5ebe0;
     box-shadow: 0 4px 20px rgba(42, 37, 26, 0.05);
     transition: all 0.4s ease;
+    position: relative;
 }
 
 .nomadatlas .card:hover {
@@ -71,8 +112,45 @@
     transform: translateY(-4px);
 }
 
+/* Card Spotlight Effect */
+.nomadatlas .card-spotlight {
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+.nomadatlas .card-spotlight::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y),
+            rgba(20, 184, 166, 0.1),
+            transparent 40%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.nomadatlas .card-spotlight:hover::before {
+    opacity: 1;
+}
+
 .nomadatlas .bg-gradient-hero {
     background: linear-gradient(180deg, #fefdfb 0%, #f5ebe0 100%);
+    position: relative;
+}
+
+/* World Map Grid Pattern */
+.nomadatlas .bg-world-grid {
+    background-image:
+        linear-gradient(rgba(20, 184, 166, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(20, 184, 166, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
 }
 
 .nomadatlas .bg-gradient-section {
@@ -86,4 +164,324 @@
 
 .nomadatlas .icon-box {
     background: linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(249, 115, 22, 0.1) 100%);
+}
+
+/* ============================================
+   Plane Flying Animation
+   ============================================ */
+
+@keyframes planeFly {
+    0% {
+        transform: translate(-20px, 20px) rotate(-15deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    50% {
+        transform: translate(30px, -30px) rotate(-10deg);
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(80px, -80px) rotate(-5deg);
+        opacity: 0;
+    }
+}
+
+.nomadatlas .animate-plane-fly {
+    animation: planeFly 8s ease-in-out infinite;
+}
+
+/* ============================================
+   Cloud Floating Animation
+   ============================================ */
+
+@keyframes cloudFloat {
+
+    0%,
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+
+    25% {
+        transform: translateX(15px) translateY(-5px);
+    }
+
+    50% {
+        transform: translateX(25px) translateY(0);
+    }
+
+    75% {
+        transform: translateX(10px) translateY(5px);
+    }
+}
+
+.nomadatlas .animate-cloud-float {
+    animation: cloudFloat 12s ease-in-out infinite;
+}
+
+.nomadatlas .animate-cloud-float-slow {
+    animation: cloudFloat 18s ease-in-out infinite;
+}
+
+/* ============================================
+   Sun Glow Effect
+   ============================================ */
+
+@keyframes sunGlow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 60px rgba(249, 115, 22, 0.3),
+            0 0 120px rgba(249, 115, 22, 0.15);
+        transform: scale(1);
+    }
+
+    50% {
+        box-shadow: 0 0 80px rgba(249, 115, 22, 0.4),
+            0 0 160px rgba(249, 115, 22, 0.2);
+        transform: scale(1.05);
+    }
+}
+
+.nomadatlas .animate-sun-glow {
+    animation: sunGlow 4s ease-in-out infinite;
+}
+
+/* ============================================
+   Stat Glow Animation
+   ============================================ */
+
+@keyframes statGlow {
+
+    0%,
+    100% {
+        text-shadow: 0 0 20px rgba(20, 184, 166, 0);
+    }
+
+    50% {
+        text-shadow: 0 0 30px rgba(20, 184, 166, 0.3);
+    }
+}
+
+.nomadatlas .animate-stat-glow {
+    animation: statGlow 3s ease-in-out infinite;
+}
+
+/* ============================================
+   Icon Bounce Animation
+   ============================================ */
+
+@keyframes iconBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.nomadatlas .animate-icon-bounce {
+    animation: iconBounce 2s ease-in-out infinite;
+}
+
+/* ============================================
+   Quote Float Animation
+   ============================================ */
+
+@keyframes quoteFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-2deg);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(2deg);
+    }
+}
+
+.nomadatlas .animate-quote-float {
+    animation: quoteFloat 6s ease-in-out infinite;
+}
+
+/* ============================================
+   Popular Badge Pulse
+   ============================================ */
+
+@keyframes popularPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 0 10px rgba(20, 184, 166, 0);
+    }
+}
+
+.nomadatlas .animate-popular-pulse {
+    animation: popularPulse 2s ease-in-out infinite;
+}
+
+/* ============================================
+   Globe Rotate Animation
+   ============================================ */
+
+@keyframes globeRotate {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+.nomadatlas .animate-globe-rotate {
+    animation: globeRotate 20s linear infinite;
+}
+
+/* ============================================
+   Glow Pulse Animation
+   ============================================ */
+
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 40px rgba(20, 184, 166, 0.2),
+            0 0 80px rgba(249, 115, 22, 0.1);
+    }
+
+    50% {
+        box-shadow: 0 0 60px rgba(20, 184, 166, 0.4),
+            0 0 120px rgba(249, 115, 22, 0.2);
+    }
+}
+
+.nomadatlas .animate-glow-pulse {
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* ============================================
+   Floating Elements Animation
+   ============================================ */
+
+@keyframes floatGentle {
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    33% {
+        transform: translateY(-12px) rotate(3deg);
+    }
+
+    66% {
+        transform: translateY(-6px) rotate(-2deg);
+    }
+}
+
+.nomadatlas .animate-float-gentle {
+    animation: floatGentle 6s ease-in-out infinite;
+}
+
+/* ============================================
+   Compass Spin Animation
+   ============================================ */
+
+@keyframes compassSpin {
+
+    0%,
+    100% {
+        transform: rotate(-15deg);
+    }
+
+    50% {
+        transform: rotate(15deg);
+    }
+}
+
+.nomadatlas .animate-compass-spin {
+    animation: compassSpin 4s ease-in-out infinite;
+}
+
+/* ============================================
+   3D Card Effect
+   ============================================ */
+
+.nomadatlas .card-3d {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.nomadatlas .card-3d:hover {
+    transform: rotateY(5deg) rotateX(2deg);
+}
+
+/* ============================================
+   Verified Badge
+   ============================================ */
+
+.nomadatlas .verified-badge {
+    background: linear-gradient(135deg, #14b8a6, #0d9488);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* ============================================
+   Trust Badge
+   ============================================ */
+
+.nomadatlas .trust-badge {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #f5ebe0;
+    border-radius: 12px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 10px rgba(42, 37, 26, 0.05);
+    transition: all 0.3s ease;
+}
+
+.nomadatlas .trust-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(42, 37, 26, 0.1);
+}
+
+/* ============================================
+   Social Proof Stats
+   ============================================ */
+
+.nomadatlas .stat-card {
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.05) 0%, rgba(249, 115, 22, 0.05) 100%);
+    border: 1px solid rgba(20, 184, 166, 0.15);
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.nomadatlas .stat-card:hover {
+    border-color: rgba(20, 184, 166, 0.3);
+    transform: translateY(-4px);
 }

@@ -1,32 +1,140 @@
-import { ArrowRight, Shield } from 'lucide-react'
+import { ArrowRight, Shield, Lock, Eye, Zap, CheckCircle } from 'lucide-react'
+import { useEffect, useRef } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 export function CtaSection() {
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 75%',
+        },
+      })
+
+      tl.from('.cta-shield', {
+        scale: 0.5,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'back.out(1.5)',
+      })
+        .from('.cta-title', { y: 40, opacity: 0, duration: 0.8 }, '-=0.4')
+        .from('.cta-subtitle', { y: 30, opacity: 0, duration: 0.6 }, '-=0.4')
+        .from('.cta-button', { y: 20, opacity: 0, duration: 0.5 }, '-=0.3')
+        .from('.cta-note', { opacity: 0, duration: 0.4 }, '-=0.2')
+        .from('.compliance-badge', { scale: 0.8, opacity: 0, stagger: 0.1, duration: 0.4 }, '-=0.2')
+
+      // Shield pulse animation
+      gsap.to('.shield-glow', {
+        scale: 1.3,
+        opacity: 0,
+        duration: 2,
+        repeat: -1,
+        ease: 'power1.out',
+      })
+
+      // Floating icons
+      gsap.to('.floating-icon', {
+        y: -10,
+        duration: 2.5,
+        stagger: { each: 0.4, yoyo: true, repeat: -1 },
+        ease: 'power1.inOut',
+      })
+
+      // Protection rings
+      gsap.to('.cta-ring', {
+        scale: 2,
+        opacity: 0,
+        duration: 3,
+        stagger: { each: 0.8, repeat: -1 },
+        ease: 'power1.out',
+      })
+    }, sectionRef)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <section className="relative py-32 bg-[#010410]" aria-labelledby="cta-title">
+    <section 
+      ref={sectionRef}
+      className="relative py-32 bg-[#010410] overflow-hidden" 
+      aria-labelledby="cta-title"
+    >
       <div className="bg-glow absolute inset-0" />
       
-      <div className="container-custom relative">
-        <div className="mx-auto max-w-3xl text-center">
-          <Shield className="h-12 w-12 text-cyan-400 mx-auto mb-6" />
+      {/* Security Grid */}
+      <div className="absolute inset-0 security-grid opacity-20" />
 
-          <h2 id="cta-title" className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl mb-6">
+      {/* Protection Rings */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+        <div className="cta-ring absolute w-[300px] h-[300px] rounded-full border border-cyan-500/20" style={{ transform: 'translate(-50%, -50%)' }} />
+        <div className="cta-ring absolute w-[300px] h-[300px] rounded-full border border-cyan-500/20" style={{ transform: 'translate(-50%, -50%)', animationDelay: '1s' }} />
+        <div className="cta-ring absolute w-[300px] h-[300px] rounded-full border border-cyan-500/20" style={{ transform: 'translate(-50%, -50%)', animationDelay: '2s' }} />
+      </div>
+
+      {/* Floating Icons */}
+      <div className="absolute inset-0 pointer-events-none">
+        <Lock className="floating-icon absolute top-[20%] left-[15%] w-6 h-6 text-cyan-500/20" />
+        <Eye className="floating-icon absolute top-[30%] right-[20%] w-5 h-5 text-cyan-500/15" />
+        <Zap className="floating-icon absolute bottom-[35%] left-[20%] w-5 h-5 text-cyan-500/15" />
+        <Shield className="floating-icon absolute bottom-[25%] right-[15%] w-6 h-6 text-cyan-500/20" />
+      </div>
+      
+      <div className="container-custom relative z-10">
+        <div className="mx-auto max-w-3xl text-center">
+          {/* Shield Icon */}
+          <div className="cta-shield relative w-20 h-20 mx-auto mb-8">
+            <div className="shield-glow absolute inset-0 bg-cyan-400 rounded-full opacity-30" />
+            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-2xl shadow-xl shadow-cyan-500/30">
+              <Shield className="h-10 w-10 text-white" />
+            </div>
+          </div>
+
+          <h2 id="cta-title" className="cta-title text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl mb-6">
             Protege tu organización
             <br />
             <span className="text-gradient">hoy</span>
           </h2>
 
-          <p className="text-lg text-navy-300 mb-10 max-w-xl mx-auto">
+          <p className="cta-subtitle text-lg text-navy-300 mb-10 max-w-xl mx-auto">
             Agenda una demo personalizada y descubre cómo Sentinel puede proteger tu infraestructura.
           </p>
 
-          <button className="btn-primary inline-flex items-center gap-2 rounded-lg px-8 py-4 text-lg font-semibold">
+          <button className="cta-button btn-primary inline-flex items-center gap-2 rounded-lg px-8 py-4 text-lg font-semibold">
+            <Shield className="h-5 w-5" />
             Solicitar Demo Gratis
             <ArrowRight className="h-5 w-5" />
           </button>
 
-          <p className="mt-6 text-sm text-navy-500">
+          <p className="cta-note mt-6 text-sm text-navy-500">
             Sin compromiso · Evaluación de seguridad incluida
           </p>
+
+          {/* Compliance Badges */}
+          <div className="mt-12 flex flex-wrap justify-center gap-4">
+            {[
+              { name: 'ISO 27001', desc: 'Certificado' },
+              { name: 'SOC 2 Type II', desc: 'Auditado' },
+              { name: 'GDPR', desc: 'Cumplimiento' },
+              { name: 'PCI DSS', desc: 'Nivel 1' },
+            ].map((badge) => (
+              <div 
+                key={badge.name}
+                className="compliance-badge flex items-center gap-2 px-4 py-2 rounded-lg bg-navy-900/50 border border-cyan-500/20"
+              >
+                <CheckCircle className="w-4 h-4 text-green-400" />
+                <div className="text-left">
+                  <span className="text-sm font-medium text-white block">{badge.name}</span>
+                  <span className="text-xs text-navy-400">{badge.desc}</span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

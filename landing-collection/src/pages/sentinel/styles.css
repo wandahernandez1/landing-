@@ -34,48 +34,224 @@
 .sentinel .btn-primary {
     background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
     color: white;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.sentinel .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.sentinel .btn-primary:hover::before {
+    left: 100%;
 }
 
 .sentinel .btn-primary:hover {
-    box-shadow: 0 0 40px rgba(6, 182, 212, 0.4);
-    transform: translateY(-2px);
+    box-shadow: 0 0 50px rgba(6, 182, 212, 0.5), 0 0 100px rgba(6, 182, 212, 0.2);
+    transform: translateY(-3px);
 }
 
 .sentinel .btn-secondary {
     background: transparent;
     border: 1px solid rgba(6, 182, 212, 0.5);
     color: #22d3ee;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.sentinel .btn-secondary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.sentinel .btn-secondary:hover::before {
+    opacity: 1;
 }
 
 .sentinel .btn-secondary:hover {
-    background: rgba(6, 182, 212, 0.1);
+    border-color: #06b6d4;
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.2);
 }
 
 .sentinel .text-gradient {
-    background: linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%);
+    background: linear-gradient(135deg, #22d3ee 0%, #06b6d4 50%, #0891b2 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
 .sentinel .card {
-    background: linear-gradient(135deg, rgba(6, 182, 212, 0.08) 0%, rgba(2, 6, 23, 0.9) 100%);
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.08) 0%, rgba(2, 6, 23, 0.95) 100%);
     border: 1px solid rgba(6, 182, 212, 0.15);
-    transition: all 0.4s ease;
+    transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.sentinel .card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.sentinel .card:hover::before {
+    opacity: 1;
 }
 
 .sentinel .card:hover {
-    border-color: rgba(6, 182, 212, 0.3);
-    box-shadow: 0 0 60px rgba(6, 182, 212, 0.1);
+    border-color: rgba(6, 182, 212, 0.4);
+    box-shadow: 0 0 80px rgba(6, 182, 212, 0.12);
+    transform: translateY(-6px);
 }
 
 .sentinel .bg-glow {
-    background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(6, 182, 212, 0.12), transparent 70%);
+    background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(6, 182, 212, 0.15), transparent 70%);
 }
 
 .sentinel .divider {
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.3), transparent);
+}
+
+/* Shield Animation */
+@keyframes shieldPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 0 20px rgba(6, 182, 212, 0);
+    }
+}
+
+.sentinel .shield-pulse {
+    animation: shieldPulse 2s ease-in-out infinite;
+}
+
+/* Radar Scan Animation */
+@keyframes radarScan {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.sentinel .radar-scan {
+    animation: radarScan 4s linear infinite;
+}
+
+/* Security Grid */
+.sentinel .security-grid {
+    background-image:
+        linear-gradient(rgba(6, 182, 212, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(6, 182, 212, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+/* Data Stream Animation */
+@keyframes dataStream {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+.sentinel .data-stream {
+    animation: dataStream 3s linear infinite;
+}
+
+/* Threat Indicator */
+@keyframes threatBlink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+.sentinel .threat-indicator {
+    animation: threatBlink 1.5s ease-in-out infinite;
+}
+
+/* Card Spotlight */
+.sentinel .card-spotlight {
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+}
+
+.sentinel .card-spotlight::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y),
+            rgba(6, 182, 212, 0.12),
+            transparent 60%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: inherit;
+}
+
+.sentinel .card-spotlight:hover::after {
+    opacity: 1;
+}
+
+/* Protection Ring */
+@keyframes protectionRing {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+.sentinel .protection-ring {
+    animation: protectionRing 2s ease-out infinite;
+}
+
+/* Stats Glow */
+.sentinel .stat-glow {
+    transition: all 0.4s ease;
+}
+
+.sentinel .stat-glow:hover {
+    text-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
 }

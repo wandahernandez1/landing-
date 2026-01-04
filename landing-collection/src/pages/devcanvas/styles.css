@@ -29,45 +29,94 @@
 .devcanvas .btn-primary {
     background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
     color: white;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.devcanvas .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.devcanvas .btn-primary:hover::before {
+    left: 100%;
 }
 
 .devcanvas .btn-primary:hover {
-    box-shadow: 0 0 40px rgba(139, 92, 246, 0.4);
-    transform: translateY(-2px);
+    box-shadow: 0 0 50px rgba(139, 92, 246, 0.5), 0 0 100px rgba(139, 92, 246, 0.2);
+    transform: translateY(-3px);
 }
 
 .devcanvas .btn-secondary {
     background: transparent;
     border: 1px solid rgba(139, 92, 246, 0.5);
     color: #a78bfa;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.devcanvas .btn-secondary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.devcanvas .btn-secondary:hover::before {
+    opacity: 1;
 }
 
 .devcanvas .btn-secondary:hover {
-    background: rgba(139, 92, 246, 0.1);
+    border-color: #8b5cf6;
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.2);
 }
 
 .devcanvas .text-gradient {
-    background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
+    background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 50%, #7c3aed 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
 .devcanvas .card {
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(15, 23, 42, 0.9) 100%);
-    border: 1px solid rgba(139, 92, 246, 0.2);
-    transition: all 0.4s ease;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(15, 23, 42, 0.95) 100%);
+    border: 1px solid rgba(139, 92, 246, 0.15);
+    transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.devcanvas .card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.devcanvas .card:hover::before {
+    opacity: 1;
 }
 
 .devcanvas .card:hover {
     border-color: rgba(139, 92, 246, 0.4);
-    box-shadow: 0 0 40px rgba(139, 92, 246, 0.1);
+    box-shadow: 0 0 80px rgba(139, 92, 246, 0.12);
+    transform: translateY(-6px);
 }
 
 .devcanvas .bg-glow {
-    background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(139, 92, 246, 0.12), transparent 70%);
+    background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(139, 92, 246, 0.15), transparent 70%);
 }
 
 .devcanvas .divider {
@@ -79,4 +128,172 @@
     background: #0a0f1a;
     border: 1px solid rgba(139, 92, 246, 0.2);
     font-family: var(--font-mono);
+}
+
+/* Code Typing Animation */
+@keyframes codeType {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+.devcanvas .code-type {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: codeType 3s steps(40) forwards;
+}
+
+/* Terminal Cursor Blink */
+@keyframes cursorBlink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.devcanvas .cursor-blink {
+    animation: cursorBlink 1s step-end infinite;
+}
+
+/* Code Glow Effect */
+@keyframes codeGlow {
+
+    0%,
+    100% {
+        text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+    }
+
+    50% {
+        text-shadow: 0 0 20px rgba(139, 92, 246, 0.8), 0 0 40px rgba(139, 92, 246, 0.4);
+    }
+}
+
+.devcanvas .code-glow {
+    animation: codeGlow 3s ease-in-out infinite;
+}
+
+/* Dev Grid Pattern */
+.devcanvas .dev-grid {
+    background-image:
+        linear-gradient(rgba(139, 92, 246, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139, 92, 246, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+/* Card Spotlight */
+.devcanvas .card-spotlight {
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+}
+
+.devcanvas .card-spotlight::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y),
+            rgba(139, 92, 246, 0.12),
+            transparent 60%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: inherit;
+}
+
+.devcanvas .card-spotlight:hover::after {
+    opacity: 1;
+}
+
+/* Terminal Pulse */
+@keyframes terminalPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 0 15px rgba(139, 92, 246, 0);
+    }
+}
+
+.devcanvas .terminal-pulse {
+    animation: terminalPulse 2s ease-in-out infinite;
+}
+
+/* Floating Code */
+@keyframes floatCode {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(3deg);
+    }
+}
+
+.devcanvas .float-code {
+    animation: floatCode 6s ease-in-out infinite;
+}
+
+/* Icon Glow */
+.devcanvas .icon-glow {
+    transition: all 0.4s ease;
+}
+
+.devcanvas .icon-glow:hover {
+    filter: drop-shadow(0 0 12px rgba(139, 92, 246, 0.6));
+}
+
+/* Stat Glow */
+.devcanvas .stat-glow {
+    transition: all 0.4s ease;
+}
+
+.devcanvas .stat-glow:hover {
+    text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+}
+
+/* Code Line Animation */
+@keyframes codeLine {
+    0% {
+        transform: scaleX(0);
+        transform-origin: left;
+    }
+
+    100% {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+}
+
+.devcanvas .code-line {
+    animation: codeLine 0.8s ease-out forwards;
+}
+
+/* Popular Badge Pulse */
+@keyframes popularPulse {
+
+    0%,
+    100% {
+        transform: translateX(-50%) scale(1);
+    }
+
+    50% {
+        transform: translateX(-50%) scale(1.05);
+    }
+}
+
+.devcanvas .popular-pulse {
+    animation: popularPulse 2s ease-in-out infinite;
 }

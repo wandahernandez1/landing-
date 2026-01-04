@@ -1,13 +1,125 @@
-import { Star, Quote } from 'lucide-react'
+import { useEffect, useRef } from 'react'
+import { Star, Quote, BadgeCheck, Building2, TrendingUp, Target } from 'lucide-react'
 import { TESTIMONIALS } from './constants'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 export function TestimonialsSection() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const headerRef = useRef<HTMLElement>(null)
+  const cardsRef = useRef<HTMLDivElement>(null)
+  const socialProofRef = useRef<HTMLDivElement>(null)
+
+  const socialProofStats = [
+    { icon: Building2, value: '2.3M+', label: 'Propiedades analizadas' },
+    { icon: TrendingUp, value: '15K+', label: 'Valoraciones realizadas' },
+    { icon: Target, value: '98.2%', label: 'Precisión IA promedio' },
+  ]
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Header animation
+      if (headerRef.current) {
+        gsap.fromTo(
+          headerRef.current.children,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: headerRef.current,
+              start: 'top 80%',
+              toggleActions: 'play none none reverse'
+            }
+          }
+        )
+      }
+
+      // Cards animation with quote floating effect
+      if (cardsRef.current) {
+        const cards = cardsRef.current.querySelectorAll('.testimonial-card')
+        
+        gsap.fromTo(
+          cards,
+          { 
+            opacity: 0, 
+            y: 60,
+            scale: 0.95
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: cardsRef.current,
+              start: 'top 75%',
+              toggleActions: 'play none none reverse'
+            }
+          }
+        )
+
+        // Animate quote icons
+        const quotes = cardsRef.current.querySelectorAll('.quote-icon')
+        gsap.fromTo(
+          quotes,
+          { opacity: 0, scale: 0, rotation: -45 },
+          {
+            opacity: 0.3,
+            scale: 1,
+            rotation: 0,
+            duration: 0.6,
+            stagger: 0.15,
+            delay: 0.3,
+            ease: 'back.out(1.7)',
+            scrollTrigger: {
+              trigger: cardsRef.current,
+              start: 'top 75%',
+              toggleActions: 'play none none reverse'
+            }
+          }
+        )
+      }
+
+      // Social proof stats animation
+      if (socialProofRef.current) {
+        const statItems = socialProofRef.current.querySelectorAll('.social-proof-item')
+        gsap.fromTo(
+          statItems,
+          { opacity: 0, y: 30, scale: 0.9 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.6,
+            stagger: 0.12,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: socialProofRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse'
+            }
+          }
+        )
+      }
+    }, sectionRef)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <section id="testimonials" className="relative py-32 md:py-40">
+    <section ref={sectionRef} id="testimonials" className="relative py-32 md:py-40">
       <div className="bg-glow absolute inset-0 rotate-180" />
       
       <div className="container-custom relative">
-        <header className="mx-auto mb-20 max-w-3xl text-center">
+        <header ref={headerRef} className="mx-auto mb-20 max-w-3xl text-center">
           <p className="mb-4 text-sm font-medium uppercase tracking-widest text-gold-500">
             Casos de Éxito
           </p>
@@ -17,10 +129,28 @@ export function TestimonialsSection() {
           </h2>
         </header>
 
-        <div className="grid gap-8 md:grid-cols-3">
+        {/* Social Proof Stats */}
+        <div ref={socialProofRef} className="mx-auto mb-16 grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-3">
+          {socialProofStats.map((stat, idx) => (
+            <div 
+              key={idx}
+              className="social-proof-item card rounded-2xl p-6 text-center"
+            >
+              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-forest-800/30 border border-forest-700/30">
+                <stat.icon className="h-6 w-6 text-forest-500 icon-glow" />
+              </div>
+              <p className="text-2xl font-bold text-gold-400 stat-pulse" style={{ animationDelay: `${idx * 0.3}s` }}>
+                {stat.value}
+              </p>
+              <p className="mt-1 text-sm text-stone-500">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+
+        <div ref={cardsRef} className="grid gap-8 md:grid-cols-3">
           {TESTIMONIALS.map((testimonial, idx) => (
-            <article key={idx} className="card rounded-2xl p-8">
-              <Quote className="h-10 w-10 text-gold-500/30 mb-4" />
+            <article key={idx} className="testimonial-card card rounded-2xl p-8 relative">
+              <Quote className="quote-icon h-10 w-10 text-gold-500 mb-4 quote-float" style={{ animationDelay: `${idx * 0.5}s` }} />
               
               <p className="mb-6 text-lg text-stone-300 leading-relaxed">
                 "{testimonial.quote}"
@@ -32,8 +162,18 @@ export function TestimonialsSection() {
                     <Star key={i} className="h-4 w-4 fill-gold-500 text-gold-500" />
                   ))}
                 </div>
-                <p className="font-semibold text-white">{testimonial.author}</p>
-                <p className="text-sm text-stone-500">{testimonial.role}</p>
+                <div className="flex items-center gap-2">
+                  <div>
+                    <p className="font-semibold text-white flex items-center gap-2">
+                      {testimonial.author}
+                      <span className="verified-badge inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] text-white">
+                        <BadgeCheck className="h-3 w-3" />
+                        Verificado
+                      </span>
+                    </p>
+                    <p className="text-sm text-stone-500">{testimonial.role}</p>
+                  </div>
+                </div>
               </div>
             </article>
           ))}
