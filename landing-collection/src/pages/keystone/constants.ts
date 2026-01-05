@@ -15,7 +15,7 @@ import {
 
 export const COMPANY = {
   name: "Keystone AI",
-  tagline: "Real Estate Intelligence",
+  tagline: "Inteligencia Inmobiliaria",
   year: new Date().getFullYear(),
 };
 

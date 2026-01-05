@@ -2,43 +2,43 @@ import type { NavLink } from "@/shared/types";
 
 export const COMPANY = {
   name: "Atelier Noir",
-  tagline: "Curated luxury. Conscious craft.",
+  tagline: "Lujo curado. Artesanía consciente.",
   year: new Date().getFullYear(),
 };
 
 export const NAV_LINKS: NavLink[] = [
-  { label: "Collections", href: "#collections" },
-  { label: "The Edit", href: "#edit" },
-  { label: "Artisans", href: "#artisans" },
-  { label: "Values", href: "#values" },
+  { label: "Colecciones", href: "#collections" },
+  { label: "Selección", href: "#edit" },
+  { label: "Artesanos", href: "#artisans" },
+  { label: "Valores", href: "#values" },
 ];
 
 export const COLLECTIONS = [
   {
     id: "home",
-    title: "Home",
-    subtitle: "Living spaces reimagined",
+    title: "Hogar",
+    subtitle: "Espacios reinventados",
     image:
       "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80",
   },
   {
     id: "wardrobe",
-    title: "Wardrobe",
-    subtitle: "Timeless essentials",
+    title: "Vestuario",
+    subtitle: "Esenciales atemporales",
     image:
       "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=800&q=80",
   },
   {
     id: "accessories",
-    title: "Accessories",
-    subtitle: "Refined details",
+    title: "Accesorios",
+    subtitle: "Detalles refinados",
     image:
       "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=800&q=80",
   },
   {
     id: "gifts",
-    title: "Gifts",
-    subtitle: "Thoughtful gestures",
+    title: "Regalos",
+    subtitle: "Gestos con intención",
     image:
       "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=800&q=80",
   },
@@ -47,19 +47,19 @@ export const COLLECTIONS = [
 export const ARTISAN_STORIES = [
   {
     id: "ceramics",
-    title: "The Art of Patience",
-    subtitle: "Ceramics crafted over weeks, not hours",
+    title: "El Arte de la Paciencia",
+    subtitle: "Cerámicas creadas en semanas, no en horas",
     description:
-      "In a quiet studio in Kyoto, master ceramicist Yuki Tanaka shapes each piece by hand, honoring traditions passed down through five generations. Every imperfection tells a story.",
+      "En un tranquilo estudio en Kioto, el maestro ceramista Yuki Tanaka moldea cada pieza a mano, honrando tradiciones transmitidas a través de cinco generaciones. Cada imperfección cuenta una historia.",
     image:
       "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=800&q=80",
   },
   {
     id: "textiles",
-    title: "Threads of Heritage",
-    subtitle: "Hand-woven textiles from ancient looms",
+    title: "Hilos de Herencia",
+    subtitle: "Textiles tejidos a mano en telares ancestrales",
     description:
-      "Our linens come from a family workshop in Portugal, where the rhythm of wooden looms has remained unchanged for over a century. Each thread carries the weight of time.",
+      "Nuestros linos provienen de un taller familiar en Portugal, donde el ritmo de los telares de madera permanece sin cambios desde hace más de un siglo. Cada hilo lleva el peso del tiempo.",
     image:
       "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
   },
@@ -67,27 +67,27 @@ export const ARTISAN_STORIES = [
 
 export const VALUES = [
   {
-    title: "Materials",
+    title: "Materiales",
     description:
-      "Every material is traced to its origin. We partner only with suppliers who share our commitment to quality and environmental responsibility.",
+      "Cada material es rastreado hasta su origen. Colaboramos solo con proveedores que comparten nuestro compromiso con la calidad y la responsabilidad ambiental.",
     icon: "leaf",
   },
   {
-    title: "Sourcing",
+    title: "Abastecimiento",
     description:
-      "Direct relationships with artisans ensure fair compensation and preserve traditional craftsmanship for future generations.",
+      "Las relaciones directas con artesanos aseguran una compensación justa y preservan la artesanía tradicional para las futuras generaciones.",
     icon: "globe",
   },
   {
-    title: "Lifetime Repair",
+    title: "Reparación de por Vida",
     description:
-      "We stand behind every piece. Our lifetime repair program means your purchase is designed to last, not to be replaced.",
+      "Respaldamos cada pieza. Nuestro programa de reparación de por vida significa que tu compra está diseñada para durar, no para ser reemplazada.",
     icon: "refresh",
   },
   {
-    title: "Packaging",
+    title: "Empaque",
     description:
-      "Plastic-free, compostable packaging that protects your purchase while respecting our planet. Every unboxing is an experience.",
+      "Empaque libre de plástico y compostable que protege tu compra mientras respeta nuestro planeta. Cada unboxing es una experiencia.",
     icon: "package",
   },
 ];
@@ -102,34 +102,33 @@ export const PRESS_LOGOS = [
 export const REVIEWS = [
   {
     quote:
-      "The attention to detail is extraordinary. Each piece feels like it was made just for me.",
+      "La atención al detalle es extraordinaria. Cada pieza se siente como si hubiera sido hecha solo para mí.",
     author: "Sophie M.",
-    location: "Paris",
+    location: "París",
     image:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&q=80",
   },
   {
-    quote:
-      "Finally, a brand that understands the difference between luxury and excess.",
+    quote: "Por fin, una marca que entiende la diferencia entre lujo y exceso.",
     author: "James K.",
-    location: "London",
+    location: "Londres",
     image:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80",
   },
   {
     quote:
-      "The craftsmanship speaks for itself. These are pieces I will pass down to my children.",
+      "La artesanía habla por sí misma. Estas son piezas que pasaré a mis hijos.",
     author: "Elena R.",
-    location: "Milan",
+    location: "Milán",
     image:
       "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&q=80",
   },
 ];
 
 export const CERTIFICATIONS = [
-  "B Corp Certified",
-  "Carbon Neutral",
-  "Fair Trade",
+  "Certificado B Corp",
+  "Carbono Neutral",
+  "Comercio Justo",
 ];
 
 export const INSTAGRAM_IMAGES = [
@@ -143,21 +142,21 @@ export const INSTAGRAM_IMAGES = [
 
 export const FOOTER_LINKS = {
   shop: [
-    { label: "Home", href: "#" },
-    { label: "Wardrobe", href: "#" },
-    { label: "Accessories", href: "#" },
-    { label: "Gifts", href: "#" },
+    { label: "Hogar", href: "#" },
+    { label: "Vestuario", href: "#" },
+    { label: "Accesorios", href: "#" },
+    { label: "Regalos", href: "#" },
   ],
   about: [
-    { label: "Our Story", href: "#" },
-    { label: "Artisans", href: "#" },
-    { label: "Sustainability", href: "#" },
-    { label: "Press", href: "#" },
+    { label: "Nuestra Historia", href: "#" },
+    { label: "Artesanos", href: "#" },
+    { label: "Sostenibilidad", href: "#" },
+    { label: "Prensa", href: "#" },
   ],
   support: [
-    { label: "Contact", href: "#" },
-    { label: "Shipping", href: "#" },
-    { label: "Returns", href: "#" },
-    { label: "Care Guide", href: "#" },
+    { label: "Contacto", href: "#" },
+    { label: "Envíos", href: "#" },
+    { label: "Devoluciones", href: "#" },
+    { label: "Guía de Cuidado", href: "#" },
   ],
 };

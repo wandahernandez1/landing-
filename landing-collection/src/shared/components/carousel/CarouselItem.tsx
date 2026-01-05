@@ -72,6 +72,97 @@ const themeColors: Record<string, { gradient: string; accent: string; glow: stri
     glow: "shadow-neutral-400/20",
     overlay: "from-neutral-900/30 via-transparent to-transparent",
   },
+  // New 15 landing themes
+  "Cyan Dark": {
+    gradient: "from-cyan-500/20 via-sky-500/10 to-blue-500/20",
+    accent: "bg-cyan-500",
+    glow: "shadow-cyan-500/20",
+    overlay: "from-cyan-950/30 via-transparent to-transparent",
+  },
+  "Rose Pink": {
+    gradient: "from-rose-500/20 via-pink-500/10 to-fuchsia-500/20",
+    accent: "bg-rose-500",
+    glow: "shadow-rose-500/20",
+    overlay: "from-rose-950/30 via-transparent to-transparent",
+  },
+  "Emerald Dark": {
+    gradient: "from-emerald-500/20 via-green-500/10 to-teal-500/20",
+    accent: "bg-emerald-500",
+    glow: "shadow-emerald-500/20",
+    overlay: "from-emerald-950/30 via-transparent to-transparent",
+  },
+  "Orange Amber": {
+    gradient: "from-orange-500/20 via-amber-500/10 to-yellow-500/20",
+    accent: "bg-orange-500",
+    glow: "shadow-orange-500/20",
+    overlay: "from-orange-950/30 via-transparent to-transparent",
+  },
+  "Pink Fuchsia": {
+    gradient: "from-pink-500/20 via-fuchsia-500/10 to-purple-500/20",
+    accent: "bg-pink-500",
+    glow: "shadow-pink-500/20",
+    overlay: "from-pink-950/30 via-transparent to-transparent",
+  },
+  "Teal Dark": {
+    gradient: "from-teal-500/20 via-cyan-500/10 to-emerald-500/20",
+    accent: "bg-teal-500",
+    glow: "shadow-teal-500/20",
+    overlay: "from-teal-950/30 via-transparent to-transparent",
+  },
+  "Purple Violet": {
+    gradient: "from-purple-500/20 via-violet-500/10 to-indigo-500/20",
+    accent: "bg-purple-500",
+    glow: "shadow-purple-500/20",
+    overlay: "from-purple-950/30 via-transparent to-transparent",
+  },
+  "Blue Sky": {
+    gradient: "from-blue-500/20 via-sky-500/10 to-cyan-500/20",
+    accent: "bg-blue-500",
+    glow: "shadow-blue-500/20",
+    overlay: "from-blue-950/30 via-transparent to-transparent",
+  },
+  "Red Alert": {
+    gradient: "from-red-500/20 via-rose-500/10 to-orange-500/20",
+    accent: "bg-red-500",
+    glow: "shadow-red-500/20",
+    overlay: "from-red-950/30 via-transparent to-transparent",
+  },
+  "Green Dark": {
+    gradient: "from-green-500/20 via-emerald-500/10 to-teal-500/20",
+    accent: "bg-green-500",
+    glow: "shadow-green-500/20",
+    overlay: "from-green-950/30 via-transparent to-transparent",
+  },
+  "Indigo Dark": {
+    gradient: "from-indigo-500/20 via-violet-500/10 to-purple-500/20",
+    accent: "bg-indigo-500",
+    glow: "shadow-indigo-500/20",
+    overlay: "from-indigo-950/30 via-transparent to-transparent",
+  },
+  "Slate Minimal": {
+    gradient: "from-slate-500/20 via-zinc-500/10 to-neutral-500/20",
+    accent: "bg-slate-400",
+    glow: "shadow-slate-400/20",
+    overlay: "from-slate-900/30 via-transparent to-transparent",
+  },
+  "Blue Enterprise": {
+    gradient: "from-blue-500/20 via-indigo-500/10 to-cyan-500/20",
+    accent: "bg-blue-500",
+    glow: "shadow-blue-500/20",
+    overlay: "from-blue-950/30 via-transparent to-transparent",
+  },
+  "Violet Slate": {
+    gradient: "from-violet-500/20 via-purple-500/10 to-slate-500/20",
+    accent: "bg-violet-500",
+    glow: "shadow-violet-500/20",
+    overlay: "from-violet-950/30 via-transparent to-transparent",
+  },
+  "Emerald Minimal": {
+    gradient: "from-emerald-500/20 via-green-500/10 to-teal-500/20",
+    accent: "bg-emerald-500",
+    glow: "shadow-emerald-500/20",
+    overlay: "from-emerald-950/30 via-transparent to-transparent",
+  },
 };
 
 function CarouselItemComponent({
@@ -110,7 +201,7 @@ function CarouselItemComponent({
           "relative overflow-hidden",
           "rounded-2xl sm:rounded-3xl",
           // Larger responsive sizing
-          "aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] lg:aspect-[2/1]",
+          "aspect-4/3 sm:aspect-16/10 md:aspect-video lg:aspect-2/1",
           "w-full max-w-[95vw] sm:max-w-[90vw] md:max-w-5xl lg:max-w-6xl xl:max-w-7xl",
           "bg-neutral-950",
           "border border-white/10",
@@ -136,7 +227,7 @@ function CarouselItemComponent({
         {/* Gradient Overlay for readability */}
         <div
           className={cn(
-            "absolute inset-0 bg-gradient-to-t",
+            "absolute inset-0 bg-linear-to-t",
             colors.overlay
           )}
           aria-hidden="true"
@@ -144,7 +235,7 @@ function CarouselItemComponent({
 
         {/* Additional bottom gradient for text */}
         <div
-          className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/80 via-black/40 to-transparent"
+          className="absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-t from-black/80 via-black/40 to-transparent"
           aria-hidden="true"
         />
 
@@ -204,10 +295,13 @@ function CarouselItemComponent({
                 "text-xs sm:text-sm font-medium",
                 "transition-all duration-300",
                 "hover:bg-white/90 hover:scale-105",
-                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950",
+                "pointer-events-auto relative z-10"
               )}
               tabIndex={isActive ? 0 : -1}
               aria-label={`Ver landing page de ${item.name}`}
+              onPointerDown={(e) => e.stopPropagation()}
+              onClick={(e) => e.stopPropagation()}
             >
               Explorar
               <ArrowUpRight className="w-3 h-3 sm:w-4 sm:h-4" aria-hidden="true" />
@@ -219,7 +313,7 @@ function CarouselItemComponent({
         <div
           className={cn(
             "absolute inset-0 opacity-0 transition-opacity duration-500",
-            "bg-gradient-to-tr from-transparent via-white/5 to-transparent",
+            "bg-linear-to-tr from-transparent via-white/5 to-transparent",
             isActive && "group-hover:opacity-100"
           )}
           aria-hidden="true"

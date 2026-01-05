@@ -13,9 +13,9 @@ export const COMPANY = {
 };
 
 export const NAV_LINKS: NavLink[] = [
-  { label: "Features", href: "#features" },
-  { label: "Devs", href: "#testimonials" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Características", href: "#features" },
+  { label: "Desarrolladores", href: "#testimonials" },
+  { label: "Precios", href: "#pricing" },
 ];
 
 export const FEATURES: Feature[] = [

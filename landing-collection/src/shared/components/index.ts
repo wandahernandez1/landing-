@@ -5,6 +5,8 @@
 // Base components
 export { ScrollToTop } from "./ScrollToTop";
 export { BackToHome } from "./BackToHome";
+export { FooterSignature } from "./FooterSignature";
+export { PageLayout } from "./PageLayout";
 
 // Carousel system
 export {
