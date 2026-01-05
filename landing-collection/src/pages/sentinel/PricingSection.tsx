@@ -33,12 +33,12 @@ export function PricingSection() {
           </h2>
         </header>
 
-        <div className="pricing-grid grid gap-8 md:grid-cols-3" style={{ perspective: '1000px' }}>
+        <div className="pricing-grid grid gap-8 md:grid-cols-3 pt-6" style={{ perspective: '1000px' }}>
           {PRICING_PLANS.map((plan) => (
             <div
               key={plan.name}
               className={cn(
-                'pricing-card card card-spotlight rounded-2xl p-8 relative',
+                'pricing-card card card-spotlight rounded-2xl p-8 relative !overflow-visible',
                 plan.popular && 'border-cyan-500 ring-1 ring-cyan-500 scale-105'
               )}
               style={{ transformStyle: 'preserve-3d' }}

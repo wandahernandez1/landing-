@@ -39,13 +39,13 @@ export function PricingSection() {
           </p>
         </header>
 
-        <div data-pricing-cards className="grid gap-8 lg:grid-cols-3 max-w-6xl mx-auto">
+        <div data-pricing-cards className="grid gap-8 lg:grid-cols-3 max-w-6xl mx-auto pt-7">
           {PRICING_PLANS.map((plan, index) => (
             <article
               key={plan.name}
               data-pricing-card
               className={cn(
-                'card rounded-3xl p-8 md:p-10 relative group',
+                'card rounded-3xl p-8 md:p-10 relative group !overflow-visible',
                 plan.popular && 'pricing-popular lg:scale-105'
               )}
             >

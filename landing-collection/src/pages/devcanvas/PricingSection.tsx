@@ -32,12 +32,12 @@ export function PricingSection() {
           </h2>
         </header>
 
-        <div className="pricing-grid mx-auto grid max-w-5xl gap-8 md:grid-cols-3" style={{ perspective: '1000px' }}>
+        <div className="pricing-grid mx-auto grid max-w-5xl gap-8 md:grid-cols-3 pt-6" style={{ perspective: '1000px' }}>
           {PRICING_PLANS.map((plan) => (
             <article
               key={plan.name}
               className={cn(
-                'pricing-card card card-spotlight rounded-2xl p-8 flex flex-col relative',
+                'pricing-card card card-spotlight rounded-2xl p-8 flex flex-col relative !overflow-visible',
                 plan.popular && 'border-violet-500 ring-1 ring-violet-500 scale-105'
               )}
               style={{ transformStyle: 'preserve-3d' }}
