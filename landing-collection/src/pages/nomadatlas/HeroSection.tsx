@@ -1,6 +1,6 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { ArrowRight, MapPin, Plane, Compass, Globe, Mountain, Shield, Award, Users } from 'lucide-react'
-import gsap from 'gsap'
+import { useHeroAnimation, useFloatingAnimation, useCountUp } from '@/shared/hooks'
 import { COMPANY } from './constants'
 
 export function HeroSection() {
@@ -13,84 +13,10 @@ export function HeroSection() {
   const trustRef = useRef<HTMLDivElement>(null)
   const floatingIconsRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
-
-      // Initial states
-      gsap.set([badgeRef.current, titleRef.current, subtitleRef.current, ctaRef.current, statsRef.current, trustRef.current], {
-        opacity: 0,
-        y: 30,
-      })
-
-      // Animation sequence
-      tl.to(badgeRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-      })
-      .to(titleRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-      }, '-=0.3')
-      .to(subtitleRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-      }, '-=0.4')
-      .to(ctaRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-      }, '-=0.3')
-      .to(statsRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-      }, '-=0.2')
-      .to(trustRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-      }, '-=0.4')
-
-      // Floating icons animation
-      if (floatingIconsRef.current) {
-        const icons = floatingIconsRef.current.querySelectorAll('.floating-icon')
-        icons.forEach((icon, index) => {
-          gsap.to(icon, {
-            y: gsap.utils.random(-20, 20),
-            x: gsap.utils.random(-10, 10),
-            rotation: gsap.utils.random(-10, 10),
-            duration: gsap.utils.random(3, 5),
-            repeat: -1,
-            yoyo: true,
-            ease: 'sine.inOut',
-            delay: index * 0.2,
-          })
-        })
-      }
-
-      // Stats counter animation
-      const statNumbers = statsRef.current?.querySelectorAll('.stat-number')
-      statNumbers?.forEach((stat) => {
-        const endValue = parseInt(stat.getAttribute('data-value') || '0', 10)
-        gsap.fromTo(stat, 
-          { innerText: 0 },
-          {
-            innerText: endValue,
-            duration: 2,
-            delay: 0.8,
-            snap: { innerText: 1 },
-            ease: 'power2.out',
-          }
-        )
-      })
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
+  // Use standardized hooks
+  useHeroAnimation(sectionRef)
+  useFloatingAnimation(floatingIconsRef, '.floating-icon')
+  useCountUp(statsRef, '.stat-number', { duration: 2.5 })
 
   return (
     <section ref={sectionRef} className="relative min-h-screen pt-20 md:pt-24 bg-gradient-hero bg-world-grid overflow-hidden">

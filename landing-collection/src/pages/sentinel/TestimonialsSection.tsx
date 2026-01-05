@@ -1,65 +1,13 @@
 import { TESTIMONIALS } from './constants'
 import { Star, Quote, ShieldCheck } from 'lucide-react'
-import { useEffect, useRef } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
+import { useRef } from 'react'
+import { useTestimonialsAnimation } from '@/shared/hooks'
 
 export function TestimonialsSection() {
   const sectionRef = useRef<HTMLElement>(null)
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Header animation
-      gsap.from('.testimonials-header', {
-        y: 40,
-        opacity: 0,
-        duration: 1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.testimonials-header',
-          start: 'top 85%',
-        },
-      })
-
-      // Cards with floating effect
-      gsap.from('.testimonial-card', {
-        y: 60,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.testimonials-grid',
-          start: 'top 80%',
-        },
-      })
-
-      // Quote icons floating
-      gsap.to('.quote-icon', {
-        y: -8,
-        duration: 2.5,
-        stagger: { each: 0.3, yoyo: true, repeat: -1 },
-        ease: 'power1.inOut',
-      })
-
-      // Stats animation
-      gsap.from('.social-stat', {
-        scale: 0.8,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: 'back.out(1.5)',
-        scrollTrigger: {
-          trigger: '.social-proof',
-          start: 'top 85%',
-        },
-      })
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
+  // Use standardized hook
+  useTestimonialsAnimation(sectionRef)
 
   return (
     <section 

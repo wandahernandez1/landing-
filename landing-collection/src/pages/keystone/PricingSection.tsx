@@ -1,94 +1,18 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { Check } from 'lucide-react'
 import { PRICING_PLANS } from './constants'
 import { cn } from '@/shared/utils/cn'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
+import { useSectionAnimation, useStaggerReveal } from '@/shared/hooks'
 
 export function PricingSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const headerRef = useRef<HTMLElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Header animation
-      if (headerRef.current) {
-        gsap.fromTo(
-          headerRef.current.children,
-          { opacity: 0, y: 40 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            stagger: 0.15,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: headerRef.current,
-              start: 'top 80%',
-              toggleActions: 'play none none reverse'
-            }
-          }
-        )
-      }
-
-      // Cards 3D animation with stagger
-      if (cardsRef.current) {
-        const cards = cardsRef.current.querySelectorAll('.pricing-card')
-        cards.forEach((card, index) => {
-          const isPopular = card.classList.contains('popular')
-          
-          gsap.fromTo(
-            card,
-            { 
-              opacity: 0, 
-              y: 80,
-              rotateY: index === 0 ? -15 : index === 2 ? 15 : 0,
-              scale: 0.9
-            },
-            {
-              opacity: 1,
-              y: 0,
-              rotateY: 0,
-              scale: isPopular ? 1.02 : 1,
-              duration: 0.9,
-              delay: index * 0.15,
-              ease: 'power3.out',
-              scrollTrigger: {
-                trigger: cardsRef.current,
-                start: 'top 75%',
-                toggleActions: 'play none none reverse'
-              }
-            }
-          )
-
-          // Animate feature list items with stagger
-          const features = card.querySelectorAll('.feature-item')
-          gsap.fromTo(
-            features,
-            { opacity: 0, x: -20 },
-            {
-              opacity: 1,
-              x: 0,
-              duration: 0.4,
-              stagger: 0.08,
-              delay: 0.3 + index * 0.15,
-              ease: 'power2.out',
-              scrollTrigger: {
-                trigger: cardsRef.current,
-                start: 'top 75%',
-                toggleActions: 'play none none reverse'
-              }
-            }
-          )
-        })
-      }
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
+  // Use standardized hooks
+  useSectionAnimation(headerRef)
+  useStaggerReveal(cardsRef, '.pricing-card')
+  useStaggerReveal(cardsRef, '.feature-item', { stagger: 0.05, fromX: -20 })
 
   return (
     <section ref={sectionRef} id="pricing" className="relative py-32 md:py-40">

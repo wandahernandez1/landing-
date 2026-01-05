@@ -1,49 +1,15 @@
 import { FEATURES } from './constants'
-import { useEffect, useRef } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
+import { useRef, useEffect } from 'react'
+import { useFeaturesAnimation } from '@/shared/hooks'
 
 export function FeaturesSection() {
   const sectionRef = useRef<HTMLElement>(null)
 
+  // Use standardized hook
+  useFeaturesAnimation(sectionRef)
+
+  // Mouse tracking for cards (separate from GSAP)
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from('.section-header', {
-        y: 40,
-        opacity: 0,
-        duration: 1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.section-header',
-          start: 'top 85%',
-        },
-      })
-
-      gsap.from('.feature-card', {
-        y: 60,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.features-grid',
-          start: 'top 80%',
-        },
-      })
-
-      gsap.to('.icon-wrapper', {
-        boxShadow: '0 0 30px rgba(245, 158, 11, 0.3)',
-        duration: 0.4,
-        stagger: 0.1,
-        scrollTrigger: {
-          trigger: '.features-grid',
-          start: 'top 60%',
-        },
-      })
-    }, sectionRef)
-
     const cards = document.querySelectorAll('.feature-card')
     const handleMouseMove = (e: Event) => {
       const mouseEvent = e as MouseEvent
@@ -60,7 +26,6 @@ export function FeaturesSection() {
     })
 
     return () => {
-      ctx.revert()
       cards.forEach(card => {
         card.removeEventListener('mousemove', handleMouseMove)
       })

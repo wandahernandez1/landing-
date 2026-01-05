@@ -1,65 +1,20 @@
-import { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useRef, useEffect } from 'react'
+import { useSectionAnimation, useStaggerReveal, usePulseAnimation } from '@/shared/hooks'
 import { FEATURES } from './constants'
 import { ArrowRight, Cpu } from 'lucide-react'
-
-gsap.registerPlugin(ScrollTrigger)
 
 export function FeaturesSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)
 
+  // Use standardized hooks
+  useSectionAnimation(headerRef)
+  useStaggerReveal(cardsRef, '[data-feature-card]')
+  usePulseAnimation(sectionRef, '[data-feature-icon]', { minOpacity: 1, maxOpacity: 1 })
+
+  // Mouse tracking for card spotlight
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Header animation
-      gsap.from(headerRef.current, {
-        opacity: 0,
-        y: 60,
-        duration: 0.8,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: headerRef.current,
-          start: 'top 85%',
-          toggleActions: 'play none none reverse'
-        }
-      })
-
-      // Cards stagger animation with 3D effect
-      const cards = cardsRef.current?.querySelectorAll('[data-feature-card]')
-      if (cards) {
-        gsap.from(cards, {
-          opacity: 0,
-          y: 80,
-          rotateX: 10,
-          scale: 0.95,
-          stagger: 0.12,
-          duration: 0.8,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: cardsRef.current,
-            start: 'top 80%',
-            toggleActions: 'play none none reverse'
-          }
-        })
-      }
-
-      // Icon glow animation
-      const icons = cardsRef.current?.querySelectorAll('[data-feature-icon]')
-      icons?.forEach((icon) => {
-        gsap.to(icon, {
-          boxShadow: '0 0 30px rgba(6, 182, 212, 0.3)',
-          duration: 1.5,
-          repeat: -1,
-          yoyo: true,
-          ease: 'sine.inOut'
-        })
-      })
-
-    }, sectionRef)
-
-    // Mouse tracking for card spotlight
     const handleMouseMove = (e: MouseEvent) => {
       const cards = cardsRef.current?.querySelectorAll('[data-feature-card]')
       cards?.forEach((card) => {
@@ -74,7 +29,6 @@ export function FeaturesSection() {
     cardsRef.current?.addEventListener('mousemove', handleMouseMove)
 
     return () => {
-      ctx.revert()
       cardsRef.current?.removeEventListener('mousemove', handleMouseMove)
     }
   }, [])

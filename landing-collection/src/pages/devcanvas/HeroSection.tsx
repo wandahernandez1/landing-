@@ -1,54 +1,15 @@
 import { ArrowRight, Github, Terminal, Code2, Braces, FileCode, GitBranch, CheckCircle } from 'lucide-react'
-import { useEffect, useRef } from 'react'
-import gsap from 'gsap'
+import { useRef } from 'react'
+import { useHeroAnimation, useFloatingAnimation, usePulseAnimation } from '@/shared/hooks'
 import { COMPANY } from './constants'
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null)
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
-
-      tl.from('.hero-badge', { y: -30, opacity: 0, duration: 0.8 })
-        .from('.hero-title-line', { y: 60, opacity: 0, stagger: 0.15, duration: 1 }, '-=0.4')
-        .from('.hero-subtitle', { y: 30, opacity: 0, duration: 0.8 }, '-=0.5')
-        .from('.hero-cta', { y: 20, opacity: 0, stagger: 0.1, duration: 0.6 }, '-=0.4')
-        .from('.code-block-anim', { y: 40, opacity: 0, scale: 0.95, duration: 1 }, '-=0.3')
-        .from('.hero-stat', { y: 40, opacity: 0, stagger: 0.15, duration: 0.8 }, '-=0.5')
-        .from('.trust-badge', { scale: 0.8, opacity: 0, stagger: 0.1, duration: 0.5 }, '-=0.4')
-
-      // Floating code icons
-      gsap.to('.floating-icon', {
-        y: -15,
-        duration: 3,
-        stagger: { each: 0.5, yoyo: true, repeat: -1 },
-        ease: 'power1.inOut',
-      })
-
-      // Terminal cursor blink
-      gsap.to('.terminal-cursor', {
-        opacity: 0,
-        duration: 0.5,
-        repeat: -1,
-        yoyo: true,
-        ease: 'power2.inOut',
-      })
-
-      // Code lines animation
-      gsap.from('.code-line-anim', {
-        scaleX: 0,
-        duration: 0.6,
-        stagger: 0.15,
-        delay: 1.5,
-        ease: 'power2.out',
-        transformOrigin: 'left',
-      })
-
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
+  // Use standardized hooks
+  useHeroAnimation(sectionRef)
+  useFloatingAnimation(sectionRef, '.floating-icon')
+  usePulseAnimation(sectionRef, '.terminal-cursor', { minOpacity: 0, maxOpacity: 1, duration: 0.5 })
 
   return (
     <section 

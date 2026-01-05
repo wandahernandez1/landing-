@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
+import { ScrollToTop } from './shared/components'
 import { HomePage } from './pages/HomePage'
 import { NexusAIPage } from './pages/nexusai'
 import { VitalityPage } from './pages/vitality'
@@ -13,7 +14,9 @@ import { AtelierNoirPage } from './pages/ateliernoir'
 
 function App() {
   return (
-    <Routes>
+    <>
+      <ScrollToTop />
+      <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/nexusai" element={<NexusAIPage />} />
       <Route path="/vitality" element={<VitalityPage />} />
@@ -27,6 +30,7 @@ function App() {
       <Route path="/ateliernoir" element={<AtelierNoirPage />} />
       
     </Routes>
+    </>
   )
 }
 

@@ -1,9 +1,6 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { ArrowRight, Building2, Home, MapPin, TrendingUp, CheckCircle2 } from 'lucide-react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
+import { useCtaAnimation, useFloatingAnimation, useStaggerReveal } from '@/shared/hooks'
 
 export function CtaSection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -19,80 +16,12 @@ export function CtaSection() {
     'Onboarding incluido',
   ]
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 70%',
-          toggleActions: 'play none none reverse'
-        }
-      })
-
-      // Floating decorative elements
-      if (floatingRef.current) {
-        gsap.set(floatingRef.current.children, { opacity: 0, scale: 0 })
-        tl.to(floatingRef.current.children, {
-          opacity: 1,
-          scale: 1,
-          duration: 0.6,
-          stagger: 0.1,
-          ease: 'back.out(1.7)'
-        }, 0)
-      }
-
-      // Icon with glow pulse
-      if (iconRef.current) {
-        gsap.set(iconRef.current, { opacity: 0, scale: 0, rotation: -45 })
-        tl.to(iconRef.current, {
-          opacity: 1,
-          scale: 1,
-          rotation: 0,
-          duration: 0.8,
-          ease: 'back.out(1.7)'
-        }, 0.2)
-      }
-
-      // Content animation (title + subtitle)
-      if (contentRef.current) {
-        gsap.set(contentRef.current.children, { opacity: 0, y: 40 })
-        tl.to(contentRef.current.children, {
-          opacity: 1,
-          y: 0,
-          duration: 0.7,
-          stagger: 0.15,
-          ease: 'power3.out'
-        }, 0.4)
-      }
-
-      // CTA buttons
-      if (ctaRef.current) {
-        gsap.set(ctaRef.current.children, { opacity: 0, y: 20, scale: 0.95 })
-        tl.to(ctaRef.current.children, {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.5,
-          stagger: 0.12,
-          ease: 'power3.out'
-        }, 0.7)
-      }
-
-      // Benefits badges
-      if (benefitsRef.current) {
-        gsap.set(benefitsRef.current.children, { opacity: 0, x: -20 })
-        tl.to(benefitsRef.current.children, {
-          opacity: 1,
-          x: 0,
-          duration: 0.4,
-          stagger: 0.1,
-          ease: 'power2.out'
-        }, 0.9)
-      }
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
+  // Standardized GSAP animations
+  useCtaAnimation(sectionRef)
+  useFloatingAnimation(floatingRef, '.float-property')
+  useStaggerReveal(benefitsRef, 'div', {
+    stagger: 0.1,
+  })
 
   const floatingElements = [
     { Icon: Home, position: 'top-10 left-[10%]', delay: '0s' },

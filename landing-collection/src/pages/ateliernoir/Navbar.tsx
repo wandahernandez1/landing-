@@ -1,70 +1,95 @@
 import { Link } from 'react-router-dom'
-import { Gem, Menu, X } from 'lucide-react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { Menu, X } from 'lucide-react'
 import { NAV_LINKS, COMPANY } from './constants'
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      <div className="glass border-b border-ivory-50/10">
-        <nav className="container-custom flex h-16 items-center justify-between md:h-20">
+      <div className={`transition-all duration-500 ${isScrolled ? 'glass border-b border-charcoal-100' : 'bg-transparent'}`}>
+        <nav className="container-editorial flex h-20 items-center justify-between md:h-24">
+          {/* Logo */}
           <Link 
             to="/ateliernoir" 
-            className="flex items-center gap-3 text-xl"
+            className="logo-text"
+            aria-label={COMPANY.name}
           >
-            <Gem className="h-6 w-6 text-gold-400" />
-            <span className="text-serif text-2xl tracking-wider">{COMPANY.name}</span>
+            {COMPANY.name}
           </Link>
 
-          <div className="hidden items-center gap-10 md:flex">
+          {/* Desktop Navigation */}
+          <div className="hidden items-center gap-12 lg:flex">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm uppercase tracking-widest text-ivory-50/60 transition-colors hover:text-ivory-50"
+                className="label transition-colors duration-300 hover:text-charcoal-900"
               >
                 {link.label}
               </a>
             ))}
           </div>
 
-          <div className="hidden items-center gap-6 md:flex">
-            <a href="#" className="text-sm uppercase tracking-widest text-ivory-50/60 hover:text-ivory-50 transition-colors">
+          {/* Desktop Actions */}
+          <div className="hidden items-center gap-8 lg:flex">
+            <a 
+              href="#" 
+              className="label transition-colors duration-300 hover:text-charcoal-900"
+            >
               Account
             </a>
-            <a href="#pricing" className="btn-primary rounded-none px-6 py-2.5 text-sm uppercase tracking-widest">
-              Membership
+            <a 
+              href="#" 
+              className="label transition-colors duration-300 hover:text-charcoal-900"
+            >
+              Bag (0)
             </a>
           </div>
 
+          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="rounded-lg p-2 text-ivory-50/60 hover:bg-ivory-50/5 md:hidden"
-            aria-label="Toggle menu"
+            className="p-2 lg:hidden"
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isOpen}
           >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isOpen ? (
+              <X className="h-6 w-6" strokeWidth={1} />
+            ) : (
+              <Menu className="h-6 w-6" strokeWidth={1} />
+            )}
           </button>
         </nav>
 
+        {/* Mobile Menu */}
         {isOpen && (
-          <div className="border-t border-ivory-50/10 px-4 py-6 md:hidden">
-            <div className="flex flex-col gap-6">
+          <div className="border-t border-charcoal-100 bg-ivory-50 px-6 py-8 lg:hidden">
+            <nav className="flex flex-col gap-6">
               {NAV_LINKS.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="text-sm uppercase tracking-widest text-ivory-50/80 hover:text-ivory-50"
+                  className="font-serif text-2xl text-charcoal-900"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}
                 </a>
               ))}
-              <a href="#pricing" className="btn-primary rounded-none px-6 py-3 text-center text-sm uppercase tracking-widest">
-                Membership
-              </a>
-            </div>
+              <div className="divider my-4" />
+              <a href="#" className="label">Account</a>
+              <a href="#" className="label">Bag (0)</a>
+            </nav>
           </div>
         )}
       </div>

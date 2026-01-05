@@ -1,9 +1,6 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { ArrowRight, Globe, Plane, Compass, MapPin, CheckCircle } from 'lucide-react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
+import { useCtaAnimation, useRotationAnimation, useFloatingAnimation } from '@/shared/hooks'
 
 const BENEFITS = [
   'Acceso a 500+ destinos curados',
@@ -19,81 +16,10 @@ export function CtaSection() {
   const badgesRef = useRef<HTMLDivElement>(null)
   const floatingRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 70%',
-          toggleActions: 'play none none reverse',
-        },
-      })
-
-      // Icon with glow pulse
-      tl.from(iconRef.current, {
-        scale: 0,
-        rotation: -180,
-        opacity: 0,
-        duration: 0.8,
-        ease: 'back.out(1.7)',
-      })
-
-      // Globe rotation animation
-      const globeIcon = iconRef.current?.querySelector('.globe-icon')
-      if (globeIcon) {
-        gsap.to(globeIcon, {
-          rotationY: 360,
-          duration: 20,
-          repeat: -1,
-          ease: 'none',
-        })
-      }
-
-      // Content animation
-      const contentElements = contentRef.current?.querySelectorAll('.animate-item')
-      if (contentElements) {
-        tl.from(contentElements, {
-          opacity: 0,
-          y: 40,
-          duration: 0.6,
-          stagger: 0.12,
-          ease: 'power3.out',
-        }, '-=0.4')
-      }
-
-      // Benefit badges animation
-      const badges = badgesRef.current?.querySelectorAll('.benefit-badge')
-      if (badges) {
-        tl.from(badges, {
-          opacity: 0,
-          scale: 0.8,
-          y: 20,
-          duration: 0.5,
-          stagger: 0.1,
-          ease: 'back.out(1.7)',
-        }, '-=0.3')
-      }
-
-      // Floating decorative elements
-      if (floatingRef.current) {
-        const floatingElements = floatingRef.current.querySelectorAll('.floating-element')
-        floatingElements.forEach((el, index) => {
-          gsap.to(el, {
-            y: gsap.utils.random(-30, 30),
-            x: gsap.utils.random(-20, 20),
-            rotation: gsap.utils.random(-15, 15),
-            duration: gsap.utils.random(4, 6),
-            repeat: -1,
-            yoyo: true,
-            ease: 'sine.inOut',
-            delay: index * 0.3,
-          })
-        })
-      }
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
+  // Use standardized hooks
+  useCtaAnimation(sectionRef)
+  useRotationAnimation(iconRef, '.globe-icon', { duration: 20 })
+  useFloatingAnimation(floatingRef, '.floating-icon')
 
   return (
     <section ref={sectionRef} className="relative py-32 md:py-40 bg-gradient-section overflow-hidden">

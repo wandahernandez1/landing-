@@ -1,71 +1,18 @@
-import { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useRef } from 'react'
+import { useSectionAnimation, useStaggerReveal } from '@/shared/hooks'
 import { PRICING_PLANS } from './constants'
 import { Check, Crown, Shield, Zap } from 'lucide-react'
 import { cn } from '@/shared/utils'
-
-gsap.registerPlugin(ScrollTrigger)
 
 export function PricingSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Header animation
-      gsap.from(headerRef.current, {
-        opacity: 0,
-        y: 50,
-        duration: 0.8,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: headerRef.current,
-          start: 'top 85%',
-          toggleActions: 'play none none reverse'
-        }
-      })
-
-      // Cards animation with 3D effect
-      const cards = cardsRef.current?.querySelectorAll('[data-pricing-card]')
-      if (cards) {
-        gsap.from(cards, {
-          opacity: 0,
-          y: 80,
-          rotateY: 15,
-          stagger: 0.15,
-          duration: 0.8,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: cardsRef.current,
-            start: 'top 80%',
-            toggleActions: 'play none none reverse'
-          }
-        })
-      }
-
-      // Features list animation
-      const features = cardsRef.current?.querySelectorAll('[data-pricing-feature]')
-      if (features) {
-        gsap.from(features, {
-          opacity: 0,
-          x: -20,
-          stagger: 0.05,
-          duration: 0.4,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: cardsRef.current,
-            start: 'top 70%',
-            toggleActions: 'play none none reverse'
-          }
-        })
-      }
-
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
+  // Use standardized hooks
+  useSectionAnimation(headerRef)
+  useStaggerReveal(cardsRef, '[data-pricing-card]')
+  useStaggerReveal(cardsRef, '[data-pricing-feature]', { stagger: 0.05, fromX: -20 })
 
   return (
     <section 

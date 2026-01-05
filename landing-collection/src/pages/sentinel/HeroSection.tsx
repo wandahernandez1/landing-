@@ -1,51 +1,15 @@
 import { ArrowRight, Shield, Lock, Eye, Zap, CheckCircle } from 'lucide-react'
-import { useEffect, useRef } from 'react'
-import gsap from 'gsap'
+import { useRef } from 'react'
+import { useHeroAnimation, useFloatingAnimation, useRotationAnimation, usePulseAnimation } from '@/shared/hooks'
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null)
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
-
-      tl.from('.hero-badge', { y: -30, opacity: 0, duration: 0.8 })
-        .from('.hero-title-line', { y: 60, opacity: 0, stagger: 0.15, duration: 1 }, '-=0.4')
-        .from('.hero-subtitle', { y: 30, opacity: 0, duration: 0.8 }, '-=0.5')
-        .from('.hero-cta', { y: 20, opacity: 0, stagger: 0.1, duration: 0.6 }, '-=0.4')
-        .from('.hero-stat', { y: 40, opacity: 0, stagger: 0.15, duration: 0.8 }, '-=0.3')
-        .from('.trust-badge', { scale: 0.8, opacity: 0, stagger: 0.1, duration: 0.5 }, '-=0.4')
-
-      // Protection rings
-      gsap.to('.protection-ring', {
-        scale: 2,
-        opacity: 0,
-        duration: 2.5,
-        stagger: { each: 0.8, repeat: -1 },
-        ease: 'power1.out',
-      })
-
-      // Floating shields
-      gsap.to('.floating-shield', {
-        y: -15,
-        duration: 3,
-        stagger: { each: 0.5, yoyo: true, repeat: -1 },
-        ease: 'power1.inOut',
-      })
-
-      // Radar scan
-      gsap.to('.radar-line', {
-        rotation: 360,
-        duration: 4,
-        repeat: -1,
-        ease: 'none',
-        transformOrigin: 'center center',
-      })
-
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
+  // Use standardized hooks
+  useHeroAnimation(sectionRef)
+  useFloatingAnimation(sectionRef, '.floating-shield')
+  useRotationAnimation(sectionRef, '.radar-line', { duration: 4 })
+  usePulseAnimation(sectionRef, '.protection-ring', { minOpacity: 0.2, maxOpacity: 0 })
 
   return (
     <section 

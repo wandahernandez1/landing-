@@ -1,10 +1,7 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { Star, Quote, BadgeCheck, Building2, TrendingUp, Target } from 'lucide-react'
 import { TESTIMONIALS } from './constants'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
+import { useSectionAnimation, useStaggerReveal, useFloatingAnimation } from '@/shared/hooks'
 
 export function TestimonialsSection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -12,107 +9,17 @@ export function TestimonialsSection() {
   const cardsRef = useRef<HTMLDivElement>(null)
   const socialProofRef = useRef<HTMLDivElement>(null)
 
+  // Use standardized hooks
+  useSectionAnimation(headerRef)
+  useStaggerReveal(cardsRef, '.testimonial-card')
+  useFloatingAnimation(cardsRef, '.quote-icon')
+  useStaggerReveal(socialProofRef, '.stat-card')
+
   const socialProofStats = [
     { icon: Building2, value: '2.3M+', label: 'Propiedades analizadas' },
     { icon: TrendingUp, value: '15K+', label: 'Valoraciones realizadas' },
     { icon: Target, value: '98.2%', label: 'Precisión IA promedio' },
   ]
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Header animation
-      if (headerRef.current) {
-        gsap.fromTo(
-          headerRef.current.children,
-          { opacity: 0, y: 40 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            stagger: 0.15,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: headerRef.current,
-              start: 'top 80%',
-              toggleActions: 'play none none reverse'
-            }
-          }
-        )
-      }
-
-      // Cards animation with quote floating effect
-      if (cardsRef.current) {
-        const cards = cardsRef.current.querySelectorAll('.testimonial-card')
-        
-        gsap.fromTo(
-          cards,
-          { 
-            opacity: 0, 
-            y: 60,
-            scale: 0.95
-          },
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 0.8,
-            stagger: 0.15,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: cardsRef.current,
-              start: 'top 75%',
-              toggleActions: 'play none none reverse'
-            }
-          }
-        )
-
-        // Animate quote icons
-        const quotes = cardsRef.current.querySelectorAll('.quote-icon')
-        gsap.fromTo(
-          quotes,
-          { opacity: 0, scale: 0, rotation: -45 },
-          {
-            opacity: 0.3,
-            scale: 1,
-            rotation: 0,
-            duration: 0.6,
-            stagger: 0.15,
-            delay: 0.3,
-            ease: 'back.out(1.7)',
-            scrollTrigger: {
-              trigger: cardsRef.current,
-              start: 'top 75%',
-              toggleActions: 'play none none reverse'
-            }
-          }
-        )
-      }
-
-      // Social proof stats animation
-      if (socialProofRef.current) {
-        const statItems = socialProofRef.current.querySelectorAll('.social-proof-item')
-        gsap.fromTo(
-          statItems,
-          { opacity: 0, y: 30, scale: 0.9 },
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 0.6,
-            stagger: 0.12,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: socialProofRef.current,
-              start: 'top 85%',
-              toggleActions: 'play none none reverse'
-            }
-          }
-        )
-      }
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
 
   return (
     <section ref={sectionRef} id="testimonials" className="relative py-32 md:py-40">

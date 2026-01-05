@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
+import { useRef } from 'react'
+import { useHeroAnimation, useFloatingAnimation, useOrbAnimation } from '@/shared/hooks'
 import { Apple, Play, Leaf, Heart, Activity, TrendingUp } from 'lucide-react'
 
 export function HeroSection() {
@@ -7,101 +7,11 @@ export function HeroSection() {
   const phoneRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Main content timeline
-      const tl = gsap.timeline({ delay: 0.2 })
-
-      tl.from('[data-hero-badge]', {
-        opacity: 0,
-        y: 20,
-        scale: 0.9,
-        duration: 0.6,
-        ease: 'back.out(1.7)'
-      })
-      .from('[data-hero-title] > *', {
-        opacity: 0,
-        y: 40,
-        stagger: 0.1,
-        duration: 0.8,
-        ease: 'power3.out'
-      }, '-=0.3')
-      .from('[data-hero-description]', {
-        opacity: 0,
-        y: 30,
-        duration: 0.6,
-        ease: 'power3.out'
-      }, '-=0.4')
-      .from('[data-hero-buttons] > *', {
-        opacity: 0,
-        y: 20,
-        stagger: 0.1,
-        duration: 0.5,
-        ease: 'power2.out'
-      }, '-=0.3')
-      .from('[data-hero-stat]', {
-        opacity: 0,
-        y: 20,
-        stagger: 0.1,
-        duration: 0.5,
-        ease: 'power2.out'
-      }, '-=0.3')
-
-      // Phone entrance
-      gsap.from(phoneRef.current, {
-        opacity: 0,
-        y: 60,
-        scale: 0.9,
-        duration: 1.2,
-        ease: 'power3.out',
-        delay: 0.5
-      })
-
-      // Floating phone animation
-      gsap.to(phoneRef.current, {
-        y: -15,
-        duration: 3,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut'
-      })
-
-      // Organic orbs animation
-      gsap.to('[data-orb-1]', {
-        x: 30,
-        y: -20,
-        duration: 8,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut'
-      })
-
-      gsap.to('[data-orb-2]', {
-        x: -20,
-        y: 30,
-        duration: 10,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut'
-      })
-
-      // Floating leaves
-      const leaves = sectionRef.current?.querySelectorAll('[data-leaf]')
-      leaves?.forEach((leaf, i) => {
-        gsap.to(leaf, {
-          y: -30 + (i * 10),
-          rotation: 10 - (i * 5),
-          duration: 4 + i,
-          repeat: -1,
-          yoyo: true,
-          ease: 'sine.inOut'
-        })
-      })
-
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
+  // Use standardized hooks
+  useHeroAnimation(sectionRef)
+  useFloatingAnimation(sectionRef, '[data-leaf]')
+  useOrbAnimation(sectionRef, '[data-orb-1]', { duration: 8 })
+  useOrbAnimation(sectionRef, '[data-orb-2]', { duration: 10 })
 
   return (
     <section ref={sectionRef} className="relative min-h-screen flex items-center pt-16 overflow-hidden">

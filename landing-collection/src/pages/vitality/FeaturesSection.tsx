@@ -1,68 +1,19 @@
-import { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useRef, useEffect } from 'react'
+import { useSectionAnimation, useStaggerReveal } from '@/shared/hooks'
 import { FEATURES } from './constants'
 import { ArrowRight, Sparkles } from 'lucide-react'
-
-gsap.registerPlugin(ScrollTrigger)
 
 export function FeaturesSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)
 
+  // Use standardized hooks
+  useSectionAnimation(headerRef)
+  useStaggerReveal(cardsRef, '[data-feature-card]')
+
+  // Mouse tracking for card spotlight
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Header animation
-      gsap.from(headerRef.current, {
-        opacity: 0,
-        y: 50,
-        duration: 0.8,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: headerRef.current,
-          start: 'top 85%',
-          toggleActions: 'play none none reverse'
-        }
-      })
-
-      // Cards stagger animation
-      const cards = cardsRef.current?.querySelectorAll('[data-feature-card]')
-      if (cards) {
-        gsap.from(cards, {
-          opacity: 0,
-          y: 60,
-          scale: 0.95,
-          stagger: 0.12,
-          duration: 0.7,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: cardsRef.current,
-            start: 'top 80%',
-            toggleActions: 'play none none reverse'
-          }
-        })
-      }
-
-      // Icon bounce on scroll
-      const icons = cardsRef.current?.querySelectorAll('[data-feature-icon]')
-      icons?.forEach((icon) => {
-        gsap.from(icon, {
-          scale: 0,
-          rotation: -180,
-          duration: 0.6,
-          ease: 'back.out(1.7)',
-          scrollTrigger: {
-            trigger: icon,
-            start: 'top 85%',
-            toggleActions: 'play none none reverse'
-          }
-        })
-      })
-
-    }, sectionRef)
-
-    // Mouse tracking for card spotlight
     const handleMouseMove = (e: MouseEvent) => {
       const cards = cardsRef.current?.querySelectorAll('[data-feature-card]')
       cards?.forEach((card) => {
@@ -77,7 +28,6 @@ export function FeaturesSection() {
     cardsRef.current?.addEventListener('mousemove', handleMouseMove)
 
     return () => {
-      ctx.revert()
       cardsRef.current?.removeEventListener('mousemove', handleMouseMove)
     }
   }, [])

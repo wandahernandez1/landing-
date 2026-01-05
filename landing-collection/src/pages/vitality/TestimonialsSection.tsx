@@ -1,82 +1,18 @@
-import { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useRef } from 'react'
+import { useSectionAnimation, useStaggerReveal, useFloatingAnimation, useCountUp } from '@/shared/hooks'
 import { TESTIMONIALS } from './constants'
 import { Star, Quote, TrendingUp, Award } from 'lucide-react'
-
-gsap.registerPlugin(ScrollTrigger)
 
 export function TestimonialsSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Header animation
-      gsap.from(headerRef.current, {
-        opacity: 0,
-        y: 50,
-        duration: 0.8,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: headerRef.current,
-          start: 'top 85%',
-          toggleActions: 'play none none reverse'
-        }
-      })
-
-      // Cards stagger animation
-      const cards = cardsRef.current?.querySelectorAll('[data-testimonial-card]')
-      if (cards) {
-        gsap.from(cards, {
-          opacity: 0,
-          y: 60,
-          scale: 0.9,
-          stagger: 0.15,
-          duration: 0.7,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: cardsRef.current,
-            start: 'top 80%',
-            toggleActions: 'play none none reverse'
-          }
-        })
-      }
-
-      // Quote icon animation
-      const quotes = cardsRef.current?.querySelectorAll('[data-quote]')
-      quotes?.forEach((quote) => {
-        gsap.to(quote, {
-          rotation: 5,
-          y: -5,
-          duration: 3,
-          repeat: -1,
-          yoyo: true,
-          ease: 'sine.inOut'
-        })
-      })
-
-      // Stats counter animation
-      const stats = sectionRef.current?.querySelectorAll('[data-stat-number]')
-      stats?.forEach((stat) => {
-        gsap.from(stat, {
-          textContent: 0,
-          duration: 2,
-          ease: 'power2.out',
-          snap: { textContent: 1 },
-          scrollTrigger: {
-            trigger: stat,
-            start: 'top 90%',
-            toggleActions: 'play none none reverse'
-          }
-        })
-      })
-
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
+  // Use standardized hooks
+  useSectionAnimation(headerRef)
+  useStaggerReveal(cardsRef, '[data-testimonial-card]')
+  useFloatingAnimation(cardsRef, '[data-quote]')
+  useCountUp(sectionRef, '[data-stat-number]', { duration: 2 })
 
   return (
     <section 

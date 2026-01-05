@@ -1,85 +1,16 @@
-import { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useRef } from 'react'
+import { useCtaAnimation, useOrbAnimation, usePulseAnimation } from '@/shared/hooks'
 import { ArrowRight, Shield, Zap, Globe, CreditCard } from 'lucide-react'
-
-gsap.registerPlugin(ScrollTrigger)
 
 export function CtaSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Content animation timeline
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: contentRef.current,
-          start: 'top 80%',
-          toggleActions: 'play none none reverse'
-        }
-      })
-
-      tl.from('[data-cta-title]', {
-        opacity: 0,
-        y: 50,
-        duration: 0.8,
-        ease: 'power3.out'
-      })
-      .from('[data-cta-description]', {
-        opacity: 0,
-        y: 30,
-        duration: 0.6,
-        ease: 'power3.out'
-      }, '-=0.4')
-      .from('[data-cta-button]', {
-        opacity: 0,
-        y: 20,
-        scale: 0.9,
-        duration: 0.6,
-        ease: 'back.out(1.7)'
-      }, '-=0.3')
-      .from('[data-cta-features] > *', {
-        opacity: 0,
-        y: 15,
-        stagger: 0.1,
-        duration: 0.4,
-        ease: 'power2.out'
-      }, '-=0.2')
-
-      // Cyber orbs animation
-      gsap.to('[data-orb-1]', {
-        x: 40,
-        y: -30,
-        duration: 6,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut'
-      })
-
-      gsap.to('[data-orb-2]', {
-        x: -30,
-        y: 40,
-        duration: 8,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut'
-      })
-
-      // Neon line animation
-      gsap.to('[data-neon-line]', {
-        scaleX: 1.5,
-        opacity: 0.8,
-        duration: 2,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut'
-      })
-
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
+  // Use standardized hooks
+  useCtaAnimation(sectionRef)
+  useOrbAnimation(sectionRef, '[data-orb-1]', { duration: 6 })
+  useOrbAnimation(sectionRef, '[data-orb-2]', { duration: 8 })
+  usePulseAnimation(sectionRef, '[data-neon-line]', { minOpacity: 0.6, maxOpacity: 0.8 })
 
   return (
     <section 

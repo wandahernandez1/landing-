@@ -1,10 +1,7 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { Star, Quote, CheckCircle, Globe, Users, MapPin } from 'lucide-react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useSectionAnimation, useStaggerReveal, useFloatingAnimation } from '@/shared/hooks'
 import { TESTIMONIALS } from './constants'
-
-gsap.registerPlugin(ScrollTrigger)
 
 export function TestimonialsSection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -12,74 +9,11 @@ export function TestimonialsSection() {
   const cardsRef = useRef<HTMLDivElement>(null)
   const statsRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Header animation
-      gsap.from(headerRef.current, {
-        scrollTrigger: {
-          trigger: headerRef.current,
-          start: 'top 80%',
-          toggleActions: 'play none none reverse',
-        },
-        opacity: 0,
-        y: 50,
-        duration: 0.8,
-        ease: 'power3.out',
-      })
-
-      // Cards animation with quote float
-      const cards = cardsRef.current?.querySelectorAll('.testimonial-card')
-      if (cards) {
-        cards.forEach((card, index) => {
-          gsap.from(card, {
-            scrollTrigger: {
-              trigger: card,
-              start: 'top 85%',
-              toggleActions: 'play none none reverse',
-            },
-            opacity: 0,
-            y: 60,
-            rotation: index % 2 === 0 ? -3 : 3,
-            duration: 0.8,
-            delay: index * 0.15,
-            ease: 'power3.out',
-          })
-
-          // Quote icon floating animation
-          const quoteIcon = card.querySelector('.quote-icon')
-          gsap.to(quoteIcon, {
-            y: -10,
-            rotation: 5,
-            duration: 3,
-            repeat: -1,
-            yoyo: true,
-            ease: 'sine.inOut',
-            delay: index * 0.5,
-          })
-        })
-      }
-
-      // Social proof stats animation
-      const stats = statsRef.current?.querySelectorAll('.stat-item')
-      if (stats) {
-        gsap.from(stats, {
-          scrollTrigger: {
-            trigger: statsRef.current,
-            start: 'top 85%',
-            toggleActions: 'play none none reverse',
-          },
-          opacity: 0,
-          y: 40,
-          scale: 0.9,
-          duration: 0.6,
-          stagger: 0.12,
-          ease: 'back.out(1.7)',
-        })
-      }
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
+  // Use standardized hooks
+  useSectionAnimation(headerRef)
+  useStaggerReveal(cardsRef, '.testimonial-card')
+  useFloatingAnimation(cardsRef, '.quote-icon')
+  useStaggerReveal(statsRef, '.stat-item', { stagger: 0.15 })
 
   return (
     <section ref={sectionRef} id="testimonials" className="relative py-32 md:py-40 bg-gradient-section">

@@ -1,64 +1,14 @@
 import { PRICING_PLANS } from './constants'
 import { Check, TrendingUp } from 'lucide-react'
 import { cn } from '@/shared/utils'
-import { useEffect, useRef } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
+import { useRef } from 'react'
+import { usePricingAnimation } from '@/shared/hooks'
 
 export function PricingSection() {
   const sectionRef = useRef<HTMLElement>(null)
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from('.pricing-header', {
-        y: 40,
-        opacity: 0,
-        duration: 1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.pricing-header',
-          start: 'top 85%',
-        },
-      })
-
-      gsap.from('.pricing-card', {
-        y: 80,
-        opacity: 0,
-        rotateY: -15,
-        duration: 1,
-        stagger: 0.2,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.pricing-grid',
-          start: 'top 80%',
-        },
-      })
-
-      gsap.from('.feature-item', {
-        x: -20,
-        opacity: 0,
-        duration: 0.5,
-        stagger: 0.05,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: '.pricing-grid',
-          start: 'top 60%',
-        },
-      })
-
-      gsap.to('.popular-badge', {
-        scale: 1.05,
-        duration: 1,
-        repeat: -1,
-        yoyo: true,
-        ease: 'power1.inOut',
-      })
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
+  // Use standardized hook
+  usePricingAnimation(sectionRef)
 
   return (
     <section 

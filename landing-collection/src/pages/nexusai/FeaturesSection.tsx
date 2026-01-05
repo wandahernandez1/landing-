@@ -1,64 +1,32 @@
-import { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useRef, useEffect } from 'react'
 import { FEATURES } from './constants'
-
-gsap.registerPlugin(ScrollTrigger)
+import { useSectionAnimation, useStaggerReveal } from '@/shared/hooks'
 
 export function FeaturesSection() {
   const sectionRef = useRef<HTMLElement>(null)
+  const headerRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)
 
+  // Standardized GSAP animations
+  useSectionAnimation(headerRef)
+  useStaggerReveal(cardsRef, '[data-feature-card]', {
+    stagger: 0.12,
+  })
+
+  // Mouse tracking for card hover effects
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Header animation
-      gsap.from('[data-features-header] > *', {
-        scrollTrigger: {
-          trigger: '[data-features-header]',
-          start: 'top 80%',
-          toggleActions: 'play none none reverse',
-        },
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: 'power3.out',
+    const handleMouseMove = (e: MouseEvent) => {
+      const cards = document.querySelectorAll('[data-feature-card]')
+      cards.forEach((card) => {
+        const rect = (card as HTMLElement).getBoundingClientRect()
+        const x = e.clientX - rect.left
+        const y = e.clientY - rect.top
+        ;(card as HTMLElement).style.setProperty('--mouse-x', `${x}px`)
+        ;(card as HTMLElement).style.setProperty('--mouse-y', `${y}px`)
       })
-
-      // Cards stagger animation
-      const cards = cardsRef.current?.querySelectorAll('[data-feature-card]')
-      if (cards) {
-        gsap.from(cards, {
-          scrollTrigger: {
-            trigger: cardsRef.current,
-            start: 'top 75%',
-            toggleActions: 'play none none reverse',
-          },
-          y: 80,
-          opacity: 0,
-          duration: 0.8,
-          stagger: 0.12,
-          ease: 'power3.out',
-        })
-      }
-
-      // Card hover mouse tracking
-      const handleMouseMove = (e: MouseEvent) => {
-        const cards = document.querySelectorAll('[data-feature-card]')
-        cards.forEach((card) => {
-          const rect = (card as HTMLElement).getBoundingClientRect()
-          const x = e.clientX - rect.left
-          const y = e.clientY - rect.top
-          ;(card as HTMLElement).style.setProperty('--mouse-x', `${x}px`)
-          ;(card as HTMLElement).style.setProperty('--mouse-y', `${y}px`)
-        })
-      }
-
-      document.addEventListener('mousemove', handleMouseMove)
-      return () => document.removeEventListener('mousemove', handleMouseMove)
-    }, sectionRef)
-
-    return () => ctx.revert()
+    }
+    document.addEventListener('mousemove', handleMouseMove)
+    return () => document.removeEventListener('mousemove', handleMouseMove)
   }, [])
 
   return (

@@ -1,87 +1,15 @@
-import { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useRef } from 'react'
 import { ArrowRight, Sparkles, Zap, Shield, Clock } from 'lucide-react'
-
-gsap.registerPlugin(ScrollTrigger)
+import { useCtaAnimation, useOrbAnimation } from '@/shared/hooks'
 
 export function CtaSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
   const orbsRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Main content reveal animation
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: contentRef.current,
-          start: 'top 80%',
-          toggleActions: 'play none none reverse'
-        }
-      })
-
-      tl.from('[data-cta-badge]', {
-        opacity: 0,
-        scale: 0.8,
-        duration: 0.6,
-        ease: 'back.out(1.7)'
-      })
-      .from('[data-cta-title]', {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        ease: 'power3.out'
-      }, '-=0.3')
-      .from('[data-cta-description]', {
-        opacity: 0,
-        y: 30,
-        duration: 0.6,
-        ease: 'power3.out'
-      }, '-=0.4')
-      .from('[data-cta-button]', {
-        opacity: 0,
-        y: 20,
-        scale: 0.9,
-        duration: 0.6,
-        ease: 'back.out(1.7)'
-      }, '-=0.3')
-      .from('[data-cta-features] > *', {
-        opacity: 0,
-        y: 20,
-        stagger: 0.1,
-        duration: 0.5,
-        ease: 'power2.out'
-      }, '-=0.2')
-
-      // Floating orbs animation
-      const orbs = orbsRef.current?.querySelectorAll('[data-orb]')
-      if (orbs) {
-        orbs.forEach((orb, index) => {
-          gsap.to(orb, {
-            y: index % 2 === 0 ? -30 : 30,
-            x: index % 2 === 0 ? 20 : -20,
-            duration: 4 + index,
-            repeat: -1,
-            yoyo: true,
-            ease: 'sine.inOut'
-          })
-        })
-      }
-
-      // Pulse animation for sparkles
-      gsap.to('[data-sparkle]', {
-        scale: 1.2,
-        opacity: 0.8,
-        duration: 1.5,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut'
-      })
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
+  // Standardized GSAP animations
+  useCtaAnimation(sectionRef)
+  useOrbAnimation(orbsRef, '[data-orb]')
 
   return (
     <section 

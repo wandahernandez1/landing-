@@ -1,92 +1,18 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { Check } from 'lucide-react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useSectionAnimation, useStaggerReveal } from '@/shared/hooks'
 import { PRICING_PLANS } from './constants'
 import { cn } from '@/shared/utils/cn'
-
-gsap.registerPlugin(ScrollTrigger)
 
 export function PricingSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const headerRef = useRef<HTMLElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Header animation
-      gsap.from(headerRef.current, {
-        scrollTrigger: {
-          trigger: headerRef.current,
-          start: 'top 80%',
-          toggleActions: 'play none none reverse',
-        },
-        opacity: 0,
-        y: 50,
-        duration: 0.8,
-        ease: 'power3.out',
-      })
-
-      // Cards 3D animation
-      const cards = cardsRef.current?.querySelectorAll('.pricing-card')
-      if (cards) {
-        cards.forEach((card, index) => {
-          // Initial entrance animation
-          gsap.from(card, {
-            scrollTrigger: {
-              trigger: card,
-              start: 'top 85%',
-              toggleActions: 'play none none reverse',
-            },
-            opacity: 0,
-            y: 80,
-            rotateY: index === 1 ? 0 : (index === 0 ? -15 : 15),
-            duration: 0.8,
-            delay: index * 0.15,
-            ease: 'power3.out',
-          })
-
-          // Feature list stagger animation
-          const features = card.querySelectorAll('.feature-item')
-          gsap.from(features, {
-            scrollTrigger: {
-              trigger: card,
-              start: 'top 80%',
-              toggleActions: 'play none none reverse',
-            },
-            opacity: 0,
-            x: -20,
-            duration: 0.5,
-            stagger: 0.08,
-            delay: 0.3 + index * 0.15,
-            ease: 'power2.out',
-          })
-
-          // 3D hover effect
-          card.addEventListener('mouseenter', () => {
-            gsap.to(card, {
-              rotateY: 5,
-              rotateX: 2,
-              scale: 1.02,
-              duration: 0.4,
-              ease: 'power2.out',
-            })
-          })
-          card.addEventListener('mouseleave', () => {
-            gsap.to(card, {
-              rotateY: 0,
-              rotateX: 0,
-              scale: 1,
-              duration: 0.4,
-              ease: 'power2.out',
-            })
-          })
-        })
-      }
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
+  // Use standardized hooks
+  useSectionAnimation(headerRef)
+  useStaggerReveal(cardsRef, '.pricing-card')
+  useStaggerReveal(cardsRef, '.feature-item', { stagger: 0.08, fromX: -20 })
 
   return (
     <section ref={sectionRef} id="pricing" className="relative py-32 md:py-40 bg-sand-50">

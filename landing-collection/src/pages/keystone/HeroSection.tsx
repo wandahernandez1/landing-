@@ -1,7 +1,7 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { ArrowRight, Brain, Building, Home, MapPin, Key, Search, Shield, Award, Users } from 'lucide-react'
 import { COMPANY } from './constants'
-import gsap from 'gsap'
+import { useHeroAnimation, useFloatingAnimation, useCountUp } from '@/shared/hooks'
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -13,96 +13,10 @@ export function HeroSection() {
   const trustRef = useRef<HTMLDivElement>(null)
   const floatingIconsRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
-
-      // Floating icons animation
-      if (floatingIconsRef.current) {
-        gsap.set(floatingIconsRef.current.children, { 
-          opacity: 0, 
-          scale: 0,
-          rotation: -15
-        })
-        
-        tl.to(floatingIconsRef.current.children, {
-          opacity: 1,
-          scale: 1,
-          rotation: 0,
-          duration: 0.6,
-          stagger: 0.1,
-          ease: 'back.out(1.7)'
-        }, 0.2)
-      }
-
-      // Badge animation
-      if (badgeRef.current) {
-        gsap.set(badgeRef.current, { opacity: 0, y: 30, scale: 0.9 })
-        tl.to(badgeRef.current, {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.8
-        }, 0.3)
-      }
-
-      // Title animation with split
-      if (titleRef.current) {
-        gsap.set(titleRef.current, { opacity: 0, y: 50 })
-        tl.to(titleRef.current, {
-          opacity: 1,
-          y: 0,
-          duration: 1
-        }, 0.5)
-      }
-
-      // Subtitle animation
-      if (subtitleRef.current) {
-        gsap.set(subtitleRef.current, { opacity: 0, y: 30 })
-        tl.to(subtitleRef.current, {
-          opacity: 1,
-          y: 0,
-          duration: 0.8
-        }, 0.7)
-      }
-
-      // CTA buttons animation
-      if (ctaRef.current) {
-        gsap.set(ctaRef.current.children, { opacity: 0, y: 20, scale: 0.95 })
-        tl.to(ctaRef.current.children, {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.6,
-          stagger: 0.15
-        }, 0.9)
-      }
-
-      // Stats animation
-      if (statsRef.current) {
-        gsap.set(statsRef.current.children, { opacity: 0, y: 40 })
-        tl.to(statsRef.current.children, {
-          opacity: 1,
-          y: 0,
-          duration: 0.7,
-          stagger: 0.1
-        }, 1.1)
-      }
-
-      // Trust badges animation
-      if (trustRef.current) {
-        gsap.set(trustRef.current.children, { opacity: 0, x: -20 })
-        tl.to(trustRef.current.children, {
-          opacity: 1,
-          x: 0,
-          duration: 0.5,
-          stagger: 0.1
-        }, 1.4)
-      }
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
+  // Use standardized hooks
+  useHeroAnimation(sectionRef)
+  useFloatingAnimation(floatingIconsRef, '.floating-icon')
+  useCountUp(statsRef, '.stat-number', { duration: 2 })
 
   const floatingIcons = [
     { Icon: Building, className: 'top-20 left-[10%] float-property', delay: '0s' },

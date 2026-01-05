@@ -1,42 +1,14 @@
 import { ArrowRight, Play, BookOpen, Lightbulb, GraduationCap, Award } from 'lucide-react'
-import { useEffect, useRef } from 'react'
-import gsap from 'gsap'
+import { useRef } from 'react'
+import { useHeroAnimation, useFloatingAnimation, usePulseAnimation } from '@/shared/hooks'
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null)
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
-
-      tl.from('.hero-badge', { y: -30, opacity: 0, duration: 0.8 })
-        .from('.hero-title-line', { y: 60, opacity: 0, stagger: 0.15, duration: 1 }, '-=0.4')
-        .from('.hero-subtitle', { y: 30, opacity: 0, duration: 0.8 }, '-=0.5')
-        .from('.hero-cta', { y: 20, opacity: 0, stagger: 0.1, duration: 0.6 }, '-=0.4')
-        .from('.hero-stat', { y: 40, opacity: 0, stagger: 0.15, duration: 0.8 }, '-=0.3')
-        .from('.trust-badge', { scale: 0.8, opacity: 0, stagger: 0.1, duration: 0.5 }, '-=0.4')
-
-      // Floating icons
-      gsap.to('.floating-icon', {
-        y: -15,
-        duration: 3,
-        stagger: { each: 0.5, yoyo: true, repeat: -1 },
-        ease: 'power1.inOut',
-      })
-
-      // Light bulb glow pulse
-      gsap.to('.light-bulb', {
-        filter: 'drop-shadow(0 0 25px rgba(245, 158, 11, 0.6))',
-        duration: 1.5,
-        yoyo: true,
-        repeat: -1,
-        ease: 'power1.inOut',
-      })
-
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
+  // Use standardized hooks
+  useHeroAnimation(sectionRef)
+  useFloatingAnimation(sectionRef, '.floating-icon')
+  usePulseAnimation(sectionRef, '.light-bulb', { minOpacity: 0.5, maxOpacity: 1 })
 
   return (
     <section 

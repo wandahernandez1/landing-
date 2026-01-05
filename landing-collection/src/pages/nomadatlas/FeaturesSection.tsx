@@ -1,14 +1,15 @@
-import { useEffect, useRef, useCallback } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useRef, useCallback, useEffect } from 'react'
+import { useSectionAnimation, useStaggerReveal } from '@/shared/hooks'
 import { FEATURES } from './constants'
-
-gsap.registerPlugin(ScrollTrigger)
 
 export function FeaturesSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const headerRef = useRef<HTMLElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)
+
+  // Use standardized hooks
+  useSectionAnimation(headerRef)
+  useStaggerReveal(cardsRef, '.feature-card')
 
   const handleMouseMove = useCallback((e: MouseEvent, card: HTMLElement) => {
     const rect = card.getBoundingClientRect()
@@ -18,75 +19,21 @@ export function FeaturesSection() {
     card.style.setProperty('--mouse-y', `${y}px`)
   }, [])
 
+  // Mouse tracking (separate from GSAP)
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Header animation
-      gsap.from(headerRef.current, {
-        scrollTrigger: {
-          trigger: headerRef.current,
-          start: 'top 80%',
-          toggleActions: 'play none none reverse',
-        },
-        opacity: 0,
-        y: 50,
-        duration: 0.8,
-        ease: 'power3.out',
-      })
-
-      // Cards stagger animation
-      const cards = cardsRef.current?.querySelectorAll('.feature-card')
-      if (cards) {
-        gsap.from(cards, {
-          scrollTrigger: {
-            trigger: cardsRef.current,
-            start: 'top 75%',
-            toggleActions: 'play none none reverse',
-          },
-          opacity: 0,
-          y: 60,
-          duration: 0.8,
-          stagger: 0.15,
-          ease: 'power3.out',
-        })
-
-        // Icon bounce animation on hover
-        cards.forEach((card) => {
-          const icon = card.querySelector('.feature-icon')
-          card.addEventListener('mouseenter', () => {
-            gsap.to(icon, {
-              y: -8,
-              duration: 0.3,
-              ease: 'power2.out',
-            })
-          })
-          card.addEventListener('mouseleave', () => {
-            gsap.to(icon, {
-              y: 0,
-              duration: 0.3,
-              ease: 'power2.out',
-            })
-          })
-        })
-      }
-    }, sectionRef)
-
-    // Mouse tracking for spotlight effect
-    const cards = cardsRef.current?.querySelectorAll('.feature-card') as NodeListOf<HTMLElement>
-    const handlers = new Map<HTMLElement, (e: MouseEvent) => void>()
+    const cards = cardsRef.current?.querySelectorAll('.feature-card')
     
     cards?.forEach((card) => {
-      const handler = (e: MouseEvent) => handleMouseMove(e, card)
-      handlers.set(card, handler)
-      card.addEventListener('mousemove', handler)
+      const cardEl = card as HTMLElement
+      const handler = (e: MouseEvent) => handleMouseMove(e, cardEl)
+      cardEl.addEventListener('mousemove', handler)
     })
 
     return () => {
-      ctx.revert()
       cards?.forEach((card) => {
-        const handler = handlers.get(card)
-        if (handler) {
-          card.removeEventListener('mousemove', handler)
-        }
+        const cardEl = card as HTMLElement
+        const handler = (e: MouseEvent) => handleMouseMove(e, cardEl)
+        cardEl.removeEventListener('mousemove', handler)
       })
     }
   }, [handleMouseMove])

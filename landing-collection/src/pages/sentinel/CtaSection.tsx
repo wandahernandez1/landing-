@@ -1,63 +1,15 @@
 import { ArrowRight, Shield, Lock, Eye, Zap, CheckCircle } from 'lucide-react'
-import { useEffect, useRef } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
+import { useRef } from 'react'
+import { useCtaAnimation, useFloatingAnimation, usePulseAnimation } from '@/shared/hooks'
 
 export function CtaSection() {
   const sectionRef = useRef<HTMLElement>(null)
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 75%',
-        },
-      })
-
-      tl.from('.cta-shield', {
-        scale: 0.5,
-        opacity: 0,
-        duration: 0.8,
-        ease: 'back.out(1.5)',
-      })
-        .from('.cta-title', { y: 40, opacity: 0, duration: 0.8 }, '-=0.4')
-        .from('.cta-subtitle', { y: 30, opacity: 0, duration: 0.6 }, '-=0.4')
-        .from('.cta-button', { y: 20, opacity: 0, duration: 0.5 }, '-=0.3')
-        .from('.cta-note', { opacity: 0, duration: 0.4 }, '-=0.2')
-        .from('.compliance-badge', { scale: 0.8, opacity: 0, stagger: 0.1, duration: 0.4 }, '-=0.2')
-
-      // Shield pulse animation
-      gsap.to('.shield-glow', {
-        scale: 1.3,
-        opacity: 0,
-        duration: 2,
-        repeat: -1,
-        ease: 'power1.out',
-      })
-
-      // Floating icons
-      gsap.to('.floating-icon', {
-        y: -10,
-        duration: 2.5,
-        stagger: { each: 0.4, yoyo: true, repeat: -1 },
-        ease: 'power1.inOut',
-      })
-
-      // Protection rings
-      gsap.to('.cta-ring', {
-        scale: 2,
-        opacity: 0,
-        duration: 3,
-        stagger: { each: 0.8, repeat: -1 },
-        ease: 'power1.out',
-      })
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
+  // Use standardized hooks
+  useCtaAnimation(sectionRef)
+  useFloatingAnimation(sectionRef, '.floating-icon')
+  usePulseAnimation(sectionRef, '.shield-glow', { minOpacity: 0.3, maxOpacity: 0 })
+  usePulseAnimation(sectionRef, '.cta-ring', { minOpacity: 0.2, maxOpacity: 0 })
 
   return (
     <section 

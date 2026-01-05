@@ -1,96 +1,16 @@
-import { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
+import { useRef } from 'react'
+import { useHeroAnimation, useOrbAnimation, useCountUp } from '@/shared/hooks'
 import { ArrowRight, CreditCard, Shield, Zap, Globe, TrendingUp } from 'lucide-react'
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Main content timeline
-      const tl = gsap.timeline({ delay: 0.3 })
-
-      tl.from('[data-hero-badge]', {
-        opacity: 0,
-        y: 20,
-        scale: 0.9,
-        duration: 0.6,
-        ease: 'back.out(1.7)'
-      })
-      .from('[data-hero-title] > *', {
-        opacity: 0,
-        y: 50,
-        stagger: 0.1,
-        duration: 0.8,
-        ease: 'power3.out'
-      }, '-=0.3')
-      .from('[data-hero-description]', {
-        opacity: 0,
-        y: 30,
-        duration: 0.6,
-        ease: 'power3.out'
-      }, '-=0.4')
-      .from('[data-hero-buttons] > *', {
-        opacity: 0,
-        y: 20,
-        stagger: 0.1,
-        duration: 0.5,
-        ease: 'power2.out'
-      }, '-=0.3')
-      .from('[data-hero-stat]', {
-        opacity: 0,
-        y: 30,
-        stagger: 0.1,
-        duration: 0.6,
-        ease: 'power2.out'
-      }, '-=0.2')
-      .from('[data-trust-badge]', {
-        opacity: 0,
-        scale: 0.8,
-        stagger: 0.1,
-        duration: 0.4,
-        ease: 'back.out(1.7)'
-      }, '-=0.3')
-
-      // Cyber orbs animation
-      gsap.to('[data-cyber-orb-1]', {
-        x: 50,
-        y: -30,
-        duration: 8,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut'
-      })
-
-      gsap.to('[data-cyber-orb-2]', {
-        x: -40,
-        y: 40,
-        duration: 10,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut'
-      })
-
-      // Stats counter animation
-      const stats = sectionRef.current?.querySelectorAll('[data-stat-value]')
-      stats?.forEach((stat) => {
-        const value = stat.getAttribute('data-value')
-        if (value) {
-          gsap.from(stat, {
-            textContent: 0,
-            duration: 2,
-            ease: 'power2.out',
-            snap: { textContent: 1 },
-            delay: 1
-          })
-        }
-      })
-
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
+  // Use standardized hooks
+  useHeroAnimation(sectionRef)
+  useOrbAnimation(sectionRef, '[data-cyber-orb-1]', { duration: 8 })
+  useOrbAnimation(sectionRef, '[data-cyber-orb-2]', { duration: 10 })
+  useCountUp(sectionRef, '[data-stat-value]', { duration: 2, delay: 1 })
 
   return (
     <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">

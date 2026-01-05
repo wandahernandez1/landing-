@@ -1,136 +1,145 @@
-import type {
-  Feature,
-  Testimonial,
-  PricingPlan,
-  NavLink,
-} from "@/shared/types";
-import { Gem, Shirt, Package, Clock, Shield, Sparkles } from "lucide-react";
+import type { NavLink } from '@/shared/types'
 
 export const COMPANY = {
-  name: "Atelier Noir",
-  tagline: "Luxury Redefined",
+  name: 'Atelier Noir',
+  tagline: 'Curated luxury. Conscious craft.',
   year: new Date().getFullYear(),
-};
+}
 
 export const NAV_LINKS: NavLink[] = [
-  { label: "Colecciones", href: "#features" },
-  { label: "Testimonios", href: "#testimonials" },
-  { label: "Membresía", href: "#pricing" },
-];
+  { label: 'Collections', href: '#collections' },
+  { label: 'The Edit', href: '#edit' },
+  { label: 'Artisans', href: '#artisans' },
+  { label: 'Values', href: '#values' },
+]
 
-export const FEATURES: Feature[] = [
+export const COLLECTIONS = [
   {
-    icon: Gem,
-    title: "Piezas Únicas",
-    description:
-      "Cada artículo es seleccionado por expertos. Ediciones limitadas de las mejores maisons.",
+    id: 'home',
+    title: 'Home',
+    subtitle: 'Living spaces reimagined',
+    image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80',
   },
   {
-    icon: Shirt,
-    title: "Curación Experta",
-    description:
-      "Personal shoppers dedicados que entienden tu estilo y preferencias.",
+    id: 'wardrobe',
+    title: 'Wardrobe',
+    subtitle: 'Timeless essentials',
+    image: 'https://images.unsplash.com/photo-1558171813-4c088753af8f?w=800&q=80',
   },
   {
-    icon: Package,
-    title: "Entrega White Glove",
-    description:
-      "Empaque de lujo y entrega personal con guantes blancos en tu domicilio.",
+    id: 'accessories',
+    title: 'Accessories',
+    subtitle: 'Refined details',
+    image: 'https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=800&q=80',
   },
   {
-    icon: Clock,
-    title: "Acceso Anticipado",
-    description:
-      "Sé el primero en acceder a colecciones exclusivas antes del público.",
+    id: 'gifts',
+    title: 'Gifts',
+    subtitle: 'Thoughtful gestures',
+    image: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=800&q=80',
   },
-  {
-    icon: Shield,
-    title: "Autenticidad Garantizada",
-    description:
-      "Cada pieza verificada por expertos con certificado de autenticidad.",
-  },
-  {
-    icon: Sparkles,
-    title: "Eventos Privados",
-    description:
-      "Invitaciones a showrooms privados y eventos exclusivos de moda.",
-  },
-];
+]
 
-export const TESTIMONIALS: Testimonial[] = [
+export const ARTISAN_STORIES = [
   {
-    quote:
-      "Atelier Noir transformó mi manera de comprar moda. Cada pieza es una inversión en estilo.",
-    author: "Victoria Santander",
-    role: "CEO • Grupo Empresarial",
-    rating: 5,
+    id: 'ceramics',
+    title: 'The Art of Patience',
+    subtitle: 'Ceramics crafted over weeks, not hours',
+    description: 'In a quiet studio in Kyoto, master ceramicist Yuki Tanaka shapes each piece by hand, honoring traditions passed down through five generations. Every imperfection tells a story.',
+    image: 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=800&q=80',
   },
   {
-    quote:
-      "La experiencia de unboxing es tan lujosa como las piezas. Atención al detalle impecable.",
-    author: "Alejandro Reyes",
-    role: "Director Creativo",
-    rating: 5,
+    id: 'textiles',
+    title: 'Threads of Heritage',
+    subtitle: 'Hand-woven textiles from ancient looms',
+    description: 'Our linens come from a family workshop in Portugal, where the rhythm of wooden looms has remained unchanged for over a century. Each thread carries the weight of time.',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
   },
-  {
-    quote:
-      "Mi personal shopper entiende exactamente lo que busco. Es como tener un estilista privado.",
-    author: "Isabella Montenegro",
-    role: "Empresaria",
-    rating: 5,
-  },
-];
+]
 
-export const PRICING_PLANS: PricingPlan[] = [
+export const VALUES = [
   {
-    name: "Curator",
-    price: "$299",
-    period: "/mes",
-    description: "Acceso a la experiencia Atelier.",
-    features: [
-      "Catálogo curado mensual",
-      "Personal shopper digital",
-      "Envío priority",
-      "Devoluciones gratuitas",
-      "Acceso a drops limitados",
-    ],
-    cta: "Comenzar",
+    title: 'Materials',
+    description: 'Every material is traced to its origin. We partner only with suppliers who share our commitment to quality and environmental responsibility.',
+    icon: 'leaf',
   },
   {
-    name: "Connoisseur",
-    price: "$899",
-    period: "/mes",
-    description: "Para el verdadero conocedor.",
-    features: [
-      "Todo de Curator",
-      "Personal shopper dedicado",
-      "White glove delivery",
-      "Acceso anticipado 48h",
-      "Eventos exclusivos",
-      "Alteraciones incluidas",
-    ],
-    cta: "Aplicar",
-    popular: true,
+    title: 'Sourcing',
+    description: 'Direct relationships with artisans ensure fair compensation and preserve traditional craftsmanship for future generations.',
+    icon: 'globe',
   },
   {
-    name: "Maison",
-    price: "Invitation",
-    period: "only",
-    description: "La experiencia definitiva.",
-    features: [
-      "Todo de Connoisseur",
-      "Piezas únicas reservadas",
-      "Viajes a Fashion Weeks",
-      "Acceso a subastas privadas",
-      "Servicio de archivo personal",
-      "Concierge 24/7",
-    ],
-    cta: "Solicitar",
+    title: 'Lifetime Repair',
+    description: 'We stand behind every piece. Our lifetime repair program means your purchase is designed to last, not to be replaced.',
+    icon: 'refresh',
   },
-];
+  {
+    title: 'Packaging',
+    description: 'Plastic-free, compostable packaging that protects your purchase while respecting our planet. Every unboxing is an experience.',
+    icon: 'package',
+  },
+]
 
-export const FOOTER_LINKS: NavLink[] = [
-  { label: "Maisons", href: "/brands" },
-  { label: "Journal", href: "/journal" },
-  { label: "Contacto", href: "/contact" },
-];
+export const PRESS_LOGOS = [
+  { name: 'Vogue', logo: 'VOGUE' },
+  { name: 'Architectural Digest', logo: 'AD' },
+  { name: 'Monocle', logo: 'MONOCLE' },
+  { name: 'Wallpaper', logo: 'WALLPAPER*' },
+]
+
+export const REVIEWS = [
+  {
+    quote: 'The attention to detail is extraordinary. Each piece feels like it was made just for me.',
+    author: 'Sophie M.',
+    location: 'Paris',
+    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&q=80',
+  },
+  {
+    quote: 'Finally, a brand that understands the difference between luxury and excess.',
+    author: 'James K.',
+    location: 'London',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80',
+  },
+  {
+    quote: 'The craftsmanship speaks for itself. These are pieces I will pass down to my children.',
+    author: 'Elena R.',
+    location: 'Milan',
+    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&q=80',
+  },
+]
+
+export const CERTIFICATIONS = [
+  'B Corp Certified',
+  'Carbon Neutral',
+  'Fair Trade',
+]
+
+export const INSTAGRAM_IMAGES = [
+  'https://images.unsplash.com/photo-1618220179428-22790b461013?w=400&q=80',
+  'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=400&q=80',
+  'https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=400&q=80',
+  'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&q=80',
+  'https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?w=400&q=80',
+  'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=400&q=80',
+]
+
+export const FOOTER_LINKS = {
+  shop: [
+    { label: 'Home', href: '#' },
+    { label: 'Wardrobe', href: '#' },
+    { label: 'Accessories', href: '#' },
+    { label: 'Gifts', href: '#' },
+  ],
+  about: [
+    { label: 'Our Story', href: '#' },
+    { label: 'Artisans', href: '#' },
+    { label: 'Sustainability', href: '#' },
+    { label: 'Press', href: '#' },
+  ],
+  support: [
+    { label: 'Contact', href: '#' },
+    { label: 'Shipping', href: '#' },
+    { label: 'Returns', href: '#' },
+    { label: 'Care Guide', href: '#' },
+  ],
+}

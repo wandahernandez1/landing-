@@ -1,404 +1,726 @@
 @import 'tailwindcss';
 
 @theme {
-    --color-charcoal-800: #292524;
-    --color-charcoal-900: #1c1917;
-    --color-charcoal-950: #0c0a09;
+    /* Refined Charcoal Palette */
+    --color-charcoal-50: #f7f7f6;
+    --color-charcoal-100: #e8e8e7;
+    --color-charcoal-200: #d4d4d3;
+    --color-charcoal-300: #b5b5b3;
+    --color-charcoal-400: #8f8f8c;
+    --color-charcoal-500: #6b6b68;
+    --color-charcoal-600: #5a5a57;
+    --color-charcoal-700: #4a4a48;
+    --color-charcoal-800: #3f3f3d;
+    --color-charcoal-900: #1f2937;
+    --color-charcoal-950: #171717;
 
-    --color-ivory-50: #fefdfb;
-    --color-ivory-100: #fdfcfa;
-    --color-ivory-200: #faf8f5;
+    /* Ivory / Cream Palette */
+    --color-ivory-50: #fdfcfb;
+    --color-ivory-100: #faf9f7;
+    --color-ivory-200: #f5f3f0;
+    --color-ivory-300: #eae7e2;
+    --color-ivory-400: #d8d4cd;
+    --color-ivory-500: #c4bfb5;
 
-    --color-gold-300: #fde68a;
-    --color-gold-400: #fcd34d;
-    --color-gold-500: #f59e0b;
+    /* Accent - Copper subtle */
+    --color-accent-400: #b08968;
+    --color-accent-500: #9c7a5a;
+    --color-accent-600: #8a6b4e;
 
-    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    /* Typography */
     --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+
+    /* Refined Transitions */
+    --ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+    --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 /* ============================================
-   ATELIER NOIR - Luxury Design System
+   ATELIER NOIR — Editorial Luxury System
+   Apple-Inspired Minimalism
    ============================================ */
 
 .ateliernoir {
-    background-color: #0c0a09;
-    color: #fefdfb;
-}
-
-/* Subtle Premium Grain Texture */
-.ateliernoir::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1000;
-    opacity: 0.015;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-}
-
-.ateliernoir .glass {
-    background: rgba(12, 10, 9, 0.92);
-    backdrop-filter: saturate(180%) blur(20px);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    background-color: var(--color-ivory-50);
+    color: var(--color-charcoal-900);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    letter-spacing: -0.011em;
 }
 
 /* ============================================
-   Button Styles - Ultra Smooth Transitions
+   Typography System
    ============================================ */
 
-.ateliernoir .btn-primary {
-    background: #fefdfb;
-    color: #0c0a09;
-    transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-    position: relative;
-    overflow: hidden;
-}
-
-.ateliernoir .btn-primary::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(252, 211, 77, 0.1) 0%, transparent 50%, rgba(252, 211, 77, 0.1) 100%);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.ateliernoir .btn-primary:hover {
-    background: #faf8f5;
-    box-shadow: 0 10px 40px rgba(254, 253, 251, 0.12), 0 0 0 1px rgba(252, 211, 77, 0.1);
-    transform: translateY(-2px);
-}
-
-.ateliernoir .btn-primary:hover::before {
-    opacity: 1;
-}
-
-.ateliernoir .btn-secondary {
-    background: transparent;
-    border: 1px solid rgba(254, 253, 251, 0.3);
-    color: #fefdfb;
-    transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-    position: relative;
-}
-
-.ateliernoir .btn-secondary::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(252, 211, 77, 0.03) 0%, transparent 100%);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.ateliernoir .btn-secondary:hover {
-    border-color: rgba(252, 211, 77, 0.4);
-    background: rgba(254, 253, 251, 0.03);
-}
-
-.ateliernoir .btn-secondary:hover::before {
-    opacity: 1;
-}
-
-.ateliernoir .text-gradient {
-    background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.ateliernoir .text-serif {
+.ateliernoir .font-serif {
     font-family: var(--font-serif);
     font-weight: 400;
     letter-spacing: 0.02em;
 }
 
+.ateliernoir .display-large {
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+}
+
+.ateliernoir .display-medium {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+}
+
+.ateliernoir .display-small {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.ateliernoir .body-large {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-charcoal-500);
+}
+
+.ateliernoir .body-small {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--color-charcoal-400);
+}
+
+.ateliernoir .label {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-charcoal-400);
+}
+
 /* ============================================
-   Card Styles with Spotlight Effect
+   Glass & Surfaces
    ============================================ */
 
-.ateliernoir .card {
-    background: linear-gradient(135deg, rgba(41, 37, 36, 0.5) 0%, rgba(12, 10, 9, 0.9) 100%);
-    border: 1px solid rgba(254, 253, 251, 0.08);
-    transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+.ateliernoir .glass {
+    background: rgba(253, 252, 251, 0.85);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+
+.ateliernoir .surface-elevated {
+    background: var(--color-ivory-100);
+}
+
+.ateliernoir .surface-subtle {
+    background: var(--color-ivory-200);
+}
+
+/* ============================================
+   Buttons — Refined & Minimal
+   ============================================ */
+
+.ateliernoir .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: var(--color-charcoal-900);
+    color: var(--color-ivory-50);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s var(--ease-smooth);
+}
+
+.ateliernoir .btn-primary:hover {
+    background: var(--color-charcoal-950);
+    transform: translateY(-1px);
+}
+
+.ateliernoir .btn-primary:active {
+    transform: translateY(0);
+}
+
+.ateliernoir .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: transparent;
+    color: var(--color-charcoal-900);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid var(--color-charcoal-200);
+    cursor: pointer;
+    transition: all 0.4s var(--ease-smooth);
+}
+
+.ateliernoir .btn-secondary:hover {
+    border-color: var(--color-charcoal-900);
+    background: var(--color-charcoal-900);
+    color: var(--color-ivory-50);
+}
+
+.ateliernoir .btn-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    background: transparent;
+    color: var(--color-charcoal-900);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s var(--ease-smooth);
+    position: relative;
+}
+
+.ateliernoir .btn-text::after {
+    content: '';
+    position: absolute;
+    bottom: 0.25rem;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--color-charcoal-900);
+    transition: width 0.4s var(--ease-out-expo);
+}
+
+.ateliernoir .btn-text:hover::after {
+    width: 100%;
+}
+
+/* ============================================
+   Cards — Editorial Style
+   ============================================ */
+
+.ateliernoir .card-editorial {
+    background: var(--color-ivory-100);
+    transition: all 0.5s var(--ease-smooth);
+    overflow: hidden;
+}
+
+.ateliernoir .card-editorial:hover {
+    background: var(--color-ivory-200);
+}
+
+.ateliernoir .card-editorial img {
+    transition: transform 0.8s var(--ease-out-expo);
+}
+
+.ateliernoir .card-editorial:hover img {
+    transform: scale(1.03);
+}
+
+/* ============================================
+   Dividers & Lines
+   ============================================ */
+
+.ateliernoir .divider {
+    height: 1px;
+    background: var(--color-charcoal-200);
+}
+
+.ateliernoir .divider-subtle {
+    height: 1px;
+    background: var(--color-charcoal-100);
+}
+
+/* ============================================
+   Scroll Indicator
+   ============================================ */
+
+.ateliernoir .scroll-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.ateliernoir .scroll-indicator:hover {
+    opacity: 0.8;
+}
+
+.ateliernoir .scroll-line {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, var(--color-charcoal-300), transparent);
     position: relative;
     overflow: hidden;
 }
 
-.ateliernoir .card::before {
+.ateliernoir .scroll-line::after {
     content: '';
     position: absolute;
-    inset: 0;
-    background: radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-            rgba(252, 211, 77, 0.03),
-            transparent 40%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    pointer-events: none;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-charcoal-900);
+    animation: scrollDown 2s ease-in-out infinite;
 }
 
-.ateliernoir .card:hover {
-    border-color: rgba(254, 253, 251, 0.12);
-    transform: translateY(-2px);
-}
-
-.ateliernoir .card:hover::before {
-    opacity: 1;
-}
-
-.ateliernoir .bg-glow {
-    background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(245, 158, 11, 0.08), transparent 70%);
-}
-
-.ateliernoir .divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(254, 253, 251, 0.15), transparent);
-}
-
-.ateliernoir .luxury-border {
-    border: 1px solid rgba(254, 253, 251, 0.1);
+@keyframes scrollDown {
+    0% {
+        top: -100%;
+    }
+    50% {
+        top: 100%;
+    }
+    100% {
+        top: 100%;
+    }
 }
 
 /* ============================================
-   Elegant Keyframe Animations
+   Image Treatments
    ============================================ */
 
-@keyframes elegantFade {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
+.ateliernoir .image-editorial {
+    position: relative;
+    overflow: hidden;
+}
 
-    100% {
+.ateliernoir .image-editorial img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1s var(--ease-out-expo), opacity 0.6s ease;
+}
+
+.ateliernoir .image-editorial:hover img {
+    transform: scale(1.02);
+}
+
+/* ============================================
+   Collection Grid Hover
+   ============================================ */
+
+.ateliernoir .collection-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.ateliernoir .collection-item .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(31, 41, 55, 0.6) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s var(--ease-smooth);
+}
+
+.ateliernoir .collection-item:hover .overlay {
+    opacity: 1;
+}
+
+.ateliernoir .collection-item .content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.5s var(--ease-out-expo);
+}
+
+.ateliernoir .collection-item:hover .content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* ============================================
+   Animations — Subtle & Natural
+   ============================================ */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-@keyframes luxuryShimmer {
-    0% {
-        background-position: -200% center;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
     }
-
-    100% {
-        background-position: 200% center;
-    }
-}
-
-@keyframes diamondSparkle {
-
-    0%,
-    100% {
-        opacity: 0.3;
-        transform: scale(1) rotate(0deg);
-    }
-
-    25% {
-        opacity: 0.6;
-        transform: scale(1.05) rotate(1deg);
-    }
-
-    50% {
-        opacity: 0.4;
-        transform: scale(1) rotate(0deg);
-    }
-
-    75% {
-        opacity: 0.7;
-        transform: scale(1.03) rotate(-1deg);
+    to {
+        opacity: 1;
     }
 }
 
-@keyframes floatElegant {
-
-    0%,
-    100% {
-        transform: translateY(0) rotate(0deg);
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.98);
     }
-
-    50% {
-        transform: translateY(-15px) rotate(2deg);
-    }
-}
-
-@keyframes statPulse {
-
-    0%,
-    100% {
+    to {
         opacity: 1;
         transform: scale(1);
     }
+}
 
-    50% {
-        opacity: 0.85;
-        transform: scale(1.02);
+.ateliernoir .animate-fade-in-up {
+    animation: fadeInUp 0.8s var(--ease-out-expo) forwards;
+}
+
+.ateliernoir .animate-fade-in {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+.ateliernoir .animate-scale-in {
+    animation: scaleIn 0.8s var(--ease-out-expo) forwards;
+}
+
+/* Stagger Delays */
+.ateliernoir .delay-100 { animation-delay: 100ms; }
+.ateliernoir .delay-200 { animation-delay: 200ms; }
+.ateliernoir .delay-300 { animation-delay: 300ms; }
+.ateliernoir .delay-400 { animation-delay: 400ms; }
+.ateliernoir .delay-500 { animation-delay: 500ms; }
+.ateliernoir .delay-600 { animation-delay: 600ms; }
+
+/* ============================================
+   Form Elements
+   ============================================ */
+
+.ateliernoir .input-minimal {
+    width: 100%;
+    padding: 1rem 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--color-charcoal-200);
+    font-size: 1rem;
+    color: var(--color-charcoal-900);
+    transition: border-color 0.3s ease;
+    outline: none;
+}
+
+.ateliernoir .input-minimal::placeholder {
+    color: var(--color-charcoal-400);
+}
+
+.ateliernoir .input-minimal:focus {
+    border-color: var(--color-charcoal-900);
+}
+
+/* ============================================
+   Instagram Grid
+   ============================================ */
+
+.ateliernoir .instagram-item {
+    aspect-ratio: 1;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.ateliernoir .instagram-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(20%);
+    transition: all 0.5s var(--ease-smooth);
+}
+
+.ateliernoir .instagram-item:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+/* ============================================
+   Badge Styles
+   ============================================ */
+
+.ateliernoir .badge-minimal {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--color-ivory-200);
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-charcoal-600);
+}
+
+/* ============================================
+   Quote Styling
+   ============================================ */
+
+.ateliernoir .quote-mark {
+    font-family: var(--font-serif);
+    font-size: 4rem;
+    line-height: 1;
+    color: var(--color-charcoal-200);
+}
+
+/* ============================================
+   Section Spacing
+   ============================================ */
+
+.ateliernoir .section-padding {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+}
+
+@media (min-width: 768px) {
+    .ateliernoir .section-padding {
+        padding-top: 10rem;
+        padding-bottom: 10rem;
     }
 }
 
-@keyframes subtleGlow {
-
-    0%,
-    100% {
-        box-shadow: 0 0 20px rgba(252, 211, 77, 0.1);
-    }
-
-    50% {
-        box-shadow: 0 0 30px rgba(252, 211, 77, 0.15);
-    }
-}
-
-@keyframes quoteReveal {
-    0% {
-        opacity: 0;
-        transform: translateX(-10px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateX(0);
+@media (min-width: 1024px) {
+    .ateliernoir .section-padding {
+        padding-top: 12rem;
+        padding-bottom: 12rem;
     }
 }
 
 /* ============================================
-   Animation Utility Classes
+   Focus States (Accessibility)
    ============================================ */
 
-.ateliernoir .animate-elegant-fade {
-    animation: elegantFade 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+.ateliernoir :focus-visible {
+    outline: 2px solid var(--color-charcoal-900);
+    outline-offset: 3px;
 }
 
-.ateliernoir .animate-float-elegant {
-    animation: floatElegant 8s ease-in-out infinite;
+/* ============================================
+   Selection
+   ============================================ */
+
+.ateliernoir ::selection {
+    background-color: var(--color-charcoal-900);
+    color: var(--color-ivory-50);
 }
 
-.ateliernoir .animate-stat-pulse {
-    animation: statPulse 4s ease-in-out infinite;
+/* ============================================
+   Scrollbar — Minimal
+   ============================================ */
+
+.ateliernoir::-webkit-scrollbar {
+    width: 8px;
 }
 
-.ateliernoir .animate-subtle-glow {
-    animation: subtleGlow 3s ease-in-out infinite;
+.ateliernoir::-webkit-scrollbar-track {
+    background: transparent;
 }
 
-/* Luxury Shimmer Effect */
-.ateliernoir .shimmer {
-    background: linear-gradient(90deg,
-            transparent 0%,
-            rgba(252, 211, 77, 0.1) 25%,
-            rgba(252, 211, 77, 0.2) 50%,
-            rgba(252, 211, 77, 0.1) 75%,
-            transparent 100%);
-    background-size: 200% 100%;
-    animation: luxuryShimmer 3s linear infinite;
+.ateliernoir::-webkit-scrollbar-thumb {
+    background: var(--color-charcoal-300);
+    border-radius: 4px;
 }
 
-/* Diamond Sparkle */
-.ateliernoir .sparkle {
-    animation: diamondSparkle 5s ease-in-out infinite;
+.ateliernoir::-webkit-scrollbar-thumb:hover {
+    background: var(--color-charcoal-400);
 }
 
-/* VIP Badge Shimmer */
-.ateliernoir .vip-badge {
-    background: linear-gradient(135deg,
-            #fcd34d 0%,
-            #f59e0b 50%,
-            #fcd34d 100%);
-    background-size: 200% 200%;
-    animation: luxuryShimmer 4s ease-in-out infinite;
+/* ============================================
+   Dark Sections
+   ============================================ */
+
+.ateliernoir .section-dark {
+    background: var(--color-charcoal-900);
+    color: var(--color-ivory-50);
 }
 
-/* Icon Shimmer */
-.ateliernoir .icon-shimmer {
-    position: relative;
+.ateliernoir .section-dark .label {
+    color: var(--color-charcoal-400);
 }
 
-.ateliernoir .icon-shimmer::after {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    background: linear-gradient(135deg,
-            transparent 40%,
-            rgba(252, 211, 77, 0.3) 50%,
-            transparent 60%);
-    background-size: 300% 300%;
-    animation: luxuryShimmer 4s linear infinite;
-    border-radius: inherit;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+.ateliernoir .section-dark .body-large {
+    color: var(--color-ivory-300);
 }
 
-.ateliernoir .icon-shimmer:hover::after {
-    opacity: 1;
+.ateliernoir .section-dark .divider {
+    background: var(--color-charcoal-700);
 }
 
-/* Trust Badge Styles */
-.ateliernoir .trust-badge {
+/* ============================================
+   Logo Styling
+   ============================================ */
+
+.ateliernoir .logo-text {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+/* ============================================
+   Container
+   ============================================ */
+
+.ateliernoir .container-editorial {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .ateliernoir .container-editorial {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .ateliernoir .container-editorial {
+        padding-left: 4rem;
+        padding-right: 4rem;
+    }
+}
+
+/* ============================================
+   Value Card
+   ============================================ */
+
+.ateliernoir .value-card {
+    padding: 2.5rem;
+    background: var(--color-ivory-100);
+    transition: all 0.4s var(--ease-smooth);
+}
+
+.ateliernoir .value-card:hover {
+    background: var(--color-ivory-200);
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   Press Logos
+   ============================================ */
+
+.ateliernoir .press-logo {
     opacity: 0.4;
-    transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
     filter: grayscale(100%);
+    transition: all 0.4s var(--ease-smooth);
 }
 
-.ateliernoir .trust-badge:hover {
+.ateliernoir .press-logo:hover {
     opacity: 0.7;
     filter: grayscale(0%);
 }
 
-/* Floating Icon Container */
-.ateliernoir .floating-icon {
-    position: absolute;
-    pointer-events: none;
-    opacity: 0.15;
-    transition: opacity 0.5s ease;
+/* ============================================
+   Review Card
+   ============================================ */
+
+.ateliernoir .review-card {
+    padding: 2rem;
+    background: var(--color-ivory-100);
+    border: 1px solid var(--color-charcoal-100);
+    transition: all 0.4s var(--ease-smooth);
 }
 
-.ateliernoir .floating-icon:nth-child(odd) {
-    animation: floatElegant 10s ease-in-out infinite;
+.ateliernoir .review-card:hover {
+    border-color: var(--color-charcoal-200);
+    transform: translateY(-2px);
 }
 
-.ateliernoir .floating-icon:nth-child(even) {
-    animation: floatElegant 12s ease-in-out infinite reverse;
+/* ============================================
+   Story Block
+   ============================================ */
+
+.ateliernoir .story-block {
+    display: grid;
+    gap: 3rem;
+    align-items: center;
 }
 
-/* Popular/Premium Badge */
-.ateliernoir .premium-badge {
-    background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%);
-    position: relative;
-    overflow: hidden;
+@media (min-width: 1024px) {
+    .ateliernoir .story-block {
+        grid-template-columns: 1fr 1fr;
+        gap: 6rem;
+    }
+
+    .ateliernoir .story-block.reverse {
+        direction: rtl;
+    }
+
+    .ateliernoir .story-block.reverse > * {
+        direction: ltr;
+    }
 }
 
-.ateliernoir .premium-badge::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg,
-            transparent,
-            rgba(255, 255, 255, 0.3),
-            transparent);
-    animation: luxuryShimmer 3s ease-in-out infinite;
+/* ============================================
+   Newsletter Input
+   ============================================ */
+
+.ateliernoir .newsletter-input {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 400px;
 }
 
-/* Elegant Section Reveal */
-.ateliernoir .reveal-elegant {
-    opacity: 0;
-    transform: translateY(30px);
+@media (min-width: 640px) {
+    .ateliernoir .newsletter-input {
+        flex-direction: row;
+    }
 }
 
-.ateliernoir .reveal-elegant.revealed {
-    opacity: 1;
-    transform: translateY(0);
-    transition: all 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+.ateliernoir .newsletter-input input {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    background: var(--color-charcoal-800);
+    border: 1px solid var(--color-charcoal-700);
+    color: var(--color-ivory-50);
+    font-size: 0.875rem;
+    transition: border-color 0.3s ease;
 }
 
-/* Quote Line Decoration */
-.ateliernoir .quote-line {
-    width: 40px;
-    height: 1px;
-    background: linear-gradient(90deg, #fcd34d, transparent);
-    opacity: 0.6;
+.ateliernoir .newsletter-input input::placeholder {
+    color: var(--color-charcoal-500);
+}
+
+.ateliernoir .newsletter-input input:focus {
+    outline: none;
+    border-color: var(--color-charcoal-500);
+}
+
+.ateliernoir .newsletter-input button {
+    padding: 1rem 2rem;
+    background: var(--color-ivory-50);
+    color: var(--color-charcoal-900);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s var(--ease-smooth);
+    white-space: nowrap;
+}
+
+.ateliernoir .newsletter-input button:hover {
+    background: var(--color-ivory-200);
 }

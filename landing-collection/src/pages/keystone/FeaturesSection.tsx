@@ -1,66 +1,15 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { FEATURES } from './constants'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
+import { useSectionAnimation, useStaggerReveal } from '@/shared/hooks'
 
 export function FeaturesSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const headerRef = useRef<HTMLElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Header animation
-      if (headerRef.current) {
-        gsap.fromTo(
-          headerRef.current.children,
-          { opacity: 0, y: 50 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            stagger: 0.2,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: headerRef.current,
-              start: 'top 80%',
-              toggleActions: 'play none none reverse'
-            }
-          }
-        )
-      }
-
-      // Cards stagger animation
-      if (cardsRef.current) {
-        const cards = cardsRef.current.querySelectorAll('.feature-card')
-        gsap.fromTo(
-          cards,
-          { 
-            opacity: 0, 
-            y: 60,
-            scale: 0.95
-          },
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 0.7,
-            stagger: 0.12,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: cardsRef.current,
-              start: 'top 75%',
-              toggleActions: 'play none none reverse'
-            }
-          }
-        )
-      }
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
+  // Use standardized hooks
+  useSectionAnimation(headerRef)
+  useStaggerReveal(cardsRef, '.feature-card')
 
   // Mouse tracking for spotlight effect
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {

@@ -1,44 +1,19 @@
-import { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useRef } from 'react'
 import { PRICING_PLANS } from './constants'
 import { Check, Sparkles } from 'lucide-react'
 import { cn } from '@/shared/utils'
-
-gsap.registerPlugin(ScrollTrigger)
+import { useSectionAnimation, useStaggerReveal } from '@/shared/hooks'
 
 export function PricingSection() {
   const sectionRef = useRef<HTMLElement>(null)
+  const headerRef = useRef<HTMLDivElement>(null)
+  const cardsRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from('[data-pricing-header] > *', {
-        scrollTrigger: {
-          trigger: '[data-pricing-header]',
-          start: 'top 80%',
-        },
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: 'power3.out',
-      })
-
-      gsap.from('[data-pricing-card]', {
-        scrollTrigger: {
-          trigger: '[data-pricing-cards]',
-          start: 'top 75%',
-        },
-        y: 80,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: 'power3.out',
-      })
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
+  // Standardized GSAP animations
+  useSectionAnimation(headerRef)
+  useStaggerReveal(cardsRef, '[data-pricing-card]', {
+    stagger: 0.15,
+  })
 
   return (
     <section 

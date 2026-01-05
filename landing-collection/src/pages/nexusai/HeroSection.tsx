@@ -1,73 +1,14 @@
 import { ArrowRight, Play, Sparkles } from 'lucide-react'
-import { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
+import { useRef } from 'react'
+import { useHeroAnimation, useOrbAnimation, useMagneticButton } from '@/shared/hooks'
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null)
-  const orbRef1 = useRef<HTMLDivElement>(null)
-  const orbRef2 = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Hero animations
-      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
-
-      tl.from('[data-hero-badge]', {
-        y: 30,
-        opacity: 0,
-        duration: 0.8,
-      })
-      .from('[data-hero-title] > *', {
-        y: 80,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.2,
-      }, '-=0.4')
-      .from('[data-hero-description]', {
-        y: 40,
-        opacity: 0,
-        duration: 0.8,
-      }, '-=0.6')
-      .from('[data-hero-cta] > *', {
-        y: 30,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.15,
-      }, '-=0.4')
-      .from('[data-hero-stats] > *', {
-        y: 20,
-        opacity: 0,
-        duration: 0.5,
-        stagger: 0.1,
-      }, '-=0.3')
-      .from('[data-hero-visual]', {
-        y: 60,
-        opacity: 0,
-        scale: 0.95,
-        duration: 1,
-      }, '-=0.5')
-
-      // Orb floating animation
-      gsap.to(orbRef1.current, {
-        x: 30,
-        y: -30,
-        duration: 8,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut',
-      })
-      gsap.to(orbRef2.current, {
-        x: -20,
-        y: 20,
-        duration: 10,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut',
-      })
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
+  // Use standardized hooks
+  useHeroAnimation(sectionRef)
+  useOrbAnimation(sectionRef, '.orb', { amplitude: 30, duration: 8 })
+  useMagneticButton(sectionRef)
 
   return (
     <section 
@@ -75,8 +16,8 @@ export function HeroSection() {
       className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden"
     >
       {/* Animated Orbs */}
-      <div ref={orbRef1} className="orb orb-1" aria-hidden="true" />
-      <div ref={orbRef2} className="orb orb-2" aria-hidden="true" />
+      <div className="orb orb-1" aria-hidden="true" />
+      <div className="orb orb-2" aria-hidden="true" />
       
       {/* Grid Pattern */}
       <div className="grid-pattern absolute inset-0" aria-hidden="true" />

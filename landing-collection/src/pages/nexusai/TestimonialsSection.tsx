@@ -1,67 +1,18 @@
-import { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useRef } from 'react'
 import { TESTIMONIALS } from './constants'
 import { Star, Quote, BadgeCheck } from 'lucide-react'
-
-gsap.registerPlugin(ScrollTrigger)
+import { useSectionAnimation, useStaggerReveal } from '@/shared/hooks'
 
 export function TestimonialsSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Header animation
-      gsap.from(headerRef.current, {
-        opacity: 0,
-        y: 60,
-        duration: 1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: headerRef.current,
-          start: 'top 85%',
-          toggleActions: 'play none none reverse'
-        }
-      })
-
-      // Cards stagger animation with 3D effect
-      const cards = cardsRef.current?.querySelectorAll('[data-testimonial-card]')
-      if (cards) {
-        gsap.from(cards, {
-          opacity: 0,
-          y: 80,
-          rotateX: 15,
-          scale: 0.9,
-          stagger: 0.15,
-          duration: 0.8,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: cardsRef.current,
-            start: 'top 80%',
-            toggleActions: 'play none none reverse'
-          }
-        })
-      }
-
-      // Quote marks floating animation
-      const quotes = cardsRef.current?.querySelectorAll('[data-quote-icon]')
-      if (quotes) {
-        quotes.forEach((quote) => {
-          gsap.to(quote, {
-            y: -8,
-            duration: 2.5,
-            repeat: -1,
-            yoyo: true,
-            ease: 'sine.inOut'
-          })
-        })
-      }
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
+  // Standardized GSAP animations
+  useSectionAnimation(headerRef)
+  useStaggerReveal(cardsRef, '[data-testimonial-card]', {
+    stagger: 0.15,
+  })
 
   return (
     <section 

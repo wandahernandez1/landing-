@@ -1,93 +1,15 @@
-import { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useRef } from 'react'
+import { useCtaAnimation, usePulseAnimation, useFloatingAnimation } from '@/shared/hooks'
 import { ArrowRight, Heart, Apple, Play, Sparkles, Users, Trophy } from 'lucide-react'
-
-gsap.registerPlugin(ScrollTrigger)
 
 export function CtaSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Content animation timeline
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: contentRef.current,
-          start: 'top 80%',
-          toggleActions: 'play none none reverse'
-        }
-      })
-
-      tl.from('[data-cta-icon]', {
-        opacity: 0,
-        scale: 0,
-        rotation: -180,
-        duration: 0.8,
-        ease: 'back.out(1.7)'
-      })
-      .from('[data-cta-title]', {
-        opacity: 0,
-        y: 40,
-        duration: 0.7,
-        ease: 'power3.out'
-      }, '-=0.4')
-      .from('[data-cta-description]', {
-        opacity: 0,
-        y: 30,
-        duration: 0.6,
-        ease: 'power3.out'
-      }, '-=0.3')
-      .from('[data-cta-buttons] > *', {
-        opacity: 0,
-        y: 20,
-        stagger: 0.1,
-        duration: 0.5,
-        ease: 'power2.out'
-      }, '-=0.2')
-      .from('[data-cta-features] > *', {
-        opacity: 0,
-        y: 15,
-        stagger: 0.1,
-        duration: 0.4,
-        ease: 'power2.out'
-      }, '-=0.2')
-
-      // Heart pulse animation
-      gsap.to('[data-cta-icon]', {
-        scale: 1.1,
-        duration: 0.8,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut'
-      })
-
-      // Floating decorative elements
-      gsap.to('[data-float-1]', {
-        y: -20,
-        x: 10,
-        rotation: 5,
-        duration: 4,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut'
-      })
-
-      gsap.to('[data-float-2]', {
-        y: -15,
-        x: -10,
-        rotation: -5,
-        duration: 5,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut'
-      })
-
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
+  // Use standardized hooks
+  useCtaAnimation(sectionRef)
+  usePulseAnimation(sectionRef, '[data-cta-icon]', { minOpacity: 1, maxOpacity: 1 })
+  useFloatingAnimation(sectionRef, '[data-float-1], [data-float-2]')
 
   return (
     <section 
