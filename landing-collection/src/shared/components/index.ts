@@ -1,10 +1,33 @@
+/**
+ * Shared Components Barrel Export
+ */
+
+// Base components
 export { ScrollToTop } from "./ScrollToTop";
-export { GalleryCard, GalleryCarousel } from "./gallery";
+
+// Carousel system
+export {
+  Carousel,
+  CarouselItem,
+  CarouselNavigation,
+  CarouselDots,
+  CarouselProgress,
+  useCarousel,
+} from "./carousel";
+
+export type {
+  CarouselProps,
+  CarouselItemProps,
+  CarouselItemData,
+  CarouselNavigationProps,
+  CarouselDotsProps,
+  CarouselProgressProps,
+} from "./carousel";
+
+// Showcase components
 export {
   ShowcaseLayout,
-  ShowcaseHeader,
+  CinematicHero,
+  MinimalScrollCue,
   ShowcaseCarousel,
-  ShowcaseCard,
-  HeroIntro,
-  ScrollIndicator,
 } from "./showcase";

@@ -1,105 +1,54 @@
-import { useRef, useEffect } from 'react'
-import { gsap } from 'gsap'
-import { cn } from '@/shared/utils'
+/**
+ * MinimalScrollCue Component
+ * Elegant scroll down indicator with animation
+ */
+
+import { motion } from "motion/react";
+import { ChevronDown } from "lucide-react";
+import { cn } from "@/shared/utils";
 
 interface MinimalScrollCueProps {
-  className?: string
-  onClick?: () => void
+  /** Click handler for scroll action */
+  onClick?: () => void;
+  /** Label text */
+  label?: string;
+  /** Additional CSS classes */
+  className?: string;
 }
 
-export function MinimalScrollCue({ className, onClick }: MinimalScrollCueProps) {
-  const containerRef = useRef<HTMLButtonElement>(null)
-  const lineRef = useRef<HTMLDivElement>(null)
-  const glowRef = useRef<HTMLDivElement>(null)
-  const prefersReducedMotionRef = useRef(false)
-
-  useEffect(() => {
-    prefersReducedMotionRef.current = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-
-    if (!containerRef.current || !lineRef.current) return
-
-    const ctx = gsap.context(() => {
-      // Skip animations if user prefers reduced motion
-      if (prefersReducedMotionRef.current) {
-        gsap.set(containerRef.current, { opacity: 0.6 })
-        return
-      }
-
-      // Entrance - delayed and subtle
-      gsap.fromTo(
-        containerRef.current,
-        {
-          opacity: 0,
-        },
-        {
-          opacity: 1,
-          duration: 1.2,
-          delay: 2,
-          ease: 'power2.out',
-        }
-      )
-
-      // Continuous pulse animation for the line - GPU optimized
-      gsap.to(lineRef.current, {
-        y: 20,
-        opacity: 0,
-        duration: 2,
-        repeat: -1,
-        ease: 'power1.inOut',
-        repeatDelay: 0.8,
-        force3D: true,
-      })
-
-      // Subtle glow pulse
-      if (glowRef.current) {
-        gsap.to(glowRef.current, {
-          opacity: 0.4,
-          duration: 2,
-          repeat: -1,
-          yoyo: true,
-          ease: 'sine.inOut',
-        })
-      }
-    }, containerRef)
-
-    return () => ctx.revert()
-  }, [])
-
+export function MinimalScrollCue({
+  onClick,
+  label = "Explorar",
+  className,
+}: MinimalScrollCueProps) {
   return (
-    <button
-      ref={containerRef}
+    <motion.button
       onClick={onClick}
       className={cn(
-        'group relative flex flex-col items-center',
-        // Responsive gap
-        'gap-3 sm:gap-4',
-        'opacity-0',
-        'cursor-pointer',
-        'transition-all duration-500 ease-out',
-        'hover:translate-y-1',
-        'focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/20 focus-visible:ring-offset-8 focus-visible:ring-offset-transparent rounded',
-        'will-change-transform',
+        "flex flex-col items-center gap-3",
+        "text-white/40 hover:text-white/70",
+        "transition-colors duration-300",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30 focus-visible:ring-offset-4 focus-visible:ring-offset-black rounded-lg",
+        "cursor-pointer",
         className
       )}
-      aria-label="Scroll to explore collection"
+      whileHover={{ y: 4 }}
+      aria-label={`${label} - desplazar hacia abajo`}
     >
-      {/* Vertical line container - Responsive sizing */}
-      <div className="relative w-px h-10 sm:h-12 md:h-14 overflow-hidden">
-        {/* Track - barely visible */}
-        <div className="absolute inset-0 bg-white/[0.06]" />
-
-        {/* Moving line - elegant with GPU acceleration */}
-        <div
-          ref={lineRef}
-          className="absolute top-0 left-0 w-full h-3 sm:h-4 bg-gradient-to-b from-white/50 via-white/20 to-transparent will-change-transform"
-        />
-
-        {/* Micro glow at base */}
-        <div
-          ref={glowRef}
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2.5 sm:w-3 h-2.5 sm:h-3 bg-white/10 rounded-full blur-sm opacity-20"
-        />
-      </div>
-    </button>
-  )
+      <span className="text-xs font-medium uppercase tracking-[0.2em]">
+        {label}
+      </span>
+      
+      <motion.div
+        animate={{ y: [0, 6, 0] }}
+        transition={{
+          duration: 1.5,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      >
+        <ChevronDown className="w-5 h-5" aria-hidden="true" />
+      </motion.div>
+    </motion.button>
+  );
 }
