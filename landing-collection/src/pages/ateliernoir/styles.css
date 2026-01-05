@@ -283,9 +283,11 @@
     0% {
         top: -100%;
     }
+
     50% {
         top: 100%;
     }
+
     100% {
         top: 100%;
     }
@@ -358,6 +360,7 @@
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -368,6 +371,7 @@
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -378,6 +382,7 @@
         opacity: 0;
         transform: scale(0.98);
     }
+
     to {
         opacity: 1;
         transform: scale(1);
@@ -397,12 +402,29 @@
 }
 
 /* Stagger Delays */
-.ateliernoir .delay-100 { animation-delay: 100ms; }
-.ateliernoir .delay-200 { animation-delay: 200ms; }
-.ateliernoir .delay-300 { animation-delay: 300ms; }
-.ateliernoir .delay-400 { animation-delay: 400ms; }
-.ateliernoir .delay-500 { animation-delay: 500ms; }
-.ateliernoir .delay-600 { animation-delay: 600ms; }
+.ateliernoir .delay-100 {
+    animation-delay: 100ms;
+}
+
+.ateliernoir .delay-200 {
+    animation-delay: 200ms;
+}
+
+.ateliernoir .delay-300 {
+    animation-delay: 300ms;
+}
+
+.ateliernoir .delay-400 {
+    animation-delay: 400ms;
+}
+
+.ateliernoir .delay-500 {
+    animation-delay: 500ms;
+}
+
+.ateliernoir .delay-600 {
+    animation-delay: 600ms;
+}
 
 /* ============================================
    Form Elements
@@ -666,7 +688,7 @@
         direction: rtl;
     }
 
-    .ateliernoir .story-block.reverse > * {
+    .ateliernoir .story-block.reverse>* {
         direction: ltr;
     }
 }
