@@ -1,5 +1,6 @@
 import './styles.css'
 import { useLenis } from '@/shared/hooks/useLenis'
+import { BackToHome } from '@/shared/components'
 import { Navbar } from './Navbar'
 import { Footer } from './Footer'
 import { HeroSection } from './HeroSection'
@@ -13,6 +14,7 @@ export function KeystonePage() {
 
   return (
     <div className="keystone min-h-screen">
+      <BackToHome accentColor="hover:bg-gold-400/20" />
       <Navbar />
       <main>
         <HeroSection />

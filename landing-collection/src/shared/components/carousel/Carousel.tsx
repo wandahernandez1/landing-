@@ -114,10 +114,10 @@ export function Carousel({
       </div>
 
       {/* Main Carousel Area */}
-      <div className="relative w-full flex-1 flex items-center justify-center px-4 sm:px-8 md:px-12 lg:px-16">
+      <div className="relative w-full flex-1 flex items-center justify-center px-2 sm:px-4 md:px-8 lg:px-12 xl:px-16">
         {/* Drag Container */}
         <motion.div
-          className="relative w-full max-w-5xl cursor-grab active:cursor-grabbing"
+          className="relative w-full max-w-7xl cursor-grab active:cursor-grabbing"
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
           dragElastic={0.1}

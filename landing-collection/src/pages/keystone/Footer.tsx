@@ -39,16 +39,10 @@ export function Footer() {
 
         <div className="divider mt-8" />
 
-        <div className="mt-8 flex flex-col items-center gap-4 md:flex-row md:justify-between">
+        <div className="mt-8 flex flex-col items-center gap-4 md:flex-row md:justify-center">
           <p className="text-sm text-stone-600">
             {COMPANY.year} {COMPANY.name}. Intelligence for real estate.
           </p>
-          <Link
-            to="/"
-            className="text-sm text-gold-400 hover:text-gold-300 transition-colors"
-          >
-            ← Volver
-          </Link>
         </div>
       </div>
     </footer>

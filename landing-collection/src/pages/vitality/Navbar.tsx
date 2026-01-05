@@ -27,9 +27,6 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center gap-4">
-            <Link to="/" className="text-sm text-stone-500 hover:text-stone-900 transition-colors">
-              ← Volver
-            </Link>
             <button className="btn-primary rounded-full px-6 py-2.5 text-sm font-medium">
               Descargar App
             </button>

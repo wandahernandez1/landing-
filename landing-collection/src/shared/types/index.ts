@@ -36,4 +36,5 @@ export interface LandingConfig {
   industry: string;
   theme: string;
   path: string;
+  image: string;
 }

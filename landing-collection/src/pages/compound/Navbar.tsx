@@ -25,9 +25,6 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center gap-4">
-            <Link to="/" className="text-sm text-navy-300 hover:text-white transition-colors">
-              ← Volver
-            </Link>
             <button className="btn-primary rounded-lg px-5 py-2.5 text-sm font-semibold">
               Agendar Llamada
             </button>

@@ -4,6 +4,7 @@
 
 // Base components
 export { ScrollToTop } from "./ScrollToTop";
+export { BackToHome } from "./BackToHome";
 
 // Carousel system
 export {

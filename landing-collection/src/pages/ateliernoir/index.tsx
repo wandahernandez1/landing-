@@ -1,5 +1,6 @@
 import './styles.css'
 import { useLenis } from '@/shared/hooks/useLenis'
+import { BackToHome } from '@/shared/components'
 import { Navbar } from './Navbar'
 import { Footer } from './Footer'
 import { HeroSection } from './HeroSection'
@@ -15,6 +16,8 @@ export function AtelierNoirPage() {
 
   return (
     <div className="ateliernoir min-h-screen">
+      <BackToHome accentColor="hover:bg-charcoal-500/20" />
+      
       {/* Skip Link */}
       <a
         href="#main-content"

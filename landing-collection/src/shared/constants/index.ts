@@ -10,6 +10,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "SaaS / IA",
     theme: "Purple Dark",
     path: "/nexusai",
+    image: "/NexusAI.png",
   },
   {
     id: "vitality",
@@ -19,6 +20,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "Health / Fitness",
     theme: "Emerald Light",
     path: "/vitality",
+    image: "/Vitality.png",
   },
   {
     id: "helixbank",
@@ -28,6 +30,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "Fintech",
     theme: "Dark Cyan",
     path: "/helixbank",
+    image: "/HelixBank.png",
   },
   {
     id: "sentinel",
@@ -37,6 +40,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "Cybersecurity",
     theme: "Navy Cyan",
     path: "/sentinel",
+    image: "/SentinelShield.png",
   },
   {
     id: "lumina",
@@ -46,6 +50,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "EdTech",
     theme: "Amber Indigo",
     path: "/lumina",
+    image: "/LuminaLearn.png",
   },
   {
     id: "compound",
@@ -55,6 +60,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "B2B Marketing",
     theme: "Navy Gold",
     path: "/compound",
+    image: "/CompoundGrowth.png",
   },
   {
     id: "devcanvas",
@@ -64,6 +70,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "Developer Tools",
     theme: "Violet Terminal",
     path: "/devcanvas",
+    image: "/DevCanvas.png",
   },
   {
     id: "nomadatlas",
@@ -73,6 +80,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "Digital Nomad",
     theme: "Teal Orange",
     path: "/nomadatlas",
+    image: "/NomadAtlas.png",
   },
   {
     id: "keystone",
@@ -82,6 +90,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "Real Estate AI",
     theme: "Forest Gold",
     path: "/keystone",
+    image: "/KeystoneAI.png",
   },
   {
     id: "ateliernoir",
@@ -91,5 +100,6 @@ export const LANDINGS: LandingConfig[] = [
     industry: "Luxury E-commerce",
     theme: "Charcoal Ivory",
     path: "/ateliernoir",
+    image: "/AtelierNoir.png",
   },
 ];
