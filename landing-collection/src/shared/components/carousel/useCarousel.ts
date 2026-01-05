@@ -42,7 +42,7 @@ export function useCarousel({
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [progress, setProgress] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  
+
   const progressRef = useRef(0);
   const animationFrameRef = useRef<number | null>(null);
   const lastTimeRef = useRef<number | null>(null);
@@ -54,40 +54,43 @@ export function useCarousel({
   }, [isPaused]);
 
   const totalItems = items.length;
-  
+
   // Navigation availability
   const canGoNext = loop || currentIndex < totalItems - 1;
   const canGoPrev = loop || currentIndex > 0;
 
   // Go to specific slide
-  const goToSlide = useCallback((index: number) => {
-    if (isTransitioning) return;
-    
-    let targetIndex = index;
-    
-    // Handle loop wrapping
-    if (loop) {
-      if (index < 0) targetIndex = totalItems - 1;
-      else if (index >= totalItems) targetIndex = 0;
-    } else {
-      targetIndex = Math.max(0, Math.min(index, totalItems - 1));
-    }
-    
-    if (targetIndex !== currentIndex) {
-      setIsTransitioning(true);
-      setCurrentIndex(targetIndex);
-      onSlideChange?.(targetIndex);
-      
-      // Reset progress
-      progressRef.current = 0;
-      setProgress(0);
-      
-      // End transition after animation
-      setTimeout(() => {
-        setIsTransitioning(false);
-      }, 500);
-    }
-  }, [currentIndex, isTransitioning, loop, totalItems, onSlideChange]);
+  const goToSlide = useCallback(
+    (index: number) => {
+      if (isTransitioning) return;
+
+      let targetIndex = index;
+
+      // Handle loop wrapping
+      if (loop) {
+        if (index < 0) targetIndex = totalItems - 1;
+        else if (index >= totalItems) targetIndex = 0;
+      } else {
+        targetIndex = Math.max(0, Math.min(index, totalItems - 1));
+      }
+
+      if (targetIndex !== currentIndex) {
+        setIsTransitioning(true);
+        setCurrentIndex(targetIndex);
+        onSlideChange?.(targetIndex);
+
+        // Reset progress
+        progressRef.current = 0;
+        setProgress(0);
+
+        // End transition after animation
+        setTimeout(() => {
+          setIsTransitioning(false);
+        }, 500);
+      }
+    },
+    [currentIndex, isTransitioning, loop, totalItems, onSlideChange]
+  );
 
   // Navigation helpers
   const goToNext = useCallback(() => {
@@ -116,12 +119,12 @@ export function useCarousel({
 
       if (!isPausedRef.current && !isTransitioning) {
         progressRef.current += (deltaTime / autoplayDelay) * 100;
-        
+
         if (progressRef.current >= 100) {
           progressRef.current = 0;
           goToNext();
         }
-        
+
         setProgress(progressRef.current);
       }
 
