@@ -195,14 +195,15 @@ function CarouselItemComponent({
       aria-roledescription="slide"
       aria-label={`${index + 1} of ${item.name}`}
     >
-      {/* Card Container - Larger and more prominent */}
+      {/* Card Container */}
       <div
         className={cn(
           "relative overflow-hidden",
           "rounded-2xl sm:rounded-3xl",
-          // Larger responsive sizing
-          "aspect-4/3 sm:aspect-16/10 md:aspect-video lg:aspect-2/1",
-          "w-full max-w-[95vw] sm:max-w-[90vw] md:max-w-5xl lg:max-w-6xl xl:max-w-7xl",
+          // Aspect ratio - cinematic 16:9
+          "aspect-video",
+          // Full width of container
+          "w-full",
           "bg-neutral-950",
           "border border-white/10",
           "transition-all duration-500",
@@ -240,9 +241,9 @@ function CarouselItemComponent({
         />
 
         {/* Content Container - Positioned at bottom */}
-        <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12">
+        <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-5 md:p-6 lg:p-8 xl:p-10">
           {/* Header */}
-          <header className="mb-4 sm:mb-6">
+          <header className="mb-3 sm:mb-4 lg:mb-[clamp(0.75rem,1.5vw,1.25rem)]">
             {/* Industry Badge */}
             <div className="flex items-center gap-2 mb-2 sm:mb-3">
               <span
@@ -259,10 +260,10 @@ function CarouselItemComponent({
             </div>
 
             {/* Title & Tagline */}
-            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white tracking-tight mb-1 sm:mb-2 drop-shadow-lg">
+            <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white tracking-tight mb-1 sm:mb-2 drop-shadow-lg">
               {item.name}
             </h3>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white/70 font-light drop-shadow-md">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/70 font-light drop-shadow-md">
               {item.tagline}
             </p>
           </header>

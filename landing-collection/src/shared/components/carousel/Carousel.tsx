@@ -114,7 +114,7 @@ export function Carousel({
       </div>
 
       {/* Main Carousel Area */}
-      <div className="relative w-full flex-1 flex items-center justify-center px-2 sm:px-4 md:px-8 lg:px-12 xl:px-16">
+      <div className="relative w-full flex-1 flex items-center justify-center px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20">
         {/* Drag Container */}
         <motion.div
           className="relative w-full max-w-7xl cursor-grab active:cursor-grabbing"
@@ -127,7 +127,7 @@ export function Carousel({
         >
           {/* Slides */}
           <div
-            className="relative"
+            className="relative w-full"
             role="region"
             aria-live="polite"
             aria-atomic="true"

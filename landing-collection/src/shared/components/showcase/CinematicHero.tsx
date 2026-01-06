@@ -57,7 +57,13 @@ export function CinematicHero({
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.4 }}
         className={cn(
-          "text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl",
+          // Fluid typography using clamp for proportional scaling
+          "text-[clamp(2.5rem,8vw,3.5rem)]",
+          "sm:text-[clamp(3rem,7vw,4rem)]",
+          "md:text-[clamp(3.5rem,6.5vw,5rem)]",
+          "lg:text-[clamp(4rem,5.5vw,6rem)]",
+          "xl:text-[clamp(5rem,5vw,7rem)]",
+          "2xl:text-[clamp(6rem,4.5vw,9rem)]",
           "font-bold tracking-tighter",
           "text-white",
           "leading-[0.9]"
@@ -74,7 +80,10 @@ export function CinematicHero({
           transition={{ duration: 0.6, delay: 0.6 }}
           className={cn(
             "mt-6 max-w-xl",
-            "text-base sm:text-lg md:text-xl",
+            // Fluid typography for subheadline
+            "text-[clamp(0.875rem,2vw,1rem)]",
+            "sm:text-[clamp(1rem,1.8vw,1.125rem)]",
+            "md:text-[clamp(1.125rem,1.5vw,1.25rem)]",
             "text-white/50",
             "leading-relaxed"
           )}

@@ -10,7 +10,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "SaaS / IA",
     theme: "Purple Dark",
     path: "/nexusai",
-    image: "/NexusAI.png",
+    image: "/NexusAI.avif",
   },
   {
     id: "vitality",
@@ -20,7 +20,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "Health / Fitness",
     theme: "Emerald Light",
     path: "/vitality",
-    image: "/Vitality.png",
+    image: "/Vitality.avif",
   },
   {
     id: "helixbank",
@@ -30,7 +30,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "Fintech",
     theme: "Dark Cyan",
     path: "/helixbank",
-    image: "/HelixBank.png",
+    image: "/HelixBank.avif",
   },
   {
     id: "sentinel",
@@ -40,7 +40,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "Cybersecurity",
     theme: "Navy Cyan",
     path: "/sentinel",
-    image: "/SentinelShield.png",
+    image: "/SentinelShield.avif",
   },
   {
     id: "lumina",
@@ -50,7 +50,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "EdTech",
     theme: "Amber Indigo",
     path: "/lumina",
-    image: "/LuminaLearn.png",
+    image: "/LuminaLearn.avif",
   },
   {
     id: "compound",
@@ -60,7 +60,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "B2B Marketing",
     theme: "Navy Gold",
     path: "/compound",
-    image: "/CompoundGrowth.png",
+    image: "/CompoundGrowth.avif",
   },
   {
     id: "devcanvas",
@@ -70,7 +70,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "Herramientas Dev",
     theme: "Violet Terminal",
     path: "/devcanvas",
-    image: "/DevCanvas.png",
+    image: "/DevCanvas.avif",
   },
   {
     id: "nomadatlas",
@@ -80,7 +80,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "Digital Nomad",
     theme: "Teal Orange",
     path: "/nomadatlas",
-    image: "/NomadAtlas.png",
+    image: "/NomadAtlas.avif",
   },
   {
     id: "keystone",
@@ -90,7 +90,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "Real Estate AI",
     theme: "Forest Gold",
     path: "/keystone",
-    image: "/KeystoneAI.png",
+    image: "/KeystoneAI.avif",
   },
   {
     id: "ateliernoir",
@@ -100,7 +100,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "Luxury E-commerce",
     theme: "Charcoal Ivory",
     path: "/ateliernoir",
-    image: "/AtelierNoir.png",
+    image: "/AtelierNoir.avif",
   },
   // New 15 landings
   {
@@ -111,7 +111,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "Herramientas Dev",
     theme: "Cyan Dark",
     path: "/deployzero",
-    image: "/DeployZero.png",
+    image: "/DeployZero.avif",
   },
   {
     id: "uxpulse",
@@ -121,7 +121,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "Analytics de UX",
     theme: "Rose Pink",
     path: "/uxpulse",
-    image: "/UXPulse.png",
+    image: "/UXPulse.avif",
   },
   {
     id: "apishield",
@@ -131,7 +131,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "Seguridad de API",
     theme: "Emerald Dark",
     path: "/apishield",
-    image: "/APIShield.png",
+    image: "/APIShield.avif",
   },
   {
     id: "microsaas",
@@ -141,7 +141,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "Herramientas Dev",
     theme: "Orange Amber",
     path: "/microsaas",
-    image: "/MicroSaasBuilder.png",
+    image: "/MicroSaasBuilder.avif",
   },
   {
     id: "designtokens",
@@ -151,7 +151,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "Herramientas Diseño",
     theme: "Pink Fuchsia",
     path: "/designtokens",
-    image: "/DesignTokensPro.png",
+    image: "/DesignTokensPro.avif",
   },
   {
     id: "featureflag",
@@ -161,7 +161,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "Herramientas Dev",
     theme: "Teal Dark",
     path: "/featureflag",
-    image: "/FeatureFlagStudio.png",
+    image: "/FeatureFlagStudio.avif",
   },
   {
     id: "performancelab",
@@ -171,7 +171,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "Performance",
     theme: "Purple Violet",
     path: "/performancelab",
-    image: "/PerformanceLab.png",
+    image: "/PerformanceLab.avif",
   },
   {
     id: "a11yscan",
@@ -181,7 +181,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "Accesibilidad",
     theme: "Blue Sky",
     path: "/a11yscan",
-    image: "/A11yScan.png",
+    image: "/A11yScan.avif",
   },
   {
     id: "frontendmonitor",
@@ -191,7 +191,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "Monitoreo",
     theme: "Red Alert",
     path: "/frontendmonitor",
-    image: "/FrontendMonitor.png",
+    image: "/FrontendMonitor.avif",
   },
   {
     id: "seostack",
@@ -202,7 +202,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "Herramientas SEO",
     theme: "Green Dark",
     path: "/seostack",
-    image: "/SeoStack.png",
+    image: "/SeoStack.avif",
   },
   {
     id: "saasonboarding",
@@ -212,7 +212,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "Product Growth",
     theme: "Indigo Dark",
     path: "/saasonboarding",
-    image: "/SaaSOnboarding.png",
+    image: "/SaaSOnboarding.avif",
   },
   {
     id: "authless",
@@ -222,7 +222,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "Auth",
     theme: "Slate Minimal",
     path: "/authless",
-    image: "/Authless.png",
+    image: "/Authless.avif",
   },
   {
     id: "cloudcost",
@@ -232,7 +232,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "Cloud FinOps",
     theme: "Blue Enterprise",
     path: "/cloudcost",
-    image: "/CloudCostGuard.png",
+    image: "/CloudCostGuard.avif",
   },
   {
     id: "docsapi",
@@ -242,7 +242,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "Docs para Devs",
     theme: "Violet Slate",
     path: "/docsapi",
-    image: "/DocsAPI.png",
+    image: "/DocsAPI.avif",
   },
   {
     id: "indiemetrics",
@@ -252,6 +252,6 @@ export const LANDINGS: LandingConfig[] = [
     industry: "Analytics",
     theme: "Emerald Minimal",
     path: "/indiemetrics",
-    image: "/IndieMetrics.png",
+    image: "/IndieMetrics.avif",
   },
 ];
