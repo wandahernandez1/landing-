@@ -4,18 +4,18 @@ import { useRef, useState } from 'react'
 
 // Site tiers
 const SITE_TIERS = [
-  { pages: '1,000', price: 29, label: 'Small site' },
-  { pages: '10,000', price: 79, label: 'Medium site' },
-  { pages: '100,000', price: 199, label: 'Large site' },
-  { pages: '500,000', price: 399, label: 'Enterprise' },
-  { pages: '1M+', price: 'Custom', label: 'Unlimited' },
+  { pages: '1,000', price: 29, label: 'Sitio pequeño' },
+  { pages: '10,000', price: 79, label: 'Sitio mediano' },
+  { pages: '100,000', price: 199, label: 'Sitio grande' },
+  { pages: '500,000', price: 399, label: 'Empresarial' },
+  { pages: '1M+', price: 'Custom', label: 'Ilimitado' },
 ]
 
 // Feature comparison
 const PLAN_FEATURES = {
-  starter: ['Weekly crawls', '5 projects', 'Basic reports', 'Email support'],
-  pro: ['Daily crawls', 'Unlimited projects', 'Advanced reports', 'Priority support', 'API access', 'White-label reports'],
-  enterprise: ['Hourly crawls', 'Custom integrations', 'Dedicated CSM', 'SLA guarantee', 'SSO/SAML', 'Custom training'],
+  starter: ['Rastreos semanales', '5 proyectos', 'Reportes básicos', 'Soporte por email'],
+  pro: ['Rastreos diarios', 'Proyectos ilimitados', 'Reportes avanzados', 'Soporte prioritario', 'Acceso API', 'Reportes marca blanca'],
+  enterprise: ['Rastreos cada hora', 'Integraciones personalizadas', 'CSM dedicado', 'Garantía SLA', 'SSO/SAML', 'Capacitación personalizada'],
 }
 
 export function PricingSection() {
@@ -35,12 +35,12 @@ export function PricingSection() {
       <div className="absolute inset-0 seo-grid opacity-10" />
       <div className="container-custom relative z-10">
         <header className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-green-400">Pricing</p>
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-green-400">Precios</p>
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Pay for what you{' '}<span className="text-gradient">crawl</span>
+            Paga por lo que{' '}<span className="text-gradient">rastreas</span>
           </h2>
           <p className="mt-4 text-lg text-slate-400">
-            Usage-based pricing that scales with your site
+            Precios basados en uso que escalan con tu sitio
           </p>
         </header>
 
@@ -49,7 +49,7 @@ export function PricingSection() {
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
               <Globe className="w-5 h-5 text-green-400" />
-              <span className="text-white font-medium">Pages to crawl</span>
+              <span className="text-white font-medium">Páginas a rastrear</span>
             </div>
             <span className="text-2xl font-bold text-green-400">{SITE_TIERS[selectedTier].pages}</span>
           </div>
@@ -86,7 +86,7 @@ export function PricingSection() {
 
         {/* Billing toggle */}
         <div className="flex items-center justify-center gap-4 mb-12">
-          <span className={cn('text-sm', !isAnnual ? 'text-white' : 'text-slate-500')}>Monthly</span>
+          <span className={cn('text-sm', !isAnnual ? 'text-white' : 'text-slate-500')}>Mensual</span>
           <button
             onClick={() => setIsAnnual(!isAnnual)}
             className={cn(
@@ -100,7 +100,7 @@ export function PricingSection() {
             )} />
           </button>
           <span className={cn('text-sm', isAnnual ? 'text-white' : 'text-slate-500')}>
-            Annual <span className="text-green-400 ml-1">-20%</span>
+            Anual <span className="text-green-400 ml-1">-20%</span>
           </span>
         </div>
 
@@ -114,11 +114,11 @@ export function PricingSection() {
                   <span className="text-slate-500">/mo</span>
                 </div>
               ) : (
-                <span className="text-4xl font-bold text-white">Custom Pricing</span>
+                <span className="text-4xl font-bold text-white">Precio Personalizado</span>
               )}
               {isAnnual && typeof displayPrice === 'number' && (
                 <p className="mt-2 text-sm text-slate-500">
-                  Billed annually (${displayPrice * 12}/year)
+                  Facturado anualmente (${displayPrice * 12}/año)
                 </p>
               )}
             </div>
@@ -127,15 +127,15 @@ export function PricingSection() {
               className="btn-primary w-full rounded-xl px-6 py-4 text-lg font-semibold flex items-center justify-center gap-2"
             >
               <Zap className="w-5 h-5" />
-              Start Free Trial
+              Comenzar Prueba Gratis
             </a>
-            <p className="mt-4 text-sm text-slate-500">14-day free trial • No credit card required</p>
+            <p className="mt-4 text-sm text-slate-500">Prueba gratis 14 días • Sin tarjeta de crédito</p>
           </div>
         </div>
 
         {/* Feature comparison */}
         <div className="max-w-5xl mx-auto">
-          <h3 className="text-xl font-semibold text-white text-center mb-8">What's included</h3>
+          <h3 className="text-xl font-semibold text-white text-center mb-8">Qué incluye</h3>
           <div className="grid md:grid-cols-3 gap-6">
             {Object.entries(PLAN_FEATURES).map(([plan, features]) => (
               <div 

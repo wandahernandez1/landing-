@@ -33,8 +33,8 @@ export function HeroSection() {
         <div className="mx-auto max-w-4xl text-center">
           <div data-hero-badge className="hero-badge mb-6 inline-flex items-center gap-2 rounded-full border border-gold-500/30 bg-gold-500/10 px-5 py-2.5 backdrop-blur-sm">
             <span className="h-2 w-2 rounded-full bg-gold-500 animate-pulse" />
-            <span className="text-sm text-gold-400 font-medium">B2B Growth Agency</span>
-            <span className="text-xs px-2 py-0.5 bg-gold-500/20 text-gold-400 rounded-full">Top Rated</span>
+            <span className="text-sm text-gold-400 font-medium">Agencia de Crecimiento B2B</span>
+            <span className="text-xs px-2 py-0.5 bg-gold-500/20 text-gold-400 rounded-full">Top Valorada</span>
           </div>
 
           <h1 data-hero-title className="text-5xl font-bold tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl mb-6">

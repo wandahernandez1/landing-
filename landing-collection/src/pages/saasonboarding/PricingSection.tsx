@@ -14,32 +14,32 @@ const MAU_TIERS = [
 // Features by category
 const FEATURE_CATEGORIES = [
   {
-    name: 'Onboarding Components',
+    name: 'Componentes de Onboarding',
     features: [
-      { name: 'Welcome modals', free: true, starter: true, growth: true },
-      { name: 'Product tours', free: 1, starter: 5, growth: 'Unlimited' },
-      { name: 'Checklists', free: 1, starter: 5, growth: 'Unlimited' },
+      { name: 'Modales de bienvenida', free: true, starter: true, growth: true },
+      { name: 'Tours de producto', free: 1, starter: 5, growth: 'Ilimitado' },
+      { name: 'Checklists', free: 1, starter: 5, growth: 'Ilimitado' },
       { name: 'Tooltips', free: true, starter: true, growth: true },
       { name: 'Hotspots', free: false, starter: true, growth: true },
       { name: 'Banners', free: false, starter: true, growth: true },
     ]
   },
   {
-    name: 'Targeting & Personalization',
+    name: 'Segmentación y Personalización',
     features: [
-      { name: 'User segments', free: 1, starter: 5, growth: 'Unlimited' },
-      { name: 'Behavioral triggers', free: false, starter: true, growth: true },
-      { name: 'A/B testing', free: false, starter: false, growth: true },
-      { name: 'Custom properties', free: false, starter: true, growth: true },
+      { name: 'Segmentos de usuario', free: 1, starter: 5, growth: 'Ilimitado' },
+      { name: 'Triggers de comportamiento', free: false, starter: true, growth: true },
+      { name: 'Pruebas A/B', free: false, starter: false, growth: true },
+      { name: 'Propiedades personalizadas', free: false, starter: true, growth: true },
     ]
   },
   {
-    name: 'Analytics',
+    name: 'Analíticas',
     features: [
-      { name: 'Flow analytics', free: 'Basic', starter: 'Standard', growth: 'Advanced' },
-      { name: 'Goal tracking', free: true, starter: true, growth: true },
-      { name: 'Funnel reports', free: false, starter: true, growth: true },
-      { name: 'Export data', free: false, starter: false, growth: true },
+      { name: 'Analítica de flujos', free: 'Básico', starter: 'Estándar', growth: 'Avanzado' },
+      { name: 'Seguimiento de objetivos', free: true, starter: true, growth: true },
+      { name: 'Reportes de embudo', free: false, starter: true, growth: true },
+      { name: 'Exportar datos', free: false, starter: false, growth: true },
     ]
   },
 ]
@@ -57,12 +57,12 @@ export function PricingSection() {
       <div className="absolute inset-0 onboard-grid opacity-10" />
       <div className="container-custom relative z-10">
         <header className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-indigo-400">Pricing</p>
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-indigo-400">Precios</p>
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Pay per{' '}<span className="text-gradient">active user</span>
+            Paga por{' '}<span className="text-gradient">usuario activo</span>
           </h2>
           <p className="mt-4 text-lg text-slate-400">
-            Start free, scale as you grow
+            Comienza gratis, escala mientras creces
           </p>
         </header>
 
@@ -71,7 +71,7 @@ export function PricingSection() {
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
               <Users className="w-5 h-5 text-indigo-400" />
-              <span className="text-white font-medium">Monthly Active Users</span>
+              <span className="text-white font-medium">Usuarios Activos Mensuales</span>
             </div>
             <span className="text-2xl font-bold text-indigo-400">{currentTier.mau}</span>
           </div>
@@ -105,23 +105,23 @@ export function PricingSection() {
                   <span className="text-slate-500">/month</span>
                 </>
               ) : (
-                <span className="text-4xl font-bold text-white">Contact Sales</span>
+                <span className="text-4xl font-bold text-white">Contactar Ventas</span>
               )}
             </div>
-            <p className="text-slate-500 mb-6">Up to {currentTier.mau} MAU</p>
+            <p className="text-slate-500 mb-6">Hasta {currentTier.mau} MAU</p>
             <a 
               href="#" 
               className="btn-primary w-full rounded-xl px-6 py-4 text-lg font-semibold flex items-center justify-center gap-2"
             >
               <Zap className="w-5 h-5" />
-              {currentTier.price === 0 ? 'Start Free' : 'Start 14-Day Trial'}
+              {currentTier.price === 0 ? 'Comenzar Gratis' : 'Iniciar Prueba de 14 Días'}
             </a>
           </div>
         </div>
 
         {/* Feature comparison */}
         <div className="max-w-5xl mx-auto">
-          <h3 className="text-xl font-semibold text-white text-center mb-8">Feature Comparison</h3>
+          <h3 className="text-xl font-semibold text-white text-center mb-8">Comparación de Funciones</h3>
           
           {/* Plan headers */}
           <div className="grid grid-cols-4 gap-4 mb-6">

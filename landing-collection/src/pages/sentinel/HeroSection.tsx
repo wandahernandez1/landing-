@@ -50,7 +50,7 @@ export function HeroSection() {
               <Shield className="h-4 w-4 text-cyan-400" />
               <div className="absolute inset-0 shield-pulse rounded-full" />
             </div>
-            <span className="text-sm text-cyan-300">Certificado SOC 2 Type II</span>
+            <span className="text-sm text-cyan-300">Certificado SOC 2 Tipo II</span>
             <span className="flex h-2 w-2 relative">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />

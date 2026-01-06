@@ -5,50 +5,50 @@ import {
   Sparkles, ExternalLink
 } from 'lucide-react'
 
-// What's included tree structure
+// Estructura del árbol de lo incluido
 const INCLUDED_TREE = [
   {
-    name: 'Authentication',
+    name: 'Autenticación',
     icon: Lock,
     expanded: true,
     items: [
-      'Social login (Google, GitHub, Twitter)',
-      'Magic link authentication',
-      'Session management',
-      'Protected routes',
+      'Login social (Google, GitHub, Twitter)',
+      'Autenticación magic link',
+      'Gestión de sesiones',
+      'Rutas protegidas',
     ]
   },
   {
-    name: 'Payments',
+    name: 'Pagos',
     icon: CreditCard,
     expanded: true,
     items: [
-      'Stripe integration',
-      'Subscription management',
-      'Usage-based billing',
-      'Invoice generation',
+      'Integración Stripe',
+      'Gestión de suscripciones',
+      'Facturación por uso',
+      'Generación de facturas',
     ]
   },
   {
-    name: 'User Management',
+    name: 'Gestión de Usuarios',
     icon: Users,
     expanded: false,
     items: [
-      'User profiles',
-      'Team workspaces',
-      'Role-based access',
-      'Account settings',
+      'Perfiles de usuario',
+      'Espacios de equipo',
+      'Acceso basado en roles',
+      'Configuración de cuenta',
     ]
   },
   {
-    name: 'Email System',
+    name: 'Sistema de Email',
     icon: Mail,
     expanded: false,
     items: [
-      'Transactional emails',
-      'Email templates',
-      'Resend integration',
-      'Unsubscribe handling',
+      'Emails transaccionales',
+      'Plantillas de email',
+      'Integración Resend',
+      'Manejo de desuscripción',
     ]
   },
   {
@@ -56,21 +56,21 @@ const INCLUDED_TREE = [
     icon: BarChart,
     expanded: false,
     items: [
-      'User analytics',
-      'Revenue tracking',
-      'Conversion funnels',
-      'Custom events',
+      'Analytics de usuarios',
+      'Seguimiento de ingresos',
+      'Embudos de conversión',
+      'Eventos personalizados',
     ]
   },
   {
-    name: 'UI Components',
+    name: 'Componentes UI',
     icon: Palette,
     expanded: false,
     items: [
-      'Dashboard layouts',
-      'Settings pages',
-      'Billing portal',
-      '50+ components',
+      'Layouts de dashboard',
+      'Páginas de configuración',
+      'Portal de facturación',
+      '50+ componentes',
     ]
   },
 ]
@@ -104,12 +104,12 @@ export function FeaturesSection() {
         
         {/* Header */}
         <header className="mx-auto mb-20 max-w-3xl text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-orange-400">What's Included</p>
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-orange-400">Qué Incluye</p>
           <h2 id="features-title" className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Everything to{' '}<span className="text-gradient">launch fast</span>
+            Todo para{' '}<span className="text-gradient">lanzar rápido</span>
           </h2>
           <p className="mt-6 text-lg text-slate-400">
-            Stop reinventing the wheel. Start with production-ready code.
+            Deja de reinventar la rueda. Empieza con código listo para producción.
           </p>
         </header>
 
@@ -143,7 +143,7 @@ export function FeaturesSection() {
                     )}
                     <Folder className={`w-4 h-4 ${expandedFolders.includes(folder.name) ? 'text-orange-400' : 'text-slate-500'}`} />
                     <span className="text-white">{folder.name}</span>
-                    <span className="text-xs text-slate-600 ml-auto">{folder.items.length} files</span>
+                    <span className="text-xs text-slate-600 ml-auto">{folder.items.length} archivos</span>
                   </button>
 
                   {/* Folder contents */}
@@ -168,7 +168,7 @@ export function FeaturesSection() {
             {/* Summary */}
             <div className="px-4 py-3 border-t border-slate-800 bg-slate-900/50">
               <p className="text-xs text-slate-500">
-                <span className="text-orange-400 font-medium">24 features</span> included • Ready to customize
+                <span className="text-orange-400 font-medium">24 funciones</span> incluidas • Listas para personalizar
               </p>
             </div>
           </div>
@@ -180,7 +180,7 @@ export function FeaturesSection() {
             <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-6">
               <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
                 <Sparkles className="w-5 h-5 text-orange-400" />
-                Built with modern stack
+                Construido con stack moderno
               </h3>
               <div className="grid grid-cols-3 gap-3">
                 {TECH_STACK.map((tech) => (
@@ -199,13 +199,13 @@ export function FeaturesSection() {
 
             {/* Why indie makers love it */}
             <div className="rounded-2xl border border-orange-500/20 bg-gradient-to-br from-orange-950/30 to-slate-900/80 p-6">
-              <h3 className="text-lg font-semibold text-white mb-4">Why indie makers love it</h3>
+              <h3 className="text-lg font-semibold text-white mb-4">Por qué los indie makers lo aman</h3>
               <div className="space-y-3">
                 {[
-                  { title: 'Ship in days, not months', desc: 'All the boring stuff is done' },
-                  { title: 'Own your code', desc: 'No vendor lock-in, full access' },
-                  { title: 'Battle-tested', desc: 'Used by 200+ shipped products' },
-                  { title: 'Active community', desc: 'Discord with 500+ makers' },
+                  { title: 'Lanza en días, no meses', desc: 'Todo lo aburrido ya está hecho' },
+                  { title: 'Tu código, tu control', desc: 'Sin vendor lock-in, acceso completo' },
+                  { title: 'Probado en batalla', desc: 'Usado por 200+ productos lanzados' },
+                  { title: 'Comunidad activa', desc: 'Discord con 500+ makers' },
                 ].map((benefit) => (
                   <div key={benefit.title} className="flex items-start gap-3">
                     <div className="w-5 h-5 rounded-full bg-orange-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -225,7 +225,7 @@ export function FeaturesSection() {
               href="#pricing" 
               className="flex items-center justify-between p-4 rounded-xl border border-slate-800 bg-slate-900/50 hover:border-orange-500/30 transition-all group"
             >
-              <span className="text-white font-medium">View full feature list</span>
+              <span className="text-white font-medium">Ver lista completa de funciones</span>
               <ExternalLink className="w-5 h-5 text-slate-500 group-hover:text-orange-400 transition-colors" />
             </a>
           </div>

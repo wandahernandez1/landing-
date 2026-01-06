@@ -12,7 +12,7 @@ export function Footer() {
           <div className="flex items-center gap-4"><a href="#" className="text-slate-500 hover:text-green-400"><Github className="h-5 w-5" /></a><a href="#" className="text-slate-500 hover:text-green-400"><Twitter className="h-5 w-5" /></a></div>
         </div>
         <div className="divider mt-8" />
-        <div className="mt-8 text-center"><p className="text-sm text-slate-600">{COMPANY.year} {COMPANY.name}. SEO for developers.</p></div>
+        <div className="mt-8 text-center"><p className="text-sm text-slate-600">{COMPANY.year} {COMPANY.name}. SEO para desarrolladores.</p></div>
       </div>
     </footer>
   )

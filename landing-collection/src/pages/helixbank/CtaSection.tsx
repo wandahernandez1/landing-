@@ -103,7 +103,7 @@ export function CtaSection() {
             <div className="h-10 w-px bg-slate-800" />
             <div className="text-center">
               <p className="text-3xl font-bold text-white mb-1">GDPR</p>
-              <p className="text-xs text-slate-500 uppercase tracking-wider">Compliant</p>
+              <p className="text-xs text-slate-500 uppercase tracking-wider">Cumplimiento</p>
             </div>
             <div className="h-10 w-px bg-slate-800" />
             <div className="text-center">

@@ -60,7 +60,7 @@ export function HeroSection() {
             className="mb-6 inline-flex items-center gap-2 rounded-full border border-zinc-700 bg-zinc-800/50 px-4 py-2"
           >
             <Key className="h-4 w-4 text-zinc-400" />
-            <span className="text-sm text-zinc-400">Passwordless authentication</span>
+            <span className="text-sm text-zinc-400">Autenticación sin contraseñas</span>
           </div>
 
           {/* Title emphasizing simplicity */}
@@ -68,16 +68,16 @@ export function HeroSection() {
             data-hero-title
             className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl mb-6"
           >
-            <span className="block">One line.</span>
-            <span className="block text-gradient">Zero passwords.</span>
+            <span className="block">Una línea.</span>
+            <span className="block text-gradient">Cero contraseñas.</span>
           </h1>
 
           <p 
             data-hero-description
             className="mx-auto max-w-xl text-lg text-zinc-500 md:text-xl mb-10"
           >
-            That's all you need. Magic links, OAuth, passkeys, SMS. 
-            Auth that users love, in one line of code.
+            Eso es todo lo que necesitas. Magic links, OAuth, passkeys, SMS. 
+            Auth que los usuarios aman, en una línea de código.
           </p>
 
           {/* The ONE LINE code block - hero of the hero */}
@@ -155,7 +155,7 @@ export function HeroSection() {
               {/* That's it badge */}
               <div className="absolute -bottom-3 left-1/2 -translate-x-1/2">
                 <span className="px-3 py-1 bg-zinc-800 border border-zinc-700 rounded-full text-xs text-zinc-400">
-                  That's it. Really.
+                  Eso es todo. En serio.
                 </span>
               </div>
             </div>
@@ -164,7 +164,7 @@ export function HeroSection() {
           {/* Live demo */}
           <div className="w-full max-w-md mx-auto mb-10">
             <div className="p-6 rounded-xl bg-zinc-900/50 border border-zinc-800">
-              <p className="text-sm text-zinc-500 mb-4">Try it yourself:</p>
+              <p className="text-sm text-zinc-500 mb-4">Pruébalo tú mismo:</p>
               
               {demoState === 'input' && (
                 <div className="flex gap-2">
@@ -172,7 +172,7 @@ export function HeroSection() {
                     type="email"
                     value={demoEmail}
                     onChange={(e) => setDemoEmail(e.target.value)}
-                    placeholder="Enter your email..."
+                    placeholder="Ingresa tu email..."
                     className="flex-1 px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-xl text-white placeholder-zinc-600 focus:outline-none focus:border-zinc-600"
                   />
                   <button
@@ -188,7 +188,7 @@ export function HeroSection() {
               {demoState === 'sending' && (
                 <div className="flex items-center justify-center gap-3 py-3">
                   <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                  <span className="text-zinc-300">Sending magic link...</span>
+                  <span className="text-zinc-300">Enviando magic link...</span>
                 </div>
               )}
               
@@ -197,13 +197,13 @@ export function HeroSection() {
                   <div className="w-12 h-12 mx-auto mb-3 bg-green-500/20 rounded-full flex items-center justify-center">
                     <Check className="w-6 h-6 text-green-500" />
                   </div>
-                  <p className="text-white font-medium mb-1">Check your inbox!</p>
-                  <p className="text-sm text-zinc-500 mb-3">Magic link sent to {demoEmail}</p>
+                  <p className="text-white font-medium mb-1">¡Revisa tu bandeja de entrada!</p>
+                  <p className="text-sm text-zinc-500 mb-3">Magic link enviado a {demoEmail}</p>
                   <button
                     onClick={resetDemo}
                     className="text-xs text-zinc-500 hover:text-white transition-colors"
                   >
-                    Try again
+                    Intentar de nuevo
                   </button>
                 </div>
               )}
@@ -216,11 +216,11 @@ export function HeroSection() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
           >
             <a href="#pricing" className="btn-primary flex items-center gap-2 rounded-xl px-8 py-4 text-base font-semibold">
-              Get API Key
+              Obtener API Key
               <ArrowRight className="h-5 w-5" />
             </a>
             <a href="#features" className="btn-secondary flex items-center gap-2 rounded-xl px-8 py-4 text-base font-medium">
-              Read Docs
+              Leer Documentación
             </a>
           </div>
 
@@ -230,9 +230,9 @@ export function HeroSection() {
             className="flex flex-wrap items-center justify-center gap-8 text-zinc-500"
           >
             {[
-              { icon: Zap, value: '10K+', label: 'Apps' },
-              { value: '50M+', label: 'Auth/month' },
-              { value: '<50ms', label: 'Latency' },
+              { icon: Zap, value: '10K+', label: 'Aplicaciones' },
+              { value: '50M+', label: 'Auth/mes' },
+              { value: '<50ms', label: 'Latencia' },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <span className="text-2xl font-bold text-zinc-300">{stat.value}</span>

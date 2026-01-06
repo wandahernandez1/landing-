@@ -4,11 +4,11 @@ import { useHeroAnimation } from '@/shared/hooks'
 
 // Accessibility compliance checkmarks
 const A11Y_FEATURES = [
-  { id: 'semantic', label: 'Semantic HTML', icon: CheckCircle2, status: 'pass', description: 'Proper heading hierarchy, landmarks, and structure' },
-  { id: 'keyboard', label: 'Keyboard Navigation', icon: Keyboard, status: 'pass', description: 'All interactive elements accessible via keyboard' },
-  { id: 'screen-reader', label: 'Screen Reader Support', icon: MonitorSpeaker, status: 'pass', description: 'ARIA labels and live regions implemented' },
-  { id: 'focus', label: 'Focus Management', icon: MousePointer2, status: 'pass', description: 'Clear focus indicators on all elements' },
-  { id: 'contrast', label: 'Color Contrast', icon: Eye, status: 'pass', description: 'WCAG AA compliant contrast ratios' },
+  { id: 'semantic', label: 'HTML Semántico', icon: CheckCircle2, status: 'pass', description: 'Jerarquía de encabezados, landmarks y estructura correcta' },
+  { id: 'keyboard', label: 'Navegación por Teclado', icon: Keyboard, status: 'pass', description: 'Todos los elementos interactivos accesibles vía teclado' },
+  { id: 'screen-reader', label: 'Soporte para Lectores de Pantalla', icon: MonitorSpeaker, status: 'pass', description: 'Etiquetas ARIA y regiones activas implementadas' },
+  { id: 'focus', label: 'Gestión de Foco', icon: MousePointer2, status: 'pass', description: 'Indicadores de foco claros en todos los elementos' },
+  { id: 'contrast', label: 'Contraste de Color', icon: Eye, status: 'pass', description: 'Ratios de contraste compatibles con WCAG AA' },
 ]
 
 // This landing demonstrates perfect accessibility
@@ -85,7 +85,7 @@ export function HeroSection() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" aria-hidden="true" />
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500" aria-hidden="true" />
               </span>
-              <span className="text-sm text-green-400 font-medium">This page: 100% accessible</span>
+              <span className="text-sm text-green-400 font-medium">Esta página: 100% accesible</span>
             </div>
 
             <h1 
@@ -93,16 +93,16 @@ export function HeroSection() {
               data-hero-title
               className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl mb-6"
             >
-              <span className="block">The most accessible</span>
-              <span className="block text-gradient">landing page.</span>
+              <span className="block">La landing page</span>
+              <span className="block text-gradient">más accesible.</span>
             </h1>
 
             <p 
               data-hero-description
               className="mx-auto lg:mx-0 max-w-xl text-lg text-slate-400 md:text-xl mb-8"
             >
-              We built this page to WCAG 2.1 AAA standards. 
-              Now we can help you do the same.
+              Construimos esta página siguiendo los estándares WCAG 2.1 AAA. 
+              Ahora podemos ayudarte a hacer lo mismo.
             </p>
 
             {/* Accessibility checklist - shows this page's compliance */}
@@ -110,25 +110,25 @@ export function HeroSection() {
               data-hero-cta
               className="mb-8 p-5 rounded-2xl border border-blue-500/20 bg-slate-900/50"
               role="region"
-              aria-label="Accessibility compliance status for this page"
+              aria-label="Estado de cumplimiento de accesibilidad de esta página"
             >
-              <p className="text-sm text-slate-400 mb-4 lg:text-left">This landing page passes:</p>
+              <p className="text-sm text-slate-400 mb-4 lg:text-left">Esta landing page cumple:</p>
               <ul className="space-y-2" role="list">
                 {A11Y_FEATURES.slice(0, 3).map((feature) => (
                   <li 
                     key={feature.id}
                     className="flex items-center gap-3"
                   >
-                    <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" aria-hidden="true" />
+                    <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" aria-hidden="true" />
                     <span className="text-sm text-white">{feature.label}</span>
                   </li>
                 ))}
               </ul>
               <button
                 className="mt-3 text-sm text-blue-400 hover:text-blue-300 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
-                aria-label="View all 5 accessibility features this page passes"
+                aria-label="Ver las 5 características de accesibilidad que pasa esta página"
               >
-                + 2 more checks passed
+                + 2 verificaciones más aprobadas
               </button>
             </div>
 
@@ -138,7 +138,7 @@ export function HeroSection() {
               className="text-sm text-slate-500 flex items-center gap-2 justify-center lg:justify-start"
             >
               <Keyboard className="w-4 h-4" aria-hidden="true" />
-              <span>Try navigating with <kbd className="px-2 py-0.5 bg-slate-800 rounded text-slate-300 text-xs">Tab</kbd> key</span>
+              <span>Prueba navegar con la tecla <kbd className="px-2 py-0.5 bg-slate-800 rounded text-slate-300 text-xs">Tab</kbd></span>
             </p>
           </div>
 
@@ -147,14 +147,14 @@ export function HeroSection() {
             data-hero-visual
             className="relative"
             role="region"
-            aria-label="Website accessibility scanner"
+            aria-label="Escáner de accesibilidad web"
           >
             <div className="rounded-2xl border border-blue-500/20 bg-slate-900/90 overflow-hidden shadow-2xl shadow-blue-500/10">
               {/* Header */}
               <header className="flex items-center justify-between px-4 py-3 border-b border-slate-700/50 bg-slate-800/80">
                 <div className="flex items-center gap-2">
                   <Eye className="h-4 w-4 text-blue-400" aria-hidden="true" />
-                  <span className="text-sm text-slate-300">Accessibility Scanner</span>
+                  <span className="text-sm text-slate-300">Escáner de Accesibilidad</span>
                 </div>
                 <span className="text-xs px-2 py-0.5 bg-blue-500/20 text-blue-400 rounded">WCAG 2.1</span>
               </header>
@@ -165,7 +165,7 @@ export function HeroSection() {
                   <>
                     {/* URL Input */}
                     <div className="space-y-4">
-                      <label htmlFor="url-input" className="sr-only">Enter website URL to scan</label>
+                      <label htmlFor="url-input" className="sr-only">Ingresa la URL del sitio web a escanear</label>
                       <div className="relative flex items-center">
                         <Globe className="absolute left-4 w-5 h-5 text-slate-500" aria-hidden="true" />
                         <input
@@ -174,13 +174,13 @@ export function HeroSection() {
                           value={url}
                           onChange={(e) => setUrl(e.target.value)}
                           onKeyDown={(e) => e.key === 'Enter' && handleScan()}
-                          placeholder="Enter your website URL..."
+                          placeholder="Ingresa la URL de tu sitio web..."
                           aria-describedby="url-hint"
                           className="w-full pl-12 pr-4 py-3 rounded-xl bg-slate-800/80 border border-slate-700/50 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50"
                         />
                       </div>
                       <p id="url-hint" className="text-xs text-slate-500">
-                        We'll analyze your site against WCAG 2.1 guidelines
+                        Analizaremos tu sitio según las pautas WCAG 2.1
                       </p>
                       
                       <button
@@ -192,12 +192,12 @@ export function HeroSection() {
                         {isScanning ? (
                           <>
                             <span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" aria-hidden="true" />
-                            <span>Scanning...</span>
+                            <span>Escaneando...</span>
                           </>
                         ) : (
                           <>
                             <Search className="h-5 w-5" aria-hidden="true" />
-                            <span>Scan for Issues</span>
+                            <span>Buscar Problemas</span>
                           </>
                         )}
                       </button>
@@ -205,7 +205,7 @@ export function HeroSection() {
 
                     {/* Quick examples */}
                     <div className="mt-6 pt-6 border-t border-slate-700/50">
-                      <p className="text-xs text-slate-500 mb-3">Or try scanning:</p>
+                      <p className="text-xs text-slate-500 mb-3">O prueba escanear:</p>
                       <div className="flex flex-wrap gap-2">
                         {['apple.com', 'gov.uk', 'w3.org'].map((example) => (
                           <button
@@ -221,7 +221,7 @@ export function HeroSection() {
                   </>
                 ) : (
                   /* Results */
-                  <div role="region" aria-live="polite" aria-label="Scan results">
+                  <div role="region" aria-live="polite" aria-label="Resultados del escaneo">
                     <div className="flex items-center justify-between mb-6">
                       <div className="flex items-center gap-2">
                         <span className="text-sm text-slate-400">{url}</span>
@@ -230,7 +230,7 @@ export function HeroSection() {
                         onClick={handleReset}
                         className="text-xs text-blue-400 hover:text-blue-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded px-2 py-1"
                       >
-                        Scan another
+                        Escanear otro
                       </button>
                     </div>
 
@@ -240,11 +240,11 @@ export function HeroSection() {
                         <Sparkles className="w-5 h-5 text-green-400" aria-hidden="true" />
                         <span className="text-3xl font-bold text-green-400">{liveScore}%</span>
                       </div>
-                      <p className="text-sm text-green-400/80">Accessibility Score</p>
+                      <p className="text-sm text-green-400/80">Puntuación de Accesibilidad</p>
                     </div>
 
                     {/* Animated checklist */}
-                    <ul className="space-y-3" role="list" aria-label="Accessibility checks">
+                    <ul className="space-y-3" role="list" aria-label="Verificaciones de accesibilidad">
                       {A11Y_FEATURES.map((feature) => {
                         const isChecked = checkedFeatures.includes(feature.id)
                         return (
@@ -268,7 +268,7 @@ export function HeroSection() {
                             </div>
                             {isChecked && (
                               <span className="text-xs px-2 py-0.5 bg-green-500/20 text-green-400 rounded">
-                                PASS
+                                APROBADO
                               </span>
                             )}
                           </li>
@@ -283,7 +283,7 @@ export function HeroSection() {
                           href="#pricing"
                           className="w-full btn-primary flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-base font-semibold"
                         >
-                          Get Full Report
+                          Obtener Reporte Completo
                           <ArrowRight className="h-5 w-5" aria-hidden="true" />
                         </a>
                       </div>
@@ -308,12 +308,12 @@ export function HeroSection() {
           data-hero-stats
           className="mt-16 flex flex-wrap items-center justify-center gap-8 text-slate-400"
           role="region"
-          aria-label="Platform statistics"
+          aria-label="Estadísticas de la plataforma"
         >
           {[
-            { value: '10M+', label: 'Pages scanned' },
-            { value: '99.5%', label: 'Accuracy' },
-            { value: '2K+', label: 'Teams' },
+            { value: '10M+', label: 'Páginas escaneadas' },
+            { value: '99.5%', label: 'Precisión' },
+            { value: '2K+', label: 'Equipos' },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
               <span className="text-2xl font-bold text-blue-400">{stat.value}</span>

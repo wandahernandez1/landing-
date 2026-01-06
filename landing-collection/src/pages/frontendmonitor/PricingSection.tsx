@@ -13,16 +13,16 @@ const ERROR_TIERS = [
 
 // Feature comparison
 const FEATURES = [
-  { name: 'Error tracking', free: true, starter: true, pro: true },
+  { name: 'Rastreo de errores', free: true, starter: true, pro: true },
   { name: 'Stack traces', free: true, starter: true, pro: true },
   { name: 'Source maps', free: true, starter: true, pro: true },
-  { name: 'Session replay', free: false, starter: '100 sessions', pro: 'Unlimited' },
-  { name: 'User feedback', free: false, starter: true, pro: true },
-  { name: 'Release tracking', free: false, starter: true, pro: true },
-  { name: 'Performance monitoring', free: false, starter: false, pro: true },
-  { name: 'Custom dashboards', free: false, starter: false, pro: true },
-  { name: 'API access', free: false, starter: false, pro: true },
-  { name: 'Data retention', free: '7 days', starter: '30 days', pro: '90 days' },
+  { name: 'Reproducción de sesión', free: false, starter: '100 sesiones', pro: 'Ilimitado' },
+  { name: 'Feedback de usuario', free: false, starter: true, pro: true },
+  { name: 'Seguimiento de releases', free: false, starter: true, pro: true },
+  { name: 'Monitoreo de rendimiento', free: false, starter: false, pro: true },
+  { name: 'Dashboards personalizados', free: false, starter: false, pro: true },
+  { name: 'Acceso API', free: false, starter: false, pro: true },
+  { name: 'Retención de datos', free: '7 días', starter: '30 días', pro: '90 días' },
 ]
 
 export function PricingSection() {
@@ -37,12 +37,12 @@ export function PricingSection() {
       <div className="absolute inset-0 error-grid opacity-10" />
       <div className="container-custom relative z-10">
         <header className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-red-400">Pricing</p>
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-red-400">Precios</p>
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Pay per{' '}<span className="text-gradient">error</span>
+            Paga por{' '}<span className="text-gradient">error</span>
           </h2>
           <p className="mt-6 text-lg text-slate-400">
-            Simple pricing based on monthly error volume. No hidden fees.
+            Precios simples basados en volumen mensual de errores. Sin tarifas ocultas.
           </p>
         </header>
 
@@ -52,7 +52,7 @@ export function PricingSection() {
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-3">
                 <Bug className="w-6 h-6 text-red-400" />
-                <span className="text-white font-medium">Monthly error volume</span>
+                <span className="text-white font-medium">Volumen mensual de errores</span>
               </div>
               <div className="text-right">
                 <span className="text-3xl font-bold text-white">
@@ -82,7 +82,7 @@ export function PricingSection() {
 
             {currentTier.price === 0 && (
               <p className="mt-4 text-center text-sm text-green-400">
-                ✓ Free forever • No credit card required
+                ✓ Gratis para siempre • Sin tarjeta de crédito
               </p>
             )}
           </div>
@@ -90,12 +90,12 @@ export function PricingSection() {
 
         {/* Feature Comparison Table */}
         <div className="max-w-4xl mx-auto">
-          <h3 className="text-xl font-bold text-center text-white mb-8">Feature comparison</h3>
+          <h3 className="text-xl font-bold text-center text-white mb-8">Comparación de características</h3>
           <div className="rounded-2xl border border-slate-800 bg-slate-900/80 overflow-hidden">
             {/* Header */}
             <div className="grid grid-cols-4 gap-4 px-6 py-4 border-b border-slate-800 bg-slate-900">
-              <div className="text-slate-500 font-medium">Feature</div>
-              <div className="text-center text-slate-400">Free</div>
+              <div className="text-slate-500 font-medium">Característica</div>
+              <div className="text-center text-slate-400">Gratis</div>
               <div className="text-center text-slate-400">Starter</div>
               <div className="text-center text-red-400 font-medium">Pro</div>
             </div>
@@ -140,13 +140,13 @@ export function PricingSection() {
             <div className="grid grid-cols-4 gap-4 px-6 py-6 border-t border-slate-800 bg-slate-900/50">
               <div />
               <div className="text-center">
-                <button className="btn-secondary px-4 py-2 text-sm w-full">Start free</button>
+                <button className="btn-secondary px-4 py-2 text-sm w-full">Comenzar gratis</button>
               </div>
               <div className="text-center">
-                <button className="btn-secondary px-4 py-2 text-sm w-full">Try Starter</button>
+                <button className="btn-secondary px-4 py-2 text-sm w-full">Probar Starter</button>
               </div>
               <div className="text-center">
-                <button className="btn-primary px-4 py-2 text-sm w-full">Try Pro</button>
+                <button className="btn-primary px-4 py-2 text-sm w-full">Probar Pro</button>
               </div>
             </div>
           </div>

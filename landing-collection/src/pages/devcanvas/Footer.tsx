@@ -41,7 +41,7 @@ export function Footer() {
 
         <div className="mt-8 flex flex-col items-center gap-4 md:flex-row md:justify-center">
           <p className="text-sm text-slate-600">
-            {COMPANY.year} {COMPANY.name}. Built with ♥ for developers.
+            {COMPANY.year} {COMPANY.name}. Creado con ♥ para desarrolladores.
           </p>
         </div>
       </div>

@@ -50,10 +50,10 @@ export function CtaSection() {
           <header className="text-center mb-12">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/10 border border-red-500/30 mb-6">
               <Zap className="w-4 h-4 text-red-400" />
-              <span className="text-sm font-medium text-red-400">2-minute setup</span>
+              <span className="text-sm font-medium text-red-400">Configuración en 2 minutos</span>
             </div>
             <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
-              Works with your{' '}<span className="text-gradient">stack</span>
+              Funciona con tu{' '}<span className="text-gradient">stack</span>
             </h2>
           </header>
 
@@ -85,12 +85,12 @@ export function CtaSection() {
                 {copied ? (
                   <>
                     <CheckCircle className="w-4 h-4 text-green-400" />
-                    Copied!
+                    ¡Copiado!
                   </>
                 ) : (
                   <>
                     <Copy className="w-4 h-4" />
-                    Copy
+                    Copiar
                   </>
                 )}
               </button>
@@ -102,7 +102,7 @@ export function CtaSection() {
 
           {/* Features */}
           <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
-            {['Source maps', 'Auto-instrumentation', 'Error boundaries', 'Performance'].map((feature) => (
+            {['Source maps', 'Auto-instrumentación', 'Error boundaries', 'Rendimiento'].map((feature) => (
               <div 
                 key={feature}
                 className="flex items-center gap-2 px-4 py-3 rounded-xl bg-slate-900/50 border border-slate-800"
@@ -123,24 +123,24 @@ export function CtaSection() {
             </div>
           </div>
           <h3 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-6">
-            Stop guessing. Start debugging.
+            Deja de adivinar. Empieza a depurar.
           </h3>
           <p className="text-lg text-slate-400 mb-10 max-w-xl mx-auto">
-            Join 15,000+ teams who catch errors before their users do.
+            Únete a 15,000+ equipos que detectan errores antes que sus usuarios.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a href="#pricing" className="btn-primary flex items-center gap-2 rounded-xl px-8 py-4 text-lg font-semibold">
               <Bug className="h-5 w-5" />
-              Start Free
+              Comenzar Gratis
               <ArrowRight className="h-5 w-5" />
             </a>
             <a href="#" className="btn-secondary rounded-xl px-8 py-4 text-lg font-medium flex items-center gap-2">
               <Code className="h-5 w-5" />
-              View Docs
+              Ver Documentación
             </a>
           </div>
           <p className="mt-6 text-sm text-slate-500">
-            Free tier forever • No credit card required • 2-minute setup
+            Tier gratis para siempre • Sin tarjeta de crédito • Configuración en 2 minutos
           </p>
         </div>
       </div>

@@ -63,13 +63,13 @@ export function HeroSection() {
               <button className="btn-primary group flex items-center gap-3 rounded-full px-8 py-4 text-base font-semibold relative z-10">
                 <span className="relative z-10 flex items-center gap-3">
                   <Apple className="h-5 w-5" />
-                  App Store
+                  Descargar en App Store
                 </span>
               </button>
               <button className="btn-secondary group flex items-center gap-3 rounded-full px-8 py-4 text-base font-medium relative z-10">
                 <span className="relative z-10 flex items-center gap-3">
                   <Play className="h-5 w-5" />
-                  Google Play
+                  Disponible en Google Play
                 </span>
               </button>
             </div>
@@ -82,7 +82,7 @@ export function HeroSection() {
               <div className="h-12 w-px bg-stone-300" />
               <div data-hero-stat className="stat-glow group cursor-default p-2 rounded-xl transition-all duration-300">
                 <span className="text-4xl font-bold text-stone-900 group-hover:text-emerald-600 transition-colors">4.9★</span>
-                <p className="text-sm text-stone-500 mt-1">Rating promedio</p>
+                <p className="text-sm text-stone-500 mt-1">Calificación promedio</p>
               </div>
               <div className="h-12 w-px bg-stone-300 hidden sm:block" />
               <div data-hero-stat className="stat-glow group cursor-default p-2 rounded-xl transition-all duration-300 hidden sm:block">

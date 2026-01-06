@@ -8,30 +8,30 @@ import {
 const RELEASE_SCENARIOS = [
   {
     id: 'gradual',
-    title: 'Gradual Rollout',
+    title: 'Lanzamiento Gradual',
     icon: Percent,
-    description: 'Release to 1% → 10% → 50% → 100% of users',
+    description: 'Libera al 1% → 10% → 50% → 100% de usuarios',
     timeline: ['1%', '10%', '50%', '100%'],
   },
   {
     id: 'beta',
-    title: 'Beta Program',
+    title: 'Programa Beta',
     icon: Users,
-    description: 'Early access for opted-in beta testers',
-    timeline: ['Beta', 'Early Access', 'GA'],
+    description: 'Acceso anticipado para testers beta',
+    timeline: ['Beta', 'Acceso Anticipado', 'GA'],
   },
   {
     id: 'canary',
-    title: 'Canary Release',
+    title: 'Lanzamiento Canary',
     icon: AlertCircle,
-    description: 'Test with internal team before public release',
-    timeline: ['Internal', 'Canary', 'Production'],
+    description: 'Prueba con equipo interno antes del lanzamiento',
+    timeline: ['Interno', 'Canary', 'Producción'],
   },
   {
     id: 'trunk',
     title: 'Trunk-based Dev',
     icon: GitBranch,
-    description: 'Ship to main, control exposure with flags',
+    description: 'Despliega a main, controla exposición con flags',
     timeline: ['Merge', 'Flag Off', 'Flag On'],
   },
 ]
@@ -111,12 +111,12 @@ export function FeaturesSection() {
         {/* Release Scenarios */}
         <div className="mb-32">
           <header className="mx-auto mb-12 max-w-3xl text-center">
-            <p className="mb-4 text-sm font-medium uppercase tracking-widest text-teal-400">Release Strategies</p>
+            <p className="mb-4 text-sm font-medium uppercase tracking-widest text-teal-400">Estrategias de Lanzamiento</p>
             <h2 id="features-title" className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-              Ship with{' '}<span className="text-gradient">confidence</span>
+              Despliega con{' '}<span className="text-gradient">confianza</span>
             </h2>
             <p className="mt-6 text-lg text-slate-400">
-              Choose the release strategy that fits your team. Rollback instantly if something goes wrong.
+              Elige la estrategia de lanzamiento que se adapte a tu equipo. Rollback instantáneo si algo sale mal.
             </p>
           </header>
 
@@ -199,19 +199,19 @@ export function FeaturesSection() {
             <div className="space-y-6">
               <h3 className="text-2xl font-bold text-white">
                 <Code2 className="inline w-6 h-6 text-teal-400 mr-2" />
-                First-class SDKs
+                SDKs de Primera Clase
               </h3>
               <p className="text-slate-400 leading-relaxed">
-                Type-safe SDKs for every major platform. Initialize once, use flags anywhere. 
-                Local evaluation for blazing-fast performance.
+                SDKs type-safe para cada plataforma principal. Inicializa una vez, usa flags en cualquier lugar. 
+                Evaluación local para rendimiento ultra rápido.
               </p>
 
               <div className="space-y-4">
                 {[
                   { title: '10+ SDKs', desc: 'React, Node, Python, Go, Ruby, iOS, Android...' },
-                  { title: 'Local evaluation', desc: 'Flags checked locally, no network calls' },
-                  { title: 'Type safety', desc: 'Full TypeScript/generics support' },
-                  { title: 'Edge-ready', desc: 'Works in serverless and edge runtimes' },
+                  { title: 'Evaluación local', desc: 'Flags verificados localmente, sin llamadas de red' },
+                  { title: 'Type safety', desc: 'Soporte completo de TypeScript/generics' },
+                  { title: 'Edge-ready', desc: 'Funciona en serverless y edge runtimes' },
                 ].map((item) => (
                   <div key={item.title} className="flex items-start gap-3">
                     <ChevronRight className="w-5 h-5 text-teal-400 flex-shrink-0" />
@@ -231,7 +231,7 @@ export function FeaturesSection() {
           <header className="mx-auto mb-12 max-w-3xl text-center">
             <p className="mb-4 text-sm font-medium uppercase tracking-widest text-teal-400">Dashboard</p>
             <h3 className="text-3xl font-bold tracking-tight">
-              Visual flag management
+              Gestión visual de flags
             </h3>
           </header>
 
@@ -247,7 +247,7 @@ export function FeaturesSection() {
               </div>
               <button className="flex items-center gap-2 px-4 py-2 rounded-lg bg-teal-500 text-white text-sm font-medium hover:bg-teal-600 transition-colors">
                 <Sparkles className="w-4 h-4" />
-                Create Flag
+                Crear Flag
               </button>
             </div>
 

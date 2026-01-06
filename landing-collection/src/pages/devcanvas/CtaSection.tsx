@@ -52,7 +52,7 @@ export function CtaSection() {
           </h2>
           
           <p className="cta-subtitle text-lg text-slate-400 mb-10 max-w-xl mx-auto">
-            Únete a 10,000+ developers que ya usan DevCanvas 
+            Únete a 10,000+ desarrolladores que ya usan DevCanvas 
             para mostrar su trabajo al mundo.
           </p>
 
@@ -62,7 +62,7 @@ export function CtaSection() {
               className="cta-button btn-primary flex items-center gap-2 rounded-xl px-8 py-4 text-lg font-semibold"
             >
               <Terminal className="h-5 w-5" />
-              Start Building
+              Empezar a Crear
               <ArrowRight className="h-5 w-5" />
             </a>
             <a
@@ -74,16 +74,16 @@ export function CtaSection() {
           </div>
 
           <p className="cta-note mt-6 text-sm text-slate-500">
-            No requiere tarjeta de crédito • Setup en 2 minutos
+            Sin tarjeta de crédito • Setup en 2 minutos
           </p>
 
           {/* Benefit Badges */}
           <div className="mt-12 flex flex-wrap justify-center gap-4">
             {[
-              { name: 'GitHub Integration', desc: 'Automático' },
+              { name: 'Integración GitHub', desc: 'Automático' },
               { name: 'SSL Incluido', desc: 'Gratis' },
               { name: 'CDN Global', desc: 'Ultra rápido' },
-              { name: 'Custom Domain', desc: 'Tu marca' },
+              { name: 'Dominio Custom', desc: 'Tu marca' },
             ].map((badge) => (
               <div 
                 key={badge.name}

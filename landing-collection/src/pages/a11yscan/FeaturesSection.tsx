@@ -6,13 +6,13 @@ import { cn } from '@/shared/utils/cn'
 const WCAG_CATEGORIES = [
   {
     id: 'perceivable',
-    name: 'Perceivable',
+    name: 'Perceptible',
     icon: Eye,
-    description: 'Information must be presentable to users in ways they can perceive.',
+    description: 'La información debe presentarse a los usuarios de formas que puedan percibir.',
     criteria: [
-      { code: '1.1.1', name: 'Non-text Content', level: 'A' },
-      { code: '1.4.3', name: 'Contrast (Minimum)', level: 'AA' },
-      { code: '1.4.11', name: 'Non-text Contrast', level: 'AA' },
+      { code: '1.1.1', name: 'Contenido No Textual', level: 'A' },
+      { code: '1.4.3', name: 'Contraste (Mínimo)', level: 'AA' },
+      { code: '1.4.11', name: 'Contraste No Textual', level: 'AA' },
     ],
     color: 'blue',
   },
@@ -20,35 +20,35 @@ const WCAG_CATEGORIES = [
     id: 'operable',
     name: 'Operable',
     icon: Keyboard,
-    description: 'User interface components must be operable by all users.',
+    description: 'Los componentes de interfaz deben ser operables por todos los usuarios.',
     criteria: [
-      { code: '2.1.1', name: 'Keyboard', level: 'A' },
-      { code: '2.4.4', name: 'Link Purpose', level: 'A' },
-      { code: '2.5.3', name: 'Label in Name', level: 'A' },
+      { code: '2.1.1', name: 'Teclado', level: 'A' },
+      { code: '2.4.4', name: 'Propósito del Enlace', level: 'A' },
+      { code: '2.5.3', name: 'Etiqueta en Nombre', level: 'A' },
     ],
     color: 'green',
   },
   {
     id: 'understandable',
-    name: 'Understandable',
+    name: 'Comprensible',
     icon: Monitor,
-    description: 'Information and operation must be understandable.',
+    description: 'La información y operación deben ser comprensibles.',
     criteria: [
-      { code: '3.1.1', name: 'Language of Page', level: 'A' },
-      { code: '3.2.2', name: 'On Input', level: 'A' },
-      { code: '3.3.2', name: 'Labels or Instructions', level: 'A' },
+      { code: '3.1.1', name: 'Idioma de la Página', level: 'A' },
+      { code: '3.2.2', name: 'Al Introducir Datos', level: 'A' },
+      { code: '3.3.2', name: 'Etiquetas o Instrucciones', level: 'A' },
     ],
     color: 'amber',
   },
   {
     id: 'robust',
-    name: 'Robust',
+    name: 'Robusto',
     icon: MousePointer,
-    description: 'Content must be robust enough for assistive technologies.',
+    description: 'El contenido debe ser lo suficientemente robusto para tecnologías de asistencia.',
     criteria: [
-      { code: '4.1.1', name: 'Parsing', level: 'A' },
-      { code: '4.1.2', name: 'Name, Role, Value', level: 'A' },
-      { code: '4.1.3', name: 'Status Messages', level: 'AA' },
+      { code: '4.1.1', name: 'Análisis Sintáctico', level: 'A' },
+      { code: '4.1.2', name: 'Nombre, Rol, Valor', level: 'A' },
+      { code: '4.1.3', name: 'Mensajes de Estado', level: 'AA' },
     ],
     color: 'purple',
   },
@@ -56,10 +56,10 @@ const WCAG_CATEGORIES = [
 
 // Sample issues
 const SAMPLE_ISSUES = [
-  { element: '<img>', issue: 'Missing alt attribute', severity: 'critical', wcag: '1.1.1' },
-  { element: '<button>', issue: 'Low contrast (2.8:1)', severity: 'serious', wcag: '1.4.3' },
-  { element: '<a>', issue: 'Non-descriptive link text', severity: 'moderate', wcag: '2.4.4' },
-  { element: '<input>', issue: 'Missing label', severity: 'critical', wcag: '3.3.2' },
+  { element: '<img>', issue: 'Falta atributo alt', severity: 'critical', wcag: '1.1.1' },
+  { element: '<button>', issue: 'Bajo contraste (2.8:1)', severity: 'serious', wcag: '1.4.3' },
+  { element: '<a>', issue: 'Texto de enlace no descriptivo', severity: 'moderate', wcag: '2.4.4' },
+  { element: '<input>', issue: 'Falta etiqueta', severity: 'critical', wcag: '3.3.2' },
 ]
 
 export function FeaturesSection() {
@@ -84,12 +84,12 @@ export function FeaturesSection() {
       <div className="absolute inset-0 a11y-grid opacity-20" />
       <div className="container-custom relative z-10">
         <header className="mx-auto mb-20 max-w-3xl text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-blue-400">WCAG Coverage</p>
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-blue-400">Cobertura WCAG</p>
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Complete{' '}<span className="text-gradient">WCAG 2.1</span>{' '}scanning
+            Escaneo{' '}<span className="text-gradient">WCAG 2.1</span>{' '}completo
           </h2>
           <p className="mt-6 text-lg text-slate-400">
-            We check all 4 principles across Level A, AA, and AAA criteria
+            Verificamos los 4 principios en los niveles A, AA y AAA
           </p>
         </header>
 
@@ -127,7 +127,7 @@ export function FeaturesSection() {
                 </div>
                 <p className="text-slate-300 mb-6">{activeCategory.description}</p>
                 
-                <h4 className="text-sm font-medium text-slate-500 mb-3">Sample criteria checked:</h4>
+                <h4 className="text-sm font-medium text-slate-500 mb-3">Criterios de ejemplo verificados:</h4>
                 <ul className="space-y-2">
                   {activeCategory.criteria.map((criterion) => (
                     <li key={criterion.code} className="flex items-center gap-3 text-sm">
@@ -166,12 +166,12 @@ export function FeaturesSection() {
         {/* Issues Preview */}
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center justify-between mb-6">
-            <h3 className="text-2xl font-bold text-white">Live issue detection</h3>
+            <h3 className="text-2xl font-bold text-white">Detección de problemas en vivo</h3>
             <button
               onClick={() => setShowFixes(!showFixes)}
               className="text-sm text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-1"
             >
-              {showFixes ? 'Hide fixes' : 'Show fixes'}
+              {showFixes ? 'Ocultar soluciones' : 'Mostrar soluciones'}
               <ChevronRight className={cn('w-4 h-4 transition-transform', showFixes && 'rotate-90')} />
             </button>
           </div>
@@ -186,7 +186,7 @@ export function FeaturesSection() {
                 )}
               >
                 <span className={cn(
-                  'w-2 h-2 rounded-full flex-shrink-0',
+                  'w-2 h-2 rounded-full shrink-0',
                   issue.severity === 'critical' ? 'bg-red-400' :
                   issue.severity === 'serious' ? 'bg-amber-400' : 'bg-blue-400'
                 )} />
@@ -196,7 +196,7 @@ export function FeaturesSection() {
                 {showFixes && (
                   <span className="flex items-center gap-1 text-sm text-green-400">
                     <Check className="w-4 h-4" />
-                    Auto-fix available
+                    Auto-corrección disponible
                   </span>
                 )}
               </div>
@@ -204,7 +204,7 @@ export function FeaturesSection() {
           </div>
 
           <p className="mt-4 text-center text-sm text-slate-500">
-            A11yScan detects 100+ issue types with detailed remediation guidance
+            A11yScan detecta más de 100 tipos de problemas con guía detallada de corrección
           </p>
         </div>
       </div>

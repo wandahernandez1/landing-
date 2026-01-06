@@ -25,7 +25,7 @@ export function Footer() {
         </div>
         <div className="divider mt-8" />
         <div className="mt-8 flex flex-col items-center gap-4 md:flex-row md:justify-center">
-          <p className="text-sm text-slate-600">{COMPANY.year} {COMPANY.name}. Secure by design.</p>
+          <p className="text-sm text-slate-600">{COMPANY.year} {COMPANY.name}. Seguro por diseño.</p>
         </div>
       </div>
     </footer>

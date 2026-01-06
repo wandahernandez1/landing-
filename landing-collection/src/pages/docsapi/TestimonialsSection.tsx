@@ -4,11 +4,11 @@ import { cn } from '@/shared/utils/cn'
 
 // Search results demo
 const SEARCH_RESULTS = [
-  { type: 'endpoint', title: 'GET /users', description: 'Fetch all users with pagination', category: 'Users API' },
-  { type: 'guide', title: 'Authentication Guide', description: 'How to authenticate API requests', category: 'Guides' },
-  { type: 'schema', title: 'User Object', description: 'User resource schema definition', category: 'Schemas' },
-  { type: 'endpoint', title: 'POST /users', description: 'Create a new user account', category: 'Users API' },
-  { type: 'code', title: 'SDK Installation', description: 'npm install @docsapi/sdk', category: 'Getting Started' },
+  { type: 'endpoint', title: 'GET /users', description: 'Obtener todos los usuarios con paginación', category: 'API de Usuarios' },
+  { type: 'guide', title: 'Guía de Autenticación', description: 'Cómo autenticar solicitudes API', category: 'Guías' },
+  { type: 'schema', title: 'Objeto Usuario', description: 'Definición del esquema de recurso Usuario', category: 'Esquemas' },
+  { type: 'endpoint', title: 'POST /users', description: 'Crear una nueva cuenta de usuario', category: 'API de Usuarios' },
+  { type: 'code', title: 'Instalación del SDK', description: 'npm install @docsapi/sdk', category: 'Primeros Pasos' },
 ]
 
 export function TestimonialsSection() {
@@ -32,12 +32,12 @@ export function TestimonialsSection() {
       <div className="absolute inset-0 docs-grid opacity-10" />
       <div className="container-custom relative z-10">
         <header className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-violet-400">Instant Search</p>
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-violet-400">Búsqueda Instantánea</p>
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Find anything{' '}<span className="text-gradient">instantly</span>
+            Encuentra cualquier cosa{' '}<span className="text-gradient">al instante</span>
           </h2>
           <p className="mt-6 text-lg text-slate-400">
-            Algolia-powered search across endpoints, guides, and schemas
+            Búsqueda impulsada por Algolia en endpoints, guías y esquemas
           </p>
         </header>
 
@@ -51,7 +51,7 @@ export function TestimonialsSection() {
               type="text"
               value={searchQuery}
               onChange={(e) => handleSearch(e.target.value)}
-              placeholder="Search docs... (try 'user' or 'auth')"
+              placeholder="Buscar en docs... (prueba 'usuario' o 'auth')"
               className="w-full pl-12 pr-4 py-4 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-violet-500 transition-colors"
             />
             <div className="absolute inset-y-0 right-4 flex items-center">
@@ -89,15 +89,15 @@ export function TestimonialsSection() {
                     ))
                   ) : (
                     <div className="p-8 text-center text-slate-500">
-                      No results found for "{searchQuery}"
+                      No se encontraron resultados para "{searchQuery}"
                     </div>
                   )}
                 </div>
                 {filteredResults.length > 0 && (
                   <div className="px-4 py-3 border-t border-slate-800 flex items-center justify-between text-sm">
-                    <span className="text-slate-500">{filteredResults.length} results</span>
+                    <span className="text-slate-500">{filteredResults.length} resultados</span>
                     <span className="flex items-center gap-2 text-violet-400">
-                      View all <ArrowRight className="w-4 h-4" />
+                      Ver todos <ArrowRight className="w-4 h-4" />
                     </span>
                   </div>
                 )}
@@ -109,10 +109,10 @@ export function TestimonialsSection() {
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
           {[
-            { value: '<50ms', label: 'Avg response time' },
-            { value: '99.9%', label: 'Uptime SLA' },
-            { value: 'Typo-tolerant', label: 'Search quality' },
-            { value: '10+ langs', label: 'Code samples' },
+            { value: '<50ms', label: 'Tiempo promedio de respuesta' },
+            { value: '99.9%', label: 'SLA de Uptime' },
+            { value: 'Tolerante a errores', label: 'Calidad de búsqueda' },
+            { value: '10+ idiomas', label: 'Ejemplos de código' },
           ].map((stat) => (
             <div key={stat.label} className="text-center p-6 rounded-xl bg-slate-900/50 border border-slate-800">
               <p className="text-2xl font-bold text-violet-400">{stat.value}</p>

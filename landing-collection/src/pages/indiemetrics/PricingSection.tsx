@@ -12,11 +12,11 @@ const MRR_TIERS = [
 ]
 
 const FEATURES_BY_TIER = {
-  hobby: ['Basic MRR tracking', '1 payment provider', '7-day history'],
-  starter: ['All payment providers', 'Email reports', '30-day history'],
-  indie: ['Cohort analysis', 'Churn predictions', 'Unlimited history', 'Email support'],
-  growth: ['Team members (3)', 'API access', 'Slack alerts', 'Priority support'],
-  scale: ['Unlimited team', 'Custom reports', 'White-label', 'Dedicated CSM'],
+  hobby: ['Seguimiento MRR básico', '1 proveedor de pago', 'Historial de 7 días'],
+  starter: ['Todos los proveedores de pago', 'Reportes por email', 'Historial de 30 días'],
+  indie: ['Análisis de cohortes', 'Predicciones de churn', 'Historial ilimitado', 'Soporte por email'],
+  growth: ['Miembros de equipo (3)', 'Acceso API', 'Alertas de Slack', 'Soporte prioritario'],
+  scale: ['Equipo ilimitado', 'Reportes personalizados', 'White-label', 'CSM dedicado'],
 }
 
 export function PricingSection() {
@@ -34,19 +34,19 @@ export function PricingSection() {
       <div className="absolute inset-0 indie-grid opacity-10" />
       <div className="container-custom relative z-10">
         <header className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-emerald-400">Pricing</p>
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-emerald-400">Precios</p>
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Pay as you{' '}<span className="text-gradient">grow</span>
+            Paga mientras{' '}<span className="text-gradient">creces</span>
           </h2>
           <p className="mt-6 text-lg text-neutral-400">
-            Pricing that scales with your MRR. Free until $1K MRR.
+            Precios que escalan con tu MRR. Gratis hasta $1K MRR.
           </p>
         </header>
 
         {/* MRR slider */}
         <div className="max-w-3xl mx-auto mb-12">
           <label className="block text-center text-white mb-4">
-            What's your current MRR?
+            ¿Cuál es tu MRR actual?
           </label>
           <div className="flex justify-between gap-2">
             {MRR_TIERS.map((tier, idx) => (
@@ -71,12 +71,12 @@ export function PricingSection() {
           <div className="rounded-2xl bg-gradient-to-b from-emerald-500/20 to-transparent border border-emerald-500/30 p-8 text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-medium mb-6">
               <DollarSign className="w-4 h-4" />
-              {currentTier.label} Plan
+              Plan {currentTier.label}
             </div>
             
             <div className="mb-2">
               {currentTier.price === 0 ? (
-                <span className="text-6xl font-bold text-white">Free</span>
+                <span className="text-6xl font-bold text-white">Gratis</span>
               ) : (
                 <>
                   <span className="text-6xl font-bold text-white">${currentTier.price}</span>
@@ -85,7 +85,7 @@ export function PricingSection() {
               )}
             </div>
             <p className="text-neutral-500 mb-8">
-              For {currentTier.mrr} MRR businesses
+              Para negocios con {currentTier.mrr} MRR
             </p>
 
             <ul className="space-y-3 mb-8 text-left">
@@ -101,18 +101,18 @@ export function PricingSection() {
               href="#" 
               className="btn-primary w-full rounded-xl px-6 py-4 font-semibold flex items-center justify-center gap-2"
             >
-              {currentTier.price === 0 ? 'Start Free' : 'Start 14-day Trial'}
+              {currentTier.price === 0 ? 'Comenzar Gratis' : 'Iniciar Prueba de 14 días'}
               <ArrowRight className="w-4 h-4" />
             </a>
             <p className="mt-4 text-sm text-neutral-500">
-              No credit card required
+              Sin tarjeta de crédito
             </p>
           </div>
         </div>
 
         {/* Trust badges */}
         <div className="mt-12 flex flex-wrap justify-center gap-6 text-sm text-neutral-500">
-          {['Cancel anytime', 'No hidden fees', 'GDPR compliant'].map((badge) => (
+          {['Cancela cuando quieras', 'Sin cargos ocultos', 'Compatible con GDPR'].map((badge) => (
             <span key={badge} className="flex items-center gap-2">
               <Check className="w-4 h-4 text-emerald-400" />
               {badge}

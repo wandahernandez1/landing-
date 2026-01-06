@@ -23,7 +23,7 @@ export function Footer() {
         <div className="divider mt-8" />
 
         <p className="mt-6 text-center text-sm text-navy-500">
-          © {COMPANY.year} {COMPANY.name}. Certificado SOC 2 Type II.
+          © {COMPANY.year} {COMPANY.name}. Certificado SOC 2 Tipo II.
         </p>
       </div>
     </footer>

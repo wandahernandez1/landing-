@@ -8,7 +8,7 @@ const WEB_VITALS = [
     id: 'lcp',
     name: 'LCP',
     fullName: 'Largest Contentful Paint',
-    description: 'Measures loading performance. To provide a good user experience, LCP should occur within 2.5 seconds.',
+    description: 'Mide el rendimiento de carga. Para ofrecer una buena experiencia de usuario, el LCP debe ocurrir dentro de 2.5 segundos.',
     icon: Clock,
     good: '≤ 2.5s',
     needsImprovement: '2.5s - 4s',
@@ -19,7 +19,7 @@ const WEB_VITALS = [
     id: 'fid',
     name: 'INP',
     fullName: 'Interaction to Next Paint',
-    description: 'Measures interactivity. To provide a good user experience, INP should be 200 milliseconds or less.',
+    description: 'Mide la interactividad. Para ofrecer una buena experiencia de usuario, el INP debe ser de 200 milisegundos o menos.',
     icon: Activity,
     good: '≤ 200ms',
     needsImprovement: '200ms - 500ms',
@@ -30,7 +30,7 @@ const WEB_VITALS = [
     id: 'cls',
     name: 'CLS',
     fullName: 'Cumulative Layout Shift',
-    description: 'Measures visual stability. To provide a good user experience, CLS should be less than 0.1.',
+    description: 'Mide la estabilidad visual. Para ofrecer una buena experiencia de usuario, el CLS debe ser menor a 0.1.',
     icon: TrendingUp,
     good: '≤ 0.1',
     needsImprovement: '0.1 - 0.25',
@@ -67,10 +67,10 @@ export function FeaturesSection() {
         <header className="mx-auto mb-20 max-w-3xl text-center">
           <p className="mb-4 text-sm font-medium uppercase tracking-widest text-purple-400">Web Vitals</p>
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Understand Core{' '}<span className="text-gradient">Web Vitals</span>
+            Entiende los Core{' '}<span className="text-gradient">Web Vitals</span>
           </h2>
           <p className="mt-6 text-lg text-slate-400">
-            The metrics that matter for SEO and user experience
+            Las métricas que importan para SEO y experiencia de usuario
           </p>
         </header>
 
@@ -106,15 +106,15 @@ export function FeaturesSection() {
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
                     <span className="w-3 h-3 rounded-full bg-green-400" />
-                    <span className="text-sm text-slate-300">Good: <span className="font-mono text-green-400">{activeVital.good}</span></span>
+                    <span className="text-sm text-slate-300">Bueno: <span className="font-mono text-green-400">{activeVital.good}</span></span>
                   </div>
                   <div className="flex items-center gap-3">
                     <span className="w-3 h-3 rounded-full bg-amber-400" />
-                    <span className="text-sm text-slate-300">Needs improvement: <span className="font-mono text-amber-400">{activeVital.needsImprovement}</span></span>
+                    <span className="text-sm text-slate-300">Necesita mejora: <span className="font-mono text-amber-400">{activeVital.needsImprovement}</span></span>
                   </div>
                   <div className="flex items-center gap-3">
                     <span className="w-3 h-3 rounded-full bg-red-400" />
-                    <span className="text-sm text-slate-300">Poor: <span className="font-mono text-red-400">{activeVital.poor}</span></span>
+                    <span className="text-sm text-slate-300">Pobre: <span className="font-mono text-red-400">{activeVital.poor}</span></span>
                   </div>
                 </div>
               </div>
@@ -137,18 +137,18 @@ export function FeaturesSection() {
 
         {/* Live Dashboard Preview */}
         <div className="max-w-5xl mx-auto">
-          <h3 className="text-2xl font-bold text-center text-white mb-8">Real-time monitoring</h3>
+          <h3 className="text-2xl font-bold text-center text-white mb-8">Monitoreo en tiempo real</h3>
           
           <div className="rounded-2xl border border-slate-800 bg-slate-900/80 overflow-hidden">
             {/* Dashboard header */}
             <div className="flex items-center justify-between px-6 py-4 border-b border-slate-800 bg-slate-900">
               <div className="flex items-center gap-2">
                 <Activity className="w-5 h-5 text-purple-400" />
-                <span className="font-semibold text-white">Page Performance</span>
+                <span className="font-semibold text-white">Rendimiento de Página</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-slate-500">
                 <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                Live data
+                Datos en vivo
               </div>
             </div>
 
@@ -202,7 +202,7 @@ export function FeaturesSection() {
               <div className="flex items-start gap-3">
                 <Info className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
                 <p className="text-sm text-slate-400">
-                  <span className="text-purple-400 font-medium">Pro tip:</span> Click any page to drill down into individual user sessions and identify performance bottlenecks.
+                  <span className="text-purple-400 font-medium">Consejo:</span> Haz clic en cualquier página para profundizar en sesiones de usuario individuales e identificar cuellos de botella.
                 </p>
               </div>
             </div>

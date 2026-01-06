@@ -34,10 +34,10 @@ export function CtaSection() {
             </div>
           </div>
           <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl mb-6">
-            Connect in{' '}<span className="text-gradient">2 minutes</span>
+            Conéctate en{' '}<span className="text-gradient">2 minutos</span>
           </h2>
           <p className="text-lg text-neutral-400 max-w-xl mx-auto">
-            Just connect your payment provider. We handle the rest.
+            Solo conecta tu proveedor de pago. Nosotros nos encargamos del resto.
           </p>
         </header>
 
@@ -46,7 +46,7 @@ export function CtaSection() {
           <div className="rounded-2xl border border-neutral-800 bg-neutral-900/80 overflow-hidden">
             <div className="p-4 border-b border-neutral-800 flex items-center gap-2">
               <Link2 className="w-4 h-4 text-emerald-400" />
-              <span className="font-medium text-white">Payment Providers</span>
+              <span className="font-medium text-white">Proveedores de Pago</span>
             </div>
             <div className="divide-y divide-neutral-800">
               {INTEGRATIONS.map((integration) => {
@@ -62,19 +62,19 @@ export function CtaSection() {
                     {isConnected ? (
                       <span className="flex items-center gap-2 text-sm text-emerald-400">
                         <Check className="w-4 h-4" />
-                        Connected
+                        Conectado
                       </span>
                     ) : isConnecting ? (
                       <span className="flex items-center gap-2 text-sm text-neutral-400">
                         <Loader2 className="w-4 h-4 animate-spin" />
-                        Connecting...
+                        Conectando...
                       </span>
                     ) : (
                       <button 
                         onClick={() => handleConnect(integration.name)}
                         className="px-4 py-2 rounded-lg bg-emerald-500/20 text-emerald-400 text-sm font-medium hover:bg-emerald-500/30 transition-colors"
                       >
-                        Connect
+                        Conectar
                       </button>
                     )}
                   </div>
@@ -88,9 +88,9 @@ export function CtaSection() {
         <div className="max-w-2xl mx-auto mb-16">
           <div className="grid grid-cols-3 gap-4">
             {[
-              { value: '2 min', label: 'Setup time' },
-              { value: 'Real-time', label: 'Data sync' },
-              { value: 'Read-only', label: 'Access' },
+              { value: '2 min', label: 'Tiempo de setup' },
+              { value: 'Tiempo real', label: 'Sincronización' },
+              { value: 'Solo lectura', label: 'Acceso' },
             ].map((stat) => (
               <div key={stat.label} className="text-center p-4 rounded-xl bg-neutral-900/50 border border-neutral-800">
                 <p className="text-xl font-bold text-emerald-400">{stat.value}</p>

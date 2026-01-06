@@ -41,7 +41,7 @@ export function Footer() {
 
         <div className="mt-8 flex flex-col items-center gap-4 md:flex-row md:justify-center">
           <p className="text-sm text-sand-800/50">
-            {COMPANY.year} {COMPANY.name}. Made by nomads, for nomads.
+            {COMPANY.year} {COMPANY.name}. Hecho por nómadas, para nómadas.
           </p>
         </div>
       </div>

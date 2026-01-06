@@ -4,11 +4,11 @@ import { cn } from '@/shared/utils/cn'
 
 // Interactive API playground demo
 const ENDPOINTS = [
-  { method: 'GET', path: '/users', description: 'List all users' },
-  { method: 'POST', path: '/users', description: 'Create user' },
-  { method: 'GET', path: '/users/{id}', description: 'Get user by ID' },
-  { method: 'PUT', path: '/users/{id}', description: 'Update user' },
-  { method: 'DELETE', path: '/users/{id}', description: 'Delete user' },
+  { method: 'GET', path: '/users', description: 'Listar todos los usuarios' },
+  { method: 'POST', path: '/users', description: 'Crear usuario' },
+  { method: 'GET', path: '/users/{id}', description: 'Obtener usuario por ID' },
+  { method: 'PUT', path: '/users/{id}', description: 'Actualizar usuario' },
+  { method: 'DELETE', path: '/users/{id}', description: 'Eliminar usuario' },
 ]
 
 const SAMPLE_RESPONSE = `{
@@ -62,12 +62,12 @@ export function FeaturesSection() {
       <div className="absolute inset-0 docs-grid opacity-20" />
       <div className="container-custom relative z-10">
         <header className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-violet-400">Interactive Playground</p>
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-violet-400">Playground Interactivo</p>
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Try the API{' '}<span className="text-gradient">right now</span>
+            Prueba la API{' '}<span className="text-gradient">ahora mismo</span>
           </h2>
           <p className="mt-6 text-lg text-slate-400">
-            Your users test endpoints without leaving the docs
+            Tus usuarios prueban endpoints sin salir de la documentación
           </p>
         </header>
 
@@ -105,12 +105,12 @@ export function FeaturesSection() {
                   {isLoading ? (
                     <>
                       <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                      Sending...
+                      Enviando...
                     </>
                   ) : (
                     <>
                       <Send className="w-4 h-4" />
-                      Try it
+                      Probar
                     </>
                   )}
                 </button>
@@ -157,7 +157,7 @@ export function FeaturesSection() {
                       </div>
                       <button onClick={handleCopy} className="flex items-center gap-1 text-xs text-slate-400 hover:text-white">
                         {copied ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
-                        {copied ? 'Copied!' : 'Copy'}
+                        {copied ? '¡Copiado!' : 'Copiar'}
                       </button>
                     </div>
                     <pre className="p-4 rounded-lg bg-slate-950 text-sm font-mono text-slate-300 overflow-auto max-h-[250px]">
@@ -168,7 +168,7 @@ export function FeaturesSection() {
                   <div className="h-full flex items-center justify-center text-slate-500">
                     <div className="text-center">
                       <Play className="w-12 h-12 mx-auto mb-3 opacity-30" />
-                      <p>Click "Try it" to see the response</p>
+                      <p>Haz clic en "Probar" para ver la respuesta</p>
                     </div>
                   </div>
                 )}
@@ -179,10 +179,10 @@ export function FeaturesSection() {
           {/* Features list */}
           <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { label: 'Auth Headers', desc: 'Pre-filled' },
-              { label: 'Request Body', desc: 'JSON Editor' },
-              { label: 'Response', desc: 'Syntax Highlighted' },
-              { label: 'Code Samples', desc: '10+ Languages' },
+              { label: 'Headers de Auth', desc: 'Pre-llenados' },
+              { label: 'Cuerpo de Request', desc: 'Editor JSON' },
+              { label: 'Respuesta', desc: 'Resaltado de sintaxis' },
+              { label: 'Ejemplos de Código', desc: '10+ Lenguajes' },
             ].map((f) => (
               <div key={f.label} className="p-4 rounded-xl bg-slate-900/50 border border-slate-800 text-center">
                 <p className="font-medium text-white">{f.label}</p>

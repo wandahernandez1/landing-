@@ -14,23 +14,23 @@ const DESIGN_TEAMS = [
 // Before/After comparison
 const COMPARISON = {
   before: {
-    title: 'Without DesignTokens',
-    time: '2-3 days',
+    title: 'Sin DesignTokens',
+    time: '2-3 días',
     issues: [
-      'Manual copy-paste of values',
-      'Inconsistent naming conventions',
-      'Colors drift between design and code',
-      'No version control for design changes',
+      'Copiar y pegar valores manualmente',
+      'Convenciones de nombres inconsistentes',
+      'Los colores difieren entre diseño y código',
+      'Sin control de versiones para cambios de diseño',
     ]
   },
   after: {
-    title: 'With DesignTokens',
-    time: '5 minutes',
+    title: 'Con DesignTokens',
+    time: '5 minutos',
     benefits: [
-      'Auto-sync from Figma to code',
-      'Standardized token structure',
-      'Single source of truth',
-      'Git-tracked design history',
+      'Auto-sincronización de Figma a código',
+      'Estructura de tokens estandarizada',
+      'Única fuente de verdad',
+      'Historial de diseño rastreado en Git',
     ]
   }
 }
@@ -39,24 +39,24 @@ const COMPARISON = {
 const USE_CASES = [
   {
     icon: Layers,
-    title: 'Multi-brand systems',
-    description: 'Manage tokens for multiple brands from one Figma file. Switch themes with a single variable.',
-    stat: '4x faster',
-    statLabel: 'theme switching'
+    title: 'Sistemas multi-marca',
+    description: 'Gestiona tokens para múltiples marcas desde un archivo Figma. Cambia temas con una sola variable.',
+    stat: '4x más rápido',
+    statLabel: 'cambio de tema'
   },
   {
     icon: GitBranch,
-    title: 'Design versioning',
-    description: 'Track every design change with Git. Roll back to any point. Review tokens in PRs.',
+    title: 'Versionado de diseño',
+    description: 'Rastrea cada cambio de diseño con Git. Retrocede a cualquier punto. Revisa tokens en PRs.',
     stat: '100%',
-    statLabel: 'change visibility'
+    statLabel: 'visibilidad de cambios'
   },
   {
     icon: Code2,
-    title: 'Developer handoff',
-    description: 'No more "what\'s the hex code?" Developers import tokens directly. Zero translation errors.',
+    title: 'Handoff a desarrolladores',
+    description: '¿Cuál es el código hex? Los desarrolladores importan tokens directamente. Cero errores de traducción.',
     stat: '0',
-    statLabel: 'handoff meetings'
+    statLabel: 'reuniones de handoff'
   },
 ]
 
@@ -72,7 +72,7 @@ export function TestimonialsSection() {
 
         {/* Trusted by */}
         <div className="mb-32">
-          <p className="text-center text-sm text-slate-500 mb-8">Trusted by design systems teams at</p>
+          <p className="text-center text-sm text-slate-500 mb-8">Utilizado por equipos de design systems en</p>
           <div className="flex flex-wrap justify-center gap-6 md:gap-10">
             {DESIGN_TEAMS.map((team) => (
               <div 
@@ -82,7 +82,7 @@ export function TestimonialsSection() {
                 <span className="text-2xl text-pink-400">{team.icon}</span>
                 <div>
                   <span className="text-white font-medium block">{team.name}</span>
-                  <span className="text-xs text-slate-500">{team.users} designers</span>
+                  <span className="text-xs text-slate-500">{team.users} diseñadores</span>
                 </div>
               </div>
             ))}
@@ -92,9 +92,9 @@ export function TestimonialsSection() {
         {/* Before/After Comparison */}
         <div className="mb-32">
           <header className="mx-auto mb-12 max-w-3xl text-center">
-            <p className="mb-4 text-sm font-medium uppercase tracking-widest text-pink-400">The Difference</p>
+            <p className="mb-4 text-sm font-medium uppercase tracking-widest text-pink-400">La Diferencia</p>
             <h2 id="testimonials-title" className="text-4xl font-bold tracking-tight sm:text-5xl">
-              From days to{' '}<span className="text-gradient">minutes</span>
+              De días a{' '}<span className="text-gradient">minutos</span>
             </h2>
           </header>
 
@@ -109,7 +109,7 @@ export function TestimonialsSection() {
                     : 'text-slate-500 hover:text-white'
                 }`}
               >
-                😩 Before
+                😩 Antes
               </button>
               <button
                 onClick={() => setActiveComparison('after')}
@@ -119,7 +119,7 @@ export function TestimonialsSection() {
                     : 'text-slate-500 hover:text-white'
                 }`}
               >
-                🎉 After
+                🎉 Después
               </button>
             </div>
           </div>
@@ -131,7 +131,7 @@ export function TestimonialsSection() {
                 <div className="flex items-center justify-between mb-6">
                   <h3 className="text-xl font-bold text-white">{COMPARISON.before.title}</h3>
                   <div className="px-3 py-1 rounded-full bg-red-500/20 text-red-400 text-sm font-medium">
-                    {COMPARISON.before.time} to sync
+                    {COMPARISON.before.time} para sincronizar
                   </div>
                 </div>
                 <ul className="space-y-4">
@@ -167,9 +167,9 @@ export function TestimonialsSection() {
         {/* Use Cases */}
         <div>
           <header className="mx-auto mb-12 max-w-3xl text-center">
-            <p className="mb-4 text-sm font-medium uppercase tracking-widest text-pink-400">Use Cases</p>
+            <p className="mb-4 text-sm font-medium uppercase tracking-widest text-pink-400">Casos de Uso</p>
             <h3 className="text-3xl font-bold tracking-tight">
-              Built for modern design teams
+              Creado para equipos de diseño modernos
             </h3>
           </header>
 
@@ -196,10 +196,10 @@ export function TestimonialsSection() {
         {/* Stats bar */}
         <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto pt-12 border-t border-slate-800">
           {[
-            { value: '50K+', label: 'Design teams' },
-            { value: '2M+', label: 'Tokens synced/day' },
-            { value: '99.9%', label: 'Accuracy rate' },
-            { value: '<100ms', label: 'Sync time' },
+            { value: '50K+', label: 'Equipos de diseño' },
+            { value: '2M+', label: 'Tokens sincronizados/día' },
+            { value: '99.9%', label: 'Tasa de precisión' },
+            { value: '<100ms', label: 'Tiempo de sincronización' },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
               <div className="text-3xl font-bold text-pink-400 mb-1">{stat.value}</div>

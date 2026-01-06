@@ -8,16 +8,16 @@ const LEADERBOARD_DATA = [
   { rank: 2, name: 'Transistor.fm', avatar: '🎙️', mrr: 423100, growth: 8.7, streak: 18, badge: 'medal' },
   { rank: 3, name: 'Fathom Analytics', avatar: '📊', mrr: 312800, growth: 15.2, streak: 12, badge: 'medal' },
   { rank: 4, name: 'Plausible', avatar: '🌱', mrr: 287400, growth: 22.1, streak: 9, badge: 'star' },
-  { rank: 5, name: 'Your Product', avatar: '✨', mrr: 5420, growth: 12.9, streak: 3, isYou: true },
+  { rank: 5, name: 'Tu Producto', avatar: '✨', mrr: 5420, growth: 12.9, streak: 3, isYou: true },
 ]
 
 const MILESTONES = [
-  { name: 'First $100', threshold: 100, icon: '🌱' },
-  { name: 'Ramen Profitable', threshold: 1000, icon: '🍜' },
-  { name: 'Default Alive', threshold: 5000, icon: '💪' },
-  { name: 'First $10K', threshold: 10000, icon: '🔥' },
-  { name: 'Escape Velocity', threshold: 50000, icon: '🚀' },
-  { name: '$100K Club', threshold: 100000, icon: '👑' },
+  { name: 'Primeros $100', threshold: 100, icon: '🌱' },
+  { name: 'Ramen Rentable', threshold: 1000, icon: '🍜' },
+  { name: 'Por Defecto Vivo', threshold: 5000, icon: '💪' },
+  { name: 'Primeros $10K', threshold: 10000, icon: '🔥' },
+  { name: 'Velocidad de Escape', threshold: 50000, icon: '🚀' },
+  { name: 'Club $100K', threshold: 100000, icon: '👑' },
 ]
 
 export function HeroSection() {
@@ -94,23 +94,23 @@ export function HeroSection() {
               className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-2"
             >
               <Trophy className="h-4 w-4 text-emerald-400" />
-              <span className="text-sm text-emerald-300">Indie Maker Analytics</span>
+              <span className="text-sm text-emerald-300">Analytics para Indie Makers</span>
             </div>
 
             <h1 
               data-hero-title
               className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl mb-6"
             >
-              <span className="block">Track your MRR.</span>
-              <span className="block text-gradient">Compete with others.</span>
+              <span className="block">Rastrea tu MRR.</span>
+              <span className="block text-gradient">Compite con otros.</span>
             </h1>
 
             <p 
               data-hero-description
               className="mx-auto lg:mx-0 max-w-xl text-lg text-neutral-400 md:text-xl mb-8"
             >
-              Simple MRR tracking with gamification. Hit milestones, climb leaderboards, 
-              celebrate wins with the indie community.
+              Seguimiento simple de MRR con gamificación. Alcanza hitos, sube en el ranking, 
+              celebra victorias con la comunidad indie.
             </p>
 
             {/* Your current MRR with milestone progress */}
@@ -119,12 +119,12 @@ export function HeroSection() {
               className="mb-8 p-6 rounded-2xl bg-neutral-900/80 border border-emerald-500/20"
             >
               <div className="flex items-center justify-between mb-4">
-                <span className="text-sm text-neutral-400">Your MRR</span>
+                <span className="text-sm text-neutral-400">Tu MRR</span>
                 <button
                   onClick={boostMRR}
                   className="text-xs px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full hover:bg-emerald-500/30 transition-colors"
                 >
-                  Simulate growth ↗
+                  Simular crecimiento ↗
                 </button>
               </div>
               
@@ -155,7 +155,7 @@ export function HeroSection() {
                   />
                 </div>
                 <p className="text-xs text-neutral-500 text-center">
-                  {formatMRR(nextMilestone.threshold - yourMRR)} to go!
+                  ¡{formatMRR(nextMilestone.threshold - yourMRR)} para lograrlo!
                 </p>
               </div>
             </div>
@@ -165,12 +165,12 @@ export function HeroSection() {
               className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start"
             >
               <a href="#pricing" className="btn-primary flex items-center gap-2 rounded-xl px-8 py-4 text-base font-semibold w-full sm:w-auto justify-center">
-                Join the Leaderboard
+                Unirse al Ranking
                 <ArrowRight className="h-5 w-5" />
               </a>
               <a href="#features" className="btn-secondary flex items-center gap-2 rounded-xl px-8 py-4 text-base font-medium w-full sm:w-auto justify-center">
                 <BarChart2 className="h-5 w-5" />
-                See Features
+                Ver Características
               </a>
             </div>
           </div>
@@ -185,7 +185,7 @@ export function HeroSection() {
               <div className="flex items-center justify-between px-4 py-3 border-b border-neutral-700/50 bg-neutral-800/80">
                 <div className="flex items-center gap-2">
                   <Trophy className="h-4 w-4 text-emerald-400" />
-                  <span className="text-sm text-neutral-300">MRR Leaderboard</span>
+                  <span className="text-sm text-neutral-300">Ranking de MRR</span>
                 </div>
                 <div className="flex items-center gap-1 text-xs text-emerald-400">
                   <Flame className="w-3 h-3" />
@@ -230,7 +230,7 @@ export function HeroSection() {
                         <div className="flex items-center gap-2 text-xs text-neutral-500">
                           <span className="flex items-center gap-1">
                             <Flame className="w-3 h-3 text-orange-400" />
-                            {entry.streak} month streak
+                            {entry.streak} meses de racha
                           </span>
                         </div>
                       </div>
@@ -251,7 +251,7 @@ export function HeroSection() {
                   <span>2,847 indie makers</span>
                   <span className="flex items-center gap-1">
                     <DollarSign className="w-3 h-3" />
-                    $8.2M total MRR tracked
+                    $8.2M de MRR total rastreado
                   </span>
                 </div>
               </div>

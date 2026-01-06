@@ -16,12 +16,12 @@ const HEATMAP_POINTS = [
 
 // Session replay mock data
 const SESSION_EVENTS = [
-  { time: '0:00', action: 'Page Load', element: '/', type: 'navigation' },
-  { time: '0:02', action: 'Scroll', element: 'Hero Section', type: 'scroll' },
-  { time: '0:05', action: 'Mouse Move', element: 'Headline', type: 'hover' },
-  { time: '0:08', action: 'Click', element: 'Start Free Trial', type: 'click' },
-  { time: '0:12', action: 'Rage Click', element: 'Loading Button', type: 'rage' },
-  { time: '0:15', action: 'Scroll', element: 'Features', type: 'scroll' },
+  { time: '0:00', action: 'Carga de Página', element: '/', type: 'navigation' },
+  { time: '0:02', action: 'Scroll', element: 'Sección Hero', type: 'scroll' },
+  { time: '0:05', action: 'Movimiento Mouse', element: 'Título', type: 'hover' },
+  { time: '0:08', action: 'Click', element: 'Comenzar Prueba Gratis', type: 'click' },
+  { time: '0:12', action: 'Rage Click', element: 'Botón Cargando', type: 'rage' },
+  { time: '0:15', action: 'Scroll', element: 'Características', type: 'scroll' },
 ]
 
 export function HeroSection() {
@@ -77,7 +77,7 @@ export function HeroSection() {
               className="mb-6 inline-flex items-center gap-2 rounded-full border border-rose-500/30 bg-rose-500/10 px-4 py-2"
             >
               <Eye className="h-4 w-4 text-rose-400" />
-              <span className="text-sm text-rose-300">See what users really do</span>
+              <span className="text-sm text-rose-300">Mira lo que realmente hacen tus usuarios</span>
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
@@ -88,17 +88,17 @@ export function HeroSection() {
               data-hero-title
               className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl mb-6"
             >
-              <span className="block">This page has a</span>
-              <span className="block text-gradient">heatmap</span>
-              <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-2 text-slate-400">right now.</span>
+              <span className="block">Esta página tiene un</span>
+              <span className="block text-gradient">mapa de calor</span>
+              <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-2 text-slate-400">ahora mismo.</span>
             </h1>
 
             <p 
               data-hero-description
               className="mx-auto lg:mx-0 max-w-xl text-lg text-slate-400 md:text-xl mb-8"
             >
-              UXPulse shows you exactly where users click, scroll, and struggle. 
-              The heatmap you see? It's tracking this page. In real-time.
+              UXPulse te muestra exactamente dónde hacen click, scroll y dónde se frustran tus usuarios. 
+              ¿El mapa de calor que ves? Está rastreando esta página. En tiempo real.
             </p>
 
             {/* Problem Statement */}
@@ -107,8 +107,8 @@ export function HeroSection() {
               className="mb-8 p-4 bg-rose-500/10 border border-rose-500/20 rounded-xl"
             >
               <p className="text-rose-300 text-sm">
-                <span className="font-semibold">Right now:</span> 23% of your users rage-click on broken buttons. 
-                You just don't know which ones.
+                <span className="font-semibold">Ahora mismo:</span> El 23% de tus usuarios hacen rage-click en botones rotos. 
+                Simplemente no sabes cuáles.
               </p>
             </div>
 
@@ -120,7 +120,7 @@ export function HeroSection() {
                 href="#pricing"
                 className="btn-primary flex items-center gap-2 rounded-xl px-8 py-4 text-base font-semibold w-full sm:w-auto justify-center"
               >
-                See your first heatmap
+                Mira tu primer mapa de calor
                 <ArrowRight className="h-5 w-5" />
               </a>
               <a
@@ -128,7 +128,7 @@ export function HeroSection() {
                 className="btn-secondary flex items-center gap-2 rounded-xl px-8 py-4 text-base font-medium w-full sm:w-auto justify-center"
               >
                 <Play className="h-5 w-5" />
-                Watch session replay
+                Ver grabación de sesión
               </a>
             </div>
 
@@ -141,12 +141,12 @@ export function HeroSection() {
                 <span className="block text-2xl font-bold text-rose-400 tabular-nums">
                   {liveClicks.toLocaleString()}
                 </span>
-                <span className="text-sm text-slate-500">Clicks today</span>
+                <span className="text-sm text-slate-500">Clicks hoy</span>
               </div>
               <div className="h-8 w-px bg-slate-700" />
               <div className="text-center lg:text-left">
                 <span className="block text-2xl font-bold text-rose-400">68%</span>
-                <span className="text-sm text-slate-500">Scroll depth</span>
+                <span className="text-sm text-slate-500">Profundidad de scroll</span>
               </div>
               <div className="h-8 w-px bg-slate-700" />
               <div className="text-center lg:text-left">
@@ -178,7 +178,7 @@ export function HeroSection() {
                   onClick={() => setShowHeatmap(!showHeatmap)}
                   className={`text-xs px-2 py-1 rounded ${showHeatmap ? 'bg-rose-500/20 text-rose-400' : 'bg-slate-700 text-slate-400'}`}
                 >
-                  {showHeatmap ? 'Heatmap ON' : 'Heatmap OFF'}
+                  {showHeatmap ? 'Mapa de Calor ON' : 'Mapa de Calor OFF'}
                 </button>
               </div>
 
@@ -232,7 +232,7 @@ export function HeroSection() {
               {/* Stats Bar */}
               <div className="px-4 py-3 bg-slate-800/50 border-t border-rose-500/10 flex items-center justify-between text-xs">
                 <span className="text-slate-400">
-                  <span className="text-rose-400 font-semibold">{liveClicks}</span> clicks tracked
+                  <span className="text-rose-400 font-semibold">{liveClicks}</span> clicks rastreados
                 </span>
                 <span className="text-slate-400">
                   Scroll: <span className="text-rose-400">68%</span>
@@ -246,7 +246,7 @@ export function HeroSection() {
             {/* Session Replay Mini Panel */}
             <div className="mt-4 p-4 bg-slate-900/80 border border-rose-500/20 rounded-xl">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-sm font-medium text-slate-300">Session Replay</span>
+                <span className="text-sm font-medium text-slate-300">Grabación de Sesión</span>
                 <button 
                   onClick={() => setIsPlaying(!isPlaying)}
                   className="p-1 hover:bg-slate-800 rounded"

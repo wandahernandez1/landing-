@@ -3,12 +3,12 @@ import { useRef, useState, useEffect } from 'react'
 
 // Simulated developer activity feed
 const ACTIVITY_FEED = [
-  { type: 'deploy', user: 'sarah.kim', repo: 'linear/frontend', time: '2s ago', status: 'success' },
-  { type: 'merge', user: 'marcus.c', repo: 'stripe/dashboard', time: '15s ago', status: 'success' },
-  { type: 'deploy', user: 'elena.r', repo: 'resend/web', time: '23s ago', status: 'success' },
-  { type: 'commit', user: 'john.d', repo: 'vercel/ai', time: '45s ago', status: 'pending' },
-  { type: 'deploy', user: 'alex.w', repo: 'notion/landing', time: '1m ago', status: 'success' },
-  { type: 'merge', user: 'maria.g', repo: 'figma/plugin', time: '2m ago', status: 'success' },
+  { type: 'deploy', user: 'sarah.kim', repo: 'linear/frontend', time: 'hace 2s', status: 'success' },
+  { type: 'merge', user: 'marcus.c', repo: 'stripe/dashboard', time: 'hace 15s', status: 'success' },
+  { type: 'deploy', user: 'elena.r', repo: 'resend/web', time: 'hace 23s', status: 'success' },
+  { type: 'commit', user: 'john.d', repo: 'vercel/ai', time: 'hace 45s', status: 'pending' },
+  { type: 'deploy', user: 'alex.w', repo: 'notion/landing', time: 'hace 1m', status: 'success' },
+  { type: 'merge', user: 'maria.g', repo: 'figma/plugin', time: 'hace 2m', status: 'success' },
 ]
 
 // Company logos using the product
@@ -43,7 +43,7 @@ export function TestimonialsSection() {
       setActivities(prev => {
         const newActivity = {
           ...prev[Math.floor(Math.random() * prev.length)],
-          time: 'just now',
+          time: 'ahora mismo',
         }
         return [newActivity, ...prev.slice(0, -1)]
       })
@@ -75,20 +75,20 @@ export function TestimonialsSection() {
           <div className="flex items-center justify-between flex-wrap gap-6">
             <div className="flex items-center gap-3">
               <div className="w-3 h-3 rounded-full bg-green-400 animate-pulse" />
-              <span className="text-sm text-gray-400">Live Activity</span>
+              <span className="text-sm text-gray-400">Actividad en Vivo</span>
             </div>
             <div className="flex items-center gap-8 md:gap-16">
               <div className="text-center">
                 <div className="text-2xl md:text-3xl font-bold text-cyan-400 font-mono">
                   {stats.deploys.toLocaleString()}
                 </div>
-                <div className="text-xs text-gray-500">Deploys today</div>
+                <div className="text-xs text-gray-500">Deploys hoy</div>
               </div>
               <div className="text-center">
                 <div className="text-2xl md:text-3xl font-bold text-cyan-400 font-mono">
                   {stats.teams.toLocaleString()}
                 </div>
-                <div className="text-xs text-gray-500">Active teams</div>
+                <div className="text-xs text-gray-500">Equipos activos</div>
               </div>
               <div className="text-center">
                 <div className="text-2xl md:text-3xl font-bold text-green-400 font-mono">
@@ -106,9 +106,9 @@ export function TestimonialsSection() {
             <header className="mb-8">
               <div className="flex items-center gap-2 mb-2">
                 <Activity className="w-5 h-5 text-cyan-400" />
-                <h3 className="text-xl font-semibold text-white">Live Developer Activity</h3>
+                <h3 className="text-xl font-semibold text-white">Actividad de Desarrolladores en Vivo</h3>
               </div>
-              <p className="text-sm text-gray-500">Real deploys happening right now</p>
+              <p className="text-sm text-gray-500">Deploys reales sucediendo ahora mismo</p>
             </header>
 
             <div className="space-y-3">
@@ -141,7 +141,7 @@ export function TestimonialsSection() {
                       </div>
                     </div>
                     {activity.status === 'success' && (
-                      <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0" />
+                      <CheckCircle2 className="w-5 h-5 text-green-400 shrink-0" />
                     )}
                   </div>
                 )
@@ -154,9 +154,9 @@ export function TestimonialsSection() {
             <header className="mb-8">
               <div className="flex items-center gap-2 mb-2">
                 <Users className="w-5 h-5 text-cyan-400" />
-                <h3 className="text-xl font-semibold text-white">Trusted by fast-moving teams</h3>
+                <h3 className="text-xl font-semibold text-white">La confianza de equipos ágiles</h3>
               </div>
-              <p className="text-sm text-gray-500">From startups to enterprises</p>
+              <p className="text-sm text-gray-500">Desde startups hasta empresas</p>
             </header>
 
             <div className="grid grid-cols-2 gap-4">

@@ -59,12 +59,12 @@ export function FeaturesSection() {
       <div className="absolute inset-0 error-grid opacity-20" />
       <div className="container-custom relative z-10">
         <header className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-red-400">Features</p>
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-red-400">Características</p>
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Debug with{' '}<span className="text-gradient">full context</span>
+            Depura con{' '}<span className="text-gradient">contexto completo</span>
           </h2>
           <p className="mt-6 text-lg text-slate-400">
-            See exactly what happened before, during, and after every error
+            Ve exactamente qué pasó antes, durante y después de cada error
           </p>
         </header>
 
@@ -79,7 +79,7 @@ export function FeaturesSection() {
                 : 'bg-slate-900/50 text-slate-400 border border-slate-800 hover:bg-slate-900'
             )}
           >
-            Error Anatomy
+            Anatomía del Error
           </button>
           <button
             onClick={() => setSelectedTab('grouping')}
@@ -90,7 +90,7 @@ export function FeaturesSection() {
                 : 'bg-slate-900/50 text-slate-400 border border-slate-800 hover:bg-slate-900'
             )}
           >
-            Smart Grouping
+            Agrupación Inteligente
           </button>
         </div>
 
@@ -110,7 +110,7 @@ export function FeaturesSection() {
                     className="flex items-center gap-2 text-sm text-slate-500 hover:text-white transition-colors"
                   >
                     <Copy className="w-4 h-4" />
-                    {copiedStack ? 'Copied!' : 'Copy stack'}
+                    {copiedStack ? '¡Copiado!' : 'Copiar stack'}
                   </button>
                 </div>
                 
@@ -183,7 +183,7 @@ export function FeaturesSection() {
                   ))}
                 </div>
                 <p className="mt-4 text-xs text-slate-600">
-                  Full session replay available →
+                  Reproducción de sesión completa disponible →
                 </p>
               </div>
             </div>
@@ -196,8 +196,8 @@ export function FeaturesSection() {
             <div className="rounded-2xl border border-slate-800 bg-slate-900/80 overflow-hidden">
               <div className="px-6 py-4 border-b border-slate-800 bg-slate-900">
                 <div className="flex items-center justify-between">
-                  <h3 className="font-semibold text-white">Error Groups</h3>
-                  <span className="text-sm text-slate-500">Last 24 hours</span>
+                  <h3 className="font-semibold text-white">Grupos de Errores</h3>
+                  <span className="text-sm text-slate-500">Últimas 24 horas</span>
                 </div>
               </div>
               <div className="divide-y divide-slate-800">
@@ -215,11 +215,11 @@ export function FeaturesSection() {
                     <div className="flex-1 min-w-0">
                       <p className="text-white truncate font-mono text-sm">{error.message}</p>
                       <p className="text-xs text-slate-500 mt-1">
-                        {error.count.toLocaleString()} events • {error.users} users affected
+                        {error.count.toLocaleString()} eventos • {error.users} usuarios afectados
                       </p>
                     </div>
                     {error.trend === 'ignored' ? (
-                      <span className="px-2 py-1 rounded text-xs bg-slate-800 text-slate-500">Ignored</span>
+                      <span className="px-2 py-1 rounded text-xs bg-slate-800 text-slate-500">Ignorado</span>
                     ) : (
                       <ChevronRight className="w-5 h-5 text-slate-600" />
                     )}
@@ -228,7 +228,7 @@ export function FeaturesSection() {
               </div>
               <div className="px-6 py-4 bg-slate-900/50 border-t border-slate-800">
                 <p className="text-sm text-slate-500">
-                  FrontendMonitor automatically groups similar errors by stack trace fingerprinting
+                  FrontendMonitor agrupa automáticamente errores similares por huella de stack trace
                 </p>
               </div>
             </div>

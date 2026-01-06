@@ -38,11 +38,11 @@ export function CtaSection() {
             </div>
 
             <h2 id="cta-title" className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl mb-6">
-              Ready to unify your{' '}<span className="text-gradient">design system?</span>
+              ¿Listo para unificar tu{' '}<span className="text-gradient">design system?</span>
             </h2>
             <p className="text-lg text-slate-400 mb-10 max-w-2xl mx-auto">
-              Join 50,000+ designers who've streamlined their design-to-code workflow. 
-              Start free, scale when you're ready.
+              Únete a 50,000+ diseñadores que han optimizado su flujo de diseño a código. 
+              Comienza gratis, escala cuando estés listo.
             </p>
 
             {/* CTAs */}
@@ -52,7 +52,7 @@ export function CtaSection() {
                 className="btn-primary flex items-center gap-2 rounded-xl px-8 py-4 text-lg font-semibold group"
               >
                 <Figma className="w-5 h-5" />
-                Install Figma Plugin
+                Instalar Plugin de Figma
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
               <button
@@ -60,18 +60,18 @@ export function CtaSection() {
                 className="btn-secondary flex items-center gap-2 rounded-xl px-8 py-4 text-lg font-medium"
               >
                 <Play className="w-5 h-5" />
-                Watch Demo (2 min)
+                Ver Demo (2 min)
               </button>
             </div>
 
             <p className="text-sm text-slate-500">
-              Free forever for individuals • No credit card required
+              Gratis para siempre para individuales • Sin tarjeta de crédito
             </p>
           </div>
 
           {/* Integrations */}
           <div className="mb-16">
-            <p className="text-center text-sm text-slate-500 mb-6">Works with your favorite tools</p>
+            <p className="text-center text-sm text-slate-500 mb-6">Funciona con tus herramientas favoritas</p>
             <div className="flex flex-wrap justify-center gap-4">
               {INTEGRATIONS.map((integration) => (
                 <div
@@ -96,8 +96,8 @@ export function CtaSection() {
                 <span className="text-2xl">📖</span>
               </div>
               <div className="flex-1">
-                <h3 className="font-semibold text-white mb-1">Documentation</h3>
-                <p className="text-sm text-slate-500">Learn how to set up and use DesignTokens</p>
+                <h3 className="font-semibold text-white mb-1">Documentación</h3>
+                <p className="text-sm text-slate-500">Aprende cómo configurar y usar DesignTokens</p>
               </div>
               <ExternalLink className="w-5 h-5 text-slate-600 group-hover:text-pink-400 transition-colors" />
             </a>
@@ -111,8 +111,8 @@ export function CtaSection() {
                 <Github className="w-6 h-6 text-white" />
               </div>
               <div className="flex-1">
-                <h3 className="font-semibold text-white mb-1">Open Source</h3>
-                <p className="text-sm text-slate-500">Contribute or star us on GitHub</p>
+                <h3 className="font-semibold text-white mb-1">Código Abierto</h3>
+                <p className="text-sm text-slate-500">Contribuye o déjanos una estrella en GitHub</p>
               </div>
               <div className="flex items-center gap-1 px-2 py-1 rounded bg-slate-800 text-sm text-slate-400">
                 ⭐ 4.2k
@@ -131,12 +131,12 @@ export function CtaSection() {
           <div className="max-w-4xl w-full mx-4 aspect-video bg-slate-900 rounded-2xl flex items-center justify-center">
             <div className="text-center">
               <Play className="w-16 h-16 text-pink-400 mx-auto mb-4" />
-              <p className="text-slate-400">Video player placeholder</p>
+              <p className="text-slate-400">Reproductor de video placeholder</p>
               <button 
                 onClick={() => setShowVideo(false)}
                 className="mt-4 text-sm text-slate-500 hover:text-white"
               >
-                Press anywhere to close
+                Presiona en cualquier lugar para cerrar
               </button>
             </div>
           </div>

@@ -5,16 +5,16 @@ import { cn } from '@/shared/utils/cn'
 // SDK quick start
 const SDK_CODE = `npm install @authless/sdk
 
-// Initialize
+// Inicializar
 import { Authless } from '@authless/sdk'
 
 const auth = new Authless({
-  projectId: 'your-project-id'
+  projectId: 'tu-project-id'
 })
 
-// Send magic link
+// Enviar magic link
 await auth.sendMagicLink({
-  email: 'user@example.com'
+  email: 'usuario@ejemplo.com'
 })`
 
 export function CtaSection() {
@@ -55,7 +55,7 @@ export function CtaSection() {
             <div className="flex items-center justify-between px-4 py-3 border-b border-zinc-800 bg-zinc-900">
               <div className="flex items-center gap-3">
                 <Terminal className="w-4 h-4 text-zinc-500" />
-                <span className="text-sm text-zinc-400">Quick Start</span>
+                <span className="text-sm text-zinc-400">Inicio Rápido</span>
               </div>
               <button
                 onClick={copyCode}
@@ -64,12 +64,12 @@ export function CtaSection() {
                 {copied ? (
                   <>
                     <CheckCircle className="w-4 h-4 text-green-400" />
-                    Copied!
+                    ¡Copiado!
                   </>
                 ) : (
                   <>
                     <Copy className="w-4 h-4" />
-                    Copy
+                    Copiar
                   </>
                 )}
               </button>
@@ -96,9 +96,9 @@ export function CtaSection() {
         <div className="max-w-4xl mx-auto mb-16">
           <div className="grid md:grid-cols-3 gap-4">
             {[
-              { icon: Book, label: 'Documentation', desc: 'Full API reference', href: '#' },
-              { icon: Terminal, label: 'Examples', desc: 'Sample applications', href: '#' },
-              { icon: MessageSquare, label: 'Discord', desc: 'Get help from community', href: '#' },
+              { icon: Book, label: 'Documentación', desc: 'Referencia completa de API', href: '#' },
+              { icon: Terminal, label: 'Ejemplos', desc: 'Aplicaciones de muestra', href: '#' },
+              { icon: MessageSquare, label: 'Discord', desc: 'Obtén ayuda de la comunidad', href: '#' },
             ].map((resource) => (
               <a
                 key={resource.label}
@@ -125,15 +125,15 @@ export function CtaSection() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a href="#pricing" className="btn-primary flex items-center gap-2 rounded-xl px-8 py-4 text-lg font-semibold">
               <Key className="h-5 w-5" />
-              Start Free
+              Comenzar Gratis
               <ArrowRight className="h-5 w-5" />
             </a>
             <a href="#" className="btn-secondary rounded-xl px-8 py-4 text-lg font-medium">
-              Read Docs
+              Leer Documentación
             </a>
           </div>
           <p className="mt-6 text-sm text-zinc-600">
-            No credit card required • Free tier forever
+            Sin tarjeta de crédito • Tier gratis para siempre
           </p>
         </div>
       </div>

@@ -37,7 +37,7 @@ export function HeroSection() {
               <Terminal className="h-4 w-4 text-violet-400" />
               <div className="absolute inset-0 terminal-pulse rounded-full" />
             </div>
-            <span className="text-sm text-violet-300">Open Source</span>
+            <span className="text-sm text-violet-300">Código Abierto</span>
             <span className="flex h-2 w-2 relative">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
@@ -46,13 +46,13 @@ export function HeroSection() {
 
           <h1 className="text-5xl font-bold tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl mb-6">
             <span className="hero-title-line block">Tu portfolio de</span>
-            <span className="hero-title-line block text-gradient">developer</span>
+            <span className="hero-title-line block text-gradient">desarrollador</span>
             <span className="hero-title-line block">en minutos</span>
           </h1>
 
           <p className="hero-subtitle mx-auto max-w-2xl text-lg text-slate-400 md:text-xl mb-10">
             {COMPANY.name} te ayuda a crear un portfolio profesional 
-            que impresione a reclutadores. GitHub integration. 
+            que impresione a reclutadores. Integración con GitHub. 
             Deploy instantáneo.
           </p>
 
@@ -61,7 +61,7 @@ export function HeroSection() {
               href="#pricing"
               className="hero-cta btn-primary flex items-center gap-2 rounded-xl px-8 py-4 text-base font-semibold"
             >
-              Empezar Gratis
+              Comenzar Gratis
               <ArrowRight className="h-5 w-5" />
             </a>
             <a
@@ -101,7 +101,7 @@ export function HeroSection() {
           <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-slate-400">
             <div className="hero-stat text-center stat-glow cursor-default">
               <span className="text-2xl font-bold text-violet-400">10K+</span>
-              <p className="text-sm">Developers</p>
+              <p className="text-sm">Desarrolladores</p>
             </div>
             <div className="h-8 w-px bg-slate-700" />
             <div className="hero-stat text-center stat-glow cursor-default">

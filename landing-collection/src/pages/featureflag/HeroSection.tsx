@@ -7,28 +7,28 @@ const DEMO_FLAGS = [
   { 
     id: 'dark_mode', 
     name: 'dark_mode', 
-    description: 'Enable dark theme',
+    description: 'Habilitar tema oscuro',
     enabled: true,
     affects: 'theme'
   },
   { 
     id: 'new_hero', 
     name: 'new_hero_layout', 
-    description: 'Test new hero design',
+    description: 'Probar nuevo diseño hero',
     enabled: true,
     affects: 'layout'
   },
   { 
     id: 'confetti', 
     name: 'celebration_mode', 
-    description: 'Show confetti on CTA click',
+    description: 'Mostrar confeti al hacer clic en CTA',
     enabled: false,
     affects: 'interaction'
   },
   { 
     id: 'pricing_ab', 
     name: 'pricing_v2', 
-    description: 'A/B test new pricing',
+    description: 'Test A/B nuevo pricing',
     enabled: false,
     affects: 'pricing'
   },
@@ -111,7 +111,7 @@ export function HeroSection() {
               className="mb-6 inline-flex items-center gap-2 rounded-full border border-teal-500/30 bg-teal-500/10 px-4 py-2"
             >
               <ToggleRight className="h-4 w-4 text-teal-400" />
-              <span className="text-sm text-teal-300">Release with confidence</span>
+              <span className="text-sm text-teal-300">Despliega con confianza</span>
             </div>
 
             <h1 
@@ -119,8 +119,8 @@ export function HeroSection() {
               className={`text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl mb-6 transition-colors duration-500
                 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}
             >
-              <span className="block">This page changes</span>
-              <span className="block text-gradient">with a toggle.</span>
+              <span className="block">Esta página cambia</span>
+              <span className="block text-gradient">con un toggle.</span>
             </h1>
 
             <p 
@@ -129,8 +129,8 @@ export function HeroSection() {
                 ${isDarkMode ? 'text-slate-400' : 'text-slate-600'}
                 ${isNewLayout ? 'lg:mx-0' : ''}`}
             >
-              Try the toggles on the right. Watch this landing page transform in real-time. 
-              That's the power of feature flags.
+              Prueba los toggles a la derecha. Observa cómo esta landing se transforma en tiempo real. 
+              Ese es el poder de los feature flags.
             </p>
 
             {/* Quick stats showing flag impact */}
@@ -143,10 +143,10 @@ export function HeroSection() {
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-teal-500 animate-pulse" />
                   <span className={isDarkMode ? 'text-slate-400' : 'text-slate-600'}>
-                    {flags.filter(f => f.enabled).length} flags active
+                    {flags.filter(f => f.enabled).length} flags activos
                   </span>
                 </div>
-                <span className="text-teal-400">0 deploys needed</span>
+                <span className="text-teal-400">0 deploys necesarios</span>
               </div>
             </div>
 
@@ -158,7 +158,7 @@ export function HeroSection() {
                 onClick={handleCtaClick}
                 className="btn-primary flex items-center gap-2 rounded-xl px-8 py-4 text-base font-semibold w-full sm:w-auto justify-center"
               >
-                Start Free
+                Comenzar Gratis
                 <ArrowRight className="h-5 w-5" />
               </button>
               <a
@@ -166,7 +166,7 @@ export function HeroSection() {
                 className="btn-secondary flex items-center gap-2 rounded-xl px-8 py-4 text-base font-medium w-full sm:w-auto justify-center"
               >
                 <Code className="h-5 w-5" />
-                View SDK
+                Ver SDK
               </a>
             </div>
 
@@ -176,8 +176,8 @@ export function HeroSection() {
               className={`mt-10 flex flex-wrap items-center gap-6 ${isNewLayout ? 'justify-center lg:justify-start' : 'justify-center'}`}
             >
               {[
-                { value: '10B+', label: 'Evaluations/day' },
-                { value: '50ms', label: 'p99 latency' },
+                { value: '10B+', label: 'Evaluaciones/día' },
+                { value: '50ms', label: 'Latencia p99' },
                 { value: '99.99%', label: 'Uptime' },
               ].map((stat) => (
                 <div key={stat.label} className={`text-center ${isNewLayout ? 'lg:text-left' : ''}`}>
@@ -246,13 +246,13 @@ export function HeroSection() {
                 <div className={`p-4 border-t transition-colors duration-500
                   ${isDarkMode ? 'border-slate-700/50' : 'border-slate-200'}`}>
                   <p className={`text-xs mb-3 ${isDarkMode ? 'text-slate-500' : 'text-slate-500'}`}>
-                    Targeting Rules
+                    Reglas de Segmentación
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {[
-                      { icon: Users, label: 'Beta users' },
+                      { icon: Users, label: 'Usuarios beta' },
                       { icon: Percent, label: '25% rollout' },
-                      { icon: Zap, label: 'Pro plan' },
+                      { icon: Zap, label: 'Plan Pro' },
                     ].map((rule) => (
                       <div 
                         key={rule.label}

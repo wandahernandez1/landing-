@@ -32,16 +32,16 @@ export function CtaSection() {
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/20 text-rose-400 text-sm mb-6">
                 <Clock className="w-4 h-4" />
-                2-minute setup
+                Configuración en 2 minutos
               </div>
 
               <h2 id="cta-title" className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-6">
-                See your first heatmap{' '}
-                <span className="text-gradient">today</span>
+                Mira tu primer mapa de calor{' '}
+                <span className="text-gradient">hoy</span>
               </h2>
               
               <p className="text-lg text-slate-400 mb-8">
-                Install our lightweight script, and start understanding your users in minutes. No engineering required.
+                Instala nuestro script ligero y comienza a entender a tus usuarios en minutos. Sin necesidad de ingeniería.
               </p>
 
               {/* Email signup form */}
@@ -51,7 +51,7 @@ export function CtaSection() {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email"
+                    placeholder="Ingresa tu email"
                     className="flex-1 px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-rose-500 transition-colors"
                     required
                   />
@@ -61,10 +61,10 @@ export function CtaSection() {
                     className="btn-primary flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-semibold whitespace-nowrap"
                   >
                     {isSubmitting ? (
-                      'Starting...'
+                      'Iniciando...'
                     ) : (
                       <>
-                        Start Free
+                        Comenzar Gratis
                         <ArrowRight className="w-5 h-5" />
                       </>
                     )}
@@ -75,11 +75,11 @@ export function CtaSection() {
               <div className="flex flex-wrap items-center gap-6 text-sm text-slate-500">
                 <span className="flex items-center gap-2">
                   <Eye className="w-4 h-4 text-rose-400" />
-                  5K sessions/mo free
+                  5K sesiones/mes gratis
                 </span>
                 <span className="flex items-center gap-2">
                   <MousePointer2 className="w-4 h-4 text-rose-400" />
-                  No credit card
+                  Sin tarjeta de crédito
                 </span>
               </div>
             </div>
@@ -91,9 +91,9 @@ export function CtaSection() {
                 <div className="flex items-center justify-between px-4 py-3 bg-slate-800/80 border-b border-slate-700/50">
                   <div className="flex items-center gap-2">
                     <div className="w-3 h-3 rounded-full bg-rose-400" />
-                    <span className="text-sm text-slate-400">Your heatmap</span>
+                    <span className="text-sm text-slate-400">Tu mapa de calor</span>
                   </div>
-                  <span className="text-xs text-slate-500">LIVE</span>
+                  <span className="text-xs text-slate-500">EN VIVO</span>
                 </div>
 
                 {/* Heatmap preview */}
@@ -137,8 +137,8 @@ export function CtaSection() {
                 <div className="grid grid-cols-3 divide-x divide-slate-700/50 border-t border-slate-700/50">
                   {[
                     { label: 'Clicks', value: '2,847' },
-                    { label: 'Scroll depth', value: '68%' },
-                    { label: 'Attention', value: '4.2s' },
+                    { label: 'Profundidad scroll', value: '68%' },
+                    { label: 'Atención', value: '4.2s' },
                   ].map((stat) => (
                     <div key={stat.label} className="py-3 text-center">
                       <p className="text-lg font-bold text-white">{stat.value}</p>
@@ -154,7 +154,7 @@ export function CtaSection() {
                 className="absolute -bottom-4 left-1/2 -translate-x-1/2 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900 border border-slate-700 text-sm text-slate-300 hover:text-white hover:border-rose-500/50 transition-all"
               >
                 <Play className="w-4 h-4 text-rose-400" />
-                Watch demo (2 min)
+                Ver demo (2 min)
               </a>
             </div>
           </div>

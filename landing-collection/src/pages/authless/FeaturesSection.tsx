@@ -8,44 +8,44 @@ const AUTH_METHODS = [
     id: 'magic-link', 
     name: 'Magic Links', 
     icon: Mail, 
-    description: 'Passwordless email authentication',
+    description: 'Autenticación por email sin contraseña',
     code: `await authless.sendMagicLink({
   email: user.email,
   redirectUrl: '/dashboard'
 })`,
-    features: ['No passwords', 'Secure links', 'Customizable email']
+    features: ['Sin contraseñas', 'Enlaces seguros', 'Email personalizable']
   },
   { 
     id: 'passkey', 
     name: 'Passkeys', 
     icon: Fingerprint, 
-    description: 'WebAuthn biometric authentication',
+    description: 'Autenticación biométrica WebAuthn',
     code: `await authless.createPasskey({
   userId: user.id,
   displayName: user.name
 })`,
-    features: ['Biometric', 'Device-bound', 'Phishing resistant']
+    features: ['Biométrico', 'Vinculado al dispositivo', 'Resistente a phishing']
   },
   { 
     id: 'sms', 
     name: 'SMS OTP', 
     icon: Smartphone, 
-    description: 'Phone number verification',
+    description: 'Verificación por número de teléfono',
     code: `await authless.sendSMS({
   phone: '+1234567890',
   template: 'verify'
 })`,
-    features: ['Global coverage', 'Auto-detect', 'Fraud prevention']
+    features: ['Cobertura global', 'Auto-detección', 'Prevención de fraude']
   },
   { 
     id: 'oauth', 
     name: 'Social OAuth', 
     icon: Globe, 
-    description: 'Sign in with Google, GitHub, etc.',
+    description: 'Iniciar sesión con Google, GitHub, etc.',
     code: `<AuthlessButton provider="google">
-  Sign in with Google
+  Iniciar sesión con Google
 </AuthlessButton>`,
-    features: ['20+ providers', 'One-click setup', 'Token refresh']
+    features: ['20+ proveedores', 'Configuración en un clic', 'Renovación de tokens']
   },
 ]
 
@@ -60,12 +60,12 @@ export function FeaturesSection() {
       <div className="absolute inset-0 auth-grid opacity-20" />
       <div className="container-custom relative z-10">
         <header className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-zinc-500">Auth Methods</p>
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-zinc-500">Métodos de Auth</p>
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Every method,{' '}<span className="text-gradient">one API</span>
+            Cada método,{' '}<span className="text-gradient">una API</span>
           </h2>
           <p className="mt-4 text-lg text-zinc-500">
-            Implement any auth strategy with a single integration
+            Implementa cualquier estrategia de auth con una sola integración
           </p>
         </header>
 
@@ -146,9 +146,9 @@ export function FeaturesSection() {
           {/* Security badges */}
           <div className="mt-12 flex flex-wrap justify-center gap-6">
             {[
-              { icon: Shield, label: 'SOC 2 Type II' },
-              { icon: Key, label: 'End-to-end encrypted' },
-              { icon: Globe, label: 'GDPR compliant' },
+              { icon: Shield, label: 'SOC 2 Tipo II' },
+              { icon: Key, label: 'Cifrado extremo a extremo' },
+              { icon: Globe, label: 'Compatible con GDPR' },
             ].map((badge) => (
               <div 
                 key={badge.label}

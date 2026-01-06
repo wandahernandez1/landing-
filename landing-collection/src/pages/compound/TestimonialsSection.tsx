@@ -49,7 +49,7 @@ export function TestimonialsSection() {
               </blockquote>
 
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center text-navy-900 font-semibold text-sm">
+                <div className="w-10 h-10 rounded-full bg-linear-to-br from-gold-400 to-gold-600 flex items-center justify-center text-navy-900 font-semibold text-sm">
                   {testimonial.author.split(' ').map(n => n[0]).join('')}
                 </div>
                 <div>

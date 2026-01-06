@@ -41,7 +41,7 @@ export function CtaSection() {
 
             {/* Terminal body */}
             <div className="p-6 md:p-8">
-              <p className="text-gray-500 text-sm mb-4 font-mono"># Run your first deploy in seconds</p>
+              <p className="text-gray-500 text-sm mb-4 font-mono"># Ejecuta tu primer deploy en segundos</p>
               
               <div className="flex items-center gap-4 p-4 rounded-xl bg-gray-900/80 border border-gray-800 group">
                 <span className="text-cyan-400 font-mono">$</span>
@@ -55,12 +55,12 @@ export function CtaSection() {
                   {copied ? (
                     <>
                       <Check className="w-4 h-4" />
-                      <span className="text-sm">Copied!</span>
+                      <span className="text-sm">¡Copiado!</span>
                     </>
                   ) : (
                     <>
                       <Copy className="w-4 h-4" />
-                      <span className="text-sm">Copy</span>
+                      <span className="text-sm">Copiar</span>
                     </>
                   )}
                 </button>
@@ -69,29 +69,29 @@ export function CtaSection() {
               {/* Output preview */}
               <div className="mt-4 space-y-2 text-sm font-mono">
                 <p className="text-gray-500">
-                  <span className="text-green-400">✓</span> Detected Next.js project
+                  <span className="text-green-400">✓</span> Proyecto Next.js detectado
                 </p>
                 <p className="text-gray-500">
-                  <span className="text-green-400">✓</span> Building...
+                  <span className="text-green-400">✓</span> Compilando...
                 </p>
                 <p className="text-gray-500">
-                  <span className="text-green-400">✓</span> Deployed to <span className="text-cyan-400">your-app.deployzero.dev</span>
+                  <span className="text-green-400">✓</span> Desplegado en <span className="text-cyan-400">tu-app.deployzero.dev</span>
                 </p>
                 <p className="text-gray-500 animate-pulse">
-                  <span className="text-cyan-400">→</span> Ready in 6.2s
+                  <span className="text-cyan-400">→</span> Listo en 6.2s
                 </p>
               </div>
             </div>
 
             {/* CTA footer */}
-            <div className="p-6 md:p-8 bg-gradient-to-b from-cyan-950/30 to-transparent border-t border-cyan-500/20">
+            <div className="p-6 md:p-8 bg-linear-to-b from-cyan-950/30 to-transparent border-t border-cyan-500/20">
               <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                 <div>
                   <h2 id="cta-title" className="text-2xl md:text-3xl font-bold text-white mb-2">
-                    Ready to ship faster?
+                    ¿Listo para enviar más rápido?
                   </h2>
                   <p className="text-gray-400">
-                    No credit card • Free forever tier • Setup in 2 min
+                    Sin tarjeta de crédito • Plan gratis para siempre • Configuración en 2 min
                   </p>
                 </div>
                 
@@ -101,7 +101,7 @@ export function CtaSection() {
                     className="btn-primary flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-semibold"
                   >
                     <Rocket className="w-5 h-5" />
-                    Start Free
+                    Comenzar Gratis
                     <ArrowRight className="w-5 h-5" />
                   </a>
                   <a
@@ -109,7 +109,7 @@ export function CtaSection() {
                     className="btn-secondary flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-medium"
                   >
                     <ExternalLink className="w-4 h-4" />
-                    Read Docs
+                    Leer Documentación
                   </a>
                 </div>
               </div>
@@ -118,7 +118,7 @@ export function CtaSection() {
 
           {/* Social proof */}
           <div className="mt-12 text-center">
-            <p className="text-sm text-gray-500 mb-4">Trusted by developers at</p>
+            <p className="text-sm text-gray-500 mb-4">Usado por desarrolladores en</p>
             <div className="flex items-center justify-center gap-8 opacity-50">
               {['Linear', 'Stripe', 'Vercel', 'Notion', 'Figma'].map((company) => (
                 <span key={company} className="text-gray-400 font-medium">{company}</span>

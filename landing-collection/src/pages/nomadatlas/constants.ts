@@ -93,7 +93,7 @@ export const PRICING_PLANS: PricingPlan[] = [
       "Comparador de costos",
       "Newsletter semanal",
     ],
-    cta: "Start Free",
+    cta: "Empezar Gratis",
   },
   {
     name: "Nomad",
@@ -108,7 +108,7 @@ export const PRICING_PLANS: PricingPlan[] = [
       "Descuentos partners",
       "Soporte prioritario",
     ],
-    cta: "Go Nomad",
+    cta: "Ser Nómada",
     popular: true,
   },
   {
@@ -124,7 +124,7 @@ export const PRICING_PLANS: PricingPlan[] = [
       "Retiros corporativos",
       "Account manager",
     ],
-    cta: "Contact Sales",
+    cta: "Contactar Ventas",
   },
 ];
 

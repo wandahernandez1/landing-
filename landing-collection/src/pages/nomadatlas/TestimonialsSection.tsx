@@ -48,7 +48,7 @@ export function TestimonialsSection() {
           <div className="stat-item stat-card">
             <Star className="mx-auto mb-3 h-8 w-8 text-orange-500" />
             <p className="text-3xl font-bold text-sand-900">4.9</p>
-            <p className="text-sm text-sand-800/60">Rating Promedio</p>
+            <p className="text-sm text-sand-800/60">Calificación Promedio</p>
           </div>
         </div>
 

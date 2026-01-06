@@ -47,13 +47,13 @@ export function Navbar() {
               href="#" 
               className="label transition-colors duration-300 hover:text-charcoal-900"
             >
-              Account
+              Cuenta
             </a>
             <a 
               href="#" 
               className="label transition-colors duration-300 hover:text-charcoal-900"
             >
-              Bag (0)
+              Bolsa (0)
             </a>
           </div>
 
@@ -61,7 +61,7 @@ export function Navbar() {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="p-2 lg:hidden"
-            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+            aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
             aria-expanded={isOpen}
           >
             {isOpen ? (
@@ -87,8 +87,8 @@ export function Navbar() {
                 </a>
               ))}
               <div className="divider my-4" />
-              <a href="#" className="label">Account</a>
-              <a href="#" className="label">Bag (0)</a>
+              <a href="#" className="label">Cuenta</a>
+              <a href="#" className="label">Bolsa (0)</a>
             </nav>
           </div>
         )}

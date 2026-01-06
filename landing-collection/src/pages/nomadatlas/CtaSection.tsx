@@ -4,7 +4,7 @@ import { useCtaAnimation, useRotationAnimation, useFloatingAnimation } from '@/s
 
 const BENEFITS = [
   'Acceso a 500+ destinos curados',
-  'Comunidad de nómadas global',
+  'Comunidad global de nómadas',
   'Guías de visa actualizadas',
   'Soporte prioritario 24/7',
 ]

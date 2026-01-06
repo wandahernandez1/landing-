@@ -3,10 +3,10 @@ import { useRef, useState, useEffect } from 'react'
 
 // Incident simulation
 const INCIDENT_STEPS = [
-  { time: '14:32', event: '🚨 Alert: 500 errors spike detected', type: 'alert' },
-  { time: '14:33', event: '👀 Investigating: New checkout flag identified', type: 'info' },
-  { time: '14:34', event: '🔄 Action: Rollback flag to 0%', type: 'action' },
-  { time: '14:34', event: '✅ Resolved: Error rate back to normal', type: 'success' },
+  { time: '14:32', event: '🚨 Alerta: Pico de errores 500 detectado', type: 'alert' },
+  { time: '14:33', event: '👀 Investigando: Flag de nuevo checkout identificado', type: 'info' },
+  { time: '14:34', event: '🔄 Acción: Rollback del flag a 0%', type: 'action' },
+  { time: '14:34', event: '✅ Resuelto: Tasa de errores normalizada', type: 'success' },
 ]
 
 // Metrics comparison
@@ -64,7 +64,7 @@ export function TestimonialsSection() {
 
         {/* Company logos */}
         <div className="mb-32">
-          <p className="text-center text-sm text-slate-500 mb-8">Trusted by fast-moving engineering teams</p>
+          <p className="text-center text-sm text-slate-500 mb-8">Equipos de ingeniería ágiles confían en nosotros</p>
           <div className="flex flex-wrap justify-center gap-8 md:gap-12">
             {COMPANIES.map((company) => (
               <div 
@@ -81,9 +81,9 @@ export function TestimonialsSection() {
         {/* Instant Rollback Simulation */}
         <div className="mb-32">
           <header className="mx-auto mb-12 max-w-3xl text-center">
-            <p className="mb-4 text-sm font-medium uppercase tracking-widest text-teal-400">Instant Rollback</p>
+            <p className="mb-4 text-sm font-medium uppercase tracking-widest text-teal-400">Rollback Instantáneo</p>
             <h2 id="testimonials-title" className="text-4xl font-bold tracking-tight sm:text-5xl">
-              Recover in{' '}<span className="text-gradient">seconds</span>
+              Recupera en{' '}<span className="text-gradient">segundos</span>
             </h2>
           </header>
 
@@ -94,7 +94,7 @@ export function TestimonialsSection() {
               <div className="flex items-center justify-between px-6 py-4 border-b border-slate-800 bg-slate-900">
                 <div className="flex items-center gap-2">
                   <AlertTriangle className="w-5 h-5 text-amber-400" />
-                  <span className="font-semibold text-white">Incident Timeline</span>
+                  <span className="font-semibold text-white">Línea Temporal del Incidente</span>
                 </div>
                 <button
                   onClick={startSimulation}
@@ -105,7 +105,7 @@ export function TestimonialsSection() {
                       : 'bg-teal-500 text-white hover:bg-teal-600'
                   }`}
                 >
-                  {isPlaying ? 'Running...' : 'Run Simulation'}
+                  {isPlaying ? 'Ejecutando...' : 'Ejecutar Simulación'}
                 </button>
               </div>
 
@@ -140,8 +140,8 @@ export function TestimonialsSection() {
                     <div className="flex items-center gap-3">
                       <CheckCircle className="w-5 h-5 text-green-400" />
                       <div>
-                        <p className="font-medium text-white">Total time to resolution: <span className="text-green-400">2 minutes</span></p>
-                        <p className="text-sm text-slate-500">Without feature flags: ~45 minutes (redeploy)</p>
+                        <p className="font-medium text-white">Tiempo total de resolución: <span className="text-green-400">2 minutos</span></p>
+                        <p className="text-sm text-slate-500">Sin feature flags: ~45 minutos (redeploy)</p>
                       </div>
                     </div>
                   </div>
@@ -155,7 +155,7 @@ export function TestimonialsSection() {
         <div>
           <header className="mx-auto mb-12 max-w-3xl text-center">
             <h3 className="text-3xl font-bold tracking-tight">
-              The impact of feature flags
+              El impacto de los feature flags
             </h3>
           </header>
 
@@ -164,7 +164,7 @@ export function TestimonialsSection() {
             <div className="rounded-2xl border border-red-500/30 bg-red-950/10 p-8">
               <div className="flex items-center gap-2 mb-6">
                 <TrendingDown className="w-5 h-5 text-red-400" />
-                <h4 className="text-lg font-semibold text-white">Without FeatureFlag</h4>
+                <h4 className="text-lg font-semibold text-white">Sin FeatureFlag</h4>
               </div>
               <div className="space-y-4">
                 {Object.entries(METRICS.before).map(([key, value]) => (
@@ -180,7 +180,7 @@ export function TestimonialsSection() {
             <div className="rounded-2xl border border-green-500/30 bg-green-950/10 p-8">
               <div className="flex items-center gap-2 mb-6">
                 <Flag className="w-5 h-5 text-green-400" />
-                <h4 className="text-lg font-semibold text-white">With FeatureFlag</h4>
+                <h4 className="text-lg font-semibold text-white">Con FeatureFlag</h4>
               </div>
               <div className="space-y-4">
                 {Object.entries(METRICS.after).map(([key, value]) => (
@@ -196,9 +196,9 @@ export function TestimonialsSection() {
           {/* Stats */}
           <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto pt-12 border-t border-slate-800">
             {[
-              { value: '10K+', label: 'Teams' },
-              { value: '1B+', label: 'Flag checks/day' },
-              { value: '<1ms', label: 'Evaluation time' },
+              { value: '10K+', label: 'Equipos' },
+              { value: '1B+', label: 'Checks de flags/día' },
+              { value: '<1ms', label: 'Tiempo de evaluación' },
               { value: '99.99%', label: 'Uptime' },
             ].map((stat) => (
               <div key={stat.label} className="text-center">

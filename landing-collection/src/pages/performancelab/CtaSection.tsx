@@ -4,9 +4,9 @@ import { cn } from '@/shared/utils/cn'
 
 // Live score animation
 const SCORES = [
-  { label: 'Performance', score: 92, color: 'green' },
-  { label: 'Accessibility', score: 98, color: 'green' },
-  { label: 'Best Practices', score: 95, color: 'green' },
+  { label: 'Rendimiento', score: 92, color: 'green' },
+  { label: 'Accesibilidad', score: 98, color: 'green' },
+  { label: 'Buenas Prácticas', score: 95, color: 'green' },
   { label: 'SEO', score: 100, color: 'green' },
 ]
 
@@ -114,15 +114,15 @@ export function CtaSection() {
               {/* CTA */}
               <div className="text-center md:text-left">
                 <h2 className="text-3xl font-bold text-white mb-4">
-                  See your{' '}<span className="text-gradient">real</span>{' '}score
+                  Mira tu puntuación{' '}<span className="text-gradient">real</span>
                 </h2>
                 <p className="text-slate-400 mb-6">
-                  Lab scores are just the beginning. See how real users experience your site.
+                  Las puntuaciones de laboratorio son solo el comienzo. Mira cómo los usuarios reales experimentan tu sitio.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a href="#" className="btn-primary inline-flex items-center justify-center gap-2 px-6 py-3">
                     <Globe className="w-5 h-5" />
-                    Analyze your site
+                    Analiza tu sitio
                     <ArrowRight className="w-4 h-4" />
                   </a>
                 </div>
@@ -136,10 +136,10 @@ export function CtaSection() {
           <header className="text-center mb-8">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/30 mb-6">
               <Code className="w-4 h-4 text-purple-400" />
-              <span className="text-sm font-medium text-purple-400">One line setup</span>
+              <span className="text-sm font-medium text-purple-400">Configuración en una línea</span>
             </div>
             <h3 className="text-2xl font-bold text-white">
-              Start monitoring in 30 seconds
+              Comienza a monitorear en 30 segundos
             </h3>
           </header>
 
@@ -150,7 +150,7 @@ export function CtaSection() {
                 onClick={copyCode}
                 className="text-sm text-purple-400 hover:text-purple-300 transition-colors"
               >
-                {copied ? '✓ Copied!' : 'Copy code'}
+                {copied ? '✓ ¡Copiado!' : 'Copiar código'}
               </button>
             </div>
             <pre className="p-6 overflow-x-auto">
@@ -159,7 +159,7 @@ export function CtaSection() {
           </div>
 
           <p className="mt-4 text-center text-sm text-slate-500">
-            That's it! Data will start flowing in within minutes.
+            ¡Eso es todo! Los datos comenzarán a fluir en minutos.
           </p>
         </div>
 
@@ -172,23 +172,23 @@ export function CtaSection() {
             </div>
           </div>
           <h3 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-6">
-            Ready to optimize?
+            ¿Listo para optimizar?
           </h3>
           <p className="text-lg text-slate-400 mb-10 max-w-xl mx-auto">
-            Join thousands of teams who monitor their real user experience.
+            Únete a miles de equipos que monitorean la experiencia de sus usuarios reales.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a href="#pricing" className="btn-primary flex items-center gap-2 rounded-xl px-8 py-4 text-lg font-semibold">
               <Zap className="h-5 w-5" />
-              Start free
+              Comenzar gratis
               <ArrowRight className="h-5 w-5" />
             </a>
             <a href="#" className="btn-secondary rounded-xl px-8 py-4 text-lg font-medium">
-              Schedule demo
+              Agendar demo
             </a>
           </div>
           <p className="mt-6 text-sm text-slate-500">
-            Free tier forever • GDPR compliant • No credit card required
+            Plan gratuito para siempre • Compatible con GDPR • Sin tarjeta de crédito requerida
           </p>
         </div>
       </div>

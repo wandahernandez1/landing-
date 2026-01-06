@@ -1,19 +1,19 @@
 import { ArrowRight, Rocket, Github, Twitter, MessageCircle, Star } from 'lucide-react'
 import { useRef, useState } from 'react'
 
-// Founder info
+// Info del fundador
 const FOUNDER = {
   name: 'Marc',
   handle: '@marc_microsaas',
   avatar: '👨‍💻',
-  bio: 'Indie maker. Built 5 SaaS. Now helping others ship faster.',
+  bio: 'Indie maker. Construí 5 SaaS. Ahora ayudo a otros a lanzar más rápido.',
 }
 
-// Quick links
+// Enlaces rápidos
 const RESOURCES = [
-  { label: 'View on GitHub', icon: Github, href: '#' },
-  { label: 'Follow on Twitter', icon: Twitter, href: '#' },
-  { label: 'Join Discord', icon: MessageCircle, href: '#' },
+  { label: 'Ver en GitHub', icon: Github, href: '#' },
+  { label: 'Seguir en Twitter', icon: Twitter, href: '#' },
+  { label: 'Unirse a Discord', icon: MessageCircle, href: '#' },
 ]
 
 export function CtaSection() {
@@ -53,8 +53,8 @@ export function CtaSection() {
                 </div>
 
                 <blockquote className="text-lg text-slate-300 mb-6 leading-relaxed">
-                  "I wasted months building auth, payments, and landing pages from scratch. 
-                  Now I ship in days. MicroSaaS Starter is everything I wish I had when I started."
+                  "Perdí meses construyendo auth, pagos y landing pages desde cero. 
+                  Ahora lanzo en días. MicroSaaS Starter es todo lo que desearía haber tenido cuando empecé."
                 </blockquote>
 
                 <p className="text-slate-500 text-sm mb-6">{FOUNDER.bio}</p>
@@ -79,15 +79,15 @@ export function CtaSection() {
                 <div className="text-center md:text-left">
                   <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-sm font-medium mb-4">
                     <Star className="w-4 h-4 fill-orange-400" />
-                    <span>500+ makers trust us</span>
+                    <span>500+ makers confían en nosotros</span>
                   </div>
 
                   <h2 id="cta-title" className="text-3xl md:text-4xl font-bold text-white mb-4">
-                    Ready to{' '}<span className="text-gradient">ship faster?</span>
+                    ¿Listo para{' '}<span className="text-gradient">lanzar más rápido?</span>
                   </h2>
                   
                   <p className="text-slate-400 mb-8">
-                    Get instant access to the complete codebase and start building your SaaS today.
+                    Obtén acceso instantáneo al código completo y empieza a construir tu SaaS hoy.
                   </p>
 
                   {/* Main CTA */}
@@ -96,12 +96,12 @@ export function CtaSection() {
                     className="btn-primary w-full flex items-center justify-center gap-2 rounded-xl px-8 py-4 text-lg font-semibold mb-4 group"
                   >
                     <Rocket className="w-5 h-5" />
-                    Get Started for $99
+                    Comenzar por $99
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </a>
 
                   <p className="text-sm text-slate-500">
-                    30-day money-back guarantee
+                    Garantía de devolución de 30 días
                   </p>
                 </div>
               </div>
@@ -111,10 +111,10 @@ export function CtaSection() {
           {/* Newsletter signup */}
           <div className="rounded-2xl border border-slate-800 bg-slate-900/50 p-8 text-center">
             <h3 className="text-xl font-semibold text-white mb-2">
-              Not ready yet? Get free SaaS tips
+              ¿Aún no estás listo? Recibe tips gratuitos de SaaS
             </h3>
             <p className="text-slate-500 mb-6">
-              Weekly insights on building and growing your SaaS. No spam.
+              Consejos semanales sobre cómo construir y hacer crecer tu SaaS. Sin spam.
             </p>
 
             {!subscribed ? (
@@ -131,18 +131,18 @@ export function CtaSection() {
                   type="submit"
                   className="btn-secondary rounded-xl px-6 py-3 font-semibold whitespace-nowrap"
                 >
-                  Subscribe Free
+                  Suscribirse Gratis
                 </button>
               </form>
             ) : (
               <div className="flex items-center justify-center gap-2 text-green-400">
                 <span className="text-xl">🎉</span>
-                <span>You're in! Check your inbox.</span>
+                <span>¡Estás dentro! Revisa tu bandeja de entrada.</span>
               </div>
             )}
 
             <p className="text-xs text-slate-600 mt-4">
-              Join 2,000+ indie makers
+              Únete a 2,000+ indie makers
             </p>
           </div>
         </div>

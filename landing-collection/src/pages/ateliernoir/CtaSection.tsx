@@ -17,13 +17,13 @@ export function CtaSection() {
       <div className="container-editorial">
         {/* Newsletter */}
         <div className="max-w-2xl mx-auto text-center mb-20 md:mb-28">
-          <span className="label block mb-4">Join the Atelier</span>
+          <span className="label block mb-4">Únete al Atelier</span>
           <h2 id="cta-title" className="display-medium text-ivory-50 mb-6">
-            Early access to new collections
+            Acceso anticipado a nuevas colecciones
           </h2>
           <p className="body-large mb-10">
-            Be the first to discover limited editions, exclusive collaborations, 
-            and stories from our artisan partners.
+            Sé el primero en descubrir ediciones limitadas, colaboraciones exclusivas 
+            e historias de nuestros artesanos asociados.
           </p>
 
           {/* Newsletter Form */}
@@ -33,17 +33,17 @@ export function CtaSection() {
           >
             <input
               type="email"
-              placeholder="Your email address"
-              aria-label="Email address"
+              placeholder="Tu correo electrónico"
+              aria-label="Correo electrónico"
               required
             />
             <button type="submit">
-              Subscribe
+              Suscribirse
             </button>
           </form>
 
           <p className="text-charcoal-500 text-sm mt-6">
-            No spam. Only beautiful things, delivered thoughtfully.
+            Sin spam. Solo cosas hermosas, entregadas con cuidado.
           </p>
         </div>
 
@@ -71,7 +71,7 @@ export function CtaSection() {
             >
               <img
                 src={image}
-                alt={`Instagram post ${idx + 1}`}
+                alt={`Publicación de Instagram ${idx + 1}`}
                 loading="lazy"
               />
             </a>

@@ -6,9 +6,9 @@ import {
 
 // Workflow steps animation
 const WORKFLOW_STEPS = [
-  { icon: Figma, label: 'Define in Figma', color: 'text-purple-400', active: false },
-  { icon: RefreshCw, label: 'Sync', color: 'text-pink-400', active: true },
-  { icon: Code2, label: 'Generate Code', color: 'text-cyan-400', active: false },
+  { icon: Figma, label: 'Definir en Figma', color: 'text-purple-400', active: false },
+  { icon: RefreshCw, label: 'Sincronizar', color: 'text-pink-400', active: true },
+  { icon: Code2, label: 'Generar Código', color: 'text-cyan-400', active: false },
 ]
 
 // Output format tabs
@@ -123,9 +123,9 @@ export function FeaturesSection() {
         {/* Workflow Animation */}
         <div className="mb-32">
           <header className="mx-auto mb-12 max-w-3xl text-center">
-            <p className="mb-4 text-sm font-medium uppercase tracking-widest text-pink-400">How It Works</p>
+            <p className="mb-4 text-sm font-medium uppercase tracking-widest text-pink-400">Cómo Funciona</p>
             <h2 id="features-title" className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-              Design to code in{' '}<span className="text-gradient">seconds</span>
+              Diseño a código en{' '}<span className="text-gradient">segundos</span>
             </h2>
           </header>
 
@@ -199,10 +199,10 @@ export function FeaturesSection() {
 
             {/* Benefits */}
             <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-white">Export to any platform</h3>
+              <h3 className="text-2xl font-bold text-white">Exportar a cualquier plataforma</h3>
               <p className="text-slate-400 leading-relaxed">
-                DesignTokens automatically generates code in your preferred format. Update once in Figma, 
-                and your entire codebase stays in sync.
+                DesignTokens genera automáticamente código en tu formato preferido. Actualiza una vez en Figma, 
+                y todo tu código se mantiene sincronizado.
               </p>
 
               <div className="space-y-4">
@@ -230,9 +230,9 @@ export function FeaturesSection() {
         {/* Brand Theming Demo */}
         <div>
           <header className="mx-auto mb-12 max-w-3xl text-center">
-            <p className="mb-4 text-sm font-medium uppercase tracking-widest text-pink-400">Live Preview</p>
+            <p className="mb-4 text-sm font-medium uppercase tracking-widest text-pink-400">Vista Previa en Vivo</p>
             <h3 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              See your tokens in action
+              Ve tus tokens en acción
             </h3>
           </header>
 
@@ -280,7 +280,7 @@ export function FeaturesSection() {
                     className="w-full py-3 px-6 rounded-xl font-semibold text-white transition-all"
                     style={{ backgroundColor: BRAND_THEMES[activeTheme].primary }}
                   >
-                    Primary Button
+                    Botón Primario
                   </button>
                   <button 
                     className="w-full py-3 px-6 rounded-xl font-semibold border-2 transition-all"
@@ -289,7 +289,7 @@ export function FeaturesSection() {
                       color: BRAND_THEMES[activeTheme].primary
                     }}
                   >
-                    Secondary Button
+                    Botón Secundario
                   </button>
                 </div>
                 <div className="space-y-4">
@@ -298,7 +298,7 @@ export function FeaturesSection() {
                     style={{ borderColor: `${BRAND_THEMES[activeTheme].primary}30`, backgroundColor: `${BRAND_THEMES[activeTheme].primary}10` }}
                   >
                     <p className="text-sm" style={{ color: BRAND_THEMES[activeTheme].primary }}>
-                      ✨ Alert component with brand colors
+                      ✨ Componente de alerta con colores de marca
                     </p>
                   </div>
                   <div className="flex gap-2">

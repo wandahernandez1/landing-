@@ -25,7 +25,7 @@ export function Footer() {
         </div>
         <div className="divider mt-8" />
         <div className="mt-8 text-center">
-          <p className="text-sm text-slate-600">{COMPANY.year} {COMPANY.name}. Made for makers.</p>
+          <p className="text-sm text-slate-600">{COMPANY.year} {COMPANY.name}. Hecho para makers.</p>
         </div>
       </div>
     </footer>

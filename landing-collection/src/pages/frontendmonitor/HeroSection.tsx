@@ -76,10 +76,10 @@ export function HeroSection() {
   // Format relative time
   const getRelativeTime = (date: Date) => {
     const seconds = Math.floor((Date.now() - date.getTime()) / 1000)
-    if (seconds < 5) return 'just now'
-    if (seconds < 60) return `${seconds}s ago`
+    if (seconds < 5) return 'ahora mismo'
+    if (seconds < 60) return `hace ${seconds}s`
     const minutes = Math.floor(seconds / 60)
-    return `${minutes}m ago`
+    return `hace ${minutes}m`
   }
 
   // Get error color
@@ -108,7 +108,7 @@ export function HeroSection() {
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500" />
               </span>
               <span className="text-sm text-red-300 font-mono">
-                {errorCount.toLocaleString()} errors captured today
+                {errorCount.toLocaleString()} errores capturados hoy
               </span>
             </div>
 
@@ -116,16 +116,16 @@ export function HeroSection() {
               data-hero-title
               className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl mb-6"
             >
-              <span className="block">Watch errors happen</span>
-              <span className="block text-gradient">in real-time.</span>
+              <span className="block">Observa errores ocurrir</span>
+              <span className="block text-gradient">en tiempo real.</span>
             </h1>
 
             <p 
               data-hero-description
               className="mx-auto lg:mx-0 max-w-xl text-lg text-slate-400 md:text-xl mb-8"
             >
-              See live frontend errors streaming in. Complete stack traces, session replay, 
-              and user context. Debug in minutes, not hours.
+              Ve errores de frontend en streaming en vivo. Stack traces completos, reproducción de sesión 
+              y contexto de usuario. Depura en minutos, no en horas.
             </p>
 
             <div 
@@ -133,7 +133,7 @@ export function HeroSection() {
               className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start"
             >
               <a href="#pricing" className="btn-primary flex items-center gap-2 rounded-xl px-8 py-4 text-base font-semibold w-full sm:w-auto justify-center">
-                Start Monitoring
+                Comenzar a Monitorear
                 <ArrowRight className="h-5 w-5" />
               </a>
               <button 
@@ -141,7 +141,7 @@ export function HeroSection() {
                 className="btn-secondary flex items-center gap-2 rounded-xl px-8 py-4 text-base font-medium w-full sm:w-auto justify-center"
               >
                 {isPaused ? <Play className="h-5 w-5" /> : <RefreshCw className="h-5 w-5" />}
-                {isPaused ? 'Resume Feed' : 'Live Demo'}
+                {isPaused ? 'Reanudar Feed' : 'Demo en Vivo'}
               </button>
             </div>
 
@@ -151,9 +151,9 @@ export function HeroSection() {
               className="mt-10 flex flex-wrap items-center gap-6 justify-center lg:justify-start"
             >
               {[
-                { icon: Bug, value: '<100ms', label: 'Capture latency' },
-                { icon: Cpu, value: '0.1%', label: 'CPU overhead' },
-                { icon: Users, value: '5K+', label: 'Teams' },
+                { icon: Bug, value: '<100ms', label: 'Latencia de captura' },
+                { icon: Cpu, value: '0.1%', label: 'Sobrecarga CPU' },
+                { icon: Users, value: '5K+', label: 'Equipos' },
               ].map((stat) => (
                 <div key={stat.label} className="flex items-center gap-2">
                   <stat.icon className="w-4 h-4 text-red-400" />
@@ -173,11 +173,11 @@ export function HeroSection() {
               <div className="flex items-center justify-between px-4 py-3 border-b border-slate-700/50 bg-slate-800/80">
                 <div className="flex items-center gap-2">
                   <Bug className="h-4 w-4 text-red-400" />
-                  <span className="text-sm text-slate-300">Error Stream</span>
+                  <span className="text-sm text-slate-300">Stream de Errores</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className={`text-xs px-2 py-0.5 rounded ${isPaused ? 'bg-slate-700 text-slate-400' : 'bg-red-500/20 text-red-400'}`}>
-                    {isPaused ? 'PAUSED' : 'LIVE'}
+                    {isPaused ? 'PAUSADO' : 'EN VIVO'}
                   </span>
                 </div>
               </div>
@@ -224,7 +224,7 @@ export function HeroSection() {
 
               {/* Footer with SDK snippet */}
               <div className="px-4 py-3 border-t border-slate-700/50 bg-slate-800/50">
-                <p className="text-xs text-slate-500 mb-2">Add one line to capture errors:</p>
+                <p className="text-xs text-slate-500 mb-2">Agrega una línea para capturar errores:</p>
                 <code className="text-xs font-mono text-red-400 bg-slate-900/50 px-3 py-1.5 rounded block">
                   FrontendMonitor.init('YOUR_API_KEY')
                 </code>

@@ -4,34 +4,34 @@ import { GitBranch, Play, CheckCircle2, Clock, Rocket, Globe, Box, Zap, Shield }
 // Pipeline stages for live demo
 const PIPELINE_STAGES = [
   { id: 'push', name: 'Git Push', icon: GitBranch, duration: 800 },
-  { id: 'build', name: 'Building', icon: Box, duration: 2000 },
-  { id: 'test', name: 'Testing', icon: Shield, duration: 1500 },
-  { id: 'deploy', name: 'Deploying', icon: Rocket, duration: 1200 },
-  { id: 'live', name: 'Live!', icon: Globe, duration: 500 },
+  { id: 'build', name: 'Compilando', icon: Box, duration: 2000 },
+  { id: 'test', name: 'Probando', icon: Shield, duration: 1500 },
+  { id: 'deploy', name: 'Desplegando', icon: Rocket, duration: 1200 },
+  { id: 'live', name: '¡En vivo!', icon: Globe, duration: 500 },
 ]
 
 // Frameworks supported
 const FRAMEWORKS = [
-  { name: 'Next.js', logo: '▲', config: 'next.config.js detected → Using next build' },
-  { name: 'Vite', logo: '⚡', config: 'vite.config.ts detected → Using vite build' },
-  { name: 'Astro', logo: '🚀', config: 'astro.config.mjs detected → Using astro build' },
-  { name: 'Nuxt', logo: '💚', config: 'nuxt.config.ts detected → Using nuxi build' },
-  { name: 'Remix', logo: '💿', config: 'remix.config.js detected → Using remix build' },
-  { name: 'SvelteKit', logo: '🔶', config: 'svelte.config.js detected → Using vite build' },
+  { name: 'Next.js', logo: '▲', config: 'next.config.js detectado → Usando next build' },
+  { name: 'Vite', logo: '⚡', config: 'vite.config.ts detectado → Usando vite build' },
+  { name: 'Astro', logo: '🚀', config: 'astro.config.mjs detectado → Usando astro build' },
+  { name: 'Nuxt', logo: '💚', config: 'nuxt.config.ts detectado → Usando nuxi build' },
+  { name: 'Remix', logo: '💿', config: 'remix.config.js detectado → Usando remix build' },
+  { name: 'SvelteKit', logo: '🔶', config: 'svelte.config.js detectado → Usando vite build' },
 ]
 
 // Comparison data
 const COMPARISON = {
   traditional: {
-    label: 'Traditional CI/CD',
-    steps: ['Configure Jenkins/CircleCI', 'Write YAML config', 'Set up Docker', 'Configure CDN', 'Manual SSL', 'Wait 15+ min'],
+    label: 'CI/CD Tradicional',
+    steps: ['Configurar Jenkins/CircleCI', 'Escribir config YAML', 'Configurar Docker', 'Configurar CDN', 'SSL manual', 'Esperar 15+ min'],
     time: '15-45 min',
     color: 'red'
   },
   deployzero: {
     label: 'DeployZero',
-    steps: ['Connect repo', 'Push code', 'Done'],
-    time: '< 30 sec',
+    steps: ['Conectar repo', 'Hacer push', 'Listo'],
+    time: '< 30 seg',
     color: 'cyan'
   }
 }
@@ -88,11 +88,11 @@ export function FeaturesSection() {
         <div className="mb-32">
           <header className="mx-auto mb-12 max-w-3xl text-center">
             <p className="mb-4 text-sm font-medium uppercase tracking-widest text-cyan-400">
-              Live Demo
+              Demo en Vivo
             </p>
             <h2 id="features-title" className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-              Watch a deploy{' '}
-              <span className="text-gradient">in real-time</span>
+              Mira un deploy{' '}
+              <span className="text-gradient">en tiempo real</span>
             </h2>
           </header>
 
@@ -104,7 +104,7 @@ export function FeaturesSection() {
                 <div className="flex items-center gap-3">
                   <div className={`w-3 h-3 rounded-full ${isRunning ? 'bg-cyan-400 animate-pulse' : currentStage === PIPELINE_STAGES.length - 1 ? 'bg-green-400' : 'bg-gray-600'}`} />
                   <span className="text-sm text-gray-400">
-                    {isRunning ? 'Deploying...' : currentStage === PIPELINE_STAGES.length - 1 ? 'Deployed!' : 'Ready'}
+                    {isRunning ? 'Desplegando...' : currentStage === PIPELINE_STAGES.length - 1 ? '¡Desplegado!' : 'Listo'}
                   </span>
                 </div>
                 <button
@@ -117,7 +117,7 @@ export function FeaturesSection() {
                   }`}
                 >
                   <Play className="w-4 h-4" />
-                  {isRunning ? 'Running...' : 'Run Deploy'}
+                  {isRunning ? 'Ejecutando...' : 'Ejecutar Deploy'}
                 </button>
               </div>
 
@@ -160,15 +160,15 @@ export function FeaturesSection() {
               <div className="grid grid-cols-3 gap-4 pt-6 border-t border-gray-800">
                 <div className="text-center">
                   <p className="text-2xl font-bold text-cyan-400">{completedRuns}</p>
-                  <p className="text-xs text-gray-500">Deploys this session</p>
+                  <p className="text-xs text-gray-500">Deploys en esta sesión</p>
                 </div>
                 <div className="text-center">
                   <p className="text-2xl font-bold text-cyan-400">~6s</p>
-                  <p className="text-xs text-gray-500">Avg deploy time</p>
+                  <p className="text-xs text-gray-500">Tiempo promedio de deploy</p>
                 </div>
                 <div className="text-center">
                   <p className="text-2xl font-bold text-green-400">100%</p>
-                  <p className="text-xs text-gray-500">Success rate</p>
+                  <p className="text-xs text-gray-500">Tasa de éxito</p>
                 </div>
               </div>
             </div>
@@ -179,9 +179,9 @@ export function FeaturesSection() {
         <div className="mb-32">
           <header className="mx-auto mb-12 max-w-3xl text-center">
             <h3 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              Before & After
+              Antes y Después
             </h3>
-            <p className="mt-4 text-gray-400">The difference is night and day</p>
+            <p className="mt-4 text-gray-400">La diferencia es como el día y la noche</p>
           </header>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -200,7 +200,7 @@ export function FeaturesSection() {
                 ))}
               </ul>
               <div className="pt-4 border-t border-red-500/20">
-                <p className="text-sm text-gray-500">Total time</p>
+                <p className="text-sm text-gray-500">Tiempo total</p>
                 <p className="text-3xl font-bold text-red-400">{COMPARISON.traditional.time}</p>
               </div>
             </div>
@@ -220,7 +220,7 @@ export function FeaturesSection() {
                 ))}
               </ul>
               <div className="pt-4 border-t border-cyan-500/20">
-                <p className="text-sm text-gray-500">Total time</p>
+                <p className="text-sm text-gray-500">Tiempo total</p>
                 <p className="text-3xl font-bold text-cyan-400">{COMPARISON.deployzero.time}</p>
               </div>
             </div>
@@ -231,10 +231,10 @@ export function FeaturesSection() {
         <div className="mb-32">
           <header className="mx-auto mb-12 max-w-3xl text-center">
             <h3 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              Your framework,{' '}
-              <span className="text-gradient">auto-detected</span>
+              Tu framework,{' '}
+              <span className="text-gradient">auto-detectado</span>
             </h3>
-            <p className="mt-4 text-gray-400">Zero configuration. Just push.</p>
+            <p className="mt-4 text-gray-400">Cero configuración. Solo haz push.</p>
           </header>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-5xl mx-auto">
@@ -269,9 +269,9 @@ export function FeaturesSection() {
         <div>
           <header className="mx-auto mb-12 max-w-3xl text-center">
             <h3 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              Enterprise-grade security
+              Seguridad nivel enterprise
             </h3>
-            <p className="mt-4 text-gray-400">Built for teams that can't compromise</p>
+            <p className="mt-4 text-gray-400">Construido para equipos que no pueden comprometer</p>
           </header>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">

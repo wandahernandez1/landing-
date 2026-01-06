@@ -5,20 +5,20 @@ import { useHeroAnimation } from '@/shared/hooks'
 // Simulated attack origins for the world map
 const ATTACK_ORIGINS = [
   { id: 1, x: 25, y: 35, country: 'US', type: 'DDoS', blocked: true },
-  { id: 2, x: 48, y: 30, country: 'EU', type: 'SQL Injection', blocked: true },
-  { id: 3, x: 75, y: 45, country: 'CN', type: 'Brute Force', blocked: true },
-  { id: 4, x: 65, y: 55, country: 'IN', type: 'Rate Limit', blocked: true },
+  { id: 2, x: 48, y: 30, country: 'EU', type: 'Inyección SQL', blocked: true },
+  { id: 3, x: 75, y: 45, country: 'CN', type: 'Fuerza Bruta', blocked: true },
+  { id: 4, x: 65, y: 55, country: 'IN', type: 'Límite de Tasa', blocked: true },
   { id: 5, x: 85, y: 60, country: 'AU', type: 'Bot', blocked: true },
-  { id: 6, x: 35, y: 70, country: 'BR', type: 'Credential Stuffing', blocked: true },
+  { id: 6, x: 35, y: 70, country: 'BR', type: 'Relleno de Credenciales', blocked: true },
   { id: 7, x: 55, y: 25, country: 'RU', type: 'XSS', blocked: true },
 ]
 
 // Live threat log
 const THREAT_LOG = [
-  { ip: '192.168.1.***', type: 'SQL Injection', status: 'blocked', time: 'Just now' },
-  { ip: '10.0.0.***', type: 'Rate Limit Exceeded', status: 'blocked', time: '2s ago' },
-  { ip: '172.16.0.***', type: 'Suspicious Pattern', status: 'blocked', time: '5s ago' },
-  { ip: '203.0.113.***', type: 'Bot Detected', status: 'blocked', time: '8s ago' },
+  { ip: '192.168.1.***', type: 'Inyección SQL', status: 'blocked', time: 'Ahora mismo' },
+  { ip: '10.0.0.***', type: 'Límite de Tasa Excedido', status: 'blocked', time: 'Hace 2s' },
+  { ip: '172.16.0.***', type: 'Patrón Sospechoso', status: 'blocked', time: 'Hace 5s' },
+  { ip: '203.0.113.***', type: 'Bot Detectado', status: 'blocked', time: 'Hace 8s' },
 ]
 
 export function HeroSection() {
@@ -58,9 +58,9 @@ export function HeroSection() {
         newLog.pop()
         newLog.unshift({
           ip: `${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}.***`,
-          type: ['SQL Injection', 'DDoS', 'Bot', 'Rate Limit'][Math.floor(Math.random() * 4)],
+          type: ['Inyección SQL', 'DDoS', 'Bot', 'Límite de Tasa'][Math.floor(Math.random() * 4)],
           status: 'blocked',
-          time: 'Just now'
+          time: 'Ahora mismo'
         })
         return newLog
       })
@@ -86,7 +86,7 @@ export function HeroSection() {
               className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-2"
             >
               <Shield className="h-4 w-4 text-emerald-400" />
-              <span className="text-sm text-emerald-300">Enterprise API Security</span>
+              <span className="text-sm text-emerald-300">Seguridad API Empresarial</span>
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
@@ -98,15 +98,15 @@ export function HeroSection() {
               className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl mb-6"
             >
               <span className="block text-gradient tabular-nums">{threatsBlocked.toLocaleString()}</span>
-              <span className="block text-2xl sm:text-3xl md:text-4xl mt-2">threats blocked today</span>
+              <span className="block text-2xl sm:text-3xl md:text-4xl mt-2">amenazas bloqueadas hoy</span>
             </h1>
 
             <p 
               data-hero-description
               className="mx-auto lg:mx-0 max-w-xl text-lg text-slate-400 md:text-xl mb-8"
             >
-              APIShield protects your APIs from attacks, abuse, and bad actors in real-time. 
-              See every threat. Block them all.
+              APIShield protege tus APIs de ataques, abusos y actores maliciosos en tiempo real. 
+              Ve cada amenaza. Blóquealas todas.
             </p>
 
             {/* Live Threat Counter */}
@@ -120,8 +120,8 @@ export function HeroSection() {
                   <span className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-500 rounded-full animate-pulse" />
                 </div>
                 <div>
-                  <p className="text-emerald-300 text-sm font-medium">All systems protected</p>
-                  <p className="text-slate-500 text-xs">Last threat blocked 2 seconds ago</p>
+                  <p className="text-emerald-300 text-sm font-medium">Todos los sistemas protegidos</p>
+                  <p className="text-slate-500 text-xs">Última amenaza bloqueada hace 2 segundos</p>
                 </div>
               </div>
             </div>
@@ -134,7 +134,7 @@ export function HeroSection() {
                 href="#contact"
                 className="btn-primary flex items-center gap-2 rounded-xl px-8 py-4 text-base font-semibold w-full sm:w-auto justify-center"
               >
-                Request Demo
+                Solicitar Demo
                 <ArrowRight className="h-5 w-5" />
               </a>
               <a
@@ -142,7 +142,7 @@ export function HeroSection() {
                 className="btn-secondary flex items-center gap-2 rounded-xl px-8 py-4 text-base font-medium w-full sm:w-auto justify-center"
               >
                 <FileText className="h-5 w-5" />
-                Security Whitepaper
+                Whitepaper de Seguridad
               </a>
             </div>
 
@@ -173,7 +173,7 @@ export function HeroSection() {
               <div className="flex items-center justify-between px-4 py-3 bg-slate-800/80 border-b border-emerald-500/10">
                 <div className="flex items-center gap-2">
                   <Globe className="h-4 w-4 text-emerald-400" />
-                  <span className="text-sm text-slate-300">Global Threat Monitor</span>
+                  <span className="text-sm text-slate-300">Monitor Global de Amenazas</span>
                 </div>
                 <span className="text-xs text-emerald-400 font-mono">LIVE</span>
               </div>
@@ -243,7 +243,7 @@ export function HeroSection() {
                       <span className="text-red-400">{log.type}</span>
                       <span className="text-emerald-400 flex items-center gap-1">
                         <Lock className="w-3 h-3" />
-                        BLOCKED
+                        BLOQUEADO
                       </span>
                     </div>
                   ))}
@@ -255,20 +255,20 @@ export function HeroSection() {
             <div className="mt-4 grid grid-cols-3 gap-3">
               <div className="p-3 bg-slate-900/80 border border-emerald-500/20 rounded-xl text-center">
                 <span className="block text-lg font-bold text-emerald-400">2.4M</span>
-                <span className="text-[10px] text-slate-500">Req/hour</span>
+                <span className="text-[10px] text-slate-500">Pet/hora</span>
               </div>
               <div className="p-3 bg-slate-900/80 border border-emerald-500/20 rounded-xl text-center">
                 <span className="block text-lg font-bold text-emerald-400">99.99%</span>
-                <span className="text-[10px] text-slate-500">Uptime</span>
+                <span className="text-[10px] text-slate-500">Disponibilidad</span>
               </div>
               <div className="p-3 bg-slate-900/80 border border-emerald-500/20 rounded-xl text-center">
                 <span className="block text-lg font-bold text-emerald-400">&lt;5ms</span>
-                <span className="text-[10px] text-slate-500">Latency</span>
+                <span className="text-[10px] text-slate-500">Latencia</span>
               </div>
             </div>
 
             {/* Floating elements */}
-            <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-emerald-500/20 to-transparent rounded-full blur-2xl" />
+            <div className="absolute -top-4 -right-4 w-20 h-20 bg-linear-to-br from-emerald-500/20 to-transparent rounded-full blur-2xl" />
           </div>
         </div>
       </div>

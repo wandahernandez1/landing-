@@ -5,20 +5,20 @@ import { useHeroAnimation } from '@/shared/hooks'
 // Terminal command simulation
 const DEPLOY_COMMANDS = [
   { cmd: '$ deployzero init', delay: 0 },
-  { cmd: '✓ Project detected: Next.js 14', delay: 800, type: 'success' },
+  { cmd: '✓ Proyecto detectado: Next.js 14', delay: 800, type: 'success' },
   { cmd: '$ git push origin main', delay: 1500 },
-  { cmd: '→ Building...', delay: 2200, type: 'info' },
-  { cmd: '✓ Build completed in 8.2s', delay: 3500, type: 'success' },
-  { cmd: '→ Deploying to edge network...', delay: 4200, type: 'info' },
-  { cmd: '✓ Deployed to 50+ regions', delay: 5500, type: 'success' },
+  { cmd: '→ Compilando...', delay: 2200, type: 'info' },
+  { cmd: '✓ Build completado en 8.2s', delay: 3500, type: 'success' },
+  { cmd: '→ Desplegando a la red edge...', delay: 4200, type: 'info' },
+  { cmd: '✓ Desplegado en 50+ regiones', delay: 5500, type: 'success' },
   { cmd: '', delay: 6000 },
-  { cmd: '🚀 Live at https://app.example.com', delay: 6500, type: 'highlight' },
+  { cmd: '🚀 En vivo en https://app.example.com', delay: 6500, type: 'highlight' },
 ]
 
 // Pipeline stages
 const PIPELINE_STAGES = [
   { id: 'commit', icon: GitBranch, label: 'Commit', duration: '0.2s' },
-  { id: 'preview', icon: Eye, label: 'Preview', duration: '1.2s' },
+  { id: 'preview', icon: Eye, label: 'Vista previa', duration: '1.2s' },
   { id: 'build', icon: Terminal, label: 'Build', duration: '8.2s' },
   { id: 'deploy', icon: Rocket, label: 'Deploy', duration: '2.1s' },
 ]
@@ -94,7 +94,7 @@ export function HeroSection() {
               className="hero-badge mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-2"
             >
               <Terminal className="h-4 w-4 text-cyan-400" />
-              <span className="text-sm text-cyan-300">Deploy in seconds, not hours</span>
+              <span className="text-sm text-cyan-300">Despliega en segundos, no en horas</span>
             </div>
 
             <h1 
@@ -102,7 +102,7 @@ export function HeroSection() {
               className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl mb-6"
             >
               <span className="block">git push.</span>
-              <span className="block text-gradient">You're live.</span>
+              <span className="block text-gradient">Estás en producción.</span>
             </h1>
 
             <p 
@@ -141,14 +141,14 @@ export function HeroSection() {
                 href="#pricing"
                 className="btn-primary flex items-center gap-2 rounded-xl px-8 py-4 text-base font-semibold w-full sm:w-auto justify-center"
               >
-                Deploy your first app
+                Despliega tu primera app
                 <ArrowRight className="h-5 w-5" />
               </a>
               <a
                 href="https://docs.deployzero.dev"
                 className="btn-secondary flex items-center gap-2 rounded-xl px-8 py-4 text-base font-medium w-full sm:w-auto justify-center"
               >
-                Read the docs
+                Leer la documentación
               </a>
             </div>
 
@@ -212,9 +212,9 @@ export function HeroSection() {
             {/* Pipeline Progress */}
             <div className="mt-6 p-4 bg-gray-900/50 border border-cyan-500/20 rounded-xl">
               <div className="flex items-center justify-between mb-4">
-                <span className="text-sm font-medium text-gray-300">Deploy Pipeline</span>
+                <span className="text-sm font-medium text-gray-300">Pipeline de Deploy</span>
                 <span className="text-xs text-cyan-400">
-                  {activeStage === 4 ? 'Completed' : 'In progress...'}
+                  {activeStage === 4 ? 'Completado' : 'En progreso...'}
                 </span>
               </div>
               

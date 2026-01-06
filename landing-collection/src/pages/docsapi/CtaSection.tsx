@@ -3,8 +3,8 @@ import { useRef, useState } from 'react'
 import { cn } from '@/shared/utils/cn'
 
 const IMPORT_STEPS = [
-  { id: 'url', label: 'Spec URL', placeholder: 'https://api.example.com/openapi.json' },
-  { id: 'file', label: 'Upload File', placeholder: 'openapi.yaml' },
+  { id: 'url', label: 'URL de Spec', placeholder: 'https://api.example.com/openapi.json' },
+  { id: 'file', label: 'Subir Archivo', placeholder: 'openapi.yaml' },
 ]
 
 const COMMANDS = {
@@ -39,10 +39,10 @@ export function CtaSection() {
             </div>
           </div>
           <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl mb-6">
-            Import your{' '}<span className="text-gradient">OpenAPI spec</span>
+            Importa tu{' '}<span className="text-gradient">spec de OpenAPI</span>
           </h2>
           <p className="text-lg text-slate-400 max-w-xl mx-auto">
-            Point to your spec. We generate beautiful docs in seconds.
+            Apunta a tu spec. Generamos documentación hermosa en segundos.
           </p>
         </header>
 
@@ -78,7 +78,7 @@ export function CtaSection() {
                     className="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-violet-500"
                   />
                   <button className="w-full btn-primary rounded-xl py-3 flex items-center justify-center gap-2">
-                    Import & Generate
+                    Importar y Generar
                     <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
@@ -86,11 +86,11 @@ export function CtaSection() {
                 <div className="space-y-4">
                   <div className="border-2 border-dashed border-slate-700 rounded-xl p-8 text-center hover:border-violet-500/50 transition-colors cursor-pointer">
                     <FileText className="w-12 h-12 mx-auto mb-3 text-slate-500" />
-                    <p className="text-slate-400">Drop your OpenAPI spec here</p>
+                    <p className="text-slate-400">Arrastra tu spec de OpenAPI aquí</p>
                     <p className="text-sm text-slate-500 mt-1">.json or .yaml</p>
                   </div>
                   <button className="w-full btn-primary rounded-xl py-3 flex items-center justify-center gap-2">
-                    Upload & Generate
+                    Subir y Generar
                     <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
@@ -102,7 +102,7 @@ export function CtaSection() {
         {/* CLI option */}
         <div className="max-w-xl mx-auto">
           <div className="text-center mb-4">
-            <span className="text-slate-500 text-sm">Or use the CLI</span>
+            <span className="text-slate-500 text-sm">O usa la CLI</span>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/80 overflow-hidden">
             <div className="flex items-center gap-2 px-4 py-2 border-b border-slate-800">

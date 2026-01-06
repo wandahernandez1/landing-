@@ -1,14 +1,14 @@
 import { Twitter, Heart, MessageCircle, Repeat2, ExternalLink, Verified } from 'lucide-react'
 import { useRef, useState, useEffect } from 'react'
 
-// Twitter-style testimonials (tweets)
+// Testimonios estilo Twitter (tweets)
 const TWEETS = [
   {
     author: 'Marc Lou',
     handle: '@marc_louvion',
     avatar: '🚀',
     verified: true,
-    content: 'Just launched my SaaS with MicroSaaS Starter. From idea to $1k MRR in 12 days. The boilerplate saved me literally 100+ hours.',
+    content: 'Acabo de lanzar mi SaaS con MicroSaaS Starter. De idea a $1k MRR en 12 días. El boilerplate me ahorró literalmente 100+ horas.',
     likes: 847,
     retweets: 124,
     date: '2h',
@@ -20,7 +20,7 @@ const TWEETS = [
     handle: '@levelsio',
     verified: true,
     avatar: '✈️',
-    content: 'Built another side project this weekend. Used @microsaas starter because I\'m too lazy to setup auth and payments again 😅 Highly recommend.',
+    content: 'Construí otro side project este fin de semana. Usé @microsaas starter porque soy muy flojo para configurar auth y pagos de nuevo 😅 Muy recomendado.',
     likes: 2341,
     retweets: 312,
     date: '5h',
@@ -30,7 +30,7 @@ const TWEETS = [
     handle: '@sarahc_dev',
     verified: false,
     avatar: '💻',
-    content: 'Week 1: "I\'ll just build it from scratch"\nWeek 4: "Why is Stripe webhook not working"\nWeek 5: Bought MicroSaaS Starter\nWeek 5.5: Launched 🎉',
+    content: 'Semana 1: "Lo construiré desde cero"\nSemana 4: "Por qué el webhook de Stripe no funciona"\nSemana 5: Compré MicroSaaS Starter\nSemana 5.5: Lancé 🎉',
     likes: 532,
     retweets: 89,
     date: '1d',
@@ -42,7 +42,7 @@ const TWEETS = [
     handle: '@alexj_maker',
     verified: false,
     avatar: '⚡',
-    content: 'The Stripe integration alone is worth the price. Subscriptions, usage billing, invoices - all working out of the box.',
+    content: 'Solo la integración con Stripe vale el precio. Suscripciones, facturación por uso, facturas - todo funcionando de inmediato.',
     likes: 234,
     retweets: 45,
     date: '2d',
@@ -54,7 +54,7 @@ const TWEETS = [
     handle: '@emmabuilds',
     verified: true,
     avatar: '🎨',
-    content: 'Third SaaS built with MicroSaaS Starter. At this point I could build auth from scratch but... why would I? Time is money.',
+    content: 'Tercer SaaS construido con MicroSaaS Starter. A estas alturas podría construir auth desde cero pero... ¿para qué? El tiempo es dinero.',
     likes: 678,
     retweets: 98,
     date: '3d',
@@ -64,7 +64,7 @@ const TWEETS = [
     handle: '@ryanp_indie',
     verified: false,
     avatar: '🛠️',
-    content: 'Shipped my first paid product ever! MicroSaaS Starter made it possible for a backend dev like me to build a full SaaS. Forever grateful 🙏',
+    content: '¡Lancé mi primer producto de pago! MicroSaaS Starter lo hizo posible para un dev backend como yo construir un SaaS completo. Eternamente agradecido 🙏',
     likes: 412,
     retweets: 67,
     date: '4d',
@@ -73,14 +73,14 @@ const TWEETS = [
   },
 ]
 
-// Products built with the starter
+// Productos lanzados con el starter
 const SHIPPED_PRODUCTS = [
-  { name: 'ShipFast', mrr: '$3.2K', category: 'Dev Tools' },
-  { name: 'FormBuilder', mrr: '$890', category: 'Forms' },
+  { name: 'ShipFast', mrr: '$3.2K', category: 'Herramientas Dev' },
+  { name: 'FormBuilder', mrr: '$890', category: 'Formularios' },
   { name: 'APIMetrics', mrr: '$1.5K', category: 'Analytics' },
-  { name: 'LogPulse', mrr: '$420', category: 'Monitoring' },
+  { name: 'LogPulse', mrr: '$420', category: 'Monitoreo' },
   { name: 'EmailBot', mrr: '$2.1K', category: 'Email' },
-  { name: 'ChatWidget', mrr: '$780', category: 'Support' },
+  { name: 'ChatWidget', mrr: '$780', category: 'Soporte' },
 ]
 
 export function TestimonialsSection() {
@@ -108,10 +108,10 @@ export function TestimonialsSection() {
         <header className="mx-auto mb-16 max-w-3xl text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-sm font-medium mb-6">
             <Twitter className="w-4 h-4" />
-            Maker Twitter loves us
+            El Twitter de Makers nos ama
           </div>
           <h2 id="testimonials-title" className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Join{' '}<span className="text-gradient">500+ shipped</span>{' '}products
+            Únete a{' '}<span className="text-gradient">500+ productos</span>{' '}lanzados
           </h2>
         </header>
 
@@ -179,8 +179,8 @@ export function TestimonialsSection() {
         {/* Shipped products showcase */}
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
-            <h3 className="text-xl font-semibold text-white mb-2">Products shipped with MicroSaaS Starter</h3>
-            <p className="text-slate-500">Combining $8.9K+ in monthly revenue</p>
+            <h3 className="text-xl font-semibold text-white mb-2">Productos lanzados con MicroSaaS Starter</h3>
+            <p className="text-slate-500">Combinando $8.9K+ en ingresos mensuales</p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
@@ -200,7 +200,7 @@ export function TestimonialsSection() {
 
           <div className="mt-6 text-center">
             <a href="#" className="inline-flex items-center gap-2 text-sm text-orange-400 hover:text-orange-300">
-              See all products
+              Ver todos los productos
               <ExternalLink className="w-4 h-4" />
             </a>
           </div>
@@ -209,10 +209,10 @@ export function TestimonialsSection() {
         {/* Stats bar */}
         <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto pt-12 border-t border-slate-800">
           {[
-            { value: '500+', label: 'Products launched' },
-            { value: '$2M+', label: 'Combined MRR' },
-            { value: '7 days', label: 'Avg time to launch' },
-            { value: '4.9/5', label: 'Maker rating' },
+            { value: '500+', label: 'Productos lanzados' },
+            { value: '$2M+', label: 'MRR Combinado' },
+            { value: '7 días', label: 'Tiempo promedio de lanzamiento' },
+            { value: '4.9/5', label: 'Rating de makers' },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
               <div className="text-3xl font-bold text-orange-400 mb-1">{stat.value}</div>

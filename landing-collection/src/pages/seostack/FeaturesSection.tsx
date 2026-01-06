@@ -5,45 +5,45 @@ import { AlertCircle, CheckCircle2, AlertTriangle, Search, FileText, Link2, Imag
 // SEO Issue categories
 const SEO_CATEGORIES = [
   { id: 'meta', label: 'Meta Tags', icon: FileText },
-  { id: 'content', label: 'Content', icon: Search },
-  { id: 'links', label: 'Links', icon: Link2 },
-  { id: 'images', label: 'Images', icon: Image },
-  { id: 'technical', label: 'Technical', icon: Code },
-  { id: 'performance', label: 'Performance', icon: Gauge },
+  { id: 'content', label: 'Contenido', icon: Search },
+  { id: 'links', label: 'Enlaces', icon: Link2 },
+  { id: 'images', label: 'Imágenes', icon: Image },
+  { id: 'technical', label: 'Técnico', icon: Code },
+  { id: 'performance', label: 'Rendimiento', icon: Gauge },
 ]
 
 // Mock issues by category
 const ISSUES_DATA: Record<string, { title: string; severity: 'error' | 'warning' | 'passed'; impact: string }[]> = {
   meta: [
-    { title: 'Missing meta description on 12 pages', severity: 'error', impact: 'High' },
-    { title: 'Title tags too long (>60 chars)', severity: 'warning', impact: 'Medium' },
-    { title: 'Canonical URLs properly set', severity: 'passed', impact: '-' },
-    { title: 'Open Graph tags missing', severity: 'warning', impact: 'Low' },
+    { title: 'Falta meta descripción en 12 páginas', severity: 'error', impact: 'Alto' },
+    { title: 'Títulos muy largos (>60 caracteres)', severity: 'warning', impact: 'Medio' },
+    { title: 'URLs canónicas configuradas correctamente', severity: 'passed', impact: '-' },
+    { title: 'Faltan Open Graph tags', severity: 'warning', impact: 'Bajo' },
   ],
   content: [
-    { title: 'Duplicate content detected on 3 pages', severity: 'error', impact: 'High' },
-    { title: 'Thin content (<300 words) on 8 pages', severity: 'warning', impact: 'Medium' },
-    { title: 'Heading hierarchy is correct', severity: 'passed', impact: '-' },
+    { title: 'Contenido duplicado detectado en 3 páginas', severity: 'error', impact: 'Alto' },
+    { title: 'Contenido escaso (<300 palabras) en 8 páginas', severity: 'warning', impact: 'Medio' },
+    { title: 'Jerarquía de encabezados correcta', severity: 'passed', impact: '-' },
   ],
   links: [
-    { title: '23 broken internal links found', severity: 'error', impact: 'High' },
-    { title: 'Orphan pages detected (5)', severity: 'warning', impact: 'Medium' },
-    { title: 'External links use nofollow correctly', severity: 'passed', impact: '-' },
+    { title: '23 enlaces internos rotos encontrados', severity: 'error', impact: 'Alto' },
+    { title: 'Páginas huérfanas detectadas (5)', severity: 'warning', impact: 'Medio' },
+    { title: 'Enlaces externos usan nofollow correctamente', severity: 'passed', impact: '-' },
   ],
   images: [
-    { title: '45 images missing alt text', severity: 'error', impact: 'High' },
-    { title: 'Images not optimized (WebP)', severity: 'warning', impact: 'Medium' },
-    { title: 'Lazy loading implemented', severity: 'passed', impact: '-' },
+    { title: '45 imágenes sin texto alt', severity: 'error', impact: 'Alto' },
+    { title: 'Imágenes no optimizadas (WebP)', severity: 'warning', impact: 'Medio' },
+    { title: 'Lazy loading implementado', severity: 'passed', impact: '-' },
   ],
   technical: [
-    { title: 'robots.txt is valid', severity: 'passed', impact: '-' },
-    { title: 'XML sitemap missing 15 URLs', severity: 'warning', impact: 'Medium' },
-    { title: 'Structured data errors on 2 pages', severity: 'error', impact: 'High' },
+    { title: 'robots.txt válido', severity: 'passed', impact: '-' },
+    { title: 'Sitemap XML faltan 15 URLs', severity: 'warning', impact: 'Medio' },
+    { title: 'Errores de datos estructurados en 2 páginas', severity: 'error', impact: 'Alto' },
   ],
   performance: [
-    { title: 'LCP > 2.5s on mobile', severity: 'error', impact: 'High' },
-    { title: 'CLS issues on 7 pages', severity: 'warning', impact: 'Medium' },
-    { title: 'FID within acceptable range', severity: 'passed', impact: '-' },
+    { title: 'LCP > 2.5s en móvil', severity: 'error', impact: 'Alto' },
+    { title: 'Problemas de CLS en 7 páginas', severity: 'warning', impact: 'Medio' },
+    { title: 'FID dentro del rango aceptable', severity: 'passed', impact: '-' },
   ],
 }
 
@@ -61,12 +61,12 @@ export function FeaturesSection() {
       <div className="absolute inset-0 seo-grid opacity-20" />
       <div className="container-custom relative z-10">
         <header className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-green-400">Site Audit</p>
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-green-400">Auditoría del Sitio</p>
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Find & fix{' '}<span className="text-gradient">SEO issues</span>
+            Encuentra y corrige{' '}<span className="text-gradient">problemas SEO</span>
           </h2>
           <p className="mt-4 text-lg text-slate-400">
-            Comprehensive audits that catch every technical SEO problem
+            Auditorías completas que detectan cada problema técnico de SEO
           </p>
         </header>
 
@@ -97,21 +97,21 @@ export function FeaturesSection() {
               <AlertCircle className="w-5 h-5 text-red-400" />
               <div>
                 <p className="text-2xl font-bold text-red-400">{errorCount}</p>
-                <p className="text-xs text-slate-500">Errors</p>
+                <p className="text-xs text-slate-500">Errores</p>
               </div>
             </div>
             <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-yellow-500/10 border border-yellow-500/30">
               <AlertTriangle className="w-5 h-5 text-yellow-400" />
               <div>
                 <p className="text-2xl font-bold text-yellow-400">{warningCount}</p>
-                <p className="text-xs text-slate-500">Warnings</p>
+                <p className="text-xs text-slate-500">Advertencias</p>
               </div>
             </div>
             <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-green-500/10 border border-green-500/30">
               <CheckCircle2 className="w-5 h-5 text-green-400" />
               <div>
                 <p className="text-2xl font-bold text-green-400">{passedCount}</p>
-                <p className="text-xs text-slate-500">Passed</p>
+                <p className="text-xs text-slate-500">Aprobados</p>
               </div>
             </div>
           </div>
@@ -120,9 +120,9 @@ export function FeaturesSection() {
           <div className="rounded-2xl border border-slate-800 bg-slate-900/50 overflow-hidden">
             <div className="border-b border-slate-800 px-6 py-4 flex items-center justify-between">
               <h3 className="font-semibold text-white">
-                {SEO_CATEGORIES.find(c => c.id === selectedCategory)?.label} Issues
+                Problemas de {SEO_CATEGORIES.find(c => c.id === selectedCategory)?.label}
               </h3>
-              <span className="text-sm text-slate-500">{issues.length} checks</span>
+              <span className="text-sm text-slate-500">{issues.length} verificaciones</span>
             </div>
             <div className="divide-y divide-slate-800">
               {issues.map((issue, idx) => (
@@ -140,16 +140,16 @@ export function FeaturesSection() {
                     {issue.impact !== '-' && (
                       <span className={cn(
                         'text-xs px-2 py-1 rounded-full',
-                        issue.impact === 'High' ? 'bg-red-500/20 text-red-400' :
-                        issue.impact === 'Medium' ? 'bg-yellow-500/20 text-yellow-400' :
+                        issue.impact === 'Alto' ? 'bg-red-500/20 text-red-400' :
+                        issue.impact === 'Medio' ? 'bg-yellow-500/20 text-yellow-400' :
                         'bg-slate-500/20 text-slate-400'
                       )}>
-                        {issue.impact} Impact
+                        Impacto {issue.impact}
                       </span>
                     )}
                     {issue.severity !== 'passed' && (
                       <button className="text-sm text-green-400 hover:text-green-300 font-medium">
-                        Fix →
+                        Corregir →
                       </button>
                     )}
                   </div>

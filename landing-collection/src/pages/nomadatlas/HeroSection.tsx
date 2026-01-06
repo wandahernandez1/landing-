@@ -109,7 +109,7 @@ export function HeroSection() {
           </div>
           <div className="trust-badge">
             <Award className="h-5 w-5 text-orange-500" />
-            <span className="text-sm font-medium text-sand-800">Top Travel App 2025</span>
+            <span className="text-sm font-medium text-sand-800">Mejor App de Viajes 2025</span>
           </div>
           <div className="trust-badge">
             <Users className="h-5 w-5 text-teal-600" />

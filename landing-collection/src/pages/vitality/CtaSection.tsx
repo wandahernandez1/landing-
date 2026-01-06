@@ -70,12 +70,12 @@ export function CtaSection() {
           <div data-cta-buttons className="flex flex-wrap justify-center gap-4 mb-10">
             <button className="group inline-flex items-center gap-3 rounded-full bg-white text-emerald-600 px-8 py-4 text-lg font-semibold hover:bg-emerald-50 transition-all duration-300 hover:shadow-xl hover:shadow-black/20 hover:-translate-y-1">
               <Apple className="h-6 w-6" />
-              <span>App Store</span>
+              <span>Descargar en App Store</span>
               <ArrowRight className="h-5 w-5 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
             </button>
             <button className="group inline-flex items-center gap-3 rounded-full bg-transparent border-2 border-white/50 text-white px-8 py-4 text-lg font-semibold hover:bg-white/10 hover:border-white transition-all duration-300 hover:-translate-y-1">
               <Play className="h-6 w-6" />
-              <span>Google Play</span>
+              <span>Disponible en Google Play</span>
             </button>
           </div>
 
@@ -120,7 +120,7 @@ export function CtaSection() {
               <div className="h-10 w-px bg-white/20 hidden md:block" />
               <div className="text-center">
                 <p className="text-white font-semibold text-2xl">4.9 ★</p>
-                <p className="text-emerald-200 text-sm">App Store Rating</p>
+                <p className="text-emerald-200 text-sm">Calificación App Store</p>
               </div>
             </div>
           </div>

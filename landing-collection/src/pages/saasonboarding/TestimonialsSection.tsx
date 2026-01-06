@@ -4,20 +4,20 @@ import { cn } from '@/shared/utils/cn'
 
 // Funnel stages
 const FUNNEL_STAGES = [
-  { stage: 'Signup', users: 10000, color: 'bg-indigo-600' },
-  { stage: 'Activation', users: 6500, color: 'bg-indigo-500' },
+  { stage: 'Registro', users: 10000, color: 'bg-indigo-600' },
+  { stage: 'Activación', users: 6500, color: 'bg-indigo-500' },
   { stage: 'Engagement', users: 4200, color: 'bg-indigo-400' },
-  { stage: 'Retention', users: 2800, color: 'bg-purple-500' },
-  { stage: 'Revenue', users: 1400, color: 'bg-purple-600' },
+  { stage: 'Retención', users: 2800, color: 'bg-purple-500' },
+  { stage: 'Ingresos', users: 1400, color: 'bg-purple-600' },
 ]
 
 // Before/After metrics
 const METRICS_COMPARISON = [
-  { metric: 'Time to Value', before: '14 days', after: '3 days', improvement: '-78%' },
-  { metric: 'Activation Rate', before: '23%', after: '65%', improvement: '+183%' },
-  { metric: 'Trial Conversion', before: '8%', after: '24%', improvement: '+200%' },
-  { metric: 'Feature Adoption', before: '31%', after: '72%', improvement: '+132%' },
-  { metric: 'Support Tickets', before: '340/mo', after: '89/mo', improvement: '-74%' },
+  { metric: 'Tiempo a Valor', before: '14 días', after: '3 días', improvement: '-78%' },
+  { metric: 'Tasa de Activación', before: '23%', after: '65%', improvement: '+183%' },
+  { metric: 'Conversión de Prueba', before: '8%', after: '24%', improvement: '+200%' },
+  { metric: 'Adopción de Funciones', before: '31%', after: '72%', improvement: '+132%' },
+  { metric: 'Tickets de Soporte', before: '340/mes', after: '89/mes', improvement: '-74%' },
 ]
 
 // Case studies
@@ -39,12 +39,12 @@ export function TestimonialsSection() {
       <div className="absolute inset-0 onboard-grid opacity-10" />
       <div className="container-custom relative z-10">
         <header className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-indigo-400">Results</p>
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-indigo-400">Resultados</p>
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Transform your{' '}<span className="text-gradient">funnel</span>
+            Transforma tu{' '}<span className="text-gradient">embudo</span>
           </h2>
           <p className="mt-4 text-lg text-slate-400">
-            See how teams improve their activation metrics
+            Mira cómo los equipos mejoran sus métricas de activación
           </p>
         </header>
 
@@ -54,11 +54,11 @@ export function TestimonialsSection() {
             <div className="flex items-center justify-between mb-6">
               <h3 className="font-semibold text-white flex items-center gap-2">
                 <TrendingUp className="w-5 h-5 text-indigo-400" />
-                User Journey Funnel
+                Embudo del Viaje del Usuario
               </h3>
               <div className="flex items-center gap-2 text-sm text-slate-500">
                 <Users className="w-4 h-4" />
-                10,000 signups/month
+                10,000 registros/mes
               </div>
             </div>
 
@@ -100,9 +100,9 @@ export function TestimonialsSection() {
               {/* Conversion rate */}
               <div className="mt-6 flex items-center justify-center gap-4 p-4 rounded-xl bg-indigo-500/10 border border-indigo-500/30">
                 <Target className="w-5 h-5 text-indigo-400" />
-                <span className="text-slate-400">Overall Conversion:</span>
+                <span className="text-slate-400">Conversión Total:</span>
                 <span className="text-2xl font-bold text-indigo-400">14%</span>
-                <span className="text-sm text-green-400">+6% with OnboardFlow</span>
+                <span className="text-sm text-green-400">+6% con OnboardFlow</span>
               </div>
             </div>
           </div>
@@ -110,7 +110,7 @@ export function TestimonialsSection() {
           {/* Before/After comparison */}
           <div className="mb-16">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="font-semibold text-white">Before vs After OnboardFlow</h3>
+              <h3 className="font-semibold text-white">Antes vs Después de OnboardFlow</h3>
               <button
                 onClick={() => setShowAfter(!showAfter)}
                 className={cn(
@@ -121,7 +121,7 @@ export function TestimonialsSection() {
                 )}
               >
                 <Clock className="w-4 h-4" />
-                {showAfter ? 'After' : 'Before'}
+                {showAfter ? 'Después' : 'Antes'}
               </button>
             </div>
 
@@ -129,10 +129,10 @@ export function TestimonialsSection() {
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-slate-800 bg-slate-900/50">
-                    <th className="text-left px-6 py-4 text-sm font-medium text-slate-400">Metric</th>
-                    <th className="text-center px-6 py-4 text-sm font-medium text-slate-500">Before</th>
-                    <th className="text-center px-6 py-4 text-sm font-medium text-indigo-400">After</th>
-                    <th className="text-right px-6 py-4 text-sm font-medium text-slate-400">Change</th>
+                    <th className="text-left px-6 py-4 text-sm font-medium text-slate-400">Métrica</th>
+                    <th className="text-center px-6 py-4 text-sm font-medium text-slate-500">Antes</th>
+                    <th className="text-center px-6 py-4 text-sm font-medium text-indigo-400">Después</th>
+                    <th className="text-right px-6 py-4 text-sm font-medium text-slate-400">Cambio</th>
                   </tr>
                 </thead>
                 <tbody>

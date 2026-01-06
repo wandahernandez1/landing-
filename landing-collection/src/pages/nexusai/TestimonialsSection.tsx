@@ -110,7 +110,7 @@ export function TestimonialsSection() {
         <div className="mt-16 flex flex-wrap justify-center gap-8 md:gap-16 text-center">
           <div className="group">
             <p className="text-3xl md:text-4xl font-bold text-white group-hover:text-gradient transition-all duration-300">4.9/5</p>
-            <p className="text-sm text-neutral-500 mt-1">Rating promedio</p>
+            <p className="text-sm text-neutral-500 mt-1">Calificación promedio</p>
           </div>
           <div className="w-px bg-white/10 hidden md:block" />
           <div className="group">

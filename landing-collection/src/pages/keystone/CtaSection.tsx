@@ -81,7 +81,7 @@ export function CtaSection() {
               href="#"
               className="btn-secondary rounded-xl px-8 py-4 font-medium"
             >
-              Ver Case Studies
+              Ver Casos de Éxito
             </a>
           </div>
 

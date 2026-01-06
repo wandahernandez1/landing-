@@ -71,32 +71,32 @@ export function HeroSection() {
               className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-2"
             >
               <TrendingDown className="h-4 w-4 text-blue-400" />
-              <span className="text-sm text-blue-300">Cloud Cost Optimization</span>
+              <span className="text-sm text-blue-300">Optimización de Costos en la Nube</span>
             </div>
 
             <h1 
               data-hero-title
               className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl mb-6"
             >
-              <span className="block">How much</span>
-              <span className="block text-gradient">could you save?</span>
+              <span className="block">¿Cuánto podrías</span>
+              <span className="block text-gradient">ahorrar?</span>
             </h1>
 
             <p 
               data-hero-description
               className="mx-auto lg:mx-0 max-w-xl text-lg text-slate-400 md:text-xl mb-8"
             >
-              Enter your monthly cloud spend. See your savings instantly.
-              AWS, GCP, Azure — we optimize them all.
+              Ingresa tu gasto mensual en la nube. Mira tus ahorros al instante.
+              AWS, GCP, Azure — los optimizamos todos.
             </p>
 
             {/* Big savings display */}
             <div 
               data-hero-cta
-              className="mb-8 p-6 rounded-2xl bg-gradient-to-br from-green-500/10 to-blue-500/10 border border-green-500/20"
+              className="mb-8 p-6 rounded-2xl bg-linear-to-br from-green-500/10 to-blue-500/10 border border-green-500/20"
             >
               <div className="flex items-center justify-between mb-4">
-                <span className="text-sm text-slate-400">Your estimated savings</span>
+                <span className="text-sm text-slate-400">Tu ahorro estimado</span>
                 <span className="text-xs text-green-400 px-2 py-0.5 bg-green-500/20 rounded">-{savingsPercent}%</span>
               </div>
               
@@ -105,12 +105,12 @@ export function HeroSection() {
                 <span className="text-5xl md:text-6xl font-bold text-green-400">
                   {formatCurrency(displayedSavings)}
                 </span>
-                <span className="text-slate-500 ml-2">/month</span>
+                <span className="text-slate-500 ml-2">/mes</span>
               </div>
               
               {/* Annual savings */}
               <div className="mt-4 pt-4 border-t border-slate-700/50 flex items-center justify-between">
-                <span className="text-sm text-slate-500">Annual savings</span>
+                <span className="text-sm text-slate-500">Ahorro anual</span>
                 <span className="text-2xl font-bold text-blue-400">{formatCurrency(annualSavings)}</span>
               </div>
             </div>
@@ -120,12 +120,12 @@ export function HeroSection() {
               className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start"
             >
               <a href="#pricing" className="btn-primary flex items-center gap-2 rounded-xl px-8 py-4 text-base font-semibold w-full sm:w-auto justify-center">
-                Start Saving Today
+                Empezar a Ahorrar Hoy
                 <ArrowRight className="h-5 w-5" />
               </a>
               <a href="#features" className="btn-secondary flex items-center gap-2 rounded-xl px-8 py-4 text-base font-medium w-full sm:w-auto justify-center">
                 <Cloud className="h-5 w-5" />
-                See How It Works
+                Ver Cómo Funciona
               </a>
             </div>
           </div>
@@ -140,9 +140,9 @@ export function HeroSection() {
               <div className="flex items-center justify-between px-4 py-3 border-b border-slate-700/50 bg-slate-800/80">
                 <div className="flex items-center gap-2">
                   <Calculator className="h-4 w-4 text-blue-400" />
-                  <span className="text-sm text-slate-300">ROI Calculator</span>
+                  <span className="text-sm text-slate-300">Calculadora de ROI</span>
                 </div>
-                <span className="text-xs text-blue-400">INSTANT</span>
+                <span className="text-xs text-blue-400">INSTANTÁNEO</span>
               </div>
 
               {/* Calculator content */}
@@ -150,7 +150,7 @@ export function HeroSection() {
                 {/* Spend input */}
                 <div className="mb-6">
                   <label className="block text-sm text-slate-400 mb-3">
-                    Your monthly cloud spend
+                    Tu gasto mensual en la nube
                   </label>
                   
                   {/* Slider */}
@@ -165,7 +165,7 @@ export function HeroSection() {
                       className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-blue-500"
                     />
                     <div 
-                      className="absolute top-0 left-0 h-2 bg-gradient-to-r from-blue-500 to-blue-400 rounded-l-lg pointer-events-none"
+                      className="absolute top-0 left-0 h-2 bg-linear-to-r from-blue-500 to-blue-400 rounded-l-lg pointer-events-none"
                       style={{ width: `${((monthlySpend - 5000) / (1000000 - 5000)) * 100}%` }}
                     />
                   </div>
@@ -173,7 +173,7 @@ export function HeroSection() {
                   {/* Current value */}
                   <div className="text-center p-4 bg-slate-800/50 rounded-xl border border-slate-700/50">
                     <span className="text-3xl font-bold text-white">{formatCurrency(monthlySpend)}</span>
-                    <span className="text-slate-500 ml-1">/month</span>
+                    <span className="text-slate-500 ml-1">/mes</span>
                   </div>
                   
                   {/* Presets */}
@@ -201,7 +201,7 @@ export function HeroSection() {
                       <div className="w-8 h-8 rounded-lg bg-orange-500/20 flex items-center justify-center">
                         <Cloud className="w-4 h-4 text-orange-400" />
                       </div>
-                      <span className="text-sm text-slate-300">AWS optimization</span>
+                      <span className="text-sm text-slate-300">Optimización AWS</span>
                     </div>
                     <span className="text-sm text-green-400 font-medium">
                       -{formatCurrency(Math.round(monthlySpend * 0.15))}
@@ -213,7 +213,7 @@ export function HeroSection() {
                       <div className="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center">
                         <Cloud className="w-4 h-4 text-blue-400" />
                       </div>
-                      <span className="text-sm text-slate-300">GCP optimization</span>
+                      <span className="text-sm text-slate-300">Optimización GCP</span>
                     </div>
                     <span className="text-sm text-green-400 font-medium">
                       -{formatCurrency(Math.round(monthlySpend * 0.10))}
@@ -225,7 +225,7 @@ export function HeroSection() {
                       <div className="w-8 h-8 rounded-lg bg-cyan-500/20 flex items-center justify-center">
                         <Cloud className="w-4 h-4 text-cyan-400" />
                       </div>
-                      <span className="text-sm text-slate-300">Azure optimization</span>
+                      <span className="text-sm text-slate-300">Optimización Azure</span>
                     </div>
                     <span className="text-sm text-green-400 font-medium">
                       -{formatCurrency(Math.round(monthlySpend * 0.07))}
@@ -236,7 +236,7 @@ export function HeroSection() {
                 {/* Total */}
                 <div className="mt-6 p-4 rounded-xl bg-green-500/10 border border-green-500/30">
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-slate-300">Total monthly savings</span>
+                    <span className="text-sm text-slate-300">Ahorro mensual total</span>
                     <span className="text-2xl font-bold text-green-400">{formatCurrency(estimatedSavings)}</span>
                   </div>
                 </div>
@@ -247,11 +247,11 @@ export function HeroSection() {
                 <div className="flex items-center justify-between text-xs text-slate-500">
                   <span className="flex items-center gap-1">
                     <Building2 className="w-3 h-3" />
-                    500+ enterprises trust us
+                    Más de 500 empresas confían en nosotros
                   </span>
                   <span className="flex items-center gap-1">
                     <Zap className="w-3 h-3" />
-                    Results in 30 days
+                    Resultados en 30 días
                   </span>
                 </div>
               </div>

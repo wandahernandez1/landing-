@@ -41,7 +41,7 @@ export function Footer() {
 
         <div className="mt-8 flex flex-col items-center gap-4 md:flex-row md:justify-center">
           <p className="text-sm text-stone-600">
-            {COMPANY.year} {COMPANY.name}. Intelligence for real estate.
+            {COMPANY.year} {COMPANY.name}. Inteligencia para bienes raíces.
           </p>
         </div>
       </div>

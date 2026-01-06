@@ -3,68 +3,68 @@ import { useRef, useState } from 'react'
 
 // Pricing tiers with seat-based model
 const PRICING_TIERS = [
-  { seats: 1, price: 0, label: 'Free' },
-  { seats: 5, price: 29, label: 'Starter' },
-  { seats: 15, price: 79, label: 'Team' },
-  { seats: 50, price: 199, label: 'Business' },
+  { seats: 1, price: 0, label: 'Gratis' },
+  { seats: 5, price: 29, label: 'Inicio' },
+  { seats: 15, price: 79, label: 'Equipo' },
+  { seats: 50, price: 199, label: 'Empresa' },
   { seats: 999, price: null, label: 'Enterprise' }, // Custom
 ]
 
 // Features by tier
 const TIER_FEATURES: Record<string, string[]> = {
-  'Free': [
-    '1 Figma file',
-    '1 output format',
-    'Manual sync only',
-    'Community support',
+  'Gratis': [
+    '1 archivo Figma',
+    '1 formato de salida',
+    'Solo sincronización manual',
+    'Soporte comunidad',
   ],
-  'Starter': [
-    '5 Figma files',
-    'All output formats',
-    'Auto-sync on publish',
-    'Email support',
-    'Version history (30 days)',
+  'Inicio': [
+    '5 archivos Figma',
+    'Todos los formatos de salida',
+    'Auto-sync al publicar',
+    'Soporte por email',
+    'Historial de versiones (30 días)',
   ],
-  'Team': [
-    'Unlimited Figma files',
-    'All output formats',
-    'Real-time sync',
-    'Priority support',
-    'Version history (1 year)',
-    'Team collaboration',
-    'Custom tokens structure',
+  'Equipo': [
+    'Archivos Figma ilimitados',
+    'Todos los formatos de salida',
+    'Sincronización en tiempo real',
+    'Soporte prioritario',
+    'Historial de versiones (1 año)',
+    'Colaboración en equipo',
+    'Estructura de tokens personalizada',
   ],
-  'Business': [
-    'Everything in Team',
+  'Empresa': [
+    'Todo de Equipo',
     'SSO/SAML',
-    'Audit logs',
-    'Custom integrations',
-    'Dedicated support',
-    'SLA guarantee',
+    'Logs de auditoría',
+    'Integraciones personalizadas',
+    'Soporte dedicado',
+    'Garantía SLA',
   ],
   'Enterprise': [
-    'Everything in Business',
-    'On-premise option',
-    'Custom contracts',
-    'Security review',
-    'Dedicated CSM',
-    'Training sessions',
+    'Todo de Empresa',
+    'Opción on-premise',
+    'Contratos personalizados',
+    'Revisión de seguridad',
+    'CSM dedicado',
+    'Sesiones de capacitación',
   ],
 }
 
 // FAQ
 const FAQ = [
   {
-    q: 'What counts as a seat?',
-    a: 'A seat is any team member who can edit token configurations. Viewers don\'t count.',
+    q: '¿Qué cuenta como un puesto?',
+    a: 'Un puesto es cualquier miembro del equipo que puede editar configuraciones de tokens. Los visualizadores no cuentan.',
   },
   {
-    q: 'Can I change plans anytime?',
-    a: 'Yes, upgrade or downgrade at any time. We prorate the difference.',
+    q: '¿Puedo cambiar de plan en cualquier momento?',
+    a: 'Sí, actualiza o reduce tu plan cuando quieras. Prorrateamos la diferencia.',
   },
   {
-    q: 'Do you offer annual discounts?',
-    a: 'Yes, 20% off when you pay annually. Contact us for details.',
+    q: '¿Ofrecen descuentos anuales?',
+    a: 'Sí, 20% de descuento al pagar anualmente. Contáctanos para más detalles.',
   },
 ]
 
@@ -84,12 +84,12 @@ export function PricingSection() {
         
         {/* Header */}
         <header className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-pink-400">Simple Pricing</p>
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-pink-400">Precios Simples</p>
           <h2 id="pricing-title" className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl mb-4">
-            Scale with your{' '}<span className="text-gradient">team</span>
+            Escala con tu{' '}<span className="text-gradient">equipo</span>
           </h2>
           <p className="text-lg text-slate-400">
-            Start free, upgrade as your design system grows
+            Comienza gratis, actualiza cuando tu design system crezca
           </p>
         </header>
 
@@ -97,7 +97,7 @@ export function PricingSection() {
         <div className="max-w-4xl mx-auto mb-12">
           <div className="flex items-center justify-center gap-4 mb-6">
             <Users className="w-5 h-5 text-pink-400" />
-            <span className="text-slate-400">Select team size:</span>
+            <span className="text-slate-400">Selecciona tamaño del equipo:</span>
           </div>
 
           <div className="flex justify-center gap-2 flex-wrap">
@@ -112,7 +112,7 @@ export function PricingSection() {
                 }`}
               >
                 <span className="block text-sm">{tier.seats === 999 ? '50+' : tier.seats}</span>
-                <span className="block text-xs opacity-70">{tier.seats === 1 ? 'seat' : 'seats'}</span>
+                <span className="block text-xs opacity-70">{tier.seats === 1 ? 'puesto' : 'puestos'}</span>
               </button>
             ))}
           </div>
@@ -125,7 +125,7 @@ export function PricingSection() {
               <div className="absolute -top-px left-1/2 -translate-x-1/2">
                 <div className="px-6 py-1.5 rounded-b-xl bg-gradient-to-r from-pink-500 to-pink-600 text-sm font-bold text-white flex items-center gap-2">
                   <Sparkles className="w-4 h-4" />
-                  Most Popular
+                  Más Popular
                 </div>
               </div>
             )}
@@ -140,13 +140,13 @@ export function PricingSection() {
                     <span className="text-xl text-slate-500">/month</span>
                   </div>
                 ) : (
-                  <div className="text-4xl font-bold text-pink-400">Custom pricing</div>
+                  <div className="text-4xl font-bold text-pink-400">Precio personalizado</div>
                 )}
                 {currentTier.seats !== 999 && (
                   <p className="text-slate-500 mt-2">
                     {currentTier.seats === 1 
-                      ? 'For individual designers' 
-                      : `Up to ${currentTier.seats} team members`}
+                      ? 'Para diseñadores individuales' 
+                      : `Hasta ${currentTier.seats} miembros del equipo`}
                   </p>
                 )}
               </div>
@@ -164,19 +164,19 @@ export function PricingSection() {
               {/* CTA */}
               {currentTier.price !== null ? (
                 <button className="btn-primary w-full flex items-center justify-center gap-2 rounded-xl px-8 py-4 text-lg font-semibold group">
-                  {currentTier.price === 0 ? 'Start Free' : 'Start Free Trial'}
+                  {currentTier.price === 0 ? 'Comenzar Gratis' : 'Iniciar Prueba Gratis'}
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
               ) : (
                 <button className="w-full flex items-center justify-center gap-2 rounded-xl px-8 py-4 text-lg font-semibold bg-slate-800 text-white hover:bg-slate-700 transition-colors">
                   <Building2 className="w-5 h-5" />
-                  Contact Sales
+                  Contactar Ventas
                 </button>
               )}
 
               {currentTier.price !== 0 && currentTier.price !== null && (
                 <p className="text-center text-sm text-slate-500 mt-4">
-                  14-day free trial • No credit card required
+                  Prueba gratis 14 días • Sin tarjeta de crédito
                 </p>
               )}
             </div>
@@ -185,7 +185,7 @@ export function PricingSection() {
 
         {/* FAQ */}
         <div className="max-w-2xl mx-auto">
-          <h3 className="text-xl font-bold text-white text-center mb-8">Frequently asked</h3>
+          <h3 className="text-xl font-bold text-white text-center mb-8">Preguntas frecuentes</h3>
           <div className="space-y-3">
             {FAQ.map((item, idx) => (
               <div 

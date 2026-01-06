@@ -12,7 +12,7 @@ export function Footer() {
           <div className="flex items-center gap-4"><a href="#" className="text-zinc-600 hover:text-zinc-400"><Github className="h-5 w-5" /></a><a href="#" className="text-zinc-600 hover:text-zinc-400"><Twitter className="h-5 w-5" /></a></div>
         </div>
         <div className="divider mt-8" />
-        <div className="mt-8 text-center"><p className="text-sm text-zinc-700">{COMPANY.year} {COMPANY.name}. No passwords. Just auth.</p></div>
+        <div className="mt-8 text-center"><p className="text-sm text-zinc-700">{COMPANY.year} {COMPANY.name}. Sin contraseñas. Solo auth.</p></div>
       </div>
     </footer>
   )

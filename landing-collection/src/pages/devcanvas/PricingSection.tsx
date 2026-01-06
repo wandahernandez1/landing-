@@ -24,7 +24,7 @@ export function PricingSection() {
       <div className="container-custom relative z-10">
         <header className="pricing-header mx-auto mb-20 max-w-3xl text-center">
           <p className="mb-4 text-sm font-medium uppercase tracking-widest text-violet-400">
-            Pricing
+            Precios
           </p>
           <h2 id="pricing-title" className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
             Simple y{' '}

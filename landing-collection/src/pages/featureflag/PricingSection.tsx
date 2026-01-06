@@ -14,24 +14,24 @@ const USAGE_TIERS = [
 // Feature list by category
 const FEATURES = {
   core: [
-    'Unlimited flags',
-    'Unlimited environments',
-    'Boolean & multivariate flags',
-    'User targeting',
-    'Percentage rollouts',
+    'Flags ilimitados',
+    'Ambientes ilimitados',
+    'Flags booleanos y multivariante',
+    'Segmentación de usuarios',
+    'Rollouts por porcentaje',
   ],
   advanced: [
-    'A/B testing',
-    'Scheduled releases',
-    'Flag dependencies',
-    'Audit logs',
+    'Pruebas A/B',
+    'Lanzamientos programados',
+    'Dependencias de flags',
+    'Logs de auditoría',
     'Webhooks',
   ],
   enterprise: [
     'SSO / SAML',
-    'Dedicated support',
-    'Custom SLAs',
-    'Private cloud',
+    'Soporte dedicado',
+    'SLAs personalizados',
+    'Nube privada',
     'SOC 2 Type II',
   ],
 }
@@ -52,12 +52,12 @@ export function PricingSection() {
       <div className="absolute inset-0 flag-grid opacity-10" />
       <div className="container-custom relative z-10">
         <header className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-teal-400">Pricing</p>
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-teal-400">Precios</p>
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Pay for what you{' '}<span className="text-gradient">use</span>
+            Paga por lo que{' '}<span className="text-gradient">usas</span>
           </h2>
           <p className="mt-6 text-lg text-slate-400">
-            Start free, scale as you grow. No credit card required.
+            Comienza gratis, escala a medida que creces. Sin tarjeta de crédito.
           </p>
         </header>
 
@@ -69,7 +69,7 @@ export function PricingSection() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <Calculator className="w-6 h-6 text-teal-400" />
-                  <h3 className="text-xl font-semibold text-white">Pricing Calculator</h3>
+                  <h3 className="text-xl font-semibold text-white">Calculadora de Precios</h3>
                 </div>
                 <div className="text-right">
                   <div className="text-3xl font-bold text-white">
@@ -77,7 +77,7 @@ export function PricingSection() {
                     {typeof totalPrice === 'number' && <span className="text-lg text-slate-500 font-normal">/mo</span>}
                   </div>
                   {typeof totalPrice === 'number' && totalPrice === 0 && (
-                    <span className="text-sm text-teal-400">Free forever</span>
+                    <span className="text-sm text-teal-400">Gratis para siempre</span>
                   )}
                 </div>
               </div>
@@ -90,7 +90,7 @@ export function PricingSection() {
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2">
                     <Flag className="w-4 h-4 text-teal-400" />
-                    <span className="text-white font-medium">Monthly evaluations</span>
+                    <span className="text-white font-medium">Evaluaciones mensuales</span>
                   </div>
                   <span className="text-teal-400 font-mono">{currentTier.label}</span>
                 </div>
@@ -121,7 +121,7 @@ export function PricingSection() {
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2">
                     <Users className="w-4 h-4 text-teal-400" />
-                    <span className="text-white font-medium">Team members</span>
+                    <span className="text-white font-medium">Miembros del equipo</span>
                   </div>
                   <span className="text-teal-400 font-mono">{seats}</span>
                 </div>
@@ -140,19 +140,19 @@ export function PricingSection() {
                     [&::-webkit-slider-thumb]:cursor-pointer
                     [&::-webkit-slider-thumb]:shadow-lg"
                 />
-                <p className="mt-2 text-xs text-slate-500">First 3 seats free, then $10/seat/mo</p>
+                <p className="mt-2 text-xs text-slate-500">Primeros 3 puestos gratis, luego $10/puesto/mes</p>
               </div>
 
               {/* Price breakdown */}
               {typeof totalPrice === 'number' && totalPrice > 0 && (
                 <div className="p-4 rounded-xl bg-slate-800/50 space-y-2">
                   <div className="flex justify-between text-sm">
-                    <span className="text-slate-400">Base price ({currentTier.label} evaluations)</span>
+                    <span className="text-slate-400">Precio base ({currentTier.label} evaluaciones)</span>
                     <span className="text-white">${basePrice}</span>
                   </div>
                   {seatPrice > 0 && (
                     <div className="flex justify-between text-sm">
-                      <span className="text-slate-400">Additional seats ({seats - 3} × $10)</span>
+                      <span className="text-slate-400">Puestos adicionales ({seats - 3} × $10)</span>
                       <span className="text-white">${seatPrice}</span>
                     </div>
                   )}
@@ -165,7 +165,7 @@ export function PricingSection() {
 
               {/* CTA */}
               <button className="btn-primary w-full justify-center text-lg py-4">
-                {totalPrice === 0 ? 'Get started free' : totalPrice === 'Custom' ? 'Contact sales' : 'Start free trial'}
+                {totalPrice === 0 ? 'Comenzar gratis' : totalPrice === 'Custom' ? 'Contactar ventas' : 'Iniciar prueba gratis'}
               </button>
             </div>
           </div>
@@ -173,7 +173,7 @@ export function PricingSection() {
 
         {/* Features Grid */}
         <div>
-          <h3 className="text-2xl font-bold text-center text-white mb-12">Everything included</h3>
+          <h3 className="text-2xl font-bold text-center text-white mb-12">Todo incluido</h3>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {Object.entries(FEATURES).map(([category, features]) => (
               <div key={category} className="rounded-2xl border border-slate-800 bg-slate-900/50 p-8">

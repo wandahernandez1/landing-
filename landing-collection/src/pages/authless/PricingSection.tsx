@@ -15,30 +15,30 @@ const MAU_TIERS = [
 // Features by plan
 const PLANS = [
   {
-    name: 'Free',
-    description: 'For side projects',
+    name: 'Gratis',
+    description: 'Para proyectos personales',
     price: 0,
     maxMau: '1,000 MAU',
-    features: ['Magic links', 'Social OAuth', 'Basic analytics', 'Community support'],
-    cta: 'Start Free',
+    features: ['Magic links', 'Social OAuth', 'Análisis básico', 'Soporte comunitario'],
+    cta: 'Comenzar Gratis',
     popular: false,
   },
   {
     name: 'Pro',
-    description: 'For growing apps',
+    description: 'Para apps en crecimiento',
     price: 49,
     maxMau: '10,000 MAU',
-    features: ['Everything in Free', 'Passkeys', 'SMS OTP', 'Custom branding', 'Priority support', 'Webhooks'],
-    cta: 'Start Trial',
+    features: ['Todo en Gratis', 'Passkeys', 'SMS OTP', 'Marca personalizada', 'Soporte prioritario', 'Webhooks'],
+    cta: 'Iniciar Prueba',
     popular: true,
   },
   {
-    name: 'Enterprise',
-    description: 'For scale',
-    price: 'Custom',
-    maxMau: 'Unlimited',
-    features: ['Everything in Pro', 'SSO / SAML', 'SLA guarantee', 'Dedicated support', 'Custom contracts', 'On-premise option'],
-    cta: 'Contact Sales',
+    name: 'Empresarial',
+    description: 'Para escalar',
+    price: 'Personalizado',
+    maxMau: 'Ilimitado',
+    features: ['Todo en Pro', 'SSO / SAML', 'Garantía SLA', 'Soporte dedicado', 'Contratos personalizados', 'Opción on-premise'],
+    cta: 'Contactar Ventas',
     popular: false,
   },
 ]
@@ -52,16 +52,16 @@ export function PricingSection() {
 
   return (
     <section ref={sectionRef} id="pricing" className="relative py-32 md:py-40">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-zinc-900/[0.02] to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-b from-transparent via-zinc-900/2 to-transparent" />
       <div className="absolute inset-0 auth-grid opacity-10" />
       <div className="container-custom relative z-10">
         <header className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-zinc-500">Pricing</p>
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-zinc-500">Precios</p>
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Transparent{' '}<span className="text-gradient">pricing</span>
+            Precios{' '}<span className="text-gradient">transparentes</span>
           </h2>
           <p className="mt-4 text-lg text-zinc-500">
-            Pay only for active users. No hidden fees.
+            Paga solo por usuarios activos. Sin cargos ocultos.
           </p>
         </header>
 
@@ -70,12 +70,12 @@ export function PricingSection() {
           <div className="card rounded-2xl p-6 border-zinc-700">
             <div className="flex items-center gap-2 mb-6">
               <Calculator className="w-5 h-5 text-zinc-500" />
-              <span className="font-medium text-white">Cost Calculator</span>
+              <span className="font-medium text-white">Calculadora de Costos</span>
             </div>
 
             <div className="mb-6">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-zinc-400">Monthly Active Users</span>
+                <span className="text-zinc-400">Usuarios Activos Mensuales</span>
                 <span className="text-xl font-bold text-white">{currentTier.mau.toLocaleString()}</span>
               </div>
               <input
@@ -97,14 +97,14 @@ export function PricingSection() {
 
             <div className="flex items-center justify-between p-4 rounded-xl bg-zinc-900 border border-zinc-800">
               <div>
-                <p className="text-sm text-zinc-500">Estimated cost</p>
+                <p className="text-sm text-zinc-500">Costo estimado</p>
                 <div className="flex items-baseline gap-2">
                   <span className="text-4xl font-bold text-white">${currentTier.price}</span>
-                  <span className="text-zinc-500">/month</span>
+                  <span className="text-zinc-500">/mes</span>
                 </div>
               </div>
               <div className="text-right">
-                <p className="text-sm text-zinc-500">Per 1,000 MAU</p>
+                <p className="text-sm text-zinc-500">Por 1,000 MAU</p>
                 <p className="text-lg font-semibold text-zinc-300">${pricePerMau}</p>
               </div>
             </div>
@@ -154,7 +154,7 @@ export function PricingSection() {
               <ul className="flex-1 space-y-3 mb-8">
                 {plan.features.map((f) => (
                   <li key={f} className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-zinc-500 flex-shrink-0 mt-0.5" />
+                    <Check className="h-5 w-5 text-zinc-500 shrink-0 mt-0.5" />
                     <span className="text-zinc-400 text-sm">{f}</span>
                   </li>
                 ))}

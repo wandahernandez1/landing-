@@ -6,31 +6,31 @@ import { useHeroAnimation } from '@/shared/hooks'
 const ONBOARDING_STEPS = [
   { 
     id: 'welcome', 
-    title: 'Welcome! 👋', 
-    description: 'Click to start your journey',
-    action: 'Got it!',
-    reward: 'First step completed!'
+    title: '¡Bienvenido! 👋', 
+    description: 'Haz clic para comenzar tu viaje',
+    action: '¡Entendido!',
+    reward: '¡Primer paso completado!'
   },
   { 
     id: 'scroll', 
-    title: 'Explore the page', 
-    description: 'Scroll down to see more',
+    title: 'Explora la página', 
+    description: 'Desplázate hacia abajo para ver más',
     action: null, // Auto-complete on scroll
-    reward: 'Great exploring!'
+    reward: '¡Excelente exploración!'
   },
   { 
     id: 'interact', 
-    title: 'Try the demo', 
-    description: 'Complete at least one step',
+    title: 'Prueba la demo', 
+    description: 'Completa al menos un paso',
     action: null,
-    reward: 'You got it!'
+    reward: '¡Lo lograste!'
   },
   { 
     id: 'cta', 
-    title: 'Ready to start?', 
-    description: 'Click the CTA to finish',
-    action: 'Start Free Trial',
-    reward: '🎉 Onboarding complete!'
+    title: '¿Listo para empezar?', 
+    description: 'Haz clic en el CTA para terminar',
+    action: 'Iniciar Prueba Gratis',
+    reward: '🎉 ¡Onboarding completado!'
   },
 ]
 
@@ -76,10 +76,10 @@ export function HeroSection() {
 
   // Demo steps for the product preview
   const [demoSteps, setDemoSteps] = useState([
-    { id: 'd1', label: 'Create workspace', complete: false },
-    { id: 'd2', label: 'Invite team members', complete: false },
-    { id: 'd3', label: 'Set up first flow', complete: false },
-    { id: 'd4', label: 'Launch! 🚀', complete: false },
+    { id: 'd1', label: 'Crear espacio de trabajo', complete: false },
+    { id: 'd2', label: 'Invitar miembros del equipo', complete: false },
+    { id: 'd3', label: 'Configurar primer flujo', complete: false },
+    { id: 'd4', label: '¡Lanzar! 🚀', complete: false },
   ])
 
   const toggleDemoStep = (id: string) => {
@@ -111,8 +111,8 @@ export function HeroSection() {
         {/* Progress bar at top */}
         <div className="absolute top-4 left-1/2 -translate-x-1/2 w-full max-w-md">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-xs text-indigo-400">Your onboarding</span>
-            <span className="text-xs text-slate-500">{progress}% complete</span>
+            <span className="text-xs text-indigo-400">Tu onboarding</span>
+            <span className="text-xs text-slate-500">{progress}% completado</span>
           </div>
           <div className="h-1.5 bg-slate-800 rounded-full overflow-hidden">
             <div 
@@ -135,14 +135,14 @@ export function HeroSection() {
                   <div className="flex items-center gap-3">
                     <Gift className="w-5 h-5 text-indigo-400" />
                     <div className="text-left">
-                      <p className="text-sm font-medium text-white">Welcome! 👋</p>
-                      <p className="text-xs text-indigo-300">Click to start your journey</p>
+                      <p className="text-sm font-medium text-white">¡Bienvenido! 👋</p>
+                      <p className="text-xs text-indigo-300">Haz clic para comenzar tu viaje</p>
                     </div>
                     <button
                       onClick={() => completeStep('welcome')}
                       className="ml-2 px-3 py-1 bg-indigo-500 text-white text-xs font-medium rounded-lg hover:bg-indigo-400 transition-colors"
                     >
-                      Got it!
+                      ¡Entendido!
                     </button>
                   </div>
                   <div className="absolute -bottom-2 left-8 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-indigo-500/30" />
@@ -203,7 +203,7 @@ export function HeroSection() {
               {currentTooltip === 'cta' && (
                 <div className="absolute -top-16 left-1/2 -translate-x-1/2 whitespace-nowrap">
                   <div className="p-2 bg-indigo-500/20 border border-indigo-500/30 rounded-lg text-xs text-indigo-300 animate-bounce">
-                    👆 Click to complete onboarding!
+                    👆 ¡Haz clic para completar el onboarding!
                   </div>
                 </div>
               )}
@@ -212,7 +212,7 @@ export function HeroSection() {
                 onClick={() => completeStep('cta')}
                 className="btn-primary inline-flex items-center gap-2 rounded-xl px-8 py-4 text-base font-semibold"
               >
-                Start Free Trial
+                Iniciar Prueba Gratis
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>
@@ -223,9 +223,9 @@ export function HeroSection() {
               className="mt-10 flex flex-wrap items-center gap-6 justify-center lg:justify-start"
             >
               {[
-                { value: '+67%', label: 'Avg. activation' },
-                { value: '-43%', label: 'Churn reduction' },
-                { value: '1K+', label: 'SaaS teams' },
+                { value: '+67%', label: 'Activación prom.' },
+                { value: '-43%', label: 'Reducción de churn' },
+                { value: '1K+', label: 'Equipos SaaS' },
               ].map((stat) => (
                 <div key={stat.label} className="text-center lg:text-left">
                   <span className="text-xl font-bold text-indigo-400">{stat.value}</span>
@@ -254,9 +254,9 @@ export function HeroSection() {
               <div className="flex items-center justify-between px-4 py-3 border-b border-slate-700/50 bg-slate-800/80">
                 <div className="flex items-center gap-2">
                   <Target className="h-4 w-4 text-indigo-400" />
-                  <span className="text-sm text-slate-300">Getting Started</span>
+                  <span className="text-sm text-slate-300">Primeros Pasos</span>
                 </div>
-                <span className="text-xs text-indigo-400">{demoProgress}% complete</span>
+                <span className="text-xs text-indigo-400">{demoProgress}% completado</span>
               </div>
 
               {/* Progress */}
@@ -301,12 +301,12 @@ export function HeroSection() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2 text-xs text-slate-500">
                     <Users className="w-4 h-4" />
-                    <span>1,234 users completed today</span>
+                    <span>1,234 usuarios completaron hoy</span>
                   </div>
                   {demoProgress === 100 && (
                     <span className="text-xs text-indigo-400 flex items-center gap-1">
                       <Sparkles className="w-3 h-3" />
-                      All done!
+                      ¡Todo listo!
                     </span>
                   )}
                 </div>

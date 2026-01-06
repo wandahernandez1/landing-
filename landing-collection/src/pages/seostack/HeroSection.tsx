@@ -13,18 +13,18 @@ interface SEOCheck {
 }
 
 const generateSEOResults = (): SEOCheck[] => [
-  { id: 'title', label: 'Meta title present', category: 'critical', status: Math.random() > 0.2 ? 'pass' : 'fail', detail: 'Title: 58 characters' },
-  { id: 'description', label: 'Meta description optimal', category: 'critical', status: Math.random() > 0.3 ? 'pass' : 'warning', detail: 'Length: 142/160 chars' },
-  { id: 'canonical', label: 'Canonical URL set', category: 'critical', status: Math.random() > 0.1 ? 'pass' : 'fail' },
-  { id: 'h1', label: 'Single H1 tag', category: 'critical', status: Math.random() > 0.2 ? 'pass' : 'fail' },
-  { id: 'og', label: 'Open Graph tags complete', category: 'important', status: Math.random() > 0.4 ? 'pass' : 'warning', detail: 'Missing: og:image' },
-  { id: 'twitter', label: 'Twitter Card meta', category: 'important', status: Math.random() > 0.5 ? 'pass' : 'fail' },
-  { id: 'jsonld', label: 'JSON-LD schema present', category: 'important', status: Math.random() > 0.4 ? 'pass' : 'fail' },
-  { id: 'robots', label: 'Robots.txt valid', category: 'important', status: 'pass' },
-  { id: 'sitemap', label: 'Sitemap.xml accessible', category: 'important', status: Math.random() > 0.2 ? 'pass' : 'fail' },
-  { id: 'mobile', label: 'Mobile viewport set', category: 'critical', status: 'pass' },
-  { id: 'https', label: 'HTTPS enabled', category: 'critical', status: 'pass' },
-  { id: 'images', label: 'Image alt attributes', category: 'minor', status: Math.random() > 0.6 ? 'pass' : 'warning', detail: '3 images missing alt' },
+  { id: 'title', label: 'Meta título presente', category: 'critical', status: Math.random() > 0.2 ? 'pass' : 'fail', detail: 'Título: 58 caracteres' },
+  { id: 'description', label: 'Meta descripción óptima', category: 'critical', status: Math.random() > 0.3 ? 'pass' : 'warning', detail: 'Longitud: 142/160 caracteres' },
+  { id: 'canonical', label: 'URL canónica configurada', category: 'critical', status: Math.random() > 0.1 ? 'pass' : 'fail' },
+  { id: 'h1', label: 'Una sola etiqueta H1', category: 'critical', status: Math.random() > 0.2 ? 'pass' : 'fail' },
+  { id: 'og', label: 'Open Graph tags completos', category: 'important', status: Math.random() > 0.4 ? 'pass' : 'warning', detail: 'Falta: og:image' },
+  { id: 'twitter', label: 'Meta Twitter Card', category: 'important', status: Math.random() > 0.5 ? 'pass' : 'fail' },
+  { id: 'jsonld', label: 'Schema JSON-LD presente', category: 'important', status: Math.random() > 0.4 ? 'pass' : 'fail' },
+  { id: 'robots', label: 'Robots.txt válido', category: 'important', status: 'pass' },
+  { id: 'sitemap', label: 'Sitemap.xml accesible', category: 'important', status: Math.random() > 0.2 ? 'pass' : 'fail' },
+  { id: 'mobile', label: 'Viewport móvil configurado', category: 'critical', status: 'pass' },
+  { id: 'https', label: 'HTTPS habilitado', category: 'critical', status: 'pass' },
+  { id: 'images', label: 'Atributos alt en imágenes', category: 'minor', status: Math.random() > 0.6 ? 'pass' : 'warning', detail: '3 imágenes sin alt' },
 ]
 
 export function HeroSection() {
@@ -96,7 +96,7 @@ export function HeroSection() {
             className="mb-6 inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-4 py-2"
           >
             <Search className="h-4 w-4 text-green-400" />
-            <span className="text-sm text-green-300">Free instant SEO audit</span>
+            <span className="text-sm text-green-300">Auditoría SEO gratuita e instantánea</span>
           </div>
 
           {/* Title */}
@@ -104,16 +104,16 @@ export function HeroSection() {
             data-hero-title
             className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl mb-6"
           >
-            <span className="block">Is your site</span>
-            <span className="block text-gradient">SEO-ready?</span>
+            <span className="block">¿Tu sitio está</span>
+            <span className="block text-gradient">listo para SEO?</span>
           </h1>
 
           <p 
             data-hero-description
             className="mx-auto max-w-2xl text-lg text-slate-400 md:text-xl mb-10"
           >
-            Enter your URL and get an instant technical SEO audit. 
-            No signup needed.
+            Ingresa tu URL y obtén una auditoría SEO técnica instantánea. 
+            Sin registro.
           </p>
 
           {/* Scanner UI */}
@@ -127,7 +127,7 @@ export function HeroSection() {
                     value={url}
                     onChange={(e) => setUrl(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && handleScan()}
-                    placeholder="Enter your website URL..."
+                    placeholder="Ingresa la URL de tu sitio web..."
                     className="w-full pl-12 pr-32 py-4 rounded-xl bg-slate-900/80 border border-green-500/30 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-green-500/50 text-lg"
                   />
                   <button
@@ -136,13 +136,13 @@ export function HeroSection() {
                     className="absolute right-2 btn-primary flex items-center gap-2 rounded-lg px-6 py-2.5 text-sm font-semibold disabled:opacity-50"
                   >
                     <Search className="h-4 w-4" />
-                    Audit
+                    Auditar
                   </button>
                 </div>
                 
                 {/* Example URLs */}
                 <div className="flex items-center justify-center gap-2 text-sm text-slate-500">
-                  <span>Try:</span>
+                  <span>Probar:</span>
                   {['vercel.com', 'stripe.com', 'linear.app'].map((example) => (
                     <button
                       key={example}
@@ -170,7 +170,7 @@ export function HeroSection() {
                       onClick={handleReset}
                       className="text-xs text-green-400 hover:text-green-300"
                     >
-                      Scan another
+                      Escanear otro
                     </button>
                   )}
                 </div>
@@ -188,24 +188,24 @@ export function HeroSection() {
                           {score}
                         </div>
                         <div className="text-left">
-                          <p className="text-white font-medium">SEO Score</p>
+                          <p className="text-white font-medium">Puntuación SEO</p>
                           <p className="text-sm text-slate-500">
-                            {score >= 80 ? 'Looking great!' : score >= 50 ? 'Room for improvement' : 'Needs attention'}
+                            {score >= 80 ? '¡Excelente!' : score >= 50 ? 'Hay espacio para mejorar' : 'Necesita atención'}
                           </p>
                         </div>
                       </div>
                       <div className="flex gap-4 text-sm">
                         <div className="text-center">
                           <span className="block text-xl font-bold text-green-400">{passCount}</span>
-                          <span className="text-slate-500">Passed</span>
+                          <span className="text-slate-500">Aprobados</span>
                         </div>
                         <div className="text-center">
                           <span className="block text-xl font-bold text-yellow-400">{warnCount}</span>
-                          <span className="text-slate-500">Warnings</span>
+                          <span className="text-slate-500">Advertencias</span>
                         </div>
                         <div className="text-center">
                           <span className="block text-xl font-bold text-red-400">{failCount}</span>
-                          <span className="text-slate-500">Failed</span>
+                          <span className="text-slate-500">Fallidos</span>
                         </div>
                       </div>
                     </div>
@@ -253,7 +253,7 @@ export function HeroSection() {
                   {phase === 'scanning' && (
                     <div className="flex items-center justify-center gap-2 mt-4 text-sm text-slate-500">
                       <div className="w-4 h-4 border-2 border-green-500 border-t-transparent rounded-full animate-spin" />
-                      Analyzing {currentCheckIndex}/{checks.length}...
+                      Analizando {currentCheckIndex}/{checks.length}...
                     </div>
                   )}
                 </div>
@@ -266,7 +266,7 @@ export function HeroSection() {
                       className="btn-primary w-full flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-base font-semibold"
                     >
                       <TrendingUp className="h-5 w-5" />
-                      Get Full Report + Fix Suggestions
+                      Obtener Reporte Completo + Sugerencias
                       <ArrowRight className="h-5 w-5" />
                     </a>
                   </div>
@@ -282,9 +282,9 @@ export function HeroSection() {
               className="mt-16 flex flex-wrap items-center justify-center gap-8 text-slate-400"
             >
               {[
-                { icon: Search, value: '50K+', label: 'Sites audited' },
-                { icon: TrendingUp, value: '+42%', label: 'Avg. traffic boost' },
-                { icon: Code, value: '2K+', label: 'Devs trust us' },
+                { icon: Search, value: '50K+', label: 'Sitios auditados' },
+                { icon: TrendingUp, value: '+42%', label: 'Aumento promedio de tráfico' },
+                { icon: Code, value: '2K+', label: 'Desarrolladores confían en nosotros' },
               ].map((stat) => (
                 <div key={stat.label} className="flex items-center gap-3">
                   <stat.icon className="w-5 h-5 text-green-400" />

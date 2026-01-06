@@ -32,10 +32,10 @@ export function Navbar() {
 
           <div className="hidden items-center gap-4 md:flex">
             <a href="#" className="text-sm text-slate-400 hover:text-white transition-colors">
-              Login
+              Iniciar sesión
             </a>
             <a href="#pricing" className="btn-primary rounded-xl px-5 py-2.5 text-sm font-medium">
-              Start Free
+              Comenzar Gratis
             </a>
           </div>
 
@@ -62,7 +62,7 @@ export function Navbar() {
                 </a>
               ))}
               <a href="#pricing" className="btn-primary rounded-xl px-5 py-2.5 text-center text-sm font-medium">
-                Start Free
+                Comenzar Gratis
               </a>
             </div>
           </div>

@@ -6,59 +6,59 @@ import { cn } from '@/shared/utils/cn'
 const PLANS = [
   {
     id: 'starter',
-    name: 'Starter',
+    name: 'Inicial',
     price: 0,
-    period: '/forever',
+    period: '/siempre',
     domains: 1,
-    description: 'For personal projects',
+    description: 'Para proyectos personales',
     features: [
-      { text: '1 domain', included: true },
-      { text: '100 pages/month', included: true },
-      { text: 'WCAG 2.1 Level A', included: true },
-      { text: 'Manual scans only', included: true },
-      { text: 'Basic reports', included: true },
-      { text: 'CI/CD integration', included: false },
-      { text: 'API access', included: false },
+      { text: '1 dominio', included: true },
+      { text: '100 páginas/mes', included: true },
+      { text: 'WCAG 2.1 Nivel A', included: true },
+      { text: 'Solo escaneos manuales', included: true },
+      { text: 'Reportes básicos', included: true },
+      { text: 'Integración CI/CD', included: false },
+      { text: 'Acceso API', included: false },
     ],
-    cta: 'Get started free',
+    cta: 'Comenzar gratis',
     popular: false,
   },
   {
     id: 'pro',
     name: 'Pro',
     price: 49,
-    period: '/domain/mo',
-    domains: 'Unlimited',
-    description: 'For growing teams',
+    period: '/dominio/mes',
+    domains: 'Ilimitados',
+    description: 'Para equipos en crecimiento',
     features: [
-      { text: 'Unlimited domains', included: true },
-      { text: 'Unlimited pages', included: true },
-      { text: 'WCAG 2.1 Level AA', included: true },
-      { text: 'Scheduled monitoring', included: true },
-      { text: 'Detailed reports + PDF', included: true },
-      { text: 'CI/CD integration', included: true },
-      { text: 'API access', included: true },
+      { text: 'Dominios ilimitados', included: true },
+      { text: 'Páginas ilimitadas', included: true },
+      { text: 'WCAG 2.1 Nivel AA', included: true },
+      { text: 'Monitoreo programado', included: true },
+      { text: 'Reportes detallados + PDF', included: true },
+      { text: 'Integración CI/CD', included: true },
+      { text: 'Acceso API', included: true },
     ],
-    cta: 'Start 14-day trial',
+    cta: 'Comenzar prueba de 14 días',
     popular: true,
   },
   {
     id: 'enterprise',
-    name: 'Enterprise',
-    price: 'Custom',
+    name: 'Empresarial',
+    price: 'Personalizado',
     period: '',
-    domains: 'Unlimited',
-    description: 'For large organizations',
+    domains: 'Ilimitados',
+    description: 'Para grandes organizaciones',
     features: [
-      { text: 'Everything in Pro', included: true },
-      { text: 'WCAG 2.1 Level AAA', included: true },
-      { text: 'Custom rules', included: true },
-      { text: 'Dedicated support', included: true },
+      { text: 'Todo en Pro', included: true },
+      { text: 'WCAG 2.1 Nivel AAA', included: true },
+      { text: 'Reglas personalizadas', included: true },
+      { text: 'Soporte dedicado', included: true },
       { text: 'SSO / SAML', included: true },
-      { text: 'SLA guarantee', included: true },
-      { text: 'On-premise option', included: true },
+      { text: 'Garantía SLA', included: true },
+      { text: 'Opción on-premise', included: true },
     ],
-    cta: 'Contact sales',
+    cta: 'Contactar ventas',
     popular: false,
   },
 ]
@@ -77,16 +77,16 @@ export function PricingSection() {
 
   return (
     <section ref={sectionRef} id="pricing" className="relative py-32 md:py-40">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-500/[0.02] to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-b from-transparent via-blue-500/2 to-transparent" />
       <div className="absolute inset-0 a11y-grid opacity-10" />
       <div className="container-custom relative z-10">
         <header className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-blue-400">Pricing</p>
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-blue-400">Precios</p>
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Accessible pricing for{' '}<span className="text-gradient">everyone</span>
+            Precios accesibles para{' '}<span className="text-gradient">todos</span>
           </h2>
           <p className="mt-6 text-lg text-slate-400">
-            Start free, scale with your needs. All plans include full WCAG scanning.
+            Comienza gratis, escala según tus necesidades. Todos los planes incluyen escaneo WCAG completo.
           </p>
         </header>
 
@@ -103,8 +103,8 @@ export function PricingSection() {
               )}
             >
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 text-sm font-medium text-white">
-                  Most popular
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-linear-to-r from-blue-500 to-blue-600 text-sm font-medium text-white">
+                  Más popular
                 </div>
               )}
               
@@ -122,9 +122,9 @@ export function PricingSection() {
                 {plan.features.map((feature, idx) => (
                   <li key={idx} className="flex items-center gap-3">
                     {feature.included ? (
-                      <Check className="w-5 h-5 text-blue-400 flex-shrink-0" />
+                      <Check className="w-5 h-5 text-blue-400 shrink-0" />
                     ) : (
-                      <X className="w-5 h-5 text-slate-600 flex-shrink-0" />
+                      <X className="w-5 h-5 text-slate-600 shrink-0" />
                     )}
                     <span className={cn(
                       'text-sm',
@@ -149,7 +149,7 @@ export function PricingSection() {
         {/* Compliance Standards */}
         <div className="max-w-3xl mx-auto">
           <h3 className="text-xl font-bold text-center text-white mb-8">
-            Compliance standards covered
+            Estándares de cumplimiento cubiertos
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {STANDARDS.map((standard) => (
@@ -176,7 +176,7 @@ export function PricingSection() {
           </div>
           
           <p className="mt-8 text-center text-sm text-slate-500">
-            All plans include compliance documentation for audits and legal requirements.
+            Todos los planes incluyen documentación de cumplimiento para auditorías y requisitos legales.
           </p>
         </div>
       </div>

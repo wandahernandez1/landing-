@@ -6,46 +6,46 @@ import { CheckCircle, Circle, ArrowRight, Users, Target, Zap, Star } from 'lucid
 const ONBOARDING_STEPS = [
   { 
     id: 1, 
-    title: 'Welcome modal', 
+    title: 'Modal de bienvenida', 
     type: 'modal',
-    description: 'Personalized welcome based on user segment',
+    description: 'Bienvenida personalizada según el segmento de usuario',
     completion: 95 
   },
   { 
     id: 2, 
-    title: 'Profile setup', 
+    title: 'Configurar perfil', 
     type: 'form',
-    description: 'Collect key info for personalization',
+    description: 'Recopila información clave para personalización',
     completion: 78 
   },
   { 
     id: 3, 
-    title: 'Feature tour', 
+    title: 'Tour de funciones', 
     type: 'tooltip',
-    description: 'Guided tour of core features',
+    description: 'Tour guiado de funciones principales',
     completion: 65 
   },
   { 
     id: 4, 
-    title: 'First action', 
+    title: 'Primera acción', 
     type: 'checklist',
-    description: 'Complete first meaningful action',
+    description: 'Completar la primera acción significativa',
     completion: 52 
   },
   { 
     id: 5, 
-    title: 'Invite team', 
+    title: 'Invitar equipo', 
     type: 'modal',
-    description: 'Encourage viral growth',
+    description: 'Fomentar crecimiento viral',
     completion: 34 
   },
 ]
 
 // Flow types
 const FLOW_TYPES = [
-  { id: 'product-led', label: 'Product-Led', icon: Target },
-  { id: 'sales-led', label: 'Sales-Led', icon: Users },
-  { id: 'hybrid', label: 'Hybrid', icon: Zap },
+  { id: 'product-led', label: 'Producto', icon: Target },
+  { id: 'sales-led', label: 'Ventas', icon: Users },
+  { id: 'hybrid', label: 'Híbrido', icon: Zap },
 ]
 
 export function FeaturesSection() {
@@ -58,12 +58,12 @@ export function FeaturesSection() {
       <div className="absolute inset-0 onboard-grid opacity-20" />
       <div className="container-custom relative z-10">
         <header className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-indigo-400">Flow Builder</p>
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-indigo-400">Constructor de Flujos</p>
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Design your{' '}<span className="text-gradient">activation flow</span>
+            Diseña tu{' '}<span className="text-gradient">flujo de activación</span>
           </h2>
           <p className="mt-4 text-lg text-slate-400">
-            Build personalized onboarding journeys that convert
+            Crea journeys de onboarding personalizados que convierten
           </p>
         </header>
 
@@ -149,15 +149,15 @@ export function FeaturesSection() {
               {/* Add step button */}
               <button className="w-full flex items-center justify-center gap-2 p-4 rounded-xl border-2 border-dashed border-slate-800 text-slate-500 hover:border-indigo-500 hover:text-indigo-400 transition-colors">
                 <Circle className="w-5 h-5" />
-                Add step
+                Agregar paso
               </button>
             </div>
 
             {/* Preview panel */}
             <div className="rounded-2xl border border-slate-800 bg-slate-900/50 overflow-hidden">
               <div className="px-4 py-3 border-b border-slate-800 flex items-center justify-between">
-                <span className="text-sm font-medium text-white">Preview</span>
-                <span className="text-xs text-slate-500">Step {activeStep} of {ONBOARDING_STEPS.length}</span>
+                <span className="text-sm font-medium text-white">Vista previa</span>
+                <span className="text-xs text-slate-500">Paso {activeStep} de {ONBOARDING_STEPS.length}</span>
               </div>
               
               {/* Mock app preview */}
@@ -185,10 +185,10 @@ export function FeaturesSection() {
                           <div className="w-64 bg-slate-900 rounded-xl p-6 border border-indigo-500/30 shadow-xl">
                             <div className="text-center">
                               <Star className="w-10 h-10 text-indigo-400 mx-auto mb-3" />
-                              <h4 className="font-semibold text-white mb-2">Welcome aboard!</h4>
-                              <p className="text-sm text-slate-400 mb-4">Let's get you set up in 2 minutes</p>
+                              <h4 className="font-semibold text-white mb-2">¡Bienvenido a bordo!</h4>
+                              <p className="text-sm text-slate-400 mb-4">Vamos a configurarte en 2 minutos</p>
                               <button className="w-full py-2 rounded-lg bg-indigo-500 text-white text-sm font-medium">
-                                Get Started
+                                Comenzar
                               </button>
                             </div>
                           </div>
@@ -197,7 +197,7 @@ export function FeaturesSection() {
                       {activeStep === 3 && (
                         <div className="absolute top-24 left-40 bg-indigo-500 text-white text-sm px-4 py-2 rounded-lg shadow-lg">
                           <div className="flex items-center gap-2">
-                            <span>Click here to create your first project</span>
+                            <span>Haz clic aquí para crear tu primer proyecto</span>
                             <ArrowRight className="w-4 h-4" />
                           </div>
                           <div className="absolute -bottom-2 left-4 w-0 h-0 border-l-8 border-r-8 border-t-8 border-transparent border-t-indigo-500" />
@@ -211,9 +211,9 @@ export function FeaturesSection() {
               {/* Stats */}
               <div className="px-6 pb-6 grid grid-cols-3 gap-4">
                 {[
-                  { label: 'Completion', value: '67%', delta: '+12%' },
-                  { label: 'Avg. Time', value: '4.2m', delta: '-30s' },
-                  { label: 'Activation', value: '52%', delta: '+8%' },
+                  { label: 'Completado', value: '67%', delta: '+12%' },
+                  { label: 'Tiempo prom.', value: '4.2m', delta: '-30s' },
+                  { label: 'Activación', value: '52%', delta: '+8%' },
                 ].map((stat) => (
                   <div key={stat.label} className="text-center p-3 rounded-lg bg-slate-800/50">
                     <p className="text-lg font-semibold text-white">{stat.value}</p>

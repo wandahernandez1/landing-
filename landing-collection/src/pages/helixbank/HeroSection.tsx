@@ -42,7 +42,7 @@ export function HeroSection() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-400 pulse-indicator" />
             </span>
-            <span className="text-sm text-cyan-300 font-medium">Licencia bancaria EU · Regulado</span>
+            <span className="text-sm text-cyan-300 font-medium">Licencia bancaria UE · Regulado</span>
           </div>
 
           {/* Title */}
@@ -119,11 +119,11 @@ export function HeroSection() {
             </div>
             <div data-trust-badge className="inline-flex items-center gap-2 rounded-full bg-slate-800/50 border border-slate-700 px-4 py-2">
               <Zap className="h-4 w-4 text-cyan-400" />
-              <span className="text-xs text-slate-400">Instant transfers</span>
+              <span className="text-xs text-slate-400">Transferencias instantáneas</span>
             </div>
             <div data-trust-badge className="inline-flex items-center gap-2 rounded-full bg-slate-800/50 border border-slate-700 px-4 py-2">
               <TrendingUp className="h-4 w-4 text-cyan-400" />
-              <span className="text-xs text-slate-400">Crypto trading</span>
+              <span className="text-xs text-slate-400">Trading de criptomonedas</span>
             </div>
           </div>
         </div>

@@ -23,20 +23,20 @@ const TIER_FEATURES: Record<string, string[]> = {
 // FAQ items
 const FAQ = [
   { 
-    q: 'What counts as a page view?', 
-    a: 'Each time a user loads a page with our script, it counts as one page view. We only charge for pages that successfully collect data.' 
+    q: '¿Qué cuenta como una vista de página?', 
+    a: 'Cada vez que un usuario carga una página con nuestro script, cuenta como una vista. Solo cobramos por las páginas que recopilan datos exitosamente.' 
   },
   { 
-    q: 'Can I change my plan?', 
-    a: 'Yes! You can upgrade or downgrade at any time. Changes take effect at the start of your next billing cycle.' 
+    q: '¿Puedo cambiar mi plan?', 
+    a: '¡Sí! Puedes actualizar o degradar en cualquier momento. Los cambios se aplican al inicio de tu próximo ciclo de facturación.' 
   },
   { 
-    q: 'Is there a free trial?', 
-    a: 'Our free tier is always free with 10K page views. For paid plans, we offer a 14-day free trial with full features.' 
+    q: '¿Hay una prueba gratuita?', 
+    a: 'Nuestro plan gratuito siempre es gratis con 10K vistas de página. Para planes de pago, ofrecemos una prueba gratuita de 14 días con todas las funciones.' 
   },
   { 
-    q: 'Do you offer discounts?', 
-    a: 'Yes! Annual billing saves 20%. We also offer discounts for startups, non-profits, and open source projects.' 
+    q: '¿Ofrecen descuentos?', 
+    a: '¡Sí! La facturación anual ahorra 20%. También ofrecemos descuentos para startups, organizaciones sin fines de lucro y proyectos de código abierto.' 
   },
 ]
 
@@ -56,18 +56,18 @@ export function PricingSection() {
       <div className="absolute inset-0 perf-grid opacity-10" />
       <div className="container-custom relative z-10">
         <header className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-purple-400">Pricing</p>
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-purple-400">Precios</p>
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Simple,{' '}<span className="text-gradient">usage-based</span>{' '}pricing
+            Precios{' '}<span className="text-gradient">basados en uso</span>{' '}simples
           </h2>
           <p className="mt-6 text-lg text-slate-400">
-            Pay only for what you use. Start free, scale as you grow.
+            Paga solo por lo que usas. Comienza gratis, escala mientras creces.
           </p>
         </header>
 
         {/* Billing toggle */}
         <div className="flex items-center justify-center gap-4 mb-12">
-          <span className={cn('text-sm', !billingAnnual ? 'text-white' : 'text-slate-500')}>Monthly</span>
+          <span className={cn('text-sm', !billingAnnual ? 'text-white' : 'text-slate-500')}>Mensual</span>
           <button
             onClick={() => setBillingAnnual(!billingAnnual)}
             className={cn(
@@ -81,7 +81,7 @@ export function PricingSection() {
             )} />
           </button>
           <span className={cn('text-sm', billingAnnual ? 'text-white' : 'text-slate-500')}>
-            Annual <span className="text-green-400">(Save 20%)</span>
+            Anual <span className="text-green-400">(Ahorra 20%)</span>
           </span>
         </div>
 
@@ -90,7 +90,7 @@ export function PricingSection() {
           <div className="rounded-3xl border border-slate-800 bg-slate-900/80 overflow-hidden">
             {/* Tier selector */}
             <div className="p-6 border-b border-slate-800 bg-slate-900">
-              <label className="block text-sm text-slate-400 mb-4">Select your page view volume</label>
+              <label className="block text-sm text-slate-400 mb-4">Selecciona tu volumen de vistas de página</label>
               <div className="flex gap-2">
                 {PAGE_VIEW_TIERS.map((tier, idx) => (
                   <button
@@ -104,7 +104,7 @@ export function PricingSection() {
                     )}
                   >
                     <span className="block font-mono font-bold">{tier.label}</span>
-                    <span className="text-xs opacity-70">/month</span>
+                    <span className="text-xs opacity-70">/mes</span>
                   </button>
                 ))}
               </div>
@@ -116,19 +116,19 @@ export function PricingSection() {
                 <div>
                   <div className="flex items-baseline gap-2">
                     <span className="text-6xl font-bold text-white">${price}</span>
-                    <span className="text-slate-500">/month</span>
+                    <span className="text-slate-500">/mes</span>
                   </div>
                   <p className="mt-2 text-slate-400">
-                    {currentPlan.tier} plan • {currentPlan.label} page views
+                    Plan {currentPlan.tier} • {currentPlan.label} vistas de página
                   </p>
                   {price === 0 && (
                     <span className="inline-flex items-center gap-1 mt-2 px-3 py-1 rounded-full bg-green-500/20 text-green-400 text-sm">
-                      <Sparkles className="w-3 h-3" /> Free forever
+                      <Sparkles className="w-3 h-3" /> Gratis para siempre
                     </span>
                   )}
                 </div>
                 <button className="btn-primary px-8 py-4 text-lg">
-                  {price === 0 ? 'Get started free' : 'Start 14-day trial'}
+                  {price === 0 ? 'Comenzar gratis' : 'Iniciar prueba de 14 días'}
                 </button>
               </div>
 
@@ -149,11 +149,11 @@ export function PricingSection() {
                 <div className="flex items-center gap-3">
                   <Building2 className="w-6 h-6 text-purple-400" />
                   <div>
-                    <p className="font-medium text-white">Need more?</p>
-                    <p className="text-sm text-slate-500">Custom plans for high-volume sites</p>
+                    <p className="font-medium text-white">¿Necesitas más?</p>
+                    <p className="text-sm text-slate-500">Planes personalizados para sitios de alto volumen</p>
                   </div>
                 </div>
-                <a href="#" className="btn-secondary px-6 py-3">Contact sales</a>
+                <a href="#" className="btn-secondary px-6 py-3">Contactar ventas</a>
               </div>
             </div>
           </div>
@@ -161,7 +161,7 @@ export function PricingSection() {
 
         {/* FAQ */}
         <div className="max-w-2xl mx-auto">
-          <h3 className="text-2xl font-bold text-center text-white mb-8">Frequently asked questions</h3>
+          <h3 className="text-2xl font-bold text-center text-white mb-8">Preguntas frecuentes</h3>
           <div className="space-y-4">
             {FAQ.map((item, idx) => (
               <div 

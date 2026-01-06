@@ -12,7 +12,7 @@ export function Footer() {
           <div className="flex items-center gap-4"><a href="#" className="text-slate-500 hover:text-blue-400" aria-label="GitHub"><Github className="h-5 w-5" /></a><a href="#" className="text-slate-500 hover:text-blue-400" aria-label="Twitter"><Twitter className="h-5 w-5" /></a></div>
         </div>
         <div className="divider mt-8" />
-        <div className="mt-8 text-center"><p className="text-sm text-slate-600">{COMPANY.year} {COMPANY.name}. Accessibility for everyone.</p></div>
+        <div className="mt-8 text-center"><p className="text-sm text-slate-600">{COMPANY.year} {COMPANY.name}. Accesibilidad para todos.</p></div>
       </div>
     </footer>
   )

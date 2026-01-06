@@ -4,11 +4,11 @@ import { useHeroAnimation } from '@/shared/hooks'
 
 // Interactive API Playground in the hero
 const DEMO_ENDPOINTS = [
-  { method: 'GET', path: '/users', description: 'List all users' },
-  { method: 'POST', path: '/users', description: 'Create a new user' },
-  { method: 'GET', path: '/users/:id', description: 'Get user by ID' },
-  { method: 'PUT', path: '/users/:id', description: 'Update user' },
-  { method: 'DELETE', path: '/users/:id', description: 'Delete user' },
+  { method: 'GET', path: '/users', description: 'Listar todos los usuarios' },
+  { method: 'POST', path: '/users', description: 'Crear un nuevo usuario' },
+  { method: 'GET', path: '/users/:id', description: 'Obtener usuario por ID' },
+  { method: 'PUT', path: '/users/:id', description: 'Actualizar usuario' },
+  { method: 'DELETE', path: '/users/:id', description: 'Eliminar usuario' },
 ]
 
 const SAMPLE_RESPONSE = {
@@ -84,23 +84,23 @@ export function HeroSection() {
               className="mb-6 inline-flex items-center gap-2 rounded-full border border-violet-500/30 bg-violet-500/10 px-4 py-2"
             >
               <FileText className="h-4 w-4 text-violet-400" />
-              <span className="text-sm text-violet-300">API Documentation Platform</span>
+              <span className="text-sm text-violet-300">Plataforma de Documentación de APIs</span>
             </div>
 
             <h1 
               data-hero-title
               className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl mb-6"
             >
-              <span className="block">Try the API</span>
-              <span className="block text-gradient">before you sign up.</span>
+              <span className="block">Prueba la API</span>
+              <span className="block text-gradient">antes de registrarte.</span>
             </h1>
 
             <p 
               data-hero-description
               className="mx-auto lg:mx-0 max-w-xl text-lg text-slate-400 md:text-xl mb-8"
             >
-              Interactive docs that developers actually want to use. 
-              Live playground, code generation, and instant search.
+              Documentación interactiva que los desarrolladores quieren usar. 
+              Playground en vivo, generación de código y búsqueda instantánea.
             </p>
 
             {/* What's included */}
@@ -109,10 +109,10 @@ export function HeroSection() {
               className="mb-8 grid grid-cols-2 gap-3"
             >
               {[
-                'OpenAPI import',
-                'Try-it playground',
-                'Code snippets',
-                'Version control',
+                'Importar OpenAPI',
+                'Playground interactivo',
+                'Snippets de código',
+                'Control de versiones',
               ].map((feature) => (
                 <div 
                   key={feature}
@@ -129,21 +129,21 @@ export function HeroSection() {
               className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start"
             >
               <a href="#pricing" className="btn-primary flex items-center gap-2 rounded-xl px-8 py-4 text-base font-semibold w-full sm:w-auto justify-center">
-                Create Your Docs
+                Crea Tu Documentación
                 <ArrowRight className="h-5 w-5" />
               </a>
               <a href="#features" className="btn-secondary flex items-center gap-2 rounded-xl px-8 py-4 text-base font-medium w-full sm:w-auto justify-center">
                 <Play className="h-5 w-5" />
-                See Examples
+                Ver Ejemplos
               </a>
             </div>
 
             {/* Stats */}
             <div className="mt-10 flex flex-wrap items-center gap-6 justify-center lg:justify-start text-slate-400">
               {[
-                { value: '50K+', label: 'API docs' },
-                { value: '2M+', label: 'Page views/mo' },
-                { value: '5K+', label: 'Dev teams' },
+                { value: '50K+', label: 'Docs de API' },
+                { value: '2M+', label: 'Vistas/mes' },
+                { value: '5K+', label: 'Equipos dev' },
               ].map((stat) => (
                 <div key={stat.label}>
                   <span className="text-xl font-bold text-violet-400">{stat.value}</span>
@@ -163,14 +163,14 @@ export function HeroSection() {
               <div className="flex items-center justify-between px-4 py-3 border-b border-slate-700/50 bg-slate-800/80">
                 <div className="flex items-center gap-2">
                   <Code2 className="h-4 w-4 text-violet-400" />
-                  <span className="text-sm text-slate-300">API Playground</span>
+                  <span className="text-sm text-slate-300">Playground de API</span>
                 </div>
                 <span className="text-xs px-2 py-0.5 bg-violet-500/20 text-violet-400 rounded">LIVE</span>
               </div>
 
               {/* Endpoint selector */}
               <div className="p-4 border-b border-slate-700/50">
-                <p className="text-xs text-slate-500 mb-3">Select an endpoint</p>
+                <p className="text-xs text-slate-500 mb-3">Selecciona un endpoint</p>
                 <div className="space-y-2 max-h-40 overflow-y-auto">
                   {DEMO_ENDPOINTS.map((endpoint) => (
                     <button
@@ -214,7 +214,7 @@ export function HeroSection() {
                     ) : (
                       <Send className="w-4 h-4" />
                     )}
-                    Try it
+                    Probar
                   </button>
                 </div>
               </div>
@@ -222,14 +222,14 @@ export function HeroSection() {
               {/* Response section */}
               <div className="p-4">
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs text-slate-500">Response</span>
+                  <span className="text-xs text-slate-500">Respuesta</span>
                   {response && (
                     <button
                       onClick={copyResponse}
                       className="flex items-center gap-1 text-xs text-violet-400 hover:text-violet-300"
                     >
                       {copied ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
-                      {copied ? 'Copied!' : 'Copy'}
+                      {copied ? '¡Copiado!' : 'Copiar'}
                     </button>
                   )}
                 </div>
@@ -238,7 +238,7 @@ export function HeroSection() {
                   {isExecuting ? (
                     <div className="flex items-center gap-2 text-sm text-slate-500">
                       <div className="w-3 h-3 border-2 border-violet-500 border-t-transparent rounded-full animate-spin" />
-                      Executing request...
+                      Ejecutando solicitud...
                     </div>
                   ) : response ? (
                     <pre className="text-sm text-slate-300 font-mono whitespace-pre-wrap">
@@ -250,7 +250,7 @@ export function HeroSection() {
                     </pre>
                   ) : (
                     <div className="text-sm text-slate-600">
-                      Click "Try it" to see the response
+                      Haz clic en "Probar" para ver la respuesta
                     </div>
                   )}
                 </div>
@@ -270,7 +270,7 @@ export function HeroSection() {
 
             {/* Floating badge */}
             <div className="absolute -top-3 -right-3 px-3 py-1.5 bg-violet-500 text-white text-xs font-medium rounded-full shadow-lg shadow-violet-500/30">
-              Interactive
+              Interactivo
             </div>
           </div>
         </div>

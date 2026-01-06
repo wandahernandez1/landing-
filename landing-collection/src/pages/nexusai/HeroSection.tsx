@@ -33,7 +33,7 @@ export function HeroSection() {
             className="mb-8 inline-flex items-center gap-2 rounded-full border border-purple-500/30 bg-purple-500/10 px-5 py-2.5 backdrop-blur-sm"
           >
             <Sparkles className="h-4 w-4 text-purple-400" />
-            <span className="text-sm font-medium text-purple-300">Nuevo: GPT-5 Integration</span>
+            <span className="text-sm font-medium text-purple-300">Nuevo: Integración GPT-5</span>
             <ArrowRight className="h-3.5 w-3.5 text-purple-400" />
           </div>
 
@@ -84,12 +84,12 @@ export function HeroSection() {
             <div className="h-12 w-px bg-gradient-to-b from-transparent via-purple-500/30 to-transparent" />
             <div className="flex flex-col items-center">
               <span className="text-3xl font-bold text-white">99.9%</span>
-              <span className="text-sm text-neutral-500">Uptime</span>
+              <span className="text-sm text-neutral-500">Disponibilidad</span>
             </div>
             <div className="h-12 w-px bg-gradient-to-b from-transparent via-purple-500/30 to-transparent" />
             <div className="flex flex-col items-center">
               <span className="text-3xl font-bold text-white">4.9★</span>
-              <span className="text-sm text-neutral-500">Rating</span>
+              <span className="text-sm text-neutral-500">Calificación</span>
             </div>
           </div>
 
@@ -112,7 +112,7 @@ export function HeroSection() {
                   <p className="pl-4"><span className="text-neutral-500">model:</span> <span className="text-green-400">'gpt-5-turbo'</span>,</p>
                   <p className="pl-4"><span className="text-neutral-500">depth:</span> <span className="text-purple-300">'comprehensive'</span></p>
                   <p>{'});'}</p>
-                  <p className="mt-4 text-green-400">// ✓ 847 insights generated in 2.3s</p>
+                  <p className="mt-4 text-green-400">// ✓ 847 insights generados en 2.3s</p>
                 </div>
               </div>
             </div>
@@ -125,8 +125,8 @@ export function HeroSection() {
                     <Sparkles className="h-5 w-5 text-white" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-white">AI Ready</p>
-                    <p className="text-xs text-neutral-500">GPT-5 Enabled</p>
+                    <p className="text-sm font-medium text-white">IA Lista</p>
+                    <p className="text-xs text-neutral-500">GPT-5 Habilitado</p>
                   </div>
                 </div>
               </div>

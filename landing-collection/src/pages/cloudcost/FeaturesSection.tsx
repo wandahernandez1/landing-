@@ -45,12 +45,12 @@ export function FeaturesSection() {
       <div className="absolute inset-0 cloud-grid opacity-20" />
       <div className="container-custom relative z-10">
         <header className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-blue-400">Cost Explorer</p>
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-blue-400">Explorador de Costos</p>
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Multi-cloud{' '}<span className="text-gradient">visibility</span>
+            Multi-nube{' '}<span className="text-gradient">visibilidad</span>
           </h2>
           <p className="mt-4 text-lg text-slate-400">
-            See all your cloud costs in one dashboard
+            Visualiza todos tus costos cloud en un solo dashboard
           </p>
         </header>
 
@@ -64,7 +64,7 @@ export function FeaturesSection() {
                 className={cn(
                   'flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all',
                   selectedProvider === provider.id
-                    ? `bg-gradient-to-r ${provider.color} text-white`
+                    ? `bg-linear-to-r ${provider.color} text-white`
                     : 'bg-slate-800/50 text-slate-400 hover:bg-slate-800 hover:text-white'
                 )}
               >
@@ -81,7 +81,7 @@ export function FeaturesSection() {
                 <div className="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center">
                   <DollarSign className="w-5 h-5 text-blue-400" />
                 </div>
-                <span className="text-sm text-slate-500">Monthly Spend</span>
+                <span className="text-sm text-slate-500">Gasto Mensual</span>
               </div>
               <p className="text-3xl font-bold text-white">${totalCost.toLocaleString()}</p>
             </div>
@@ -90,7 +90,7 @@ export function FeaturesSection() {
                 <div className="w-10 h-10 rounded-lg bg-yellow-500/20 flex items-center justify-center">
                   <AlertTriangle className="w-5 h-5 text-yellow-400" />
                 </div>
-                <span className="text-sm text-slate-500">Avg. Waste</span>
+                <span className="text-sm text-slate-500">Desperdicio Prom.</span>
               </div>
               <p className="text-3xl font-bold text-yellow-400">{avgWaste}%</p>
             </div>
@@ -99,7 +99,7 @@ export function FeaturesSection() {
                 <div className="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center">
                   <TrendingDown className="w-5 h-5 text-green-400" />
                 </div>
-                <span className="text-sm text-slate-500">Potential Savings</span>
+                <span className="text-sm text-slate-500">Ahorro Potencial</span>
               </div>
               <p className="text-3xl font-bold text-green-400">${totalSavings.toLocaleString()}</p>
             </div>
@@ -108,8 +108,8 @@ export function FeaturesSection() {
           {/* Services breakdown */}
           <div className="rounded-2xl border border-slate-800 bg-slate-900/50 overflow-hidden">
             <div className="px-6 py-4 border-b border-slate-800 flex items-center justify-between">
-              <h3 className="font-semibold text-white">Service Breakdown</h3>
-              <span className="text-sm text-slate-500">Last 30 days</span>
+              <h3 className="font-semibold text-white">Desglose por Servicio</h3>
+              <span className="text-sm text-slate-500">Últimos 30 días</span>
             </div>
             <div className="divide-y divide-slate-800">
               {services.map((service) => (
@@ -126,7 +126,7 @@ export function FeaturesSection() {
                     </div>
                     <div className="text-right">
                       <p className="text-green-400 font-medium">-${service.savings.toLocaleString()}</p>
-                      <p className="text-xs text-slate-500">potential savings</p>
+                      <p className="text-xs text-slate-500">ahorro potencial</p>
                     </div>
                   </div>
                   
@@ -144,7 +144,7 @@ export function FeaturesSection() {
                         />
                       </div>
                     </div>
-                    <span className="text-sm text-yellow-400 w-16 text-right">{service.waste}% waste</span>
+                    <span className="text-sm text-yellow-400 w-16 text-right">{service.waste}% desperdicio</span>
                   </div>
                 </div>
               ))}

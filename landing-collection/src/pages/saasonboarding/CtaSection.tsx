@@ -6,7 +6,7 @@ import { cn } from '@/shared/utils/cn'
 const COMPONENTS = [
   { 
     id: 'modal', 
-    name: 'Welcome Modal', 
+    name: 'Modal de Bienvenida', 
     icon: MessageSquare,
     preview: 'bg-gradient-to-br from-indigo-600 to-purple-600'
   },
@@ -18,7 +18,7 @@ const COMPONENTS = [
   },
   { 
     id: 'tour', 
-    name: 'Product Tour', 
+    name: 'Tour de Producto', 
     icon: Video,
     preview: 'bg-gradient-to-br from-purple-600 to-pink-600'
   },
@@ -56,10 +56,10 @@ export function CtaSection() {
               </div>
             </div>
             <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-4">
-              Ready-to-use{' '}<span className="text-gradient">components</span>
+              Componentes{' '}<span className="text-gradient">listos para usar</span>
             </h2>
             <p className="text-lg text-slate-400 max-w-xl mx-auto">
-              No code required. Just drag, drop, and launch your onboarding.
+              Sin código requerido. Solo arrastra, suelta y lanza tu onboarding.
             </p>
           </header>
 
@@ -88,7 +88,7 @@ export function CtaSection() {
                 {hoveredComponent === component.id && (
                   <div className="absolute -top-2 left-1/2 -translate-x-1/2 -translate-y-full opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
                     <div className="bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-slate-400 whitespace-nowrap shadow-xl">
-                      Click to preview
+                      Clic para previsualizar
                     </div>
                   </div>
                 )}
@@ -99,9 +99,9 @@ export function CtaSection() {
           {/* Stats */}
           <div className="grid grid-cols-3 gap-6 p-6 rounded-2xl bg-slate-900/50 border border-slate-800">
             {[
-              { value: '15+', label: 'UI Components' },
-              { value: '50+', label: 'Templates' },
-              { value: '5min', label: 'Setup Time' },
+              { value: '15+', label: 'Componentes UI' },
+              { value: '50+', label: 'Plantillas' },
+              { value: '5min', label: 'Tiempo de Setup' },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <p className="text-3xl font-bold text-indigo-400">{stat.value}</p>
@@ -114,20 +114,20 @@ export function CtaSection() {
         {/* Main CTA */}
         <div className="mx-auto max-w-2xl text-center">
           <h3 className="text-2xl font-bold tracking-tight text-white sm:text-3xl mb-6">
-            Ready to improve activation?
+            ¿Listo para mejorar la activación?
           </h3>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a href="#pricing" className="btn-primary flex items-center gap-2 rounded-xl px-8 py-4 text-lg font-semibold">
               <Target className="h-5 w-5" />
-              Start Free Trial
+              Iniciar Prueba Gratis
               <ArrowRight className="h-5 w-5" />
             </a>
             <a href="#" className="btn-secondary rounded-xl px-8 py-4 text-lg font-medium">
-              Book Demo
+              Agendar Demo
             </a>
           </div>
           <p className="mt-6 text-sm text-slate-500">
-            14-day free trial • No credit card • 5-minute setup
+            Prueba gratis de 14 días • Sin tarjeta de crédito • Setup en 5 minutos
           </p>
 
           {/* Trust badges */}

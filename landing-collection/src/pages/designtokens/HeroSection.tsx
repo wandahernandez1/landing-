@@ -83,7 +83,7 @@ export function HeroSection() {
               }}
             >
               <Palette className="h-4 w-4" style={{ color: theme.colors.primary }} />
-              <span className="text-sm" style={{ color: theme.colors.primary }}>Design ↔ Code in sync</span>
+              <span className="text-sm" style={{ color: theme.colors.primary }}>Diseño ↔ Código sincronizados</span>
             </div>
 
             <h1 
@@ -91,12 +91,12 @@ export function HeroSection() {
               className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl mb-6"
               style={{ color: theme.colors.text }}
             >
-              <span className="block">One token.</span>
+              <span className="block">Un token.</span>
               <span 
                 className="block transition-colors duration-500"
                 style={{ color: theme.colors.primary }}
               >
-                Every platform.
+                Todas las plataformas.
               </span>
             </h1>
 
@@ -104,8 +104,8 @@ export function HeroSection() {
               data-hero-description
               className="mx-auto lg:mx-0 max-w-xl text-lg md:text-xl mb-8 text-slate-400"
             >
-              Change a color in Figma. See it update in React, iOS, Android, and 
-              your design system docs. Instantly. No manual work.
+              Cambia un color en Figma. Míralo actualizarse en React, iOS, Android y 
+              la documentación de tu design system. Al instante. Sin trabajo manual.
             </p>
 
             {/* Theme Switcher */}
@@ -113,7 +113,7 @@ export function HeroSection() {
               data-hero-cta
               className="mb-8 p-4 bg-slate-900/50 border border-slate-700/50 rounded-xl"
             >
-              <p className="text-sm text-slate-400 mb-3">Try switching brands:</p>
+              <p className="text-sm text-slate-400 mb-3">Prueba cambiando de marca:</p>
               <div className="flex items-center gap-2">
                 {BRAND_THEMES.map((t, i) => (
                   <button
@@ -152,7 +152,7 @@ export function HeroSection() {
                   borderRadius: theme.radius,
                 }}
               >
-                Install Figma Plugin
+                Instalar Plugin de Figma
                 <ArrowRight className="h-5 w-5" />
               </a>
               <a
@@ -165,7 +165,7 @@ export function HeroSection() {
                 }}
               >
                 <Figma className="h-5 w-5" />
-                Watch demo
+                Ver demo
               </a>
             </div>
 
@@ -175,9 +175,9 @@ export function HeroSection() {
               className="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-6"
             >
               {[
-                { value: '10K+', label: 'Teams' },
-                { value: '2M+', label: 'Tokens synced' },
-                { value: '5 min', label: 'Setup time' },
+                { value: '10K+', label: 'Equipos' },
+                { value: '2M+', label: 'Tokens sincronizados' },
+                { value: '5 min', label: 'Tiempo de setup' },
               ].map((stat) => (
                 <div key={stat.label} className="text-center lg:text-left">
                   <span 
@@ -213,7 +213,7 @@ export function HeroSection() {
                 </div>
                 <div className={`flex items-center gap-2 transition-opacity ${isSyncing ? 'opacity-100' : 'opacity-0'}`}>
                   <RefreshCw className="h-4 w-4 animate-spin" style={{ color: theme.colors.primary }} />
-                  <span className="text-xs" style={{ color: theme.colors.primary }}>Syncing...</span>
+                  <span className="text-xs" style={{ color: theme.colors.primary }}>Sincronizando...</span>
                 </div>
               </div>
 
@@ -278,7 +278,7 @@ export function HeroSection() {
                 className="p-6 border-t border-slate-700/50"
                 style={{ backgroundColor: `${theme.colors.background}ee` }}
               >
-                <p className="text-xs text-slate-500 mb-3">Live Preview</p>
+                <p className="text-xs text-slate-500 mb-3">Vista Previa en Vivo</p>
                 <div className="flex items-center gap-3">
                   <button 
                     className="px-4 py-2 text-sm font-medium transition-all duration-500"
@@ -288,7 +288,7 @@ export function HeroSection() {
                       borderRadius: theme.radius,
                     }}
                   >
-                    Primary Button
+                    Botón Primario
                   </button>
                   <button 
                     className="px-4 py-2 text-sm font-medium border transition-all duration-500"
@@ -298,7 +298,7 @@ export function HeroSection() {
                       borderRadius: theme.radius,
                     }}
                   >
-                    Secondary
+                    Secundario
                   </button>
                 </div>
               </div>

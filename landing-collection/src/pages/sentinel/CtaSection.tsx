@@ -71,7 +71,7 @@ export function CtaSection() {
           <div className="mt-12 flex flex-wrap justify-center gap-4">
             {[
               { name: 'ISO 27001', desc: 'Certificado' },
-              { name: 'SOC 2 Type II', desc: 'Auditado' },
+              { name: 'SOC 2 Tipo II', desc: 'Auditado' },
               { name: 'GDPR', desc: 'Cumplimiento' },
               { name: 'PCI DSS', desc: 'Nivel 1' },
             ].map((badge) => (

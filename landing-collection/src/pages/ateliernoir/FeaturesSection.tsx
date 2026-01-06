@@ -19,9 +19,9 @@ export function FeaturesSection() {
       <div className="container-editorial">
         {/* Section Header */}
         <header ref={headerRef} className="mb-16 md:mb-24">
-          <span className="label block mb-4">Collections</span>
+          <span className="label block mb-4">Colecciones</span>
           <h2 id="collections-title" className="display-medium max-w-2xl">
-            Objects that define spaces, not fill them
+            Objetos que definen espacios, no los llenan
           </h2>
         </header>
 
@@ -38,7 +38,7 @@ export function FeaturesSection() {
               }`}
             >
               <div className={`relative overflow-hidden ${
-                idx === 0 ? 'aspect-[4/5]' : 'aspect-[4/3]'
+                idx === 0 ? 'aspect-4/5' : 'aspect-4/3'
               }`}>
                 <img
                   src={collection.image}
@@ -55,7 +55,7 @@ export function FeaturesSection() {
                     {collection.title}
                   </h3>
                   <span className="btn-text text-ivory-50 inline-flex items-center gap-2">
-                    Explore
+                    Explorar
                     <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" strokeWidth={1.5} />
                   </span>
                 </div>

@@ -18,9 +18,9 @@ export function ArtisanStoriesSection() {
       <div className="container-editorial">
         {/* Section Header */}
         <header ref={headerRef} className="text-center mb-20 md:mb-28">
-          <span className="label block mb-4">Artisan Stories</span>
+          <span className="label block mb-4">Historias de Artesanos</span>
           <h2 id="artisans-title" className="display-medium max-w-2xl mx-auto">
-            The hands behind the craft
+            Las manos detrás de la artesanía
           </h2>
         </header>
 
@@ -34,7 +34,7 @@ export function ArtisanStoriesSection() {
             >
               {/* Image */}
               <div 
-                className="image-editorial aspect-[4/5] md:aspect-[3/4]"
+                className="image-editorial aspect-4/5 md:aspect-3/4"
                 style={{ direction: 'ltr' }}
               >
                 <img
@@ -52,7 +52,7 @@ export function ArtisanStoriesSection() {
                 <p className="body-large">{story.description}</p>
                 <div className="divider-subtle mt-10 mb-6" />
                 <a href="#" className="btn-text inline-flex items-center gap-2 self-start group">
-                  Read their story
+                  Leer su historia
                   <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                 </a>
               </div>

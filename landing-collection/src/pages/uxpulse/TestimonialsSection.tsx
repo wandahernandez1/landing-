@@ -38,11 +38,11 @@ export function TestimonialsSection() {
         <header className="mx-auto mb-16 max-w-3xl text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/20 text-rose-400 text-sm mb-6">
             <Calculator className="w-4 h-4" />
-            ROI Calculator
+            Calculadora de ROI
           </div>
           <h2 id="testimonials-title" className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            How much revenue are you{' '}
-            <span className="text-gradient">leaving behind?</span>
+            ¿Cuántos ingresos estás{' '}
+            <span className="text-gradient">dejando sobre la mesa?</span>
           </h2>
         </header>
 
@@ -51,13 +51,13 @@ export function TestimonialsSection() {
             <div className="grid md:grid-cols-2">
               {/* Input side */}
               <div className="p-8 md:p-12 border-b md:border-b-0 md:border-r border-slate-800">
-                <h3 className="text-xl font-semibold text-white mb-8">Your current metrics</h3>
+                <h3 className="text-xl font-semibold text-white mb-8">Tus métricas actuales</h3>
                 
                 <div className="space-y-8">
                   {/* Monthly Visitors */}
                   <div>
                     <div className="flex items-center justify-between mb-3">
-                      <label className="text-sm text-slate-400">Monthly Visitors</label>
+                      <label className="text-sm text-slate-400">Visitantes Mensuales</label>
                       <span className="text-lg font-bold text-white">{visitors.toLocaleString()}</span>
                     </div>
                     <input
@@ -78,7 +78,7 @@ export function TestimonialsSection() {
                   {/* Conversion Rate */}
                   <div>
                     <div className="flex items-center justify-between mb-3">
-                      <label className="text-sm text-slate-400">Conversion Rate</label>
+                      <label className="text-sm text-slate-400">Tasa de Conversión</label>
                       <span className="text-lg font-bold text-white">{conversionRate.toFixed(1)}%</span>
                     </div>
                     <input
@@ -99,7 +99,7 @@ export function TestimonialsSection() {
                   {/* Average Order Value */}
                   <div>
                     <div className="flex items-center justify-between mb-3">
-                      <label className="text-sm text-slate-400">Avg. Order Value</label>
+                      <label className="text-sm text-slate-400">Valor Promedio de Pedido</label>
                       <span className="text-lg font-bold text-white">${avgOrderValue}</span>
                     </div>
                     <input
@@ -121,29 +121,29 @@ export function TestimonialsSection() {
 
               {/* Results side */}
               <div className="p-8 md:p-12 bg-gradient-to-br from-rose-950/50 to-transparent">
-                <h3 className="text-xl font-semibold text-white mb-8">With UXPulse</h3>
+                <h3 className="text-xl font-semibold text-white mb-8">Con UXPulse</h3>
                 
                 <div className="space-y-6 mb-8">
                   <div className="rounded-xl bg-slate-900/50 p-4 border border-slate-800">
-                    <p className="text-sm text-slate-500 mb-1">Current Monthly Revenue</p>
+                    <p className="text-sm text-slate-500 mb-1">Ingresos Mensuales Actuales</p>
                     <p className="text-2xl font-bold text-slate-400">{formatCurrency(roi.currentRevenue)}</p>
                   </div>
 
                   <div className="rounded-xl bg-rose-500/10 p-4 border border-rose-500/30">
                     <div className="flex items-center gap-2 mb-1">
                       <TrendingUp className="w-4 h-4 text-rose-400" />
-                      <p className="text-sm text-rose-400">Projected with UXPulse</p>
+                      <p className="text-sm text-rose-400">Proyectado con UXPulse</p>
                     </div>
                     <p className="text-3xl font-bold text-white">{formatCurrency(roi.improvedRevenue)}</p>
                     <p className="text-sm text-slate-500 mt-1">
-                      at {roi.improvedRate.toFixed(1)}% conversion (+32% lift)
+                      al {roi.improvedRate.toFixed(1)}% de conversión (+32% de mejora)
                     </p>
                   </div>
 
                   <div className="rounded-xl bg-emerald-500/10 p-4 border border-emerald-500/30">
                     <div className="flex items-center gap-2 mb-1">
                       <DollarSign className="w-4 h-4 text-emerald-400" />
-                      <p className="text-sm text-emerald-400">Additional Monthly Revenue</p>
+                      <p className="text-sm text-emerald-400">Ingresos Mensuales Adicionales</p>
                     </div>
                     <p className="text-4xl font-bold text-emerald-400">{formatCurrency(roi.additionalRevenue)}</p>
                   </div>
@@ -153,12 +153,12 @@ export function TestimonialsSection() {
                   href="#pricing"
                   className="btn-primary w-full flex items-center justify-center gap-2 rounded-xl px-6 py-4 font-semibold"
                 >
-                  Start Recovering Revenue
+                  Comienza a Recuperar Ingresos
                   <ArrowRight className="w-5 h-5" />
                 </a>
 
                 <p className="text-xs text-slate-500 text-center mt-4">
-                  *Based on avg. 32% conversion lift from our customer base
+                  *Basado en un promedio de 32% de mejora en conversión de nuestros clientes
                 </p>
               </div>
             </div>
@@ -167,9 +167,9 @@ export function TestimonialsSection() {
           {/* Trust indicators */}
           <div className="mt-12 flex flex-wrap items-center justify-center gap-8 text-slate-500">
             {[
-              { value: '10M+', label: 'Sessions analyzed' },
-              { value: '5,000+', label: 'Happy teams' },
-              { value: '+32%', label: 'Avg. conversion lift' },
+              { value: '10M+', label: 'Sesiones analizadas' },
+              { value: '5,000+', label: 'Equipos satisfechos' },
+              { value: '+32%', label: 'Mejora promedio en conversión' },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <div className="text-2xl font-bold text-rose-400">{stat.value}</div>

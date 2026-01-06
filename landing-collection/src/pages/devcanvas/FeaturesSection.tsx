@@ -45,7 +45,7 @@ export function FeaturesSection() {
       <div className="container-custom relative z-10">
         <header className="features-header mx-auto mb-20 max-w-3xl text-center">
           <p className="mb-4 text-sm font-medium uppercase tracking-widest text-violet-400">
-            Features
+            Características
           </p>
           <h2 id="features-title" className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
             Todo lo que necesitas para{' '}

@@ -26,12 +26,12 @@ export function HomePage() {
         {/* SECTION 1: Cinematic Hero - Fullscreen with dvh for mobile */}
         <section 
           className="section-fullscreen-center"
-          aria-label="Hero introduction"
+          aria-label="Introducción hero"
         >
           <CinematicHero
-            label="Curated Digital Collection"
-            headline="Design Experiences"
-            subheadline="Ten cinematic landing experiences crafted with intention and detail."
+            label="Colección Digital"
+            headline="Experiencias de Diseño"
+            subheadline="Experiencias de landing cinemáticas elaboradas con intención y detalle."
           >
             <MinimalScrollCue onClick={scrollToCarousel} />
           </CinematicHero>
@@ -41,7 +41,7 @@ export function HomePage() {
         <section 
           ref={carouselSectionRef}
           className="section-fullscreen-center"
-          aria-label="Design showcase gallery"
+          aria-label="Galería de diseños"
         >
           <ShowcaseCarousel landings={LANDINGS} />
         </section>

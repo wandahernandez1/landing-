@@ -26,13 +26,13 @@ export function PricingSection() {
       <div className="container-editorial">
         {/* Section Header */}
         <header ref={headerRef} className="text-center mb-16 md:mb-24">
-          <span className="label block mb-4">Our Values</span>
+          <span className="label block mb-4">Nuestros Valores</span>
           <h2 id="values-title" className="display-medium max-w-2xl mx-auto">
-            Transparency in everything we do
+            Transparencia en todo lo que hacemos
           </h2>
           <p className="body-large max-w-xl mx-auto mt-6">
-            We believe luxury should be responsible. Every decision we make 
-            honors both craft and planet.
+            Creemos que el lujo debe ser responsable. Cada decisión que tomamos 
+            honra tanto la artesanía como el planeta.
           </p>
         </header>
 
@@ -58,9 +58,9 @@ export function PricingSection() {
         {/* Bottom Statement */}
         <div className="mt-20 md:mt-28 max-w-3xl mx-auto text-center">
           <p className="font-serif text-2xl md:text-3xl leading-relaxed text-charcoal-700">
-            "We don't chase trends. We create objects worthy of becoming heirlooms."
+            "No perseguimos tendencias. Creamos objetos dignos de convertirse en herencias."
           </p>
-          <p className="label mt-8">— The Atelier Noir Philosophy</p>
+          <p className="label mt-8">— La Filosofía de Atelier Noir</p>
         </div>
       </div>
     </section>

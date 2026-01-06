@@ -20,9 +20,9 @@ export function TestimonialsSection() {
       <div className="container-editorial">
         {/* Section Header */}
         <header ref={headerRef} className="text-center mb-16 md:mb-20">
-          <span className="label block mb-4">As Seen In</span>
+          <span className="label block mb-4">Visto En</span>
           <h2 id="testimonials-title" className="display-medium max-w-xl mx-auto">
-            Trusted by those who value craft
+            Confianza de quienes valoran la artesanía
           </h2>
         </header>
 

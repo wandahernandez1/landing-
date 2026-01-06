@@ -4,18 +4,18 @@ import { cn } from '@/shared/utils/cn'
 
 // Anomaly alerts
 const ANOMALY_ALERTS = [
-  { id: 1, service: 'EC2', message: 'Unusual spike in compute costs', severity: 'high', increase: '+340%', time: '2 hours ago' },
-  { id: 2, service: 'S3', message: 'Data transfer costs increasing', severity: 'medium', increase: '+89%', time: '5 hours ago' },
-  { id: 3, service: 'Lambda', message: 'Invocation costs above baseline', severity: 'low', increase: '+45%', time: '1 day ago' },
-  { id: 4, service: 'RDS', message: 'Idle database instances detected', severity: 'medium', increase: '+$1,200', time: '2 days ago' },
+  { id: 1, service: 'EC2', message: 'Pico inusual en costos de cómputo', severity: 'high', increase: '+340%', time: 'hace 2 horas' },
+  { id: 2, service: 'S3', message: 'Costos de transferencia de datos aumentando', severity: 'medium', increase: '+89%', time: 'hace 5 horas' },
+  { id: 3, service: 'Lambda', message: 'Costos de invocación por encima del baseline', severity: 'low', increase: '+45%', time: 'hace 1 día' },
+  { id: 4, service: 'RDS', message: 'Instancias de base de datos inactivas detectadas', severity: 'medium', increase: '+$1,200', time: 'hace 2 días' },
 ]
 
 // Savings recommendations
 const RECOMMENDATIONS = [
-  { action: 'Right-size EC2 instances', potential: 4200, difficulty: 'Easy', automated: true },
-  { action: 'Purchase Reserved Instances', potential: 8500, difficulty: 'Medium', automated: false },
-  { action: 'Delete unused EBS volumes', potential: 890, difficulty: 'Easy', automated: true },
-  { action: 'Move infrequent data to S3 Glacier', potential: 1200, difficulty: 'Medium', automated: true },
+  { action: 'Redimensionar instancias EC2', potential: 4200, difficulty: 'Fácil', automated: true },
+  { action: 'Comprar Instancias Reservadas', potential: 8500, difficulty: 'Media', automated: false },
+  { action: 'Eliminar volúmenes EBS sin usar', potential: 890, difficulty: 'Fácil', automated: true },
+  { action: 'Mover datos infrecuentes a S3 Glacier', potential: 1200, difficulty: 'Media', automated: true },
 ]
 
 export function TestimonialsSection() {
@@ -38,12 +38,12 @@ export function TestimonialsSection() {
       <div className="absolute inset-0 cloud-grid opacity-10" />
       <div className="container-custom relative z-10">
         <header className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-blue-400">Smart Alerts</p>
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-blue-400">Alertas Inteligentes</p>
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            AI-powered{' '}<span className="text-gradient">anomaly detection</span>
+            Detección de anomalías{' '}<span className="text-gradient">con IA</span>
           </h2>
           <p className="mt-4 text-lg text-slate-400">
-            Get alerted before cost spikes become problems
+            Recibe alertas antes de que los picos de costos se conviertan en problemas
           </p>
         </header>
 
@@ -60,7 +60,7 @@ export function TestimonialsSection() {
               )}
             >
               <Bell className="w-4 h-4" />
-              Cost Alerts
+              Alertas de Costos
               {newAlert && (
                 <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-pulse" />
               )}
@@ -142,7 +142,7 @@ export function TestimonialsSection() {
               {visibleAlerts.length === 0 && (
                 <div className="text-center py-12 text-slate-500">
                   <CheckCircle className="w-12 h-12 mx-auto mb-4 text-green-400" />
-                  <p>All alerts reviewed!</p>
+                  <p>¡Todas las alertas revisadas!</p>
                 </div>
               )}
             </div>
@@ -152,9 +152,9 @@ export function TestimonialsSection() {
           {activeTab === 'recommendations' && (
             <div className="rounded-2xl border border-slate-800 bg-slate-900/50 overflow-hidden">
               <div className="px-6 py-4 border-b border-slate-800 flex items-center justify-between">
-                <h3 className="font-semibold text-white">Optimization Opportunities</h3>
+                <h3 className="font-semibold text-white">Oportunidades de Optimización</h3>
                 <span className="text-sm text-green-400">
-                  ${RECOMMENDATIONS.reduce((sum, r) => sum + r.potential, 0).toLocaleString()}/mo potential
+                  ${RECOMMENDATIONS.reduce((sum, r) => sum + r.potential, 0).toLocaleString()}/mes potencial
                 </span>
               </div>
               <div className="divide-y divide-slate-800">
@@ -175,12 +175,12 @@ export function TestimonialsSection() {
                         <div className="flex items-center gap-3 mt-1">
                           <span className={cn(
                             'text-xs px-2 py-0.5 rounded-full',
-                            rec.difficulty === 'Easy' ? 'bg-green-500/20 text-green-400' : 'bg-yellow-500/20 text-yellow-400'
+                            rec.difficulty === 'Fácil' ? 'bg-green-500/20 text-green-400' : 'bg-yellow-500/20 text-yellow-400'
                           )}>
                             {rec.difficulty}
                           </span>
                           {rec.automated && (
-                            <span className="text-xs text-slate-500">Auto-apply available</span>
+                            <span className="text-xs text-slate-500">Auto-aplicar disponible</span>
                           )}
                         </div>
                       </div>
@@ -190,7 +190,7 @@ export function TestimonialsSection() {
                         -${rec.potential.toLocaleString()}/mo
                       </span>
                       <button className="flex items-center gap-1 text-sm text-blue-400 hover:text-blue-300">
-                        Apply <ArrowRight className="w-4 h-4" />
+                        Aplicar <ArrowRight className="w-4 h-4" />
                       </button>
                     </div>
                   </div>

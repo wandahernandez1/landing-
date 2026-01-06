@@ -30,15 +30,15 @@ export function CtaSection() {
           <header className="text-center mb-10">
             <div className="relative w-20 h-20 mx-auto mb-6">
               <div className="absolute inset-0 bg-blue-400/30 rounded-full animate-ping" />
-              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl shadow-xl shadow-blue-500/30">
+              <div className="absolute inset-0 flex items-center justify-center bg-linear-to-br from-blue-400 to-blue-600 rounded-2xl shadow-xl shadow-blue-500/30">
                 <Cloud className="h-10 w-10 text-white" />
               </div>
             </div>
             <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-4">
-              Connect in{' '}<span className="text-gradient">minutes</span>
+              Conecta en{' '}<span className="text-gradient">minutos</span>
             </h2>
             <p className="text-lg text-slate-400">
-              Read-only access to billing data. No code changes required.
+              Acceso de solo lectura a datos de facturación. Sin cambios de código requeridos.
             </p>
           </header>
 
@@ -47,9 +47,9 @@ export function CtaSection() {
             <div className="px-6 py-4 border-b border-slate-800 flex items-center justify-between">
               <h3 className="font-semibold text-white flex items-center gap-2">
                 <Link2 className="w-4 h-4 text-blue-400" />
-                Cloud Integrations
+                Integraciones Cloud
               </h3>
-              <span className="text-sm text-slate-500">2 of 4 connected</span>
+              <span className="text-sm text-slate-500">2 de 4 conectados</span>
             </div>
             <div className="divide-y divide-slate-800">
               {INTEGRATIONS.map((integration) => (
@@ -67,10 +67,10 @@ export function CtaSection() {
                       <p className="font-medium text-white">{integration.name}</p>
                       <p className="text-sm text-slate-500">
                         {integration.status === 'connected' 
-                          ? `${integration.accounts} accounts connected`
+                          ? `${integration.accounts} cuentas conectadas`
                           : integration.status === 'pending'
-                            ? 'Connection pending...'
-                            : 'Ready to connect'
+                            ? 'Conexión pendiente...'
+                            : 'Listo para conectar'
                         }
                       </p>
                     </div>
@@ -79,19 +79,19 @@ export function CtaSection() {
                     {integration.status === 'connected' ? (
                       <span className="flex items-center gap-2 text-sm text-green-400">
                         <CheckCircle className="w-4 h-4" />
-                        Connected
+                        Conectado
                       </span>
                     ) : connecting === integration.name ? (
                       <span className="flex items-center gap-2 text-sm text-blue-400">
                         <Loader2 className="w-4 h-4 animate-spin" />
-                        Connecting...
+                        Conectando...
                       </span>
                     ) : (
                       <button 
                         onClick={() => handleConnect(integration.name)}
                         className="px-4 py-2 rounded-lg bg-blue-500/20 text-blue-400 text-sm font-medium hover:bg-blue-500/30 transition-colors"
                       >
-                        Connect
+                        Conectar
                       </button>
                     )}
                   </div>
@@ -120,15 +120,15 @@ export function CtaSection() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a href="#pricing" className="btn-primary flex items-center gap-2 rounded-xl px-8 py-4 text-lg font-semibold">
               <TrendingDown className="h-5 w-5" />
-              Start Saving
+              Empezar a Ahorrar
               <ArrowRight className="h-5 w-5" />
             </a>
             <a href="#" className="btn-secondary rounded-xl px-8 py-4 text-lg font-medium">
-              Book Demo
+              Agendar Demo
             </a>
           </div>
           <p className="mt-6 text-sm text-slate-500">
-            14-day free trial • No credit card required
+            Prueba gratis de 14 días • No requiere tarjeta de crédito
           </p>
 
           {/* Cloud logos */}

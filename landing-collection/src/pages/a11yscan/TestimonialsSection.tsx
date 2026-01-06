@@ -11,16 +11,16 @@ const CI_PLATFORMS = [
   { name: 'Azure DevOps', logo: '☁️' },
 ]
 
-// Sample CI run
+// Pasos del CI
 const CI_STEPS = [
-  { step: 'Install dependencies', status: 'passed', duration: '12s' },
-  { step: 'Build application', status: 'passed', duration: '45s' },
-  { step: 'Run unit tests', status: 'passed', duration: '23s' },
-  { step: 'A11yScan audit', status: 'running', duration: '...' },
-  { step: 'Deploy to staging', status: 'pending', duration: '-' },
+  { step: 'Instalar dependencias', status: 'passed', duration: '12s' },
+  { step: 'Compilar aplicación', status: 'passed', duration: '45s' },
+  { step: 'Ejecutar tests unitarios', status: 'passed', duration: '23s' },
+  { step: 'Auditoría A11yScan', status: 'running', duration: '...' },
+  { step: 'Desplegar a staging', status: 'pending', duration: '-' },
 ]
 
-// Sample audit results
+// Resultados de auditoría de ejemplo
 const AUDIT_RESULTS = {
   passed: 42,
   warnings: 3,
@@ -59,12 +59,12 @@ export function TestimonialsSection() {
       <div className="absolute inset-0 a11y-grid opacity-10" />
       <div className="container-custom relative z-10">
         <header className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-blue-400">CI Integration</p>
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-blue-400">Integración CI</p>
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Shift-left{' '}<span className="text-gradient">accessibility</span>
+            <span className="text-gradient">Accesibilidad</span>{' '}desde el inicio
           </h2>
           <p className="mt-6 text-lg text-slate-400">
-            Catch issues before they reach production with CI/CD integration
+            Detecta problemas antes de que lleguen a producción con integración CI/CD
           </p>
         </header>
 
@@ -98,7 +98,7 @@ export function TestimonialsSection() {
                 className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-blue-500/20 text-blue-400 text-sm font-medium hover:bg-blue-500/30 transition-colors"
               >
                 <Play className="w-4 h-4" />
-                Re-run
+                Re-ejecutar
               </button>
             </div>
 
@@ -141,22 +141,22 @@ export function TestimonialsSection() {
                 <div className="mt-6 p-6 rounded-xl bg-slate-800/50 border border-slate-700">
                   <div className="flex items-center gap-2 mb-4">
                     <Terminal className="w-5 h-5 text-blue-400" />
-                    <span className="font-semibold text-white">A11yScan Results</span>
+                    <span className="font-semibold text-white">Resultados A11yScan</span>
                   </div>
 
                   {/* Summary */}
                   <div className="grid grid-cols-3 gap-4 mb-6">
                     <div className="text-center p-3 rounded-lg bg-green-500/10">
                       <div className="text-2xl font-bold text-green-400">{AUDIT_RESULTS.passed}</div>
-                      <div className="text-xs text-slate-500">Passed</div>
+                      <div className="text-xs text-slate-500">Aprobados</div>
                     </div>
                     <div className="text-center p-3 rounded-lg bg-amber-500/10">
                       <div className="text-2xl font-bold text-amber-400">{AUDIT_RESULTS.warnings}</div>
-                      <div className="text-xs text-slate-500">Warnings</div>
+                      <div className="text-xs text-slate-500">Advertencias</div>
                     </div>
                     <div className="text-center p-3 rounded-lg bg-red-500/10">
                       <div className="text-2xl font-bold text-red-400">{AUDIT_RESULTS.errors}</div>
-                      <div className="text-xs text-slate-500">Errors</div>
+                      <div className="text-xs text-slate-500">Errores</div>
                     </div>
                   </div>
 
@@ -177,10 +177,10 @@ export function TestimonialsSection() {
                   {/* Footer */}
                   <div className="mt-4 pt-4 border-t border-slate-700 flex items-center justify-between">
                     <span className="text-sm text-red-400">
-                      ✗ Pipeline failed: {AUDIT_RESULTS.errors} accessibility errors found
+                      ✗ Pipeline fallido: {AUDIT_RESULTS.errors} errores de accesibilidad encontrados
                     </span>
                     <a href="#" className="text-sm text-blue-400 hover:underline">
-                      View full report →
+                      Ver reporte completo →
                     </a>
                   </div>
                 </div>

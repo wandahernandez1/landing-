@@ -85,7 +85,7 @@ export const PRICING_PLANS: PricingPlan[] = [
   {
     name: "Hobby",
     price: "$0",
-    period: "/forever",
+    period: "/para siempre",
     description: "Para proyectos personales y experimentos.",
     features: [
       "3 proyectos",

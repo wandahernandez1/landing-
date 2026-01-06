@@ -23,7 +23,7 @@ export function Navbar() {
             <a href="#" className="text-sm text-slate-400 hover:text-white transition-colors">Login</a>
             <a href="#pricing" className="btn-primary rounded-xl px-5 py-2.5 text-sm font-medium">Start Free</a>
           </div>
-          <button onClick={() => setIsOpen(!isOpen)} className="rounded-lg p-2 text-slate-400 hover:bg-emerald-500/10 md:hidden" aria-label="Toggle menu">
+          <button onClick={() => setIsOpen(!isOpen)} className="rounded-lg p-2 text-slate-400 hover:bg-emerald-500/10 md:hidden" aria-label="Alternar menú">
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </nav>

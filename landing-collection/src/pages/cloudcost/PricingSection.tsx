@@ -26,16 +26,16 @@ export function PricingSection() {
 
   return (
     <section ref={sectionRef} id="pricing" className="relative py-32 md:py-40">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-500/[0.02] to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-b from-transparent via-blue-500/2 to-transparent" />
       <div className="absolute inset-0 cloud-grid opacity-10" />
       <div className="container-custom relative z-10">
         <header className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-blue-400">Pricing</p>
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-blue-400">Precios</p>
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Pricing that{' '}<span className="text-gradient">scales</span>
+            Precios que{' '}<span className="text-gradient">escalan</span>
           </h2>
           <p className="mt-4 text-lg text-slate-400">
-            Based on your cloud spend, not hidden metrics
+            Basado en tu gasto en la nube, no en métricas ocultas
           </p>
         </header>
 
@@ -44,7 +44,7 @@ export function PricingSection() {
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
               <Cloud className="w-5 h-5 text-blue-400" />
-              <span className="text-white font-medium">Monthly Cloud Spend</span>
+              <span className="text-white font-medium">Gasto Mensual en la Nube</span>
             </div>
             <span className="text-2xl font-bold text-blue-400">{currentTier.label}</span>
           </div>
@@ -75,8 +75,8 @@ export function PricingSection() {
               {typeof currentTier.price === 'number' ? (
                 currentTier.price === 0 ? (
                   <>
-                    <span className="text-5xl font-bold text-white">Free</span>
-                    <p className="mt-2 text-slate-500">For small cloud deployments</p>
+                    <span className="text-5xl font-bold text-white">Gratis</span>
+                    <p className="mt-2 text-slate-500">Para despliegues cloud pequeños</p>
                   </>
                 ) : (
                   <>
@@ -84,19 +84,19 @@ export function PricingSection() {
                       <span className="text-5xl font-bold text-white">${currentTier.price}</span>
                       <span className="text-slate-500">/month</span>
                     </div>
-                    <p className="mt-2 text-slate-500">Up to {currentTier.label} in cloud spend</p>
+                    <p className="mt-2 text-slate-500">Hasta {currentTier.label} en gasto cloud</p>
                   </>
                 )
               ) : (
                 <>
-                  <span className="text-4xl font-bold text-white">Contact Sales</span>
-                  <p className="mt-2 text-slate-500">For enterprise deployments</p>
+                  <span className="text-4xl font-bold text-white">Contactar Ventas</span>
+                  <p className="mt-2 text-slate-500">Para despliegues enterprise</p>
                 </>
               )}
             </div>
 
             <div className="p-4 rounded-xl bg-green-500/10 border border-green-500/30 mb-6">
-              <p className="text-sm text-slate-400 mb-1">Estimated Savings</p>
+              <p className="text-sm text-slate-400 mb-1">Ahorro Estimado</p>
               <p className="text-2xl font-bold text-green-400">{currentTier.savings}/mo</p>
             </div>
 
@@ -105,15 +105,15 @@ export function PricingSection() {
               className="btn-primary w-full rounded-xl px-6 py-4 text-lg font-semibold flex items-center justify-center gap-2"
             >
               <Zap className="w-5 h-5" />
-              {currentTier.price === 0 ? 'Get Started Free' : 'Start Free Trial'}
+              {currentTier.price === 0 ? 'Comenzar Gratis' : 'Iniciar Prueba Gratis'}
             </a>
-            <p className="mt-4 text-sm text-slate-500">14-day free trial • No credit card required</p>
+            <p className="mt-4 text-sm text-slate-500">Prueba gratis de 14 días • No requiere tarjeta de crédito</p>
           </div>
         </div>
 
         {/* ROI Examples */}
         <div className="max-w-4xl mx-auto">
-          <h3 className="text-xl font-semibold text-white text-center mb-8">Real Customer Results</h3>
+          <h3 className="text-xl font-semibold text-white text-center mb-8">Resultados Reales de Clientes</h3>
           <div className="grid md:grid-cols-3 gap-6">
             {ROI_EXAMPLES.map((example) => (
               <div key={example.company} className="card rounded-xl p-6 text-center">
@@ -123,11 +123,11 @@ export function PricingSection() {
                 <h4 className="font-semibold text-white mb-4">{example.company}</h4>
                 <div className="space-y-3">
                   <div className="flex justify-between text-sm">
-                    <span className="text-slate-500">Cloud Spend</span>
+                    <span className="text-slate-500">Gasto Cloud</span>
                     <span className="text-white">{example.spend}</span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-slate-500">Savings</span>
+                    <span className="text-slate-500">Ahorros</span>
                     <span className="text-green-400">{example.savings}</span>
                   </div>
                   <div className="pt-3 border-t border-slate-800">
@@ -147,10 +147,10 @@ export function PricingSection() {
         <div className="mt-16 p-6 rounded-2xl border border-slate-800 bg-slate-900/50 max-w-4xl mx-auto">
           <div className="flex items-center gap-4 mb-6">
             <Building2 className="w-6 h-6 text-blue-400" />
-            <h3 className="text-lg font-semibold text-white">Enterprise Features</h3>
+            <h3 className="text-lg font-semibold text-white">Características Enterprise</h3>
           </div>
           <div className="grid md:grid-cols-4 gap-4">
-            {['SSO/SAML', 'Custom Integrations', 'SLA Guarantee', 'Dedicated Support'].map((feature) => (
+            {['SSO/SAML', 'Integraciones Personalizadas', 'Garantía de SLA', 'Soporte Dedicado'].map((feature) => (
               <div key={feature} className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-blue-400" />
                 <span className="text-sm text-slate-400">{feature}</span>

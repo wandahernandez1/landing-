@@ -19,7 +19,7 @@ export function Footer() {
 
           {/* Shop Links */}
           <div>
-            <h3 className="label text-ivory-300 mb-6">Shop</h3>
+            <h3 className="label text-ivory-300 mb-6">Tienda</h3>
             <ul className="space-y-4">
               {FOOTER_LINKS.shop.map((link) => (
                 <li key={link.label}>
@@ -36,7 +36,7 @@ export function Footer() {
 
           {/* About Links */}
           <div>
-            <h3 className="label text-ivory-300 mb-6">About</h3>
+            <h3 className="label text-ivory-300 mb-6">Nosotros</h3>
             <ul className="space-y-4">
               {FOOTER_LINKS.about.map((link) => (
                 <li key={link.label}>
@@ -53,7 +53,7 @@ export function Footer() {
 
           {/* Support Links */}
           <div>
-            <h3 className="label text-ivory-300 mb-6">Support</h3>
+            <h3 className="label text-ivory-300 mb-6">Soporte</h3>
             <ul className="space-y-4">
               {FOOTER_LINKS.support.map((link) => (
                 <li key={link.label}>
@@ -75,21 +75,21 @@ export function Footer() {
         {/* Bottom Section */}
         <div className="mt-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-charcoal-500 text-sm">
-            © {COMPANY.year} {COMPANY.name}. All rights reserved.
+            © {COMPANY.year} {COMPANY.name}. Todos los derechos reservados.
           </p>
           
           <div className="flex items-center gap-6">
             <a href="#" className="text-charcoal-500 hover:text-ivory-50 transition-colors text-sm">
-              Privacy
+              Privacidad
             </a>
             <a href="#" className="text-charcoal-500 hover:text-ivory-50 transition-colors text-sm">
-              Terms
+              Términos
             </a>
             <Link 
               to="/"
               className="text-charcoal-500 hover:text-ivory-50 transition-colors text-sm"
             >
-              ← Back
+              ← Volver
             </Link>
           </div>
         </div>

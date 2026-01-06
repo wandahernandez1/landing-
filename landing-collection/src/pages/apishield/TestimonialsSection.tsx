@@ -15,25 +15,25 @@ const ENTERPRISE_LOGOS = [
 const CASE_STUDIES = [
   {
     company: 'FinTech Corp',
-    industry: 'Financial Services',
-    metric: '99.7% threat detection',
-    quote: 'APIShield stopped 2.3M attacks in our first month. Our security team finally sleeps at night.',
+    industry: 'Servicios Financieros',
+    metric: '99.7% detección de amenazas',
+    quote: 'APIShield detuvo 2.3M de ataques en nuestro primer mes. Nuestro equipo de seguridad por fin duerme tranquilo.',
     person: 'Sarah Chen, CISO',
   },
   {
     company: 'HealthTech Inc',
-    industry: 'Healthcare',
-    metric: 'HIPAA compliant in 2 weeks',
-    quote: 'We achieved HIPAA compliance faster than we thought possible. The audit trail alone is worth it.',
+    industry: 'Salud',
+    metric: 'Conforme a HIPAA en 2 semanas',
+    quote: 'Logramos el cumplimiento HIPAA más rápido de lo que pensábamos. Solo el registro de auditoría ya vale la pena.',
     person: 'Dr. Michael Ross, CTO',
   },
 ]
 
 // Whitepaper topics
 const WHITEPAPERS = [
-  { title: 'API Security Best Practices 2024', pages: 32, downloads: '12K+' },
-  { title: 'Zero Trust for APIs', pages: 24, downloads: '8K+' },
-  { title: 'OWASP API Top 10 Guide', pages: 18, downloads: '15K+' },
+  { title: 'Mejores Prácticas de Seguridad API 2024', pages: 32, downloads: '12K+' },
+  { title: 'Zero Trust para APIs', pages: 24, downloads: '8K+' },
+  { title: 'Guía OWASP API Top 10', pages: 18, downloads: '15K+' },
 ]
 
 export function TestimonialsSection() {
@@ -49,7 +49,7 @@ export function TestimonialsSection() {
         
         {/* Enterprise Logos */}
         <div className="mb-32">
-          <p className="text-center text-sm text-slate-500 mb-8">Protecting APIs for industry leaders</p>
+          <p className="text-center text-sm text-slate-500 mb-8">Protegiendo APIs para líderes de la industria</p>
           <div className="flex flex-wrap justify-center gap-8 md:gap-12">
             {ENTERPRISE_LOGOS.map((company) => (
               <div 
@@ -67,10 +67,10 @@ export function TestimonialsSection() {
         <div className="mb-32">
           <header className="mx-auto mb-12 max-w-3xl text-center">
             <p className="mb-4 text-sm font-medium uppercase tracking-widest text-emerald-400">
-              Success Stories
+              Casos de Éxito
             </p>
             <h2 id="testimonials-title" className="text-4xl font-bold tracking-tight sm:text-5xl">
-              Enterprise{' '}<span className="text-gradient">results</span>
+              Resultados{' '}<span className="text-gradient">empresariales</span>
             </h2>
           </header>
 
@@ -100,7 +100,7 @@ export function TestimonialsSection() {
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-slate-500">{study.person}</span>
                   <a href="#" className="flex items-center gap-1 text-sm text-emerald-400 hover:text-emerald-300">
-                    Read case study
+                    Leer caso de estudio
                     <ExternalLink className="w-3 h-3" />
                   </a>
                 </div>
@@ -111,20 +111,20 @@ export function TestimonialsSection() {
 
         {/* Security Whitepaper CTA */}
         <div>
-          <div className="max-w-4xl mx-auto rounded-2xl border border-emerald-500/20 bg-gradient-to-br from-emerald-950/40 to-slate-900/80 overflow-hidden">
+          <div className="max-w-4xl mx-auto rounded-2xl border border-emerald-500/20 bg-linear-to-br from-emerald-950/40 to-slate-900/80 overflow-hidden">
             <div className="grid md:grid-cols-2">
               {/* Content */}
               <div className="p-8 md:p-12">
                 <div className="flex items-center gap-2 mb-4">
                   <FileText className="w-5 h-5 text-emerald-400" />
-                  <span className="text-sm text-emerald-400 font-medium">Free Resources</span>
+                  <span className="text-sm text-emerald-400 font-medium">Recursos Gratuitos</span>
                 </div>
 
                 <h3 className="text-2xl font-bold text-white mb-4">
-                  Security whitepapers for API teams
+                  Whitepapers de seguridad para equipos de API
                 </h3>
                 <p className="text-slate-400 mb-6">
-                  Deep-dive technical guides written by our security research team. No fluff, just actionable security advice.
+                  Guías técnicas profundas escritas por nuestro equipo de investigación de seguridad. Sin relleno, solo consejos de seguridad accionables.
                 </p>
 
                 {!showEmailForm ? (
@@ -133,7 +133,7 @@ export function TestimonialsSection() {
                     className="btn-primary flex items-center gap-2 rounded-xl px-6 py-3 font-semibold"
                   >
                     <Download className="w-5 h-5" />
-                    Get Free Whitepapers
+                    Obtener Whitepapers Gratis
                   </button>
                 ) : (
                   <form className="space-y-3" onSubmit={(e) => e.preventDefault()}>
@@ -141,14 +141,14 @@ export function TestimonialsSection() {
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Work email"
+                      placeholder="Email de trabajo"
                       className="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500"
                     />
                     <button
                       type="submit"
                       className="btn-primary w-full flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-semibold"
                     >
-                      Download All
+                      Descargar Todo
                       <ArrowRight className="w-5 h-5" />
                     </button>
                   </form>
@@ -157,19 +157,19 @@ export function TestimonialsSection() {
 
               {/* Whitepaper list */}
               <div className="p-8 md:p-12 bg-slate-900/50 border-t md:border-t-0 md:border-l border-slate-800">
-                <p className="text-sm text-slate-500 mb-4">Available guides:</p>
+                <p className="text-sm text-slate-500 mb-4">Guías disponibles:</p>
                 <div className="space-y-4">
                   {WHITEPAPERS.map((paper) => (
                     <div 
                       key={paper.title}
                       className="flex items-center gap-4 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 transition-colors"
                     >
-                      <div className="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+                      <div className="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center shrink-0">
                         <FileText className="w-5 h-5 text-emerald-400" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-medium text-white truncate">{paper.title}</p>
-                        <p className="text-xs text-slate-500">{paper.pages} pages • {paper.downloads} downloads</p>
+                        <p className="text-xs text-slate-500">{paper.pages} páginas • {paper.downloads} descargas</p>
                       </div>
                     </div>
                   ))}
@@ -182,10 +182,10 @@ export function TestimonialsSection() {
         {/* Stats bar */}
         <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
           {[
-            { value: '10B+', label: 'Requests protected/day' },
-            { value: '500+', label: 'Enterprise clients' },
-            { value: '99.99%', label: 'Uptime SLA' },
-            { value: '<1ms', label: 'Added latency' },
+            { value: '10B+', label: 'Peticiones protegidas/día' },
+            { value: '500+', label: 'Clientes empresariales' },
+            { value: '99.99%', label: 'SLA de disponibilidad' },
+            { value: '<1ms', label: 'Latencia añadida' },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
               <div className="text-3xl font-bold text-emerald-400 mb-1">{stat.value}</div>

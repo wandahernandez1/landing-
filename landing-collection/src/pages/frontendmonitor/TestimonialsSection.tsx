@@ -4,11 +4,11 @@ import { cn } from '@/shared/utils/cn'
 
 // Session replay events
 const SESSION_EVENTS = [
-  { time: 0, type: 'pageview', data: '/ (Homepage)' },
-  { time: 2.3, type: 'click', data: 'Add to Cart button' },
+  { time: 0, type: 'pageview', data: '/ (Página principal)' },
+  { time: 2.3, type: 'click', data: 'Botón Añadir al Carrito' },
   { time: 3.1, type: 'navigation', data: '/cart' },
-  { time: 5.5, type: 'input', data: 'Promo code field' },
-  { time: 7.2, type: 'click', data: 'Checkout button' },
+  { time: 5.5, type: 'input', data: 'Campo de código promo' },
+  { time: 7.2, type: 'click', data: 'Botón de Pago' },
   { time: 8.0, type: 'error', data: 'TypeError: undefined' },
 ]
 
@@ -45,12 +45,12 @@ export function TestimonialsSection() {
       <div className="absolute inset-0 error-grid opacity-10" />
       <div className="container-custom relative z-10">
         <header className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-red-400">Session Replay</p>
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-red-400">Reproducción de Sesión</p>
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Watch users{' '}<span className="text-gradient">experience errors</span>
+            Observa cómo los usuarios{' '}<span className="text-gradient">experimentan errores</span>
           </h2>
           <p className="mt-6 text-lg text-slate-400">
-            Pixel-perfect session replays show you exactly what happened
+            Reproducciones de sesión pixel-perfect te muestran exactamente qué pasó
           </p>
         </header>
 
@@ -77,7 +77,7 @@ export function TestimonialsSection() {
                         <div className="aspect-square bg-slate-200 rounded" />
                         <div className="h-3 bg-slate-200 rounded w-2/3" />
                         <div className="h-6 bg-red-500 rounded text-white text-xs flex items-center justify-center">
-                          Add to Cart
+                          Añadir al Carrito
                         </div>
                       </div>
                     ))}

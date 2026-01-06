@@ -12,7 +12,7 @@ const COHORTS = [
   { month: 'Jun', retention: [100, null, null, null, null, null] },
 ]
 
-const TIME_PERIODS = ['Month 0', 'Month 1', 'Month 2', 'Month 3', 'Month 4', 'Month 5']
+const TIME_PERIODS = ['Mes 0', 'Mes 1', 'Mes 2', 'Mes 3', 'Mes 4', 'Mes 5']
 
 export function TestimonialsSection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -32,12 +32,12 @@ export function TestimonialsSection() {
       <div className="absolute inset-0 indie-grid opacity-10" />
       <div className="container-custom relative z-10">
         <header className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-emerald-400">Cohort Analysis</p>
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-emerald-400">Análisis de Cohortes</p>
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            See retention{' '}<span className="text-gradient">clearly</span>
+            Ve la retención{' '}<span className="text-gradient">claramente</span>
           </h2>
           <p className="mt-6 text-lg text-neutral-400">
-            Understand how each cohort evolves over time
+            Entiende cómo evoluciona cada cohorte con el tiempo
           </p>
         </header>
 
@@ -47,7 +47,7 @@ export function TestimonialsSection() {
             <div className="p-6 border-b border-neutral-800 flex items-center justify-between">
               <h3 className="font-semibold text-white flex items-center gap-2">
                 <Users className="w-5 h-5 text-emerald-400" />
-                Retention by Cohort
+                Retención por Cohorte
               </h3>
               <div className="flex items-center gap-4 text-sm text-neutral-400">
                 <span className="flex items-center gap-2">
@@ -114,7 +114,7 @@ export function TestimonialsSection() {
               </div>
               <div className="flex items-center gap-2 text-emerald-400 text-sm">
                 <TrendingUp className="w-4 h-4" />
-                Avg retention: 68%
+                Retención promedio: 68%
               </div>
             </div>
           </div>
@@ -122,9 +122,9 @@ export function TestimonialsSection() {
           {/* Insights */}
           <div className="mt-8 grid md:grid-cols-3 gap-4">
             {[
-              { metric: 'Best cohort', value: 'May 2024', detail: '91% Month 1 retention' },
-              { metric: 'Avg M1 drop', value: '12%', detail: 'Industry avg: 25%' },
-              { metric: 'LTV predictor', value: 'Month 2', detail: 'Strongest retention signal' },
+              { metric: 'Mejor cohorte', value: 'May 2024', detail: '91% retención Mes 1' },
+              { metric: 'Caída M1 promedio', value: '12%', detail: 'Promedio industria: 25%' },
+              { metric: 'Predictor LTV', value: 'Mes 2', detail: 'Señal de retención más fuerte' },
             ].map((insight) => (
               <div key={insight.metric} className="p-4 rounded-xl bg-neutral-900/50 border border-neutral-800 text-center">
                 <p className="text-sm text-neutral-400">{insight.metric}</p>

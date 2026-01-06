@@ -20,8 +20,8 @@ export function Navbar() {
             ))}
           </div>
           <div className="hidden items-center gap-4 md:flex">
-            <a href="#" className="text-sm text-slate-400 hover:text-white">Login</a>
-            <a href="#pricing" className="btn-primary rounded-xl px-5 py-2.5 text-sm font-medium">Get Started</a>
+            <a href="#" className="text-sm text-slate-400 hover:text-white">Iniciar sesión</a>
+            <a href="#pricing" className="btn-primary rounded-xl px-5 py-2.5 text-sm font-medium">Comenzar</a>
           </div>
           <button onClick={() => setIsOpen(!isOpen)} className="rounded-lg p-2 text-slate-400 hover:bg-orange-500/10 md:hidden" aria-label="Toggle menu">
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -33,7 +33,7 @@ export function Navbar() {
               {NAV_LINKS.map((link) => (
                 <a key={link.href} href={link.href} className="text-slate-300 hover:text-orange-400" onClick={() => setIsOpen(false)}>{link.label}</a>
               ))}
-              <a href="#pricing" className="btn-primary rounded-xl px-5 py-2.5 text-center text-sm font-medium">Get Started</a>
+              <a href="#pricing" className="btn-primary rounded-xl px-5 py-2.5 text-center text-sm font-medium">Comenzar</a>
             </div>
           </div>
         )}

@@ -5,39 +5,39 @@ import { useRef, useState } from 'react'
 const PLANS = [
   { 
     id: 'oss', 
-    name: 'Open Source', 
+    name: 'Código Abierto', 
     icon: Github,
-    price: 'Free',
-    description: 'Self-hosted, MIT license',
-    features: ['Unlimited pages', 'OpenAPI import', 'API playground', 'Dark mode', 'Community support'],
+    price: 'Gratis',
+    description: 'Self-hosted, licencia MIT',
+    features: ['Páginas ilimitadas', 'Importar OpenAPI', 'Playground de API', 'Modo oscuro', 'Soporte comunidad'],
   },
   { 
     id: 'cloud', 
     name: 'Cloud', 
     icon: Cloud,
     price: '$79',
-    period: '/mo',
-    description: 'Managed hosting',
-    features: ['Everything in OSS', 'Custom domain', 'Analytics', 'Private repos', 'Algolia search', 'Priority support'],
+    period: '/mes',
+    description: 'Hosting gestionado',
+    features: ['Todo de Código Abierto', 'Dominio personalizado', 'Analytics', 'Repos privados', 'Búsqueda Algolia', 'Soporte prioritario'],
     popular: true,
   },
   { 
     id: 'enterprise', 
     name: 'Enterprise', 
     icon: Building2,
-    price: 'Custom',
-    description: 'For large teams',
-    features: ['Everything in Cloud', 'SSO / SAML', 'Multiple projects', 'White-label', 'SLA 99.99%', 'Dedicated success'],
+    price: 'Personalizado',
+    description: 'Para equipos grandes',
+    features: ['Todo de Cloud', 'SSO / SAML', 'Múltiples proyectos', 'Marca blanca', 'SLA 99.99%', 'Éxito dedicado'],
   },
 ]
 
 const COMPARISON = [
-  { feature: 'Pages', oss: 'Unlimited', cloud: 'Unlimited', enterprise: 'Unlimited' },
-  { feature: 'Custom domain', oss: '—', cloud: '✓', enterprise: '✓' },
-  { feature: 'Analytics', oss: 'Basic', cloud: 'Advanced', enterprise: 'Advanced + Export' },
-  { feature: 'Search', oss: 'Built-in', cloud: 'Algolia', enterprise: 'Algolia' },
+  { feature: 'Páginas', oss: 'Ilimitadas', cloud: 'Ilimitadas', enterprise: 'Ilimitadas' },
+  { feature: 'Dominio personalizado', oss: '—', cloud: '✓', enterprise: '✓' },
+  { feature: 'Analytics', oss: 'Básico', cloud: 'Avanzado', enterprise: 'Avanzado + Exportar' },
+  { feature: 'Búsqueda', oss: 'Integrada', cloud: 'Algolia', enterprise: 'Algolia' },
   { feature: 'SSO', oss: '—', cloud: '—', enterprise: '✓' },
-  { feature: 'Support', oss: 'Community', cloud: 'Priority', enterprise: 'Dedicated' },
+  { feature: 'Soporte', oss: 'Comunidad', cloud: 'Prioritario', enterprise: 'Dedicado' },
 ]
 
 export function PricingSection() {
@@ -50,12 +50,12 @@ export function PricingSection() {
       <div className="absolute inset-0 docs-grid opacity-10" />
       <div className="container-custom relative z-10">
         <header className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-violet-400">Pricing</p>
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-violet-400">Precios</p>
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Start{' '}<span className="text-gradient">free</span>, scale up
+            Comienza{' '}<span className="text-gradient">gratis</span>, escala
           </h2>
           <p className="mt-6 text-lg text-slate-400">
-            Open source at heart. Cloud when you need it.
+            Código abierto de corazón. Cloud cuando lo necesites.
           </p>
         </header>
 
@@ -113,7 +113,7 @@ export function PricingSection() {
                   plan.popular ? 'btn-primary' : 'btn-secondary'
                 )}
               >
-                {plan.price === 'Free' ? 'Get Started' : plan.price === 'Custom' ? 'Contact Sales' : 'Start Free Trial'}
+                {plan.price === 'Gratis' ? 'Comenzar' : plan.price === 'Personalizado' ? 'Contactar Ventas' : 'Iniciar Prueba Gratis'}
               </a>
             </div>
           </div>
@@ -121,12 +121,12 @@ export function PricingSection() {
 
         {/* Comparison table */}
         <div className="max-w-3xl mx-auto">
-          <h3 className="text-xl font-semibold text-white text-center mb-6">Compare Plans</h3>
+          <h3 className="text-xl font-semibold text-white text-center mb-6">Comparar Planes</h3>
           <div className="rounded-xl border border-slate-800 overflow-hidden">
             <table className="w-full">
               <thead>
                 <tr className="border-b border-slate-800 bg-slate-900/50">
-                  <th className="text-left p-4 text-slate-400 font-medium">Feature</th>
+                  <th className="text-left p-4 text-slate-400 font-medium">Característica</th>
                   <th className="p-4 text-slate-400 font-medium">OSS</th>
                   <th className="p-4 text-violet-400 font-medium">Cloud</th>
                   <th className="p-4 text-slate-400 font-medium">Enterprise</th>

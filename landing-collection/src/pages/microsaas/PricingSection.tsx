@@ -1,20 +1,20 @@
 import { Check, Zap, Gift, Clock, Users, ArrowRight, Sparkles, Shield } from 'lucide-react'
 import { useRef, useState, useEffect } from 'react'
 
-// Single pricing with all features
+// Precio único con todas las funciones
 const ALL_FEATURES = [
-  { text: 'Full source code access', highlight: true },
+  { text: 'Acceso completo al código fuente', highlight: true },
   { text: 'Next.js 14 + TypeScript', highlight: false },
-  { text: 'Stripe payments integration', highlight: true },
-  { text: 'Authentication (Social + Magic Link)', highlight: true },
-  { text: 'Database with Prisma', highlight: false },
-  { text: 'Resend email integration', highlight: false },
-  { text: '50+ UI components', highlight: true },
-  { text: 'SEO optimized', highlight: false },
-  { text: 'Analytics ready', highlight: false },
-  { text: 'Discord community access', highlight: true },
-  { text: 'Lifetime updates', highlight: true },
-  { text: 'Deploy guides (Vercel, Railway)', highlight: false },
+  { text: 'Integración de pagos con Stripe', highlight: true },
+  { text: 'Autenticación (Social + Magic Link)', highlight: true },
+  { text: 'Base de datos con Prisma', highlight: false },
+  { text: 'Integración email con Resend', highlight: false },
+  { text: '50+ componentes UI', highlight: true },
+  { text: 'Optimizado para SEO', highlight: false },
+  { text: 'Analytics listo', highlight: false },
+  { text: 'Acceso a comunidad Discord', highlight: true },
+  { text: 'Actualizaciones de por vida', highlight: true },
+  { text: 'Guías de deploy (Vercel, Railway)', highlight: false },
 ]
 
 export function PricingSection() {
@@ -47,12 +47,12 @@ export function PricingSection() {
         
         {/* Header */}
         <header className="mx-auto mb-12 max-w-3xl text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-orange-400">Simple Pricing</p>
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-orange-400">Precio Simple</p>
           <h2 id="pricing-title" className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl mb-4">
-            One price,{' '}<span className="text-gradient">everything included</span>
+            Un precio,{' '}<span className="text-gradient">todo incluido</span>
           </h2>
           <p className="text-lg text-slate-400">
-            No subscriptions. No upsells. Pay once, build unlimited projects.
+            Sin suscripciones. Sin ventas adicionales. Paga una vez, construye proyectos ilimitados.
           </p>
         </header>
 
@@ -61,7 +61,7 @@ export function PricingSection() {
           <div className="flex items-center justify-center gap-6 px-6 py-3 rounded-xl bg-orange-500/10 border border-orange-500/20">
             <div className="flex items-center gap-2">
               <Users className="w-4 h-4 text-orange-400" />
-              <span className="text-sm text-orange-400 font-medium">{spotsLeft} spots left at this price</span>
+              <span className="text-sm text-orange-400 font-medium">{spotsLeft} lugares a este precio</span>
             </div>
             <div className="w-px h-4 bg-orange-500/30" />
             <div className="flex items-center gap-2">
@@ -80,7 +80,7 @@ export function PricingSection() {
             <div className="absolute -top-px left-1/2 -translate-x-1/2">
               <div className="px-6 py-1.5 rounded-b-xl bg-gradient-to-r from-orange-500 to-orange-600 text-sm font-bold text-white flex items-center gap-2">
                 <Zap className="w-4 h-4" />
-                Launch Special
+                Oferta de Lanzamiento
               </div>
             </div>
 
@@ -95,7 +95,7 @@ export function PricingSection() {
                   <span className="text-6xl md:text-7xl font-bold text-white">$99</span>
                   <span className="text-xl text-slate-500">USD</span>
                 </div>
-                <p className="text-slate-500 mt-2">One-time payment • Lifetime access</p>
+                <p className="text-slate-500 mt-2">Pago único • Acceso de por vida</p>
               </div>
 
               {/* Features grid */}
@@ -120,7 +120,7 @@ export function PricingSection() {
               {/* CTA */}
               <button className="btn-primary w-full flex items-center justify-center gap-2 rounded-xl px-8 py-4 text-lg font-semibold group">
                 <Sparkles className="w-5 h-5" />
-                Get MicroSaaS Starter
+                Obtener MicroSaaS Starter
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
 
@@ -128,15 +128,15 @@ export function PricingSection() {
               <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-sm text-slate-500">
                 <div className="flex items-center gap-1">
                   <Shield className="w-4 h-4 text-green-500" />
-                  <span>30-day refund</span>
+                  <span>Reembolso 30 días</span>
                 </div>
                 <div className="flex items-center gap-1">
                   <Gift className="w-4 h-4 text-orange-400" />
-                  <span>Free updates</span>
+                  <span>Actualizaciones gratis</span>
                 </div>
                 <div className="flex items-center gap-1">
                   <Users className="w-4 h-4 text-blue-400" />
-                  <span>Discord access</span>
+                  <span>Acceso Discord</span>
                 </div>
               </div>
             </div>
@@ -146,10 +146,10 @@ export function PricingSection() {
         {/* FAQ teaser */}
         <div className="mt-12 text-center">
           <p className="text-slate-500">
-            Questions? Check our{' '}
+            ¿Preguntas? Consulta nuestro{' '}
             <a href="#faq" className="text-orange-400 hover:text-orange-300 underline">FAQ</a>
-            {' '}or{' '}
-            <a href="mailto:hello@microsaas.dev" className="text-orange-400 hover:text-orange-300 underline">email us</a>
+            {' '}o{' '}
+            <a href="mailto:hello@microsaas.dev" className="text-orange-400 hover:text-orange-300 underline">escríbenos</a>
           </p>
         </div>
       </div>

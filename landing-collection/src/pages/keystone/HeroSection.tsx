@@ -34,7 +34,7 @@ export function HeroSection() {
   ]
 
   const trustBadges = [
-    { Icon: Shield, label: 'SOC 2 Certified' },
+    { Icon: Shield, label: 'Certificado SOC 2' },
     { Icon: Award, label: 'Top PropTech 2024' },
     { Icon: Users, label: '+500 Enterprise' },
   ]

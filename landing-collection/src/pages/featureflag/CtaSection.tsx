@@ -3,16 +3,16 @@ import { useRef, useState } from 'react'
 
 // Quick start steps
 const QUICK_START = [
-  { step: 1, command: 'npm install @featureflag/sdk', label: 'Install SDK' },
-  { step: 2, command: 'FF.init({ key: "YOUR_KEY" })', label: 'Initialize' },
-  { step: 3, command: 'FF.isEnabled("new-feature")', label: 'Check flag' },
+  { step: 1, command: 'npm install @featureflag/sdk', label: 'Instalar SDK' },
+  { step: 2, command: 'FF.init({ key: "YOUR_KEY" })', label: 'Inicializar' },
+  { step: 3, command: 'FF.isEnabled("new-feature")', label: 'Verificar flag' },
 ]
 
 // Resources
 const RESOURCES = [
-  { icon: BookOpen, label: 'Documentation', desc: 'Comprehensive guides', href: '#' },
-  { icon: Github, label: 'GitHub', desc: 'Open source SDKs', href: '#' },
-  { icon: MessageSquare, label: 'Discord', desc: '2K+ developers', href: '#' },
+  { icon: BookOpen, label: 'Documentación', desc: 'Guías completas', href: '#' },
+  { icon: Github, label: 'GitHub', desc: 'SDKs open source', href: '#' },
+  { icon: MessageSquare, label: 'Discord', desc: '2K+ desarrolladores', href: '#' },
 ]
 
 export function CtaSection() {
@@ -36,10 +36,10 @@ export function CtaSection() {
           <header className="text-center mb-12">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-500/10 border border-teal-500/30 mb-6">
               <Terminal className="w-4 h-4 text-teal-400" />
-              <span className="text-sm font-medium text-teal-400">Quick Start</span>
+              <span className="text-sm font-medium text-teal-400">Inicio Rápido</span>
             </div>
             <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
-              Ship in{' '}<span className="text-gradient">3 steps</span>
+              Despliega en{' '}<span className="text-gradient">3 pasos</span>
             </h2>
           </header>
 
@@ -69,7 +69,7 @@ export function CtaSection() {
                     <code className="text-sm text-teal-400 font-mono">{command}</code>
                   </div>
                   <span className="text-xs text-slate-600 group-hover:text-slate-400 transition-colors">
-                    {copiedStep === step ? '✓ Copied!' : 'Click to copy'}
+                    {copiedStep === step ? '✓ ¡Copiado!' : 'Clic para copiar'}
                   </span>
                 </div>
               ))}
@@ -86,24 +86,24 @@ export function CtaSection() {
             </div>
           </div>
           <h3 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-6">
-            Ready to ship fearlessly?
+            ¿Listo para desplegar sin miedo?
           </h3>
           <p className="text-lg text-slate-400 mb-10 max-w-xl mx-auto">
-            Join 10,000+ teams who deploy with confidence.
+            Únete a 10,000+ equipos que despliegan con confianza.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a href="#pricing" className="btn-primary flex items-center gap-2 rounded-xl px-8 py-4 text-lg font-semibold">
               <ToggleRight className="h-5 w-5" />
-              Start Free
+              Comenzar Gratis
               <ArrowRight className="h-5 w-5" />
             </a>
             <a href="#" className="btn-secondary rounded-xl px-8 py-4 text-lg font-medium flex items-center gap-2">
               <Github className="h-5 w-5" />
-              View on GitHub
+              Ver en GitHub
             </a>
           </div>
           <p className="mt-6 text-sm text-slate-500">
-            Open source • MIT License • Community driven
+            Open source • Licencia MIT • Impulsado por la comunidad
           </p>
         </div>
 

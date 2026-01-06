@@ -86,7 +86,7 @@ export function HeroSection() {
 
           {/* Trust Badges */}
           <div className="mt-12 flex flex-wrap justify-center gap-4">
-            {['Forbes Top 10', 'Google Partner', 'AWS Certified', 'ISO 9001'].map((badge) => (
+            {['Forbes Top 10', 'Google Partner', 'Certificado AWS', 'ISO 9001'].map((badge) => (
               <div 
                 key={badge}
                 className="trust-badge flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-amber-200 shadow-sm"

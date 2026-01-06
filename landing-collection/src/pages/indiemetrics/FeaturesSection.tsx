@@ -45,12 +45,12 @@ export function FeaturesSection() {
       <div className="absolute inset-0 indie-grid opacity-20" />
       <div className="container-custom relative z-10">
         <header className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-emerald-400">Live Dashboard</p>
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-emerald-400">Dashboard en Vivo</p>
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Your MRR,{' '}<span className="text-gradient">real-time</span>
+            Tu MRR,{' '}<span className="text-gradient">en tiempo real</span>
           </h2>
           <p className="mt-6 text-lg text-neutral-400">
-            Connect Stripe and see your numbers update live
+            Conecta Stripe y ve tus números actualizarse en vivo
           </p>
         </header>
 
@@ -60,9 +60,9 @@ export function FeaturesSection() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             {[
               { label: 'MRR', value: `$${liveValue.toLocaleString()}`, change: METRICS.mrr.change, trend: METRICS.mrr.trend, icon: DollarSign },
-              { label: 'Customers', value: METRICS.customers.value, change: METRICS.customers.change, trend: METRICS.customers.trend, icon: Users },
-              { label: 'Churn Rate', value: `${METRICS.churn.value}%`, change: METRICS.churn.change, trend: METRICS.churn.trend, icon: TrendingDown },
-              { label: 'Avg LTV', value: `$${METRICS.ltv.value}`, change: METRICS.ltv.change, trend: METRICS.ltv.trend, icon: TrendingUp },
+              { label: 'Clientes', value: METRICS.customers.value, change: METRICS.customers.change, trend: METRICS.customers.trend, icon: Users },
+              { label: 'Tasa de Churn', value: `${METRICS.churn.value}%`, change: METRICS.churn.change, trend: METRICS.churn.trend, icon: TrendingDown },
+              { label: 'LTV Promedio', value: `$${METRICS.ltv.value}`, change: METRICS.ltv.change, trend: METRICS.ltv.trend, icon: TrendingUp },
             ].map((metric) => (
               <div key={metric.label} className="rounded-xl bg-neutral-900/80 border border-neutral-800 p-5">
                 <div className="flex items-center justify-between mb-3">
@@ -86,7 +86,7 @@ export function FeaturesSection() {
           <div className="grid md:grid-cols-[2fr_1fr] gap-6">
             {/* MRR Chart */}
             <div className="rounded-xl bg-neutral-900/80 border border-neutral-800 p-6">
-              <h3 className="font-semibold text-white mb-6">MRR Growth</h3>
+              <h3 className="font-semibold text-white mb-6">Crecimiento MRR</h3>
               <div className="flex items-end justify-between gap-2 h-40">
                 {MRR_HISTORY.map((month) => (
                   <div key={month.month} className="flex-1 flex flex-col items-center gap-2">
@@ -102,7 +102,7 @@ export function FeaturesSection() {
 
             {/* Recent events */}
             <div className="rounded-xl bg-neutral-900/80 border border-neutral-800 p-6">
-              <h3 className="font-semibold text-white mb-4">Live Events</h3>
+              <h3 className="font-semibold text-white mb-4">Eventos en Vivo</h3>
               <div className="space-y-3">
                 {RECENT_EVENTS.map((event, idx) => (
                   <div key={idx} className="flex items-center justify-between py-2 border-b border-neutral-800 last:border-0">

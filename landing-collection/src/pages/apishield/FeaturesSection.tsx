@@ -5,51 +5,51 @@ import { Shield, AlertTriangle, Zap, Bug, Key, Server, Database, Cloud, Check, A
 const ATTACK_SCENARIOS = [
   {
     id: 'injection',
-    name: 'SQL Injection',
+    name: 'Inyección SQL',
     icon: Bug,
-    threat: 'Attacker attempts to inject malicious SQL code',
+    threat: 'Atacante intenta inyectar código SQL malicioso',
     request: "GET /api/users?id=1'; DROP TABLE users;--",
-    response: 'BLOCKED: SQL injection detected',
-    protection: 'Pattern matching + ML detection',
+    response: 'BLOQUEADO: Inyección SQL detectada',
+    protection: 'Coincidencia de patrones + detección ML',
     color: 'red'
   },
   {
     id: 'bruteforce',
-    name: 'Brute Force Attack',
+    name: 'Ataque de Fuerza Bruta',
     icon: Key,
-    threat: '10,000 login attempts in 60 seconds',
-    request: 'POST /api/login (repeated)',
-    response: 'BLOCKED: Rate limit exceeded',
-    protection: 'Intelligent rate limiting',
+    threat: '10,000 intentos de login en 60 segundos',
+    request: 'POST /api/login (repetido)',
+    response: 'BLOQUEADO: Límite de tasa excedido',
+    protection: 'Limitación de tasa inteligente',
     color: 'orange'
   },
   {
     id: 'ddos',
-    name: 'DDoS Attack',
+    name: 'Ataque DDoS',
     icon: Zap,
-    threat: 'Massive request flood from botnet',
-    request: '1M requests/sec from 50K IPs',
-    response: 'MITIGATED: Traffic filtered',
-    protection: 'Edge-level DDoS protection',
+    threat: 'Inundación masiva de peticiones desde botnet',
+    request: '1M peticiones/seg desde 50K IPs',
+    response: 'MITIGADO: Tráfico filtrado',
+    protection: 'Protección DDoS a nivel edge',
     color: 'yellow'
   },
 ]
 
 // Compliance certifications
 const COMPLIANCE_CERTS = [
-  { name: 'SOC 2', type: 'Type II', status: 'certified', desc: 'Security, Availability, Confidentiality' },
-  { name: 'HIPAA', type: 'BAA Available', status: 'certified', desc: 'Healthcare data protection' },
-  { name: 'PCI-DSS', type: 'Level 1', status: 'certified', desc: 'Payment card industry' },
-  { name: 'GDPR', type: 'Compliant', status: 'certified', desc: 'EU data protection' },
-  { name: 'ISO 27001', type: 'Certified', status: 'certified', desc: 'Information security' },
-  { name: 'FedRAMP', type: 'In Progress', status: 'pending', desc: 'US Government' },
+  { name: 'SOC 2', type: 'Tipo II', status: 'certified', desc: 'Seguridad, Disponibilidad, Confidencialidad' },
+  { name: 'HIPAA', type: 'BAA Disponible', status: 'certified', desc: 'Protección de datos de salud' },
+  { name: 'PCI-DSS', type: 'Nivel 1', status: 'certified', desc: 'Industria de tarjetas de pago' },
+  { name: 'GDPR', type: 'Conforme', status: 'certified', desc: 'Protección de datos UE' },
+  { name: 'ISO 27001', type: 'Certificado', status: 'certified', desc: 'Seguridad de la información' },
+  { name: 'FedRAMP', type: 'En Progreso', status: 'pending', desc: 'Gobierno de EE.UU.' },
 ]
 
 // Architecture components
 const ARCHITECTURE_FLOW = [
-  { id: 'client', name: 'Client App', icon: Server, type: 'source' },
+  { id: 'client', name: 'App Cliente', icon: Server, type: 'source' },
   { id: 'edge', name: 'APIShield Edge', icon: Shield, type: 'shield' },
-  { id: 'api', name: 'Your API', icon: Database, type: 'destination' },
+  { id: 'api', name: 'Tu API', icon: Database, type: 'destination' },
 ]
 
 export function FeaturesSection() {
@@ -68,10 +68,10 @@ export function FeaturesSection() {
         <div className="mb-40">
           <header className="mx-auto mb-12 max-w-3xl text-center">
             <p className="mb-4 text-sm font-medium uppercase tracking-widest text-emerald-400">
-              Protection in Action
+              Protección en Acción
             </p>
             <h2 id="features-title" className="text-4xl font-bold tracking-tight sm:text-5xl">
-              See how we stop{' '}<span className="text-gradient">attacks</span>
+              Mira cómo detenemos{' '}<span className="text-gradient">ataques</span>
             </h2>
           </header>
 
@@ -106,18 +106,18 @@ export function FeaturesSection() {
                       </div>
                       <div>
                         <h3 className="text-xl font-bold text-white">{scenario.name}</h3>
-                        <p className="text-sm text-slate-500">Attack detected</p>
+                        <p className="text-sm text-slate-500">Ataque detectado</p>
                       </div>
                     </div>
 
                     <div className="space-y-4">
                       <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/20">
-                        <p className="text-xs text-red-400 mb-1">Threat</p>
+                        <p className="text-xs text-red-400 mb-1">Amenaza</p>
                         <p className="text-sm text-slate-300">{scenario.threat}</p>
                       </div>
 
                       <div className="p-3 rounded-lg bg-slate-800/50">
-                        <p className="text-xs text-slate-500 mb-1">Malicious Request</p>
+                        <p className="text-xs text-slate-500 mb-1">Petición Maliciosa</p>
                         <code className="text-sm text-red-300 font-mono break-all">{scenario.request}</code>
                       </div>
                     </div>
@@ -130,19 +130,19 @@ export function FeaturesSection() {
                         <Shield className="w-6 h-6 text-emerald-400" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-white">APIShield Response</h3>
-                        <p className="text-sm text-emerald-400">Protected</p>
+                        <h3 className="text-xl font-bold text-white">Respuesta APIShield</h3>
+                        <p className="text-sm text-emerald-400">Protegido</p>
                       </div>
                     </div>
 
                     <div className="space-y-4">
                       <div className="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
-                        <p className="text-xs text-emerald-400 mb-1">Action</p>
+                        <p className="text-xs text-emerald-400 mb-1">Acción</p>
                         <p className="text-sm text-white font-medium">{scenario.response}</p>
                       </div>
 
                       <div className="p-3 rounded-lg bg-slate-800/50">
-                        <p className="text-xs text-slate-500 mb-1">Protection Method</p>
+                        <p className="text-xs text-slate-500 mb-1">Método de Protección</p>
                         <p className="text-sm text-slate-300">{scenario.protection}</p>
                       </div>
                     </div>
@@ -152,7 +152,7 @@ export function FeaturesSection() {
 
               {/* Timeline animation bar */}
               <div className="h-1 bg-slate-800">
-                <div className="h-full bg-gradient-to-r from-red-500 via-yellow-500 to-emerald-500 animate-pulse" style={{ width: '100%' }} />
+                <div className="h-full bg-linear-to-r from-red-500 via-yellow-500 to-emerald-500 animate-pulse" style={{ width: '100%' }} />
               </div>
             </div>
           </div>
@@ -162,9 +162,9 @@ export function FeaturesSection() {
         <div className="mb-40">
           <header className="mx-auto mb-12 max-w-3xl text-center">
             <h3 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              Compliance you can trust
+              Cumplimiento en el que puedes confiar
             </h3>
-            <p className="mt-4 text-slate-400">Meet your regulatory requirements with confidence</p>
+            <p className="mt-4 text-slate-400">Cumple tus requisitos regulatorios con confianza</p>
           </header>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
@@ -202,9 +202,9 @@ export function FeaturesSection() {
         <div>
           <header className="mx-auto mb-12 max-w-3xl text-center">
             <h3 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              Simple integration
+              Integración simple
             </h3>
-            <p className="mt-4 text-slate-400">APIShield sits between your clients and API</p>
+            <p className="mt-4 text-slate-400">APIShield se ubica entre tus clientes y tu API</p>
           </header>
 
           <div className="max-w-4xl mx-auto">
@@ -245,9 +245,9 @@ export function FeaturesSection() {
               {showArchDetails && (
                 <div className="grid md:grid-cols-3 gap-4 pt-6 border-t border-slate-800">
                   {[
-                    { label: 'Latency added', value: '<1ms', icon: Zap },
-                    { label: 'Availability', value: '99.99%', icon: Cloud },
-                    { label: 'Global PoPs', value: '200+', icon: Server },
+                    { label: 'Latencia añadida', value: '<1ms', icon: Zap },
+                    { label: 'Disponibilidad', value: '99.99%', icon: Cloud },
+                    { label: 'PoPs Globales', value: '200+', icon: Server },
                   ].map((stat) => (
                     <div key={stat.label} className="text-center p-4 rounded-lg bg-slate-800/50">
                       <stat.icon className="w-5 h-5 text-emerald-400 mx-auto mb-2" />
@@ -259,7 +259,7 @@ export function FeaturesSection() {
               )}
 
               <p className="text-center text-xs text-slate-500 mt-4">
-                Click to {showArchDetails ? 'hide' : 'show'} technical details
+                Haz click para {showArchDetails ? 'ocultar' : 'mostrar'} detalles técnicos
               </p>
             </div>
           </div>

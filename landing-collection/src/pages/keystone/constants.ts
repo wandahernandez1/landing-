@@ -137,7 +137,7 @@ export const PRICING_PLANS: PricingPlan[] = [
 ];
 
 export const FOOTER_LINKS: NavLink[] = [
-  { label: "API Docs", href: "/docs" },
-  { label: "Case Studies", href: "/cases" },
+  { label: "Documentación API", href: "/docs" },
+  { label: "Casos de Éxito", href: "/cases" },
   { label: "Contacto", href: "/contact" },
 ];

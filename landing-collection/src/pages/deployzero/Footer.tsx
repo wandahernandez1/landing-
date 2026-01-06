@@ -41,7 +41,7 @@ export function Footer() {
 
         <div className="mt-8 flex flex-col items-center gap-4 md:flex-row md:justify-center">
           <p className="text-sm text-gray-600">
-            {COMPANY.year} {COMPANY.name}. Ship faster.
+            {COMPANY.year} {COMPANY.name}. Envía más rápido.
           </p>
         </div>
       </div>

@@ -21,7 +21,7 @@ export const NAV_LINKS: NavLink[] = [
 export const FEATURES: Feature[] = [
   {
     icon: Code,
-    title: "GitHub Integration",
+    title: "Integración GitHub",
     description:
       "Conecta tu GitHub y muestra tus mejores repos automáticamente.",
   },
@@ -79,18 +79,18 @@ export const TESTIMONIALS: Testimonial[] = [
 
 export const PRICING_PLANS: PricingPlan[] = [
   {
-    name: "Free",
+    name: "Gratis",
     price: "$0",
-    period: "/forever",
+    period: "/siempre",
     description: "Para empezar a mostrar tu trabajo.",
     features: [
       "Template básico",
       "Subdominio .devcanvas.dev",
-      "GitHub integration",
+      "Integración GitHub",
       "Analytics básico",
       "SSL incluido",
     ],
-    cta: "Start Free",
+    cta: "Comenzar Gratis",
   },
   {
     name: "Pro",
@@ -105,23 +105,23 @@ export const PRICING_PLANS: PricingPlan[] = [
       "Componentes premium",
       "Prioridad en soporte",
     ],
-    cta: "Go Pro",
+    cta: "Ir a Pro",
     popular: true,
   },
   {
-    name: "Team",
+    name: "Equipo",
     price: "$29",
     period: "/mes",
     description: "Para equipos y agencias.",
     features: [
       "Todo de Pro",
       "Hasta 10 portfolios",
-      "White label",
-      "API access",
-      "Team dashboard",
+      "Marca blanca",
+      "Acceso API",
+      "Dashboard de equipo",
       "Soporte dedicado",
     ],
-    cta: "Contact",
+    cta: "Contactar",
   },
 ];
 

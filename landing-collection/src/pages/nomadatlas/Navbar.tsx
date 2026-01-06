@@ -32,7 +32,7 @@ export function Navbar() {
 
           <div className="hidden items-center gap-4 md:flex">
             <a href="#" className="text-sm text-sand-800/70 hover:text-teal-600 transition-colors">
-              Login
+              Iniciar sesión
             </a>
             <a href="#pricing" className="btn-primary rounded-xl px-5 py-2.5 text-sm font-medium">
               Empezar

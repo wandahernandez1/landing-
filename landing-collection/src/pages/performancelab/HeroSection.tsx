@@ -130,7 +130,7 @@ export function HeroSection() {
             className="mb-6 inline-flex items-center gap-2 rounded-full border border-purple-500/30 bg-purple-500/10 px-4 py-2"
           >
             <Activity className="h-4 w-4 text-purple-400" />
-            <span className="text-sm text-purple-300">Free instant performance audit</span>
+            <span className="text-sm text-purple-300">Auditoría de rendimiento gratuita</span>
           </div>
 
           {/* Title */}
@@ -138,16 +138,16 @@ export function HeroSection() {
             data-hero-title
             className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl mb-6"
           >
-            <span className="block">How fast is</span>
-            <span className="block text-gradient">your website?</span>
+            <span className="block">¿Qué tan rápido es</span>
+            <span className="block text-gradient">tu sitio web?</span>
           </h1>
 
           <p 
             data-hero-description
             className="mx-auto max-w-2xl text-lg text-slate-400 md:text-xl mb-10"
           >
-            Enter your URL and get instant Core Web Vitals analysis. 
-            No signup required.
+            Ingresa tu URL y obtén un análisis instantáneo de Core Web Vitals. 
+            Sin necesidad de registro.
           </p>
 
           {/* URL Input Scanner */}
@@ -161,7 +161,7 @@ export function HeroSection() {
                     value={url}
                     onChange={(e) => setUrl(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && handleScan()}
-                    placeholder="Enter your website URL..."
+                    placeholder="Ingresa la URL de tu sitio web..."
                     className="w-full pl-12 pr-32 py-4 rounded-xl bg-slate-900/80 border border-purple-500/30 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50 text-lg"
                   />
                   <button
@@ -170,13 +170,13 @@ export function HeroSection() {
                     className="absolute right-2 btn-primary flex items-center gap-2 rounded-lg px-6 py-2.5 text-sm font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <Search className="h-4 w-4" />
-                    Analyze
+                    Analizar
                   </button>
                 </div>
                 
                 {/* Example URLs */}
                 <div className="flex items-center justify-center gap-2 text-sm text-slate-500">
-                  <span>Try:</span>
+                  <span>Prueba:</span>
                   {exampleUrls.map((example) => (
                     <button
                       key={example}
@@ -195,7 +195,7 @@ export function HeroSection() {
               <div className="rounded-2xl border border-purple-500/20 bg-slate-900/80 p-8">
                 <div className="flex items-center justify-center gap-3 mb-6">
                   <div className="w-6 h-6 border-2 border-purple-500 border-t-transparent rounded-full animate-spin" />
-                  <span className="text-lg text-white">Analyzing {url}...</span>
+                  <span className="text-lg text-white">Analizando {url}...</span>
                 </div>
                 
                 {/* Progress bar */}
@@ -232,7 +232,7 @@ export function HeroSection() {
                         onClick={handleReset}
                         className="text-xs text-purple-400 hover:text-purple-300"
                       >
-                        Scan another
+                        Analizar otro
                       </button>
                     </div>
                     <div className={`flex items-center gap-2 px-3 py-1 rounded-full text-sm ${
@@ -243,7 +243,7 @@ export function HeroSection() {
                       {overallScore >= 90 ? <CheckCircle2 className="w-4 h-4" /> :
                        overallScore >= 50 ? <AlertTriangle className="w-4 h-4" /> :
                        <XCircle className="w-4 h-4" />}
-                      {overallScore >= 90 ? 'Excellent' : overallScore >= 50 ? 'Needs work' : 'Poor'}
+                      {overallScore >= 90 ? 'Excelente' : overallScore >= 50 ? 'Necesita mejoras' : 'Pobre'}
                     </div>
                   </div>
 
@@ -299,7 +299,7 @@ export function HeroSection() {
                         }`}>
                           {vital.value}
                         </p>
-                        <p className="text-xs text-slate-500 mt-1">Target: {vital.target}</p>
+                        <p className="text-xs text-slate-500 mt-1">Objetivo: {vital.target}</p>
                       </div>
                     ))}
                   </div>
@@ -309,7 +309,7 @@ export function HeroSection() {
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <a href="#pricing" className="btn-primary flex items-center gap-2 rounded-xl px-8 py-4 text-base font-semibold">
                     <Sparkles className="h-5 w-5" />
-                    Get Real-Time Monitoring
+                    Obtén Monitoreo en Tiempo Real
                     <ArrowRight className="h-5 w-5" />
                   </a>
                 </div>
@@ -324,9 +324,9 @@ export function HeroSection() {
               className="mt-16 flex flex-wrap items-center justify-center gap-8 text-slate-400"
             >
               {[
-                { icon: Gauge, value: '50B+', label: 'Pageviews tracked' },
-                { icon: Zap, value: '<50ms', label: 'p99 latency' },
-                { icon: TrendingUp, value: '3K+', label: 'Teams' },
+                { icon: Gauge, value: '50B+', label: 'Vistas rastreadas' },
+                { icon: Zap, value: '<50ms', label: 'Latencia p99' },
+                { icon: TrendingUp, value: '3K+', label: 'Equipos' },
               ].map((stat) => (
                 <div key={stat.label} className="flex items-center gap-3">
                   <stat.icon className="w-5 h-5 text-purple-400" />

@@ -2,11 +2,11 @@ import { ArrowRight, Rocket, ExternalLink, Star, CheckCircle } from 'lucide-reac
 import { useRef, useState, useEffect } from 'react'
 import { useHeroAnimation } from '@/shared/hooks'
 
-// Real products built with MicroSaaS (simulated)
+// Productos reales construidos con MicroSaaS (simulado)
 const BUILT_PRODUCTS = [
   { 
     name: 'Mailflow', 
-    description: 'Email automation for creators', 
+    description: 'Automatización de email para creadores', 
     mrr: '$4.2K', 
     maker: 'Sarah Chen',
     gradient: 'from-blue-500 to-cyan-500',
@@ -14,7 +14,7 @@ const BUILT_PRODUCTS = [
   },
   { 
     name: 'Waitlisty', 
-    description: 'Launch waitlists in minutes', 
+    description: 'Lanza listas de espera en minutos', 
     mrr: '$2.8K', 
     maker: 'Alex Rivera',
     gradient: 'from-purple-500 to-pink-500',
@@ -22,7 +22,7 @@ const BUILT_PRODUCTS = [
   },
   { 
     name: 'FeedbackLoop', 
-    description: 'Collect user feedback easily', 
+    description: 'Recopila feedback de usuarios fácilmente', 
     mrr: '$6.1K', 
     maker: 'Jordan Kim',
     gradient: 'from-orange-500 to-red-500',
@@ -30,7 +30,7 @@ const BUILT_PRODUCTS = [
   },
   { 
     name: 'APIStatus', 
-    description: 'Beautiful status pages', 
+    description: 'Páginas de estado elegantes', 
     mrr: '$3.5K', 
     maker: 'Maria Lopez',
     gradient: 'from-green-500 to-emerald-500',
@@ -38,7 +38,7 @@ const BUILT_PRODUCTS = [
   },
   { 
     name: 'SocialQ', 
-    description: 'Queue social posts', 
+    description: 'Programa publicaciones sociales', 
     mrr: '$5.7K', 
     maker: 'Dev Patel',
     gradient: 'from-indigo-500 to-violet-500',
@@ -46,14 +46,14 @@ const BUILT_PRODUCTS = [
   },
 ]
 
-// What's included in the boilerplate
+// Qué incluye el boilerplate
 const INCLUDED = [
   { label: 'Auth', desc: 'Email, OAuth, Magic Links', done: true },
-  { label: 'Billing', desc: 'Stripe integration', done: true },
-  { label: 'Dashboard', desc: 'Admin & user views', done: true },
-  { label: 'Landing Page', desc: 'Conversion optimized', done: true },
-  { label: 'Email', desc: 'Transactional emails', done: true },
-  { label: 'Deploy', desc: 'One-click deploy', done: true },
+  { label: 'Facturación', desc: 'Integración Stripe', done: true },
+  { label: 'Dashboard', desc: 'Vistas admin y usuario', done: true },
+  { label: 'Landing Page', desc: 'Optimizada para conversión', done: true },
+  { label: 'Email', desc: 'Emails transaccionales', done: true },
+  { label: 'Deploy', desc: 'Deploy en un clic', done: true },
 ]
 
 export function HeroSection() {
@@ -99,7 +99,7 @@ export function HeroSection() {
               className="mb-6 inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-2"
             >
               <Rocket className="h-4 w-4 text-orange-400" />
-              <span className="text-sm text-orange-300">For Indie Makers</span>
+              <span className="text-sm text-orange-300">Para Indie Makers</span>
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
@@ -111,15 +111,15 @@ export function HeroSection() {
               className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl mb-6"
             >
               <span className="block text-gradient tabular-nums">{launchCount}</span>
-              <span className="block text-2xl sm:text-3xl md:text-4xl mt-2">products launched</span>
+              <span className="block text-2xl sm:text-3xl md:text-4xl mt-2">productos lanzados</span>
             </h1>
 
             <p 
               data-hero-description
               className="mx-auto lg:mx-0 max-w-xl text-lg text-slate-400 md:text-xl mb-8"
             >
-              Stop building the same boilerplate. Start with auth, billing, dashboard, 
-              and landing page ready. Ship your SaaS in days, not months.
+              Deja de construir el mismo boilerplate. Empieza con auth, facturación, dashboard 
+              y landing page listos. Lanza tu SaaS en días, no meses.
             </p>
 
             {/* What's included preview */}
@@ -127,7 +127,7 @@ export function HeroSection() {
               data-hero-cta
               className="mb-8 p-4 bg-slate-900/50 border border-orange-500/20 rounded-xl"
             >
-              <p className="text-sm text-slate-400 mb-3">Everything included:</p>
+              <p className="text-sm text-slate-400 mb-3">Todo incluido:</p>
               <div className="grid grid-cols-3 gap-2">
                 {INCLUDED.map((item) => (
                   <div key={item.label} className="flex items-center gap-1.5">
@@ -146,7 +146,7 @@ export function HeroSection() {
                 href="#pricing"
                 className="btn-primary flex items-center gap-2 rounded-xl px-8 py-4 text-base font-semibold w-full sm:w-auto justify-center"
               >
-                Get lifetime access
+                Obtén acceso de por vida
                 <ArrowRight className="h-5 w-5" />
               </a>
               <a
@@ -154,7 +154,7 @@ export function HeroSection() {
                 className="btn-secondary flex items-center gap-2 rounded-xl px-8 py-4 text-base font-medium w-full sm:w-auto justify-center"
               >
                 <ExternalLink className="h-5 w-5" />
-                See live demo
+                Ver demo en vivo
               </a>
             </div>
 
@@ -165,17 +165,17 @@ export function HeroSection() {
             >
               <div className="text-center lg:text-left">
                 <span className="block text-2xl font-bold text-orange-400">${totalMRR}M+</span>
-                <span className="text-sm text-slate-500">Combined MRR</span>
+                <span className="text-sm text-slate-500">MRR Combinado</span>
               </div>
               <div className="h-8 w-px bg-slate-700" />
               <div className="text-center lg:text-left">
                 <span className="block text-2xl font-bold text-orange-400">7 days</span>
-                <span className="text-sm text-slate-500">Avg launch time</span>
+                <span className="text-sm text-slate-500">Tiempo promedio de lanzamiento</span>
               </div>
               <div className="h-8 w-px bg-slate-700" />
               <div className="text-center lg:text-left">
                 <span className="block text-2xl font-bold text-orange-400">$199</span>
-                <span className="text-sm text-slate-500">One-time</span>
+                <span className="text-sm text-slate-500">Pago único</span>
               </div>
             </div>
           </div>
@@ -188,8 +188,8 @@ export function HeroSection() {
             {/* Featured Product Card */}
             <div className="relative rounded-2xl border border-orange-500/20 bg-slate-900/90 overflow-hidden shadow-2xl shadow-orange-500/10">
               <div className="px-4 py-3 bg-slate-800/80 border-b border-orange-500/10 flex items-center justify-between">
-                <span className="text-sm text-slate-300">Built with MicroSaaS</span>
-                <span className="text-xs text-orange-400">🔥 Trending</span>
+                <span className="text-sm text-slate-300">Construido con MicroSaaS</span>
+                <span className="text-xs text-orange-400">🔥 Tendencia</span>
               </div>
 
               {/* Main Featured Product */}
@@ -214,7 +214,7 @@ export function HeroSection() {
                         <span className="text-slate-500 text-sm"> MRR</span>
                       </div>
                       <div className="text-right">
-                        <p className="text-sm text-slate-300">by {product.maker}</p>
+                        <p className="text-sm text-slate-300">por {product.maker}</p>
                         <div className="flex items-center gap-0.5 justify-end mt-1">
                           {[...Array(5)].map((_, i) => (
                             <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
@@ -269,7 +269,7 @@ export function HeroSection() {
                     <span className="text-slate-500 text-xs">@marckohlbrugge</span>
                   </div>
                   <p className="text-sm text-slate-400 mt-1">
-                    "Launched my SaaS in 5 days using MicroSaaS Builder. Would've taken 3 months otherwise. 🚀"
+                    "Lancé mi SaaS en 5 días usando MicroSaaS Builder. De otra forma hubiera tardado 3 meses. 🚀"
                   </p>
                 </div>
               </div>

@@ -33,12 +33,12 @@ export function TestimonialsSection() {
       <div className="absolute inset-0 seo-grid opacity-10" />
       <div className="container-custom relative z-10">
         <header className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-green-400">Rank Tracking</p>
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-green-400">Seguimiento de Rankings</p>
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Watch your rankings{' '}<span className="text-gradient">climb</span>
+            Observa cómo tus rankings{' '}<span className="text-gradient">suben</span>
           </h2>
           <p className="mt-4 text-lg text-slate-400">
-            Track keyword positions across Google, Bing, and DuckDuckGo
+            Rastrea posiciones de palabras clave en Google, Bing y DuckDuckGo
           </p>
         </header>
 
@@ -46,10 +46,10 @@ export function TestimonialsSection() {
           {/* Stats overview */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
             {[
-              { label: 'Keywords Tracked', value: '847', change: '+23 this week' },
-              { label: 'Avg. Position', value: '12.4', change: '↑ 3.2 from last month' },
-              { label: 'Top 10 Rankings', value: '156', change: '+12% growth' },
-              { label: 'Featured Snippets', value: '24', change: '+5 this month' },
+              { label: 'Palabras Clave Rastreadas', value: '847', change: '+23 esta semana' },
+              { label: 'Posición Promedio', value: '12.4', change: '↑ 3.2 desde el mes pasado' },
+              { label: 'Rankings Top 10', value: '156', change: '+12% crecimiento' },
+              { label: 'Featured Snippets', value: '24', change: '+5 este mes' },
             ].map((stat, idx) => (
               <div key={idx} className="card rounded-xl p-5 text-center">
                 <p className="text-3xl font-bold text-white mb-1">{stat.value}</p>
@@ -65,21 +65,21 @@ export function TestimonialsSection() {
               <div className="border-b border-slate-800 px-4 py-3 flex items-center justify-between">
                 <h3 className="font-semibold text-white flex items-center gap-2">
                   <TrendingUp className="w-4 h-4 text-green-400" />
-                  Keyword Rankings
+                  Rankings de Palabras Clave
                 </h3>
                 <div className="flex items-center gap-2 text-sm text-slate-500">
                   <Calendar className="w-4 h-4" />
-                  Last 30 days
+                  Últimos 30 días
                 </div>
               </div>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b border-slate-800 text-slate-500">
-                      <th className="text-left px-4 py-3 font-medium">Keyword</th>
-                      <th className="text-center px-4 py-3 font-medium">Position</th>
-                      <th className="text-center px-4 py-3 font-medium">Change</th>
-                      <th className="text-right px-4 py-3 font-medium">Volume</th>
+                      <th className="text-left px-4 py-3 font-medium">Palabra Clave</th>
+                      <th className="text-center px-4 py-3 font-medium">Posición</th>
+                      <th className="text-center px-4 py-3 font-medium">Cambio</th>
+                      <th className="text-right px-4 py-3 font-medium">Volumen</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -130,7 +130,7 @@ export function TestimonialsSection() {
 
             {/* Position chart */}
             <div className="lg:col-span-2 rounded-2xl border border-slate-800 bg-slate-900/50 p-6">
-              <h3 className="font-semibold text-white mb-4">Position History</h3>
+              <h3 className="font-semibold text-white mb-4">Historial de Posiciones</h3>
               <p className="text-sm text-slate-500 mb-6">
                 "{TRACKED_KEYWORDS[selectedKeyword].keyword}"
               </p>
@@ -167,7 +167,7 @@ export function TestimonialsSection() {
               {/* Keyword details */}
               <div className="mt-6 pt-6 border-t border-slate-800 grid grid-cols-2 gap-4">
                 <div>
-                  <p className="text-xs text-slate-500 mb-1">Difficulty</p>
+                  <p className="text-xs text-slate-500 mb-1">Dificultad</p>
                   <div className="flex items-center gap-2">
                     <div className="flex-1 h-2 bg-slate-800 rounded-full overflow-hidden">
                       <div 
@@ -181,7 +181,7 @@ export function TestimonialsSection() {
                   </div>
                 </div>
                 <div>
-                  <p className="text-xs text-slate-500 mb-1">Monthly Volume</p>
+                  <p className="text-xs text-slate-500 mb-1">Volumen Mensual</p>
                   <p className="text-lg font-semibold text-white">
                     {TRACKED_KEYWORDS[selectedKeyword].volume.toLocaleString()}
                   </p>
