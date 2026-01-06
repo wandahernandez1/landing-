@@ -154,20 +154,22 @@ export function HeroSection() {
           <div data-hero-cta className="w-full max-w-2xl mx-auto">
             {phase === 'idle' && (
               <div className="space-y-4">
-                <div className="relative flex items-center">
-                  <Globe className="absolute left-4 w-5 h-5 text-slate-500" />
-                  <input
-                    type="text"
-                    value={url}
-                    onChange={(e) => setUrl(e.target.value)}
-                    onKeyDown={(e) => e.key === 'Enter' && handleScan()}
-                    placeholder="Ingresa la URL de tu sitio web..."
-                    className="w-full pl-12 pr-32 py-4 rounded-xl bg-slate-900/80 border border-purple-500/30 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50 text-lg"
-                  />
+                <div className="flex items-center gap-4">
+                  <div className="relative flex-1">
+                    <Globe className="absolute left-4 w-5 h-5 text-slate-500 top-1/2 -translate-y-1/2" />
+                    <input
+                      type="text"
+                      value={url}
+                      onChange={(e) => setUrl(e.target.value)}
+                      onKeyDown={(e) => e.key === 'Enter' && handleScan()}
+                      placeholder="Ingresa la URL de tu sitio web..."
+                      className="w-full pl-12 pr-4 py-4 rounded-xl bg-slate-900/80 border border-purple-500/30 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50 text-lg"
+                    />
+                  </div>
                   <button
                     onClick={handleScan}
                     disabled={!url.trim()}
-                    className="absolute right-2 btn-primary flex items-center gap-2 rounded-lg px-6 py-2.5 text-sm font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="btn-primary flex items-center gap-2 rounded-lg px-6 py-4 text-sm font-semibold disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
                   >
                     <Search className="h-4 w-4" />
                     Analizar

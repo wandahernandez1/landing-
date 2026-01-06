@@ -83,10 +83,104 @@ export function HeroSection() {
   const failCount = checks.filter(c => c.status === 'fail').length
   const warnCount = checks.filter(c => c.status === 'warning').length
 
+  // Floating avatars data
+  const floatingAvatars = [
+    { name: "Alex M.", role: "Frontend Dev", position: "top-[15%] left-[15%]", delay: "0s", bg: "from-green-400 to-emerald-600", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" },
+    { name: "Sarah K.", role: "SEO Expert", position: "top-[25%] right-[12%]", delay: "1s", bg: "from-blue-400 to-cyan-600", avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face" },
+    { name: "David R.", role: "Tech Lead", position: "bottom-[25%] left-[10%]", delay: "2s", bg: "from-purple-400 to-violet-600", avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" },
+    { name: "Maria L.", role: "Full Stack", position: "top-[50%] right-[8%]", delay: "0.5s", bg: "from-orange-400 to-red-500", avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face" },
+    { name: "Carlos P.", role: "DevOps", position: "bottom-[15%] right-[18%]", delay: "1.5s", bg: "from-cyan-400 to-teal-600", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face" },
+    { name: "Anna F.", role: "UX Designer", position: "top-[70%] left-[20%]", delay: "2.5s", bg: "from-pink-400 to-rose-600", avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face" },
+    { name: "Luis C.", role: "Backend Dev", position: "top-[40%] left-[5%]", delay: "3s", bg: "from-yellow-400 to-orange-500", avatar: "https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=150&h=150&fit=crop&crop=face" },
+    { name: "Emma R.", role: "QA Engineer", position: "bottom-[40%] right-[25%]", delay: "0.8s", bg: "from-indigo-400 to-blue-600", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face" },
+    { name: "Jake T.", role: "Performance", position: "top-[35%] right-[30%]", delay: "1.2s", bg: "from-emerald-400 to-green-600", avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face" },
+    { name: "Sophia L.", role: "Content SEO", position: "bottom-[60%] left-[25%]", delay: "2.8s", bg: "from-violet-400 to-purple-600", avatar: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=150&h=150&fit=crop&crop=face" },
+    { name: "Ryan W.", role: "React Dev", position: "top-[80%] right-[15%]", delay: "3.5s", bg: "from-blue-400 to-indigo-600", avatar: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=150&h=150&fit=crop&crop=face" },
+    { name: "Mia P.", role: "Analytics", position: "bottom-[50%] left-[35%]", delay: "1.8s", bg: "from-red-400 to-pink-600", avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=150&h=150&fit=crop&crop=face" },
+    { name: "Tom B.", role: "WordPress", position: "top-[60%] right-[35%]", delay: "4s", bg: "from-teal-400 to-cyan-600", avatar: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=150&h=150&fit=crop&crop=face" },
+    { name: "Zoe M.", role: "Technical SEO", position: "bottom-[70%] right-[40%]", delay: "0.3s", bg: "from-lime-400 to-green-500", avatar: "https://images.unsplash.com/photo-1581013061174-1b90fcd3a2ea?w=150&h=150&fit=crop&crop=face" },
+    { name: "Ben K.", role: "Vue.js Dev", position: "top-[20%] left-[35%]", delay: "2.2s", bg: "from-sky-400 to-blue-500", avatar: "https://images.unsplash.com/photo-1611976797400-76baea0de0d7?w=150&h=150&fit=crop&crop=face" },
+    { name: "Lily R.", role: "Core Web V.", position: "bottom-[30%] left-[30%]", delay: "3.8s", bg: "from-rose-400 to-red-500", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&crop=face" },
+  ]
+
   return (
     <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
       <div className="bg-glow absolute inset-0" />
       <div className="absolute inset-0 seo-grid opacity-30" />
+      
+      {/* Floating Avatars Carousel */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {floatingAvatars.map((avatar, index) => (
+          <div
+            key={index}
+            className={`absolute ${avatar.position} animate-float-gentle opacity-0`}
+            style={{ 
+              animationDelay: avatar.delay,
+              animationFillMode: 'forwards',
+              animationDuration: '6s'
+            }}
+          >
+            {/* Avatar with floating badge */}
+            <div className="relative">
+              {/* Main Avatar */}
+              <div className="w-16 h-16 rounded-full shadow-xl border-2 border-white/20 backdrop-blur-sm hover:scale-110 transition-all duration-300 cursor-pointer group overflow-hidden">
+                <img 
+                  src={avatar.avatar} 
+                  alt={`${avatar.name} - ${avatar.role}`}
+                  className="w-full h-full object-cover rounded-full"
+                  onError={(e) => {
+                    // Fallback a iniciales si la imagen no carga
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    target.nextElementSibling!.classList.remove('hidden');
+                  }}
+                />
+                <div className={`hidden w-full h-full rounded-full bg-gradient-to-br ${avatar.bg} flex items-center justify-center text-white font-bold text-lg absolute inset-0`}>
+                  {avatar.name.split(' ').map(n => n[0]).join('')}
+                </div>
+              </div>
+              
+              {/* Status Indicator */}
+              <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-slate-900 flex items-center justify-center">
+                <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
+              </div>
+              
+              {/* Floating Info Badge */}
+              <div className="absolute -top-8 -right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
+                <div className="bg-slate-800/90 backdrop-blur-sm border border-green-500/30 rounded-lg px-3 py-2 shadow-xl">
+                  <p className="text-xs font-medium text-white whitespace-nowrap">{avatar.name}</p>
+                  <p className="text-[10px] text-green-400">{avatar.role}</p>
+                  <p className="text-[10px] text-slate-400">Auditando...</p>
+                </div>
+                {/* Arrow pointing to avatar */}
+                <div className="absolute top-full left-1/2 -translate-x-1/2 w-2 h-2 bg-slate-800/90 border-b border-r border-green-500/30 transform rotate-45 -translate-y-1" />
+              </div>
+            </div>
+          </div>
+        ))}
+        
+        {/* Connecting Lines (optional) */}
+        <svg className="absolute inset-0 w-full h-full opacity-20" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="connectionGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#22c55e" stopOpacity="0.3" />
+              <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.1" />
+            </linearGradient>
+          </defs>
+          {/* Animated connection lines */}
+          <g stroke="url(#connectionGradient)" strokeWidth="1" fill="none">
+            <path d="M 12% 20% Q 50% 10% 85% 30%" strokeDasharray="4 4">
+              <animate attributeName="stroke-dashoffset" values="0;8" dur="2s" repeatCount="indefinite" />
+            </path>
+            <path d="M 85% 30% Q 70% 50% 20% 60%" strokeDasharray="4 4">
+              <animate attributeName="stroke-dashoffset" values="0;8" dur="3s" repeatCount="indefinite" />
+            </path>
+            <path d="M 8% 65% Q 30% 40% 80% 45%" strokeDasharray="4 4">
+              <animate attributeName="stroke-dashoffset" values="0;8" dur="2.5s" repeatCount="indefinite" />
+            </path>
+          </g>
+        </svg>
+      </div>
       
       <div className="container-custom relative z-10 py-12 md:py-20">
         <div className="mx-auto max-w-4xl text-center">
@@ -120,20 +214,22 @@ export function HeroSection() {
           <div data-hero-cta className="w-full max-w-3xl mx-auto">
             {phase === 'idle' && (
               <div className="space-y-4">
-                <div className="relative flex items-center">
-                  <Globe className="absolute left-4 w-5 h-5 text-slate-500" />
-                  <input
-                    type="text"
-                    value={url}
-                    onChange={(e) => setUrl(e.target.value)}
-                    onKeyDown={(e) => e.key === 'Enter' && handleScan()}
-                    placeholder="Ingresa la URL de tu sitio web..."
-                    className="w-full pl-12 pr-32 py-4 rounded-xl bg-slate-900/80 border border-green-500/30 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-green-500/50 text-lg"
-                  />
+                <div className="flex items-center gap-4">
+                  <div className="relative flex-1">
+                    <Globe className="absolute left-4 w-5 h-5 text-slate-500 top-1/2 -translate-y-1/2" />
+                    <input
+                      type="text"
+                      value={url}
+                      onChange={(e) => setUrl(e.target.value)}
+                      onKeyDown={(e) => e.key === 'Enter' && handleScan()}
+                      placeholder="Ingresa la URL de tu sitio web..."
+                      className="w-full pl-12 pr-4 py-4 rounded-xl bg-slate-900/80 border border-green-500/30 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-green-500/50 text-lg"
+                    />
+                  </div>
                   <button
                     onClick={handleScan}
                     disabled={!url.trim()}
-                    className="absolute right-2 btn-primary flex items-center gap-2 rounded-lg px-6 py-2.5 text-sm font-semibold disabled:opacity-50"
+                    className="btn-primary flex items-center gap-2 rounded-lg px-6 py-4 text-sm font-semibold disabled:opacity-50 whitespace-nowrap"
                   >
                     <Search className="h-4 w-4" />
                     Auditar

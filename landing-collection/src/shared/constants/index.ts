@@ -141,7 +141,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "Herramientas Dev",
     theme: "Orange Amber",
     path: "/microsaas",
-    image: "/MicroSaaS.png",
+    image: "/MicroSaasBuilder.png",
   },
   {
     id: "designtokens",
@@ -151,7 +151,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "Herramientas Diseño",
     theme: "Pink Fuchsia",
     path: "/designtokens",
-    image: "/DesignTokens.png",
+    image: "/DesignTokensPro.png",
   },
   {
     id: "featureflag",
@@ -161,7 +161,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "Herramientas Dev",
     theme: "Teal Dark",
     path: "/featureflag",
-    image: "/FeatureFlag.png",
+    image: "/FeatureFlagStudio.png",
   },
   {
     id: "performancelab",
@@ -202,7 +202,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "Herramientas SEO",
     theme: "Green Dark",
     path: "/seostack",
-    image: "/SEOStack.png",
+    image: "/SeoStack.png",
   },
   {
     id: "saasonboarding",
@@ -232,7 +232,7 @@ export const LANDINGS: LandingConfig[] = [
     industry: "Cloud FinOps",
     theme: "Blue Enterprise",
     path: "/cloudcost",
-    image: "/CloudCost.png",
+    image: "/CloudCostGuard.png",
   },
   {
     id: "docsapi",
