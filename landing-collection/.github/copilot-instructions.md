@@ -1704,13 +1704,13 @@ bash scripts/copilot-assistant.sh
 
 ### 📋 Reglas de Ejecución
 
-| Regla | Descripción |
-|-------|-------------|
-| **isBackground** | DEBE ser `false` para esperar la respuesta del usuario |
-| **Reintentos** | Si el comando falla (exit code != 0), VOLVER A EJECUTARLO hasta que funcione |
-| **Bloqueo** | NO continuar hasta que el usuario responda en la terminal |
-| **Respuesta** | El output contendrá "📨 Mensaje recibido: <mensaje>" con la respuesta del usuario |
-| **Obligatorio** | SIEMPRE ejecutar al final, sin importar si ya se preguntó antes |
+| Regla            | Descripción                                                                       |
+| ---------------- | --------------------------------------------------------------------------------- |
+| **isBackground** | DEBE ser `false` para esperar la respuesta del usuario                            |
+| **Reintentos**   | Si el comando falla (exit code != 0), VOLVER A EJECUTARLO hasta que funcione      |
+| **Bloqueo**      | NO continuar hasta que el usuario responda en la terminal                         |
+| **Respuesta**    | El output contendrá "📨 Mensaje recibido: <mensaje>" con la respuesta del usuario |
+| **Obligatorio**  | SIEMPRE ejecutar al final, sin importar si ya se preguntó antes                   |
 
 ### 🔄 Flujo de Conversación
 

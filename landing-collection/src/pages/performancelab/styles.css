@@ -7,25 +7,100 @@
     --font-sans: 'Inter', -apple-system, sans-serif;
 }
 
-.performancelab { background-color: #0a0a14; color: #e2e8f0; }
-.performancelab .glass { background: rgba(10, 10, 20, 0.9); backdrop-filter: blur(20px); }
-.performancelab .btn-primary { background: linear-gradient(135deg, #a855f7 0%, #9333ea 100%); color: white; transition: all 0.4s ease; position: relative; overflow: hidden; }
-.performancelab .btn-primary:hover { box-shadow: 0 0 50px rgba(168, 85, 247, 0.5); transform: translateY(-3px); }
-.performancelab .btn-secondary { background: transparent; border: 1px solid rgba(168, 85, 247, 0.5); color: #c084fc; transition: all 0.4s ease; }
-.performancelab .btn-secondary:hover { border-color: #a855f7; box-shadow: 0 0 30px rgba(168, 85, 247, 0.2); }
-.performancelab .text-gradient { background: linear-gradient(135deg, #c084fc 0%, #a855f7 50%, #9333ea 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-.performancelab .card { background: linear-gradient(135deg, rgba(168, 85, 247, 0.08) 0%, rgba(10, 10, 20, 0.95) 100%); border: 1px solid rgba(168, 85, 247, 0.15); transition: all 0.5s ease; }
-.performancelab .card:hover { border-color: rgba(168, 85, 247, 0.4); box-shadow: 0 0 80px rgba(168, 85, 247, 0.12); transform: translateY(-6px); }
-.performancelab .bg-glow { background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(168, 85, 247, 0.18), transparent 70%); }
-.performancelab .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.3), transparent); }
-.performancelab .perf-grid { background-image: linear-gradient(rgba(168, 85, 247, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(168, 85, 247, 0.03) 1px, transparent 1px); background-size: 24px 24px; }
+.performancelab {
+    background-color: #0a0a14;
+    color: #e2e8f0;
+}
+
+.performancelab .glass {
+    background: rgba(10, 10, 20, 0.9);
+    backdrop-filter: blur(20px);
+}
+
+.performancelab .btn-primary {
+    background: linear-gradient(135deg, #a855f7 0%, #9333ea 100%);
+    color: white;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.performancelab .btn-primary:hover {
+    box-shadow: 0 0 50px rgba(168, 85, 247, 0.5);
+    transform: translateY(-3px);
+}
+
+.performancelab .btn-secondary {
+    background: transparent;
+    border: 1px solid rgba(168, 85, 247, 0.5);
+    color: #c084fc;
+    transition: all 0.4s ease;
+}
+
+.performancelab .btn-secondary:hover {
+    border-color: #a855f7;
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.2);
+}
+
+.performancelab .text-gradient {
+    background: linear-gradient(135deg, #c084fc 0%, #a855f7 50%, #9333ea 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.performancelab .card {
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.08) 0%, rgba(10, 10, 20, 0.95) 100%);
+    border: 1px solid rgba(168, 85, 247, 0.15);
+    transition: all 0.5s ease;
+}
+
+.performancelab .card:hover {
+    border-color: rgba(168, 85, 247, 0.4);
+    box-shadow: 0 0 80px rgba(168, 85, 247, 0.12);
+    transform: translateY(-6px);
+}
+
+.performancelab .bg-glow {
+    background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(168, 85, 247, 0.18), transparent 70%);
+}
+
+.performancelab .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.3), transparent);
+}
+
+.performancelab .perf-grid {
+    background-image: linear-gradient(rgba(168, 85, 247, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(168, 85, 247, 0.03) 1px, transparent 1px);
+    background-size: 24px 24px;
+}
 
 /* Score indicator */
-.score-ring { stroke-dasharray: 283; stroke-dashoffset: 28; transition: stroke-dashoffset 1s ease; }
-.score-good { stroke: #22c55e; }
-.score-warning { stroke: #f59e0b; }
-.score-bad { stroke: #ef4444; }
+.score-ring {
+    stroke-dasharray: 283;
+    stroke-dashoffset: 28;
+    transition: stroke-dashoffset 1s ease;
+}
+
+.score-good {
+    stroke: #22c55e;
+}
+
+.score-warning {
+    stroke: #f59e0b;
+}
+
+.score-bad {
+    stroke: #ef4444;
+}
 
 /* Animated bar */
-@keyframes bar-fill { from { width: 0; } }
-.bar-animated { animation: bar-fill 1.5s ease forwards; }
+@keyframes bar-fill {
+    from {
+        width: 0;
+    }
+}
+
+.bar-animated {
+    animation: bar-fill 1.5s ease forwards;
+}
