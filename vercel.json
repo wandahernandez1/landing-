@@ -1,9 +1,10 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "cd landing-collection && npm install && npm run build",
-  "outputDirectory": "landing-collection/dist",
-  "framework": null,
-  "installCommand": "echo 'Skip root install'",
+  "rootDirectory": "landing-collection",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "installCommand": "npm install",
   "rewrites": [
     {
       "source": "/(.*)",
