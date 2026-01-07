@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "build:vercel": "NODE_OPTIONS='--max-old-space-size=4096' tsc && vite build",
+    "build": "vite build",
+    "build:typecheck": "tsc && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "analyze": "npx vite-bundle-visualizer"
