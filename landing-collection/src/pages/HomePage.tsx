@@ -29,7 +29,7 @@ export function HomePage() {
           aria-label="Introducción hero"
         >
           <CinematicHero
-            label="Colección Digital"
+            label="Premium Collection"
             headline="Experiencias de Diseño"
             subheadline="Experiencias de landing cinemáticas elaboradas con intención y detalle."
           >

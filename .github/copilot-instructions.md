@@ -1575,3 +1575,123 @@ Optimiza para **calidad profesional**, **conversión** y **visibilidad real**.
 ---
 
 _Documento generado para replicar arquitectura premium de landing pages. Actualizar según evolucione el stack._
+
+### 🎯 Objetivo
+
+El agente **NO confía en suposiciones**.
+Todo cambio debe estar **validado por build real**.
+
+No alcanza con:
+
+- ❌ "Parece correcto"
+- ❌ "Debería compilar"
+- ❌ "Asumo que funciona"
+
+✅ **La única verdad es el resultado del build.**
+
+---
+
+### ⚙️ Regla de Ejecución Obligatoria
+
+El agente debe **SIEMPRE** seguir este flujo técnico:
+
+#### 1️⃣ Detectar si hay cambios en el código
+
+Cuando el usuario solicite:
+
+- Crear/modificar componentes
+- Agregar features
+- Refactorizar código
+- Cualquier cambio en archivos `.ts`, `.tsx`, `.css`
+
+**El build es OBLIGATORIO.**
+
+#### 2️⃣ Navegar al directorio correcto
+
+```bash
+cd landing-collection
+```
+
+**IMPORTANTE**: El workspace tiene múltiples carpetas. SIEMPRE cambiar a `landing-collection` antes de ejecutar build.
+
+#### 3️⃣ Build obligatorio (INMEDIATAMENTE después de cambios)
+
+```bash
+npm run build
+```
+
+**NO es opcional. NO preguntar al usuario. Ejecutar automáticamente.**
+
+#### 4️⃣ Ciclo de resolución automática (NO NEGOCIABLE)
+
+Si el build falla:
+
+1. Analizar errores **uno por uno**
+2. Corregir el código necesario
+3. Volver a ejecutar el build
+
+🔁 **Ciclo obligatorio:**
+
+```
+build → error → fix → build → error → fix → build
+```
+
+El agente **NO puede avanzar** hasta que:
+
+- ✅ El build sea **exitoso** (exit code 0)
+- ❗ O el error sea **externo** (infraestructura / dependencia), claramente documentado
+
+---
+
+### 4️⃣ Reglas estrictas de calidad
+
+| ❌ PROHIBIDO                            | ✅ OBLIGATORIO               |
+| --------------------------------------- | ---------------------------- |
+| Responder sin ejecutar el build         | Validar con `npm run build`  |
+| Justificar errores sin evidencia        | Mostrar logs de error reales |
+| Continuar con SEO/ATS si el build falla | Resolver build primero       |
+| Asumir que el código funciona           | Verificar con ejecución real |
+
+---
+
+### 🔄 Flujo Completo del Agente
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  1. ANALIZAR REQUEST                                        │
+│     Detectar si hay cambios en código                       │
+├─────────────────────────────────────────────────────────────┤
+│  2. IMPLEMENTAR CAMBIOS                                     │
+│     Editar archivos necesarios                              │
+├─────────────────────────────────────────────────────────────┤
+│  3. NAVEGAR AL DIRECTORIO                                   │
+│     cd landing-collection                                   │
+├─────────────────────────────────────────────────────────────┤
+│  4. VALIDAR BUILD (AUTOMÁTICO)                              │
+│     npm run build                                           │
+├─────────────────────────────────────────────────────────────┤
+│  5. ¿BUILD EXITOSO?                                         │
+│     ├─ SÍ → Continuar con SEO/ATS checks                    │
+│     └─ NO → Volver al paso 2 (LOOP hasta éxito)             │
+├─────────────────────────────────────────────────────────────┤
+│  6. REPORTAR RESULTADO                                      │
+│     Con evidencia de build exitoso (exit code 0)            │
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### 📋 Checklist Pre-Respuesta
+
+Antes de responder al usuario con cambios de código, verificar:
+
+- [ ] Cambios implementados
+- [ ] `npm run build` ejecutado
+- [ ] Build exitoso (0 errores)
+- [ ] Errores de lint corregidos
+- [ ] Evidencia de build incluida en respuesta
+- [ ] Cambios implementados
+- [ ] `npm run build` ejecutado
+- [ ] Build exitoso (0 errores)
+- [ ] Errores de lint corregidos
+- [ ] Evidencia de build incluida en respuesta

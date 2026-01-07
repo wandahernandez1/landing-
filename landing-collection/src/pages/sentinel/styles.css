@@ -244,7 +244,29 @@
 }
 
 .sentinel .protection-ring {
-    animation: protectionRing 2s ease-out infinite;
+    animation: protectionRing 2.5s ease-out infinite;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+
+    .sentinel .shield-pulse,
+    .sentinel .radar-scan,
+    .sentinel .data-stream,
+    .sentinel .threat-indicator,
+    .sentinel .protection-ring {
+        animation: none !important;
+    }
+}
+
+/* Disable complex animations on mobile */
+@media (max-width: 768px) {
+
+    .sentinel .radar-scan,
+    .sentinel .data-stream,
+    .sentinel .protection-ring {
+        animation: none;
+    }
 }
 
 /* Stats Glow */

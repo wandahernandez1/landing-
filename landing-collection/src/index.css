@@ -245,35 +245,53 @@ p {
 }
 
 /* ============================================
-   Glass Effects - Premium Quality
+   Glass Effects - Performance Optimized
    ============================================ */
 
 .glass {
-    background: rgba(0, 0, 0, 0.65);
-    backdrop-filter: saturate(180%) blur(24px);
-    -webkit-backdrop-filter: saturate(180%) blur(24px);
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    contain: layout style paint;
 }
 
 .glass-subtle {
-    background: rgba(10, 10, 10, 0.75);
-    backdrop-filter: blur(40px);
-    -webkit-backdrop-filter: blur(40px);
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    contain: layout style paint;
 }
 
 .glass-card {
     background: linear-gradient(135deg,
             rgba(255, 255, 255, 0.06) 0%,
             rgba(255, 255, 255, 0.015) 100%);
-    backdrop-filter: blur(40px);
-    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.06);
+    contain: layout style paint;
 }
 
 /* Premium glass for navbar */
 .glass-premium {
-    background: rgba(3, 3, 3, 0.72);
-    backdrop-filter: saturate(200%) blur(30px);
-    -webkit-backdrop-filter: saturate(200%) blur(30px);
+    background: rgba(3, 3, 3, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    contain: layout style paint;
+}
+
+/* Disable backdrop-filter on low-end devices */
+@media (prefers-reduced-motion: reduce),
+(max-width: 768px) {
+
+    .glass,
+    .glass-subtle,
+    .glass-card,
+    .glass-premium {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: rgba(0, 0, 0, 0.9);
+    }
 }
 
 /* ============================================
@@ -352,13 +370,11 @@ p {
 
     0%,
     100% {
-        opacity: 0.4;
-        filter: blur(60px);
+        opacity: 0.3;
     }
 
     50% {
-        opacity: 0.6;
-        filter: blur(80px);
+        opacity: 0.5;
     }
 }
 
@@ -395,11 +411,11 @@ p {
 }
 
 .animate-fade-in-up {
-    animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-fade-in {
-    animation: fade-in 0.6s ease-out forwards;
+    animation: fade-in 0.5s ease-out forwards;
 }
 
 .animate-float {
@@ -407,19 +423,48 @@ p {
 }
 
 .animate-shimmer {
-    animation: shimmer 2s linear infinite;
+    animation: shimmer 3s linear infinite;
 }
 
 .animate-pulse-subtle {
-    animation: pulse-subtle 2s ease-in-out infinite;
+    animation: pulse-subtle 3s ease-in-out infinite;
 }
 
 .animate-scale-in {
-    animation: scale-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: scale-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-glow-pulse {
-    animation: glow-pulse 4s ease-in-out infinite;
+    animation: glow-pulse 6s ease-in-out infinite;
+}
+
+/* ============================================
+   PREFERS REDUCED MOTION - Accessibility & Performance
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .animate-fade-in-up,
+    .animate-fade-in,
+    .animate-float,
+    .animate-shimmer,
+    .animate-pulse-subtle,
+    .animate-scale-in,
+    .animate-glow-pulse,
+    .animate-pulse-very-slow {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
 }
 
 /* Very slow pulse for ambient effects */
@@ -444,14 +489,23 @@ p {
     background: radial-gradient(ellipse at center, var(--tw-gradient-stops));
 }
 
-/* Film grain texture overlay */
+/* Film grain texture overlay - Disabled for performance */
 .film-grain {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    mix-blend-mode: overlay;
-    opacity: 0.03;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    display: none;
+}
+
+/* Enable film grain only on high-end displays with reduced motion off */
+@media (min-width: 1920px) and (prefers-reduced-motion: no-preference) {
+    .film-grain {
+        display: block;
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        mix-blend-mode: overlay;
+        opacity: 0.02;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        contain: strict;
+    }
 }
 
 /* ============================================
@@ -648,8 +702,7 @@ p {
 /* Base card properties */
 .showcase-card {
     transform-style: preserve-3d;
-    perspective: 1500px;
-    will-change: transform, opacity;
+    perspective: 1000px;
     /* Base sizing */
     width: 100%;
     height: auto;
@@ -659,6 +712,12 @@ p {
     overflow: visible;
     /* Center the card */
     margin: 0 auto;
+    contain: layout style;
+}
+
+/* Only apply will-change when actively animating */
+.showcase-card.is-animating {
+    will-change: transform, opacity;
 }
 
 /* Mobile First (< 640px) - Safe area aware */
@@ -808,52 +867,86 @@ p {
 }
 
 /* ============================================
-   GALLERY LEGACY STYLES
+   GALLERY LEGACY STYLES - Performance Optimized
    ============================================ */
 
 .gallery-card {
     transform-style: preserve-3d;
-    perspective: 1200px;
+    perspective: 1000px;
+    contain: layout style;
+}
+
+/* Apply will-change only on hover/interaction */
+.gallery-card:hover {
     will-change: transform;
 }
 
 .smooth-3d {
-    transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
     backface-visibility: hidden;
-    transform: translateZ(0);
+    transform: translate3d(0, 0, 0);
 }
 
 .shadow-premium {
     box-shadow:
-        0 25px 50px -12px rgba(0, 0, 0, 0.6),
-        0 12px 24px -8px rgba(0, 0, 0, 0.4),
-        0 0 0 1px rgba(255, 255, 255, 0.05);
+        0 20px 40px -12px rgba(0, 0, 0, 0.5),
+        0 8px 16px -6px rgba(0, 0, 0, 0.35);
 }
 
 .shadow-premium-hover {
     box-shadow:
-        0 50px 100px -20px rgba(0, 0, 0, 0.7),
-        0 25px 50px -12px rgba(0, 0, 0, 0.5),
-        0 0 0 1px rgba(255, 255, 255, 0.08),
-        0 0 60px -10px rgba(168, 85, 247, 0.15);
+        0 30px 60px -15px rgba(0, 0, 0, 0.6),
+        0 15px 30px -10px rgba(0, 0, 0, 0.4);
 }
 
+/* Reduced glow effects for better performance */
 .glow-purple {
-    box-shadow: 0 0 60px -15px rgba(168, 85, 247, 0.4);
+    box-shadow: 0 0 40px -10px rgba(168, 85, 247, 0.35);
 }
 
 .glow-white {
-    box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
+}
+
+/* Disable expensive glows on mobile */
+@media (max-width: 768px) {
+
+    .glow-purple,
+    .glow-white,
+    .glow-ambient {
+        box-shadow: none;
+    }
 }
 
 /* ============================================
-   GPU OPTIMIZATION
+   GPU OPTIMIZATION - Performance Optimized
    ============================================ */
 
 .gpu-accelerated {
-    transform: translateZ(0);
+    transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
+}
+
+/* Only use will-change on active animations - remove after animation completes */
+.will-change-transform {
     will-change: transform;
+}
+
+.will-change-opacity {
+    will-change: opacity;
+}
+
+/* Containment for performance isolation */
+.contain-layout {
+    contain: layout;
+}
+
+.contain-paint {
+    contain: paint;
+}
+
+.contain-strict {
+    contain: strict;
 }
 
 /* ============================================

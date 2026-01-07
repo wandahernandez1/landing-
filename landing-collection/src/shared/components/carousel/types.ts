@@ -46,8 +46,6 @@ export interface CarouselItemProps {
   index: number;
   /** Total number of items */
   totalItems: number;
-  /** Click handler */
-  onClick?: () => void;
 }
 
 /** Navigation component props */

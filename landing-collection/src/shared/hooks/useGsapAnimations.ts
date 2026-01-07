@@ -5,10 +5,23 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 // Register GSAP plugins once at module level
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
+
+  // Configure GSAP defaults for better performance
+  gsap.config({
+    autoSleep: 60,
+    force3D: true,
+    nullTargetWarn: false,
+  });
+
+  // Set default ease for all tweens
+  gsap.defaults({
+    ease: "power3.out",
+    duration: 0.5,
+  });
 }
 
 // ============================================
-// GSAP Configuration
+// GSAP Configuration - Performance Optimized
 // ============================================
 
 const GSAP_CONFIG = {
@@ -16,22 +29,22 @@ const GSAP_CONFIG = {
   ease: {
     default: "power3.out",
     smooth: "power2.out",
-    bounce: "back.out(1.4)",
+    bounce: "back.out(1.2)", // Reduced bounce intensity
     elastic: "elastic.out(1, 0.5)",
     linear: "none",
   },
-  // Default durations (200-800ms range)
+  // Optimized durations (faster for better perceived performance)
   duration: {
-    fast: 0.3,
-    normal: 0.6,
-    slow: 0.8,
-    slower: 1,
+    fast: 0.25,
+    normal: 0.4,
+    slow: 0.6,
+    slower: 0.8,
   },
   // Stagger configurations
   stagger: {
-    fast: 0.08,
-    normal: 0.12,
-    slow: 0.2,
+    fast: 0.06,
+    normal: 0.1,
+    slow: 0.15,
   },
 } as const;
 
@@ -42,6 +55,28 @@ const GSAP_CONFIG = {
 function prefersReducedMotion(): boolean {
   if (typeof window === "undefined") return false;
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+// ============================================
+// Utility: Check if device is mobile/low-end
+// ============================================
+
+function isMobileOrLowEnd(): boolean {
+  if (typeof window === "undefined") return false;
+
+  const nav = navigator as Navigator & { deviceMemory?: number };
+
+  // Check device memory
+  if (nav.deviceMemory && nav.deviceMemory < 4) return true;
+
+  // Check viewport width
+  if (window.innerWidth < 768) return true;
+
+  // Check hardware concurrency
+  if (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4)
+    return true;
+
+  return false;
 }
 
 // ============================================
@@ -228,7 +263,7 @@ export function useHeroAnimation(
 
 // ============================================
 // Hook: useFloatingAnimation
-// Smooth floating animation for decorative elements
+// Smooth floating animation - disabled on mobile for performance
 // ============================================
 
 export function useFloatingAnimation(
@@ -237,13 +272,15 @@ export function useFloatingAnimation(
   config?: { amplitude?: number; duration?: number; distance?: number }
 ) {
   useEffect(() => {
-    if (!containerRef.current || prefersReducedMotion()) return;
+    // Skip on reduced motion OR mobile devices
+    if (!containerRef.current || prefersReducedMotion() || isMobileOrLowEnd())
+      return;
 
     const elements = containerRef.current.querySelectorAll(selector);
     if (!elements.length) return;
 
-    const amplitude = config?.amplitude ?? config?.distance ?? 15;
-    const baseDuration = config?.duration ?? 3;
+    const amplitude = config?.amplitude ?? config?.distance ?? 10; // Reduced amplitude
+    const baseDuration = config?.duration ?? 4; // Slower, fewer cycles
 
     const ctx = gsap.context(() => {
       elements.forEach((el, index) => {
@@ -264,7 +301,7 @@ export function useFloatingAnimation(
 
 // ============================================
 // Hook: useOrbAnimation
-// Floating orb animation for background elements
+// Floating orb animation - disabled on mobile for performance
 // ============================================
 
 export function useOrbAnimation(
@@ -273,7 +310,9 @@ export function useOrbAnimation(
   config?: { amplitude?: number; duration?: number }
 ) {
   useEffect(() => {
-    if (!containerRef.current || prefersReducedMotion()) return;
+    // Skip on reduced motion OR mobile devices - orbs are performance heavy
+    if (!containerRef.current || prefersReducedMotion() || isMobileOrLowEnd())
+      return;
 
     // If selector is provided, find elements by selector
     const elements = selector
@@ -283,8 +322,8 @@ export function useOrbAnimation(
     if (!elements.length) return;
 
     const tweens: gsap.core.Tween[] = [];
-    const amplitude = config?.amplitude ?? 30;
-    const duration = config?.duration ?? 8;
+    const amplitude = config?.amplitude ?? 20; // Reduced from 30
+    const duration = config?.duration ?? 10; // Slower animation
 
     elements.forEach((el, index) => {
       const direction = index % 2 === 0 ? 1 : -1;
@@ -984,16 +1023,18 @@ export function useRotationAnimation(
 
 // ============================================
 // Hook: useParallax
-// Parallax scrolling effect
+// Parallax scrolling effect - DISABLED on mobile
 // ============================================
 
 export function useParallax(
   containerRef: React.RefObject<HTMLElement | null>,
   selector: string,
-  speed: number = 0.5
+  speed: number = 0.3 // Reduced default speed
 ) {
   useEffect(() => {
-    if (!containerRef.current || prefersReducedMotion()) return;
+    // Parallax is expensive - disable on mobile and reduced motion
+    if (!containerRef.current || prefersReducedMotion() || isMobileOrLowEnd())
+      return;
 
     const elements = containerRef.current.querySelectorAll(selector);
     if (!elements.length) return;
@@ -1019,7 +1060,7 @@ export function useParallax(
 
 // ============================================
 // Hook: useMagneticButton
-// Magnetic hover effect for buttons
+// Magnetic hover effect - DISABLED on mobile/touch for performance
 // ============================================
 
 export function useMagneticButton(
@@ -1027,7 +1068,12 @@ export function useMagneticButton(
   selector: string = "[data-magnetic]"
 ) {
   useEffect(() => {
-    if (!containerRef.current || prefersReducedMotion()) return;
+    // Skip on touch devices, reduced motion, or mobile
+    if (!containerRef.current || prefersReducedMotion() || isMobileOrLowEnd())
+      return;
+
+    // Additional check for touch devices
+    if ("ontouchstart" in window) return;
 
     const buttons = containerRef.current.querySelectorAll(selector);
     if (!buttons.length) return;
@@ -1044,10 +1090,11 @@ export function useMagneticButton(
         const y = e.clientY - rect.top - rect.height / 2;
 
         gsap.to(button, {
-          x: x * 0.2,
-          y: y * 0.2,
-          duration: 0.3,
+          x: x * 0.15, // Reduced intensity
+          y: y * 0.15,
+          duration: 0.25,
           ease: "power2.out",
+          overwrite: "auto",
         });
       };
 
@@ -1055,8 +1102,9 @@ export function useMagneticButton(
         gsap.to(button, {
           x: 0,
           y: 0,
-          duration: 0.5,
-          ease: "elastic.out(1, 0.4)",
+          duration: 0.4,
+          ease: "power3.out",
+          overwrite: "auto",
         });
       };
 

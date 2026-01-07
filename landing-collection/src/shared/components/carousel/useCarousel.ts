@@ -1,6 +1,7 @@
 /**
  * useCarousel Hook
  * Manages carousel state and logic with smooth animations
+ * Performance optimized with throttled updates
  */
 
 import { useState, useCallback, useEffect, useRef } from "react";
@@ -30,10 +31,16 @@ interface UseCarouselReturn {
   canGoPrev: boolean;
 }
 
+// Check if reduced motion is preferred
+function prefersReducedMotion(): boolean {
+  if (typeof window === "undefined") return false;
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
 export function useCarousel({
   items,
   autoplay = false,
-  autoplayDelay = 5000,
+  autoplayDelay = 6000, // Increased default delay
   loop = true,
   initialIndex = 0,
   onSlideChange,
@@ -47,6 +54,7 @@ export function useCarousel({
   const animationFrameRef = useRef<number | null>(null);
   const lastTimeRef = useRef<number | null>(null);
   const isPausedRef = useRef(isPaused);
+  const lastProgressUpdate = useRef(0);
 
   // Keep ref in sync with state
   useEffect(() => {
@@ -105,9 +113,10 @@ export function useCarousel({
   const pause = useCallback(() => setIsPaused(true), []);
   const resume = useCallback(() => setIsPaused(false), []);
 
-  // Autoplay animation loop
+  // Autoplay animation loop - throttled for performance
   useEffect(() => {
-    if (!autoplay) return;
+    // Disable autoplay if reduced motion is preferred
+    if (!autoplay || prefersReducedMotion()) return;
 
     const animate = (currentTime: number) => {
       if (lastTimeRef.current === null) {
@@ -125,7 +134,11 @@ export function useCarousel({
           goToNext();
         }
 
-        setProgress(progressRef.current);
+        // Throttle progress state updates to every 100ms for performance
+        if (currentTime - lastProgressUpdate.current > 100) {
+          setProgress(progressRef.current);
+          lastProgressUpdate.current = currentTime;
+        }
       }
 
       animationFrameRef.current = requestAnimationFrame(animate);

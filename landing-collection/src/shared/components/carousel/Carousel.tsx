@@ -28,11 +28,10 @@ export function Carousel({
   className,
 }: CarouselProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isDragging, setIsDragging] = useState(false);
+  const [, setIsDragging] = useState(false);
 
   const {
     currentIndex,
-    isTransitioning,
     progress,
     isPaused,
     goToSlide,
@@ -117,7 +116,7 @@ export function Carousel({
       <div className="relative w-full flex-1 flex items-center justify-center px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20">
         {/* Drag Container */}
         <motion.div
-          className="relative w-full max-w-7xl cursor-grab active:cursor-grabbing"
+          className="relative w-full max-w-5xl cursor-grab active:cursor-grabbing"
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
           dragElastic={0.1}
@@ -148,11 +147,6 @@ export function Carousel({
                   isActive={true}
                   index={currentIndex}
                   totalItems={items.length}
-                  onClick={() => {
-                    if (!isDragging && !isTransitioning) {
-                      // Item already active, no action needed
-                    }
-                  }}
                 />
               </motion.div>
             </AnimatePresence>

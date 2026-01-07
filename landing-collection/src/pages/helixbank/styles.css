@@ -146,7 +146,7 @@
     background-size: 50px 50px;
 }
 
-/* Neon Line Animation */
+/* Neon Line Animation - Performance Optimized */
 @keyframes neonLine {
 
     0%,
@@ -164,33 +164,52 @@
 .helixbank .neon-line {
     height: 2px;
     background: linear-gradient(90deg, transparent, #22d3ee, transparent);
-    animation: neonLine 3s ease-in-out infinite;
+    animation: neonLine 4s ease-in-out infinite;
 }
 
-/* Cyber Glow Orbs */
+/* Cyber Glow Orbs - Performance Optimized (NO filter animation) */
 @keyframes cyberGlow {
 
     0%,
     100% {
-        opacity: 0.4;
+        opacity: 0.3;
         transform: scale(1);
-        filter: blur(60px);
     }
 
     50% {
-        opacity: 0.6;
-        transform: scale(1.2);
-        filter: blur(80px);
+        opacity: 0.45;
+        transform: scale(1.1);
     }
 }
 
 .helixbank .cyber-orb {
     position: absolute;
     border-radius: 50%;
-    animation: cyberGlow 6s ease-in-out infinite;
+    filter: blur(60px);
+    animation: cyberGlow 8s ease-in-out infinite;
+    contain: strict;
 }
 
-/* Scan Line Effect */
+/* Disable orbs on mobile */
+@media (max-width: 768px) {
+    .helixbank .cyber-orb {
+        display: none;
+    }
+}
+
+/* Reduced motion support for all animations */
+@media (prefers-reduced-motion: reduce) {
+
+    .helixbank .neon-line,
+    .helixbank .cyber-orb,
+    .helixbank .scan-line,
+    .helixbank .data-flow,
+    .helixbank .holographic {
+        animation: none !important;
+    }
+}
+
+/* Scan Line Effect - Performance Optimized */
 @keyframes scanLine {
     0% {
         transform: translateY(-100%);
@@ -207,8 +226,16 @@
     right: 0;
     height: 2px;
     background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.3), transparent);
-    animation: scanLine 8s linear infinite;
+    animation: scanLine 10s linear infinite;
     pointer-events: none;
+    contain: strict;
+}
+
+/* Disable scan line on mobile */
+@media (max-width: 768px) {
+    .helixbank .scan-line {
+        display: none;
+    }
 }
 
 /* Card Neon Border Glow */

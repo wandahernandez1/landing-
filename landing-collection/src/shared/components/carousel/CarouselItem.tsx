@@ -3,8 +3,8 @@
  * Individual slide with landing page preview card featuring background image
  */
 
-import { memo } from "react";
-import { Link } from "react-router-dom";
+import { memo, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "motion/react";
 import { ArrowUpRight, Sparkles } from "lucide-react";
 import { cn } from "@/shared/utils";
@@ -169,9 +169,35 @@ function CarouselItemComponent({
   item,
   isActive,
   index,
-  onClick,
 }: CarouselItemProps) {
   const colors = themeColors[item.theme] || themeColors["Purple Dark"];
+  const navigate = useNavigate();
+  const dragStartPos = useRef({ x: 0, y: 0 });
+  const isDragging = useRef(false);
+
+  // Handle card click - navigate to landing page
+  const handleCardClick = () => {
+    // Only navigate if it wasn't a drag
+    if (!isDragging.current && isActive) {
+      // Scroll to top before navigation
+      window.scrollTo(0, 0);
+      navigate(item.path);
+    }
+  };
+
+  // Track drag start position
+  const handlePointerDown = (e: React.PointerEvent) => {
+    dragStartPos.current = { x: e.clientX, y: e.clientY };
+    isDragging.current = false;
+  };
+
+  // Detect if it was a drag or a click
+  const handlePointerUp = (e: React.PointerEvent) => {
+    const dx = Math.abs(e.clientX - dragStartPos.current.x);
+    const dy = Math.abs(e.clientY - dragStartPos.current.y);
+    // If moved more than 10px, consider it a drag
+    isDragging.current = dx > 10 || dy > 10;
+  };
 
   return (
     <motion.article
@@ -185,7 +211,9 @@ function CarouselItemComponent({
         duration: 0.5,
         ease: [0.25, 0.1, 0.25, 1],
       }}
-      onClick={onClick}
+      onPointerDown={handlePointerDown}
+      onPointerUp={handlePointerUp}
+      onClick={handleCardClick}
       className={cn(
         "relative w-full mx-auto",
         "cursor-pointer",
@@ -286,27 +314,20 @@ function CarouselItemComponent({
               </span>
             </div>
 
-            {/* View Link */}
-            <Link
-              to={item.path}
+            {/* Visual CTA indicator - the whole card is clickeable */}
+            <span
               className={cn(
                 "inline-flex items-center gap-1.5 sm:gap-2",
                 "px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 md:py-2.5 rounded-full",
                 "bg-white text-black",
                 "text-xs sm:text-sm font-medium",
                 "transition-all duration-300",
-                "hover:bg-white/90 hover:scale-105",
-                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950",
-                "pointer-events-auto relative z-10"
+                "group-hover:bg-white/90 group-hover:scale-105"
               )}
-              tabIndex={isActive ? 0 : -1}
-              aria-label={`Ver landing page de ${item.name}`}
-              onPointerDown={(e) => e.stopPropagation()}
-              onClick={(e) => e.stopPropagation()}
             >
               Explorar
               <ArrowUpRight className="w-3 h-3 sm:w-4 sm:h-4" aria-hidden="true" />
-            </Link>
+            </span>
           </footer>
         </div>
 
