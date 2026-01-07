@@ -1,0 +1,46 @@
+# Dependencies
+node_modules/
+
+# Source files (not needed after build)
+src/
+
+# Development files
+*.md
+!README.md
+.github/
+scripts/
+
+# Config files not needed in production
+tsconfig*.json
+eslint.config.js
+.eslintrc*
+.prettierrc*
+.editorconfig
+
+# Test files
+**/*.test.ts
+**/*.test.tsx
+**/*.spec.ts
+**/*.spec.tsx
+__tests__/
+coverage/
+
+# Build cache
+.vite/
+*.tsbuildinfo
+
+# IDE
+.vscode/
+.idea/
+
+# Git
+.git/
+.gitignore
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db

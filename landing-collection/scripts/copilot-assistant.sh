@@ -1,18 +1,18 @@
 #!/bin/bash
 
 # ══════════════════════════════════════════════════════════════════════════════
-# 🏢 GESTIÓN DIGITAL - COPILOT ENTERPRISE ASSISTANT v3.0
+# 🏢 COPILOT ENTERPRISE ASSISTANT v3.0
 # ══════════════════════════════════════════════════════════════════════════════
 #
 # Features:
-#   • Modo multilínea con números de línea
-#   • Editor externo (vim/nano/code)
-#   • Clipboard integration (Windows/Mac/Linux)
-#   • Historial de comandos
-#   • Templates predefinidos
-#   • Syntax highlighting preview
-#   • Session persistence
-#   • Auto-save drafts
+# • Modo multilínea con números de línea
+# • Editor externo (vim/nano/code)
+# • Clipboard integration (Windows/Mac/Linux)
+# • Historial de comandos
+# • Templates predefinidos
+# • Syntax highlighting preview
+# • Session persistence
+# • Auto-save drafts
 #
 # ══════════════════════════════════════════════════════════════════════════════
 
@@ -114,61 +114,60 @@ EOF
     echo -e "${NC}"
 }
 
-
 show_header() {
     clear
     echo ""
     echo -e "${CYAN}┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓${NC}"
     show_logo
-    echo -e "${CYAN}┃${NC}                    ${WHITE}🤖 Copilot Enterprise Assistant v3.0${NC}                    ${CYAN}┃${NC}"
+    echo -e "${CYAN}┃${NC} ${WHITE}🤖 Copilot Enterprise Assistant v3.0${NC}                                       ${CYAN}┃${NC}"
     echo -e "${CYAN}┃${NC}                                                                              ${CYAN}┃${NC}"
-    echo -e "${CYAN}┃${NC}  ${DIM}📅 $(datestamp)   🕐 $(timestamp)   📂 ${PROJECT_DIR##*/}${NC}                    ${CYAN}┃${NC}"
+    echo -e "${CYAN}┃${NC} ${DIM}📅 $(datestamp)   🕐 $(timestamp)   📂 ${PROJECT_DIR##*/}${NC}                          ${CYAN}┃${NC}"
     echo -e "${CYAN}┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛${NC}"
     echo ""
 }
 
 show_quick_menu() {
     echo -e "${GRAY}┌─────────────────────────────────────────────────────────────────────────────┐${NC}"
-    echo -e "${GRAY}│${NC} ${YELLOW}:m${NC}ulti  ${YELLOW}:e${NC}dit  ${YELLOW}:p${NC}aste  ${YELLOW}:t${NC}emplate  ${YELLOW}:h${NC}istory  ${YELLOW}:d${NC}raft  ${YELLOW}:c${NC}lear  ${YELLOW}:?${NC}help  ${RED}salir${NC} ${GRAY}│${NC}"
+    echo -e "${GRAY}│${NC} ${YELLOW}:m${NC}ulti ${YELLOW}:e${NC}dit ${YELLOW}:p${NC}aste ${YELLOW}:t${NC}emplate ${YELLOW}:h${NC}istory ${YELLOW}:d${NC}raft ${YELLOW}:c${NC}lear ${YELLOW}:?${NC}help ${RED}salir${NC}     ${GRAY}│${NC}"
     echo -e "${GRAY}└─────────────────────────────────────────────────────────────────────────────┘${NC}"
 }
 
 show_help() {
     echo ""
     echo -e "${CYAN}┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓${NC}"
-    echo -e "${CYAN}┃${NC}                         ${WHITE}📚 GUÍA DE COMANDOS${NC}                                 ${CYAN}┃${NC}"
+    echo -e "${CYAN}┃${NC} ${WHITE}📚 GUÍA DE COMANDOS${NC}                                                          ${CYAN}┃${NC}"
     echo -e "${CYAN}┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫${NC}"
     echo -e "${CYAN}┃${NC}                                                                              ${CYAN}┃${NC}"
-    echo -e "${CYAN}┃${NC}  ${GREEN}📝 MODOS DE ENTRADA${NC}                                                        ${CYAN}┃${NC}"
-    echo -e "${CYAN}┃${NC}  ────────────────────────────────────────────────────────────────────────   ${CYAN}┃${NC}"
-    echo -e "${CYAN}┃${NC}  ${YELLOW}:multi${NC}  ${YELLOW}:m${NC}   │ Modo multilínea con números de línea                    ${CYAN}┃${NC}"
-    echo -e "${CYAN}┃${NC}  ${YELLOW}:edit${NC}   ${YELLOW}:e${NC}   │ Abrir editor externo (vim/nano/code)                    ${CYAN}┃${NC}"
-    echo -e "${CYAN}┃${NC}  ${YELLOW}:paste${NC}  ${YELLOW}:p${NC}   │ Pegar desde clipboard                                   ${CYAN}┃${NC}"
-    echo -e "${CYAN}┃${NC}  ${YELLOW}:vscode${NC} ${YELLOW}:v${NC}   │ Abrir VSCode para editar mensaje                        ${CYAN}┃${NC}"
+    echo -e "${CYAN}┃${NC} ${GREEN}📝 MODOS DE ENTRADA${NC}                                                          ${CYAN}┃${NC}"
+    echo -e "${CYAN}┃${NC} ──────────────────────────────────────────────────────────────────────────   ${CYAN}┃${NC}"
+    echo -e "${CYAN}┃${NC}   ${YELLOW}:multi${NC}  ${YELLOW}:m${NC}   │ Modo multilínea con números de línea                     ${CYAN}┃${NC}"
+    echo -e "${CYAN}┃${NC}   ${YELLOW}:edit${NC}   ${YELLOW}:e${NC}   │ Abrir editor externo (vim/nano/code)                     ${CYAN}┃${NC}"
+    echo -e "${CYAN}┃${NC}   ${YELLOW}:paste${NC}  ${YELLOW}:p${NC}   │ Pegar desde clipboard                                    ${CYAN}┃${NC}"
+    echo -e "${CYAN}┃${NC}   ${YELLOW}:vscode${NC} ${YELLOW}:v${NC}   │ Abrir VSCode para editar mensaje                         ${CYAN}┃${NC}"
     echo -e "${CYAN}┃${NC}                                                                              ${CYAN}┃${NC}"
-    echo -e "${CYAN}┃${NC}  ${GREEN}📋 TEMPLATES${NC}                                                               ${CYAN}┃${NC}"
-    echo -e "${CYAN}┃${NC}  ────────────────────────────────────────────────────────────────────────   ${CYAN}┃${NC}"
-    echo -e "${CYAN}┃${NC}  ${YELLOW}:template${NC} ${YELLOW}:t${NC} │ Seleccionar plantilla predefinida                       ${CYAN}┃${NC}"
-    echo -e "${CYAN}┃${NC}  ${YELLOW}:bug${NC}         │ Template para reportar bugs                               ${CYAN}┃${NC}"
-    echo -e "${CYAN}┃${NC}  ${YELLOW}:feature${NC}     │ Template para solicitar features                          ${CYAN}┃${NC}"
-    echo -e "${CYAN}┃${NC}  ${YELLOW}:refactor${NC}    │ Template para refactorizar código                         ${CYAN}┃${NC}"
-    echo -e "${CYAN}┃${NC}  ${YELLOW}:review${NC}      │ Template para code review                                  ${CYAN}┃${NC}"
+    echo -e "${CYAN}┃${NC} ${GREEN}📋 TEMPLATES${NC}                                                                  ${CYAN}┃${NC}"
+    echo -e "${CYAN}┃${NC} ──────────────────────────────────────────────────────────────────────────   ${CYAN}┃${NC}"
+    echo -e "${CYAN}┃${NC}   ${YELLOW}:template${NC} ${YELLOW}:t${NC} │ Seleccionar plantilla predefinida                        ${CYAN}┃${NC}"
+    echo -e "${CYAN}┃${NC}   ${YELLOW}:bug${NC}          │ Template para reportar bugs                               ${CYAN}┃${NC}"
+    echo -e "${CYAN}┃${NC}   ${YELLOW}:feature${NC}      │ Template para solicitar features                          ${CYAN}┃${NC}"
+    echo -e "${CYAN}┃${NC}   ${YELLOW}:refactor${NC}     │ Template para refactorizar código                         ${CYAN}┃${NC}"
+    echo -e "${CYAN}┃${NC}   ${YELLOW}:review${NC}       │ Template para code review                                  ${CYAN}┃${NC}"
     echo -e "${CYAN}┃${NC}                                                                              ${CYAN}┃${NC}"
-    echo -e "${CYAN}┃${NC}  ${GREEN}📜 HISTORIAL & DRAFTS${NC}                                                      ${CYAN}┃${NC}"
-    echo -e "${CYAN}┃${NC}  ────────────────────────────────────────────────────────────────────────   ${CYAN}┃${NC}"
-    echo -e "${CYAN}┃${NC}  ${YELLOW}:history${NC} ${YELLOW}:h${NC}  │ Ver historial de mensajes                               ${CYAN}┃${NC}"
-    echo -e "${CYAN}┃${NC}  ${YELLOW}:draft${NC}   ${YELLOW}:d${NC}  │ Recuperar último borrador                               ${CYAN}┃${NC}"
-    echo -e "${CYAN}┃${NC}  ${YELLOW}:last${NC}   ${YELLOW}:l${NC}   │ Repetir último mensaje                                  ${CYAN}┃${NC}"
+    echo -e "${CYAN}┃${NC} ${GREEN}📜 HISTORIAL & DRAFTS${NC}                                                        ${CYAN}┃${NC}"
+    echo -e "${CYAN}┃${NC} ──────────────────────────────────────────────────────────────────────────   ${CYAN}┃${NC}"
+    echo -e "${CYAN}┃${NC}   ${YELLOW}:history${NC} ${YELLOW}:h${NC}  │ Ver historial de mensajes                                ${CYAN}┃${NC}"
+    echo -e "${CYAN}┃${NC}   ${YELLOW}:draft${NC}   ${YELLOW}:d${NC}  │ Recuperar último borrador                                ${CYAN}┃${NC}"
+    echo -e "${CYAN}┃${NC}   ${YELLOW}:last${NC}    ${YELLOW}:l${NC}  │ Repetir último mensaje                                   ${CYAN}┃${NC}"
     echo -e "${CYAN}┃${NC}                                                                              ${CYAN}┃${NC}"
-    echo -e "${CYAN}┃${NC}  ${GREEN}⚙️  UTILIDADES${NC}                                                             ${CYAN}┃${NC}"
-    echo -e "${CYAN}┃${NC}  ────────────────────────────────────────────────────────────────────────   ${CYAN}┃${NC}"
-    echo -e "${CYAN}┃${NC}  ${YELLOW}:clear${NC}  ${YELLOW}:c${NC}   │ Limpiar pantalla                                        ${CYAN}┃${NC}"
-    echo -e "${CYAN}┃${NC}  ${YELLOW}:status${NC} ${YELLOW}:s${NC}   │ Ver estado del proyecto                                 ${CYAN}┃${NC}"
-    echo -e "${CYAN}┃${NC}  ${YELLOW}:git${NC}    ${YELLOW}:g${NC}   │ Ver estado de git                                       ${CYAN}┃${NC}"
-    echo -e "${CYAN}┃${NC}  ${YELLOW}:files${NC}  ${YELLOW}:f${NC}   │ Listar archivos recientes                               ${CYAN}┃${NC}"
-    echo -e "${CYAN}┃${NC}  ${YELLOW}:help${NC}   ${YELLOW}:?${NC}   │ Mostrar esta ayuda                                      ${CYAN}┃${NC}"
+    echo -e "${CYAN}┃${NC} ${GREEN}⚙️  UTILIDADES${NC}                                                                ${CYAN}┃${NC}"
+    echo -e "${CYAN}┃${NC} ──────────────────────────────────────────────────────────────────────────   ${CYAN}┃${NC}"
+    echo -e "${CYAN}┃${NC}   ${YELLOW}:clear${NC}  ${YELLOW}:c${NC}   │ Limpiar pantalla                                         ${CYAN}┃${NC}"
+    echo -e "${CYAN}┃${NC}   ${YELLOW}:status${NC} ${YELLOW}:s${NC}   │ Ver estado del proyecto                                  ${CYAN}┃${NC}"
+    echo -e "${CYAN}┃${NC}   ${YELLOW}:git${NC}    ${YELLOW}:g${NC}   │ Ver estado de git                                        ${CYAN}┃${NC}"
+    echo -e "${CYAN}┃${NC}   ${YELLOW}:files${NC}  ${YELLOW}:f${NC}   │ Listar archivos recientes                                ${CYAN}┃${NC}"
+    echo -e "${CYAN}┃${NC}   ${YELLOW}:help${NC}   ${YELLOW}:?${NC}   │ Mostrar esta ayuda                                       ${CYAN}┃${NC}"
     echo -e "${CYAN}┃${NC}                                                                              ${CYAN}┃${NC}"
-    echo -e "${CYAN}┃${NC}  ${RED}salir${NC} ${RED}exit${NC} ${RED}:q${NC} │ Terminar sesión                                       ${CYAN}┃${NC}"
+    echo -e "${CYAN}┃${NC}   ${RED}salir${NC} ${RED}exit${NC} ${RED}:q${NC} │ Terminar sesión                                          ${CYAN}┃${NC}"
     echo -e "${CYAN}┃${NC}                                                                              ${CYAN}┃${NC}"
     echo -e "${CYAN}┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛${NC}"
     echo ""
@@ -182,18 +181,18 @@ show_templates_menu() {
     echo "" >&2
     echo -e "${YELLOW}📋 Selecciona una plantilla:${NC}" >&2
     echo "" >&2
-    echo -e "  ${GREEN}1)${NC} 🐛 Bug Report        - Reportar un error" >&2
-    echo -e "  ${GREEN}2)${NC} ✨ Feature Request   - Solicitar nueva funcionalidad" >&2
-    echo -e "  ${GREEN}3)${NC} 🔄 Refactor          - Refactorizar código existente" >&2
-    echo -e "  ${GREEN}4)${NC} 👀 Code Review       - Revisar código" >&2
-    echo -e "  ${GREEN}5)${NC} 📝 Documentation     - Documentar código" >&2
-    echo -e "  ${GREEN}6)${NC} 🧪 Test              - Crear tests" >&2
-    echo -e "  ${GREEN}7)${NC} 🚀 Deploy            - Preparar deploy" >&2
-    echo -e "  ${GREEN}8)${NC} 🔧 Fix               - Arreglar algo específico" >&2
+    echo -e "  ${GREEN}1)${NC} 🐛 Bug Report - Reportar un error" >&2
+    echo -e "  ${GREEN}2)${NC} ✨ Feature Request - Solicitar nueva funcionalidad" >&2
+    echo -e "  ${GREEN}3)${NC} 🔄 Refactor - Refactorizar código existente" >&2
+    echo -e "  ${GREEN}4)${NC} 👀 Code Review - Revisar código" >&2
+    echo -e "  ${GREEN}5)${NC} 📝 Documentation - Documentar código" >&2
+    echo -e "  ${GREEN}6)${NC} 🧪 Test - Crear tests" >&2
+    echo -e "  ${GREEN}7)${NC} 🚀 Deploy - Preparar deploy" >&2
+    echo -e "  ${GREEN}8)${NC} 🔧 Fix - Arreglar algo específico" >&2
     echo "" >&2
     echo -ne "${GREEN}➜${NC} Opción (1-8): " >&2
     read -r template_choice
-    
+
     case "$template_choice" in
         1|bug) get_bug_template ;;
         2|feature) get_feature_template ;;
@@ -339,9 +338,9 @@ get_test_template() {
 - [ ] E2E tests
 
 **Casos a cubrir:**
-1. Happy path: 
-2. Edge cases: 
-3. Error handling: 
+1. Happy path:
+2. Edge cases:
+3. Error handling:
 
 **Archivo de tests:**
 [path/to/test.spec.ts]
@@ -417,20 +416,20 @@ copy_to_clipboard() {
 
 edit_template() {
     local template_content="$1"
-    
+
     # Copiar template al clipboard automáticamente
     if copy_to_clipboard "$template_content"; then
         echo "" >&2
         echo -e "${GREEN}✓ Template copiado al clipboard${NC}" >&2
         echo -e "${DIM}  Pega con Ctrl+Shift+V (o click derecho) y edita${NC}" >&2
     fi
-    
+
     echo "" >&2
     echo -e "${CYAN}┌──────────────────────────────────────────────────────────────────────────────┐${NC}" >&2
     echo -e "${CYAN}│${NC} ${YELLOW}📋 TEMPLATE${NC} - Pega con ${WHITE}Ctrl+Shift+V${NC} y edita los campos ${YELLOW}[marcados]${NC}        ${CYAN}│${NC}" >&2
     echo -e "${CYAN}└──────────────────────────────────────────────────────────────────────────────┘${NC}" >&2
     echo "" >&2
-    
+
     # Mostrar template como referencia visual
     echo -e "${GRAY}─────────────────────────── TEMPLATE (ya en clipboard) ───────────────────────${NC}" >&2
     local line_num=1
@@ -444,26 +443,26 @@ edit_template() {
     done <<< "$template_content"
     echo -e "${GRAY}──────────────────────────────────────────────────────────────────────────────${NC}" >&2
     echo "" >&2
-    
+
     # Entrar en modo multilínea
     echo -e "${GREEN}✎ Pega el template y edítalo:${NC}" >&2
     echo -e "${DIM}  • Enter vacío para enviar${NC}" >&2
     echo -e "${DIM}  • :cancel para cancelar${NC}" >&2
     echo "" >&2
-    
+
     local content=""
     local input_line_num=1
     local empty_count=0
-    
+
     while true; do
         printf "${BLUE}%3d │${NC} " "$input_line_num" >&2
         read -r line
-        
+
         if [[ "$line" == ":cancel" || "$line" == ":c" ]]; then
             echo -e "${RED}✗ Cancelado${NC}" >&2
             return 1
         fi
-        
+
         if [[ -z "$line" ]]; then
             ((empty_count++))
             if [[ $empty_count -ge 1 ]]; then
@@ -472,26 +471,26 @@ edit_template() {
         else
             empty_count=0
         fi
-        
+
         if [[ -n "$content" ]]; then
             content="$content"$'\n'"$line"
         else
             content="$line"
         fi
         ((input_line_num++))
-        
+
         # Auto-save draft cada 5 líneas
         if (( input_line_num % 5 == 0 )); then
             save_draft "$content"
         fi
     done
-    
+
     local words=$(count_words "$content")
     local lines_count=$(count_lines "$content")
-    
+
     echo "" >&2
     echo -e "${GREEN}✓${NC} ${DIM}$lines_count líneas | $words palabras${NC}" >&2
-    
+
     echo "$content"
 }
 
@@ -505,20 +504,20 @@ multiline_input() {
     echo -e "${CYAN}│${NC} ${DIM}• Escribe ${WHITE}:cancel${NC}${DIM} para cancelar${NC}                                          ${CYAN}│${NC}" >&2
     echo -e "${CYAN}└──────────────────────────────────────────────────────────────────────────────┘${NC}" >&2
     echo "" >&2
-    
+
     local content=""
     local line_num=1
     local empty_lines=0
-    
+
     while true; do
         printf "${BLUE}%3d │${NC} " "$line_num" >&2
         read -r line
-        
+
         if [[ "$line" == ":cancel" || "$line" == ":c" ]]; then
             echo -e "${RED}✗ Cancelado${NC}" >&2
             return 1
         fi
-        
+
         if [[ -z "$line" ]]; then
             ((empty_lines++))
             if [[ $empty_lines -ge 1 ]]; then
@@ -527,32 +526,32 @@ multiline_input() {
         else
             empty_lines=0
         fi
-        
+
         if [[ -n "$content" ]]; then
             content="$content"$'\n'"$line"
         else
             content="$line"
         fi
         ((line_num++))
-        
+
         if (( line_num % 5 == 0 )); then
             save_draft "$content"
         fi
     done
-    
+
     local words=$(count_words "$content")
     local lines=$(count_lines "$content")
     local chars=$(count_chars "$content")
-    
+
     echo "" >&2
     echo -e "${GREEN}✓${NC} ${DIM}$lines líneas | $words palabras | $chars caracteres${NC}" >&2
-    
+
     echo "$content"
 }
 
 editor_input() {
     local editor="${EDITOR:-nano}"
-    
+
     if command -v code &> /dev/null && [[ "$1" == "vscode" ]]; then
         editor="code --wait"
     elif ! command -v "$editor" &> /dev/null; then
@@ -564,20 +563,20 @@ editor_input() {
             editor="vi"
         fi
     fi
-    
+
     echo -e "${YELLOW}📝 Abriendo ${WHITE}$editor${NC}${YELLOW}...${NC}" >&2
     echo -e "${DIM}   Guarda y cierra el archivo cuando termines${NC}" >&2
-    
-    cat > "$TEMP_FILE" << EOF
+
+    cat > "$TEMP_FILE" << 'EOF'
 # ═══════════════════════════════════════════════════════════════════════════════
-# 📝 MENSAJE PARA COPILOT - Gestión Digital
+# 📝 MENSAJE PARA COPILOT
 # ═══════════════════════════════════════════════════════════════════════════════
 #
 # Escribe tu mensaje debajo de esta línea.
 # Puedes incluir:
-#   • Código en cualquier lenguaje
-#   • Múltiples líneas
-#   • Markdown
+# • Código en cualquier lenguaje
+# • Múltiples líneas
+# • Markdown
 #
 # Las líneas que empiezan con # serán ignoradas.
 # Guarda y cierra para enviar. Deja vacío para cancelar.
@@ -585,15 +584,15 @@ editor_input() {
 # ═══════════════════════════════════════════════════════════════════════════════
 
 EOF
-    
+
     local draft=$(load_draft)
     if [[ -n "$draft" ]]; then
         echo "# --- BORRADOR RECUPERADO ---" >> "$TEMP_FILE"
         echo "$draft" >> "$TEMP_FILE"
     fi
-    
+
     $editor "$TEMP_FILE"
-    
+
     if [[ -f "$TEMP_FILE" ]]; then
         local content=$(grep -v "^#" "$TEMP_FILE" | sed '/^[[:space:]]*$/d')
         if [[ -n "$content" ]]; then
@@ -604,9 +603,9 @@ EOF
 
 paste_input() {
     echo -e "${YELLOW}📋 Obteniendo contenido del clipboard...${NC}" >&2
-    
+
     local content=""
-    
+
     if [[ "$OSTYPE" == "darwin"* ]]; then
         content=$(pbpaste 2>/dev/null)
     elif command -v powershell.exe &> /dev/null; then
@@ -620,11 +619,11 @@ paste_input() {
         echo -e "${DIM}   Usa :multi o :edit en su lugar${NC}" >&2
         return 1
     fi
-    
+
     if [[ -n "$content" ]]; then
         local words=$(count_words "$content")
         local lines=$(count_lines "$content")
-        
+
         echo -e "${GREEN}✓ Pegado: $lines líneas, $words palabras${NC}" >&2
         echo -e "${GRAY}────────────────────────────────────────────────────────────────${NC}" >&2
         echo "$content" | head -n 10 >&2
@@ -632,7 +631,7 @@ paste_input() {
             echo -e "${DIM}... ($((lines - 10)) líneas más)${NC}" >&2
         fi
         echo -e "${GRAY}────────────────────────────────────────────────────────────────${NC}" >&2
-        
+
         echo "$content"
     else
         echo -e "${RED}❌ Clipboard vacío${NC}" >&2
@@ -643,9 +642,9 @@ paste_input() {
 show_history() {
     echo "" >&2
     echo -e "${CYAN}┌──────────────────────────────────────────────────────────────────────────────┐${NC}" >&2
-    echo -e "${CYAN}│${NC} ${YELLOW}📜 HISTORIAL DE MENSAJES${NC}                                                     ${CYAN}│${NC}" >&2
+    echo -e "${CYAN}│${NC} ${YELLOW}📜 HISTORIAL DE MENSAJES${NC}                                                    ${CYAN}│${NC}" >&2
     echo -e "${CYAN}└──────────────────────────────────────────────────────────────────────────────┘${NC}" >&2
-    
+
     if [[ -f "$HISTORY_FILE" ]]; then
         local i=1
         while IFS= read -r line; do
@@ -661,18 +660,18 @@ show_history() {
 show_git_status() {
     echo "" >&2
     echo -e "${CYAN}┌──────────────────────────────────────────────────────────────────────────────┐${NC}" >&2
-    echo -e "${CYAN}│${NC} ${YELLOW}📊 ESTADO DE GIT${NC}                                                             ${CYAN}│${NC}" >&2
+    echo -e "${CYAN}│${NC} ${YELLOW}📊 ESTADO DE GIT${NC}                                                            ${CYAN}│${NC}" >&2
     echo -e "${CYAN}└──────────────────────────────────────────────────────────────────────────────┘${NC}" >&2
-    
+
     cd "$PROJECT_DIR" 2>/dev/null
-    
+
     local branch=$(git branch --show-current 2>/dev/null)
     local status=$(git status --short 2>/dev/null | head -n 10)
     local commits=$(git log --oneline -5 2>/dev/null)
-    
+
     echo -e "  ${GREEN}Branch:${NC} $branch" >&2
     echo "" >&2
-    
+
     if [[ -n "$status" ]]; then
         echo -e "  ${YELLOW}Cambios:${NC}" >&2
         echo "$status" | while read -r line; do
@@ -681,7 +680,7 @@ show_git_status() {
     else
         echo -e "  ${GREEN}✓ Working tree clean${NC}" >&2
     fi
-    
+
     echo "" >&2
     echo -e "  ${BLUE}Últimos commits:${NC}" >&2
     echo "$commits" | while read -r line; do
@@ -693,11 +692,11 @@ show_git_status() {
 show_recent_files() {
     echo "" >&2
     echo -e "${CYAN}┌──────────────────────────────────────────────────────────────────────────────┐${NC}" >&2
-    echo -e "${CYAN}│${NC} ${YELLOW}📁 ARCHIVOS MODIFICADOS RECIENTEMENTE${NC}                                        ${CYAN}│${NC}" >&2
+    echo -e "${CYAN}│${NC} ${YELLOW}📁 ARCHIVOS MODIFICADOS RECIENTEMENTE${NC}                                       ${CYAN}│${NC}" >&2
     echo -e "${CYAN}└──────────────────────────────────────────────────────────────────────────────┘${NC}" >&2
-    
+
     cd "$PROJECT_DIR" 2>/dev/null
-    
+
     find . -type f \( -name "*.ts" -o -name "*.tsx" -o -name "*.js" -o -name "*.jsx" \) \
         -not -path "*/node_modules/*" -not -path "*/dist/*" -not -path "*/.git/*" \
         -mmin -60 2>/dev/null | head -n 15 | while read -r file; do
@@ -709,19 +708,23 @@ show_recent_files() {
 show_project_status() {
     echo "" >&2
     echo -e "${CYAN}┌──────────────────────────────────────────────────────────────────────────────┐${NC}" >&2
-    echo -e "${CYAN}│${NC} ${YELLOW}📊 ESTADO DEL PROYECTO${NC}                                                        ${CYAN}│${NC}" >&2
+    echo -e "${CYAN}│${NC} ${YELLOW}📊 ESTADO DEL PROYECTO${NC}                                                      ${CYAN}│${NC}" >&2
     echo -e "${CYAN}└──────────────────────────────────────────────────────────────────────────────┘${NC}" >&2
-    
+
     cd "$PROJECT_DIR" 2>/dev/null
-    
+
     echo -e "  ${GREEN}Proyecto:${NC} ${PROJECT_DIR##*/}" >&2
     echo -e "  ${GREEN}Ubicación:${NC} $PROJECT_DIR" >&2
-    
+
     local ts_files=$(find . -name "*.ts" -not -path "*/node_modules/*" 2>/dev/null | wc -l)
     local tsx_files=$(find . -name "*.tsx" -not -path "*/node_modules/*" 2>/dev/null | wc -l)
-    
+    local js_files=$(find . -name "*.js" -not -path "*/node_modules/*" 2>/dev/null | wc -l)
+    local jsx_files=$(find . -name "*.jsx" -not -path "*/node_modules/*" 2>/dev/null | wc -l)
+
     echo -e "  ${GREEN}Archivos TS:${NC} $ts_files" >&2
     echo -e "  ${GREEN}Archivos TSX:${NC} $tsx_files" >&2
+    echo -e "  ${GREEN}Archivos JS:${NC} $js_files" >&2
+    echo -e "  ${GREEN}Archivos JSX:${NC} $jsx_files" >&2
     echo "" >&2
 }
 
@@ -739,7 +742,7 @@ while true; do
     echo -e "${GREEN}┌──${NC} ${WHITE}Tu mensaje para Copilot ${DIM}(escribe :? para ayuda)${NC}"
     echo -ne "${GREEN}└─➜${NC} "
     read -r input
-    
+
     case "$input" in
         ":multi"|":m")
             respuesta=$(multiline_input)
@@ -850,7 +853,7 @@ fi
 
 echo ""
 echo -e "${CYAN}┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓${NC}"
-echo -e "${CYAN}┃${NC} ${GREEN}✓${NC} ${WHITE}MENSAJE ENVIADO A COPILOT${NC}                                                  ${CYAN}┃${NC}"
+echo -e "${CYAN}┃${NC} ${GREEN}✓${NC} ${WHITE}MENSAJE ENVIADO A COPILOT${NC}                                                   ${CYAN}┃${NC}"
 echo -e "${CYAN}┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛${NC}"
 echo ""
 echo -e "${BLUE}📨 Mensaje recibido:${NC}"

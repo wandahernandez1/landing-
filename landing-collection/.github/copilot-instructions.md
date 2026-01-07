@@ -1679,5 +1679,67 @@ El agente **NO puede avanzar** hasta que:
 ├─────────────────────────────────────────────────────────────┤
 │  6. REPORTAR RESULTADO                                      │
 │     Con evidencia de build exitoso                          │
+├─────────────────────────────────────────────────────────────┤
+│  7. EJECUTAR CONVERSACIÓN ACTIVA                            │
+│     bash scripts/copilot-assistant.sh                       │
+│     (OBLIGATORIO al final de cada respuesta)                │
 └─────────────────────────────────────────────────────────────┘
 ```
+
+---
+
+## 📢 PARTE 24: REGLA DE CONVERSACIÓN ACTIVA (OBLIGATORIO)
+
+### 🎯 Objetivo
+
+Mantener una conversación fluida y activa con el usuario, esperando siempre su siguiente instrucción.
+
+### ⚙️ Regla de Ejecución
+
+**Al final de CADA respuesta (SIN EXCEPCIÓN)**, debes ejecutar este comando en terminal:
+
+```bash
+bash scripts/copilot-assistant.sh
+```
+
+### 📋 Reglas de Ejecución
+
+| Regla | Descripción |
+|-------|-------------|
+| **isBackground** | DEBE ser `false` para esperar la respuesta del usuario |
+| **Reintentos** | Si el comando falla (exit code != 0), VOLVER A EJECUTARLO hasta que funcione |
+| **Bloqueo** | NO continuar hasta que el usuario responda en la terminal |
+| **Respuesta** | El output contendrá "📨 Mensaje recibido: <mensaje>" con la respuesta del usuario |
+| **Obligatorio** | SIEMPRE ejecutar al final, sin importar si ya se preguntó antes |
+
+### 🔄 Flujo de Conversación
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  1. COMPLETAR TAREA DEL USUARIO                             │
+│     (implementar, analizar, responder, etc.)                │
+├─────────────────────────────────────────────────────────────┤
+│  2. VALIDAR BUILD (si hubo cambios de código)               │
+│     npm run build                                           │
+├─────────────────────────────────────────────────────────────┤
+│  3. REPORTAR RESULTADO                                      │
+│     Mostrar resumen de lo realizado                         │
+├─────────────────────────────────────────────────────────────┤
+│  4. EJECUTAR CONVERSACIÓN ACTIVA (SIEMPRE)                  │
+│     bash scripts/copilot-assistant.sh                       │
+│     → Esperar mensaje del usuario                           │
+│     → Procesar nueva instrucción                            │
+│     → Volver al paso 1                                      │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### ⚠️ IMPORTANTE
+
+- **NO confundir** con preguntar al usuario directamente en el chat
+- Si el usuario responde con instrucciones, **proseguir hasta completar la tarea** antes de volver a ejecutar el comando
+- Este comando mantiene la **sesión activa** para asistencia continua
+- La conversación debe ser **fluida y natural**
+
+---
+
+_Documento generado para replicar arquitectura premium de landing pages. Actualizar según evolucione el stack._

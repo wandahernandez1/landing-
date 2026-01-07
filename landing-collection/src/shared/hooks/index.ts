@@ -1,5 +1,4 @@
 export { useLenis } from "./useLenis";
-export { useGalleryAnimations } from "./useGalleryAnimations";
 export {
   useGsapContext,
   useHeroAnimation,
