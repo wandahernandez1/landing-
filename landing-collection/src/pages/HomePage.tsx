@@ -12,11 +12,26 @@ export function HomePage() {
   const carouselSectionRef = useRef<HTMLElement>(null)
 
   // Initialize butter-smooth scroll
-  useLenis()
+  const lenisRef = useLenis()
 
-  // Scroll to carousel section
+  // Scroll to carousel section with Lenis for ultra-smooth effect
   const scrollToCarousel = () => {
-    carouselSectionRef.current?.scrollIntoView({ behavior: 'smooth' })
+    const target = carouselSectionRef.current
+    if (!target) return
+
+    // Use Lenis if available for premium smooth scroll
+    if (lenisRef.current) {
+      lenisRef.current.scrollTo(target, {
+        offset: 0,
+        duration: 1.8, // Longer duration for more fluid effect
+        easing: (t: number) => t < 0.5 
+          ? 4 * t * t * t 
+          : 1 - Math.pow(-2 * t + 2, 3) / 2, // Cubic ease-in-out
+      })
+    } else {
+      // Fallback to native smooth scroll
+      target.scrollIntoView({ behavior: 'smooth' })
+    }
   }
 
   return (

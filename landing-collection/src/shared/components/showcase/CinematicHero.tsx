@@ -80,10 +80,10 @@ export function CinematicHero({
           transition={{ duration: 0.6, delay: 0.6 }}
           className={cn(
             "mt-6 max-w-xl",
-            // Fluid typography for subheadline
-            "text-[clamp(0.875rem,2vw,1rem)]",
-            "sm:text-[clamp(1rem,1.8vw,1.125rem)]",
-            "md:text-[clamp(1.125rem,1.5vw,1.25rem)]",
+            // Fluid typography for subheadline - reducida
+            "text-[clamp(0.625rem,1.5vw,0.75rem)]",
+            "sm:text-[clamp(0.75rem,1.3vw,0.875rem)]",
+            "md:text-[clamp(0.875rem,1.1vw,1rem)]",
             "text-white/50",
             "leading-relaxed"
           )}

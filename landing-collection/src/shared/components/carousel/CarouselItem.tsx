@@ -176,13 +176,26 @@ function CarouselItemComponent({
   const isDragging = useRef(false);
 
   // Handle card click - navigate to landing page
-  const handleCardClick = () => {
+  const handleCardClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     // Only navigate if it wasn't a drag
-    if (!isDragging.current && isActive) {
-      // Scroll to top before navigation
+    if (isDragging.current) {
+      e.preventDefault();
+      return;
+    }
+    
+    if (!isActive) {
+      e.preventDefault();
+      return;
+    }
+
+    // Let browser handle native link behavior (Ctrl+click, middle click, etc.)
+    // Only prevent default and use navigate for normal clicks
+    if (!e.ctrlKey && !e.metaKey && !e.shiftKey && e.button === 0) {
+      e.preventDefault();
       window.scrollTo(0, 0);
       navigate(item.path);
     }
+    // For Ctrl+click, Cmd+click, middle click: browser handles it natively
   };
 
   // Track drag start position
@@ -211,19 +224,26 @@ function CarouselItemComponent({
         duration: 0.5,
         ease: [0.25, 0.1, 0.25, 1],
       }}
-      onPointerDown={handlePointerDown}
-      onPointerUp={handlePointerUp}
-      onClick={handleCardClick}
       className={cn(
         "relative w-full mx-auto",
-        "cursor-pointer",
         !isActive && "pointer-events-none"
       )}
       role="group"
       aria-roledescription="slide"
       aria-label={`${index + 1} of ${item.name}`}
     >
-      {/* Card Container */}
+      {/* Card Container wrapped in link */}
+      <a
+        href={item.path}
+        onPointerDown={handlePointerDown}
+        onPointerUp={handlePointerUp}
+        onClick={handleCardClick}
+        className={cn(
+          "block cursor-pointer",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-2xl sm:rounded-3xl"
+        )}
+        aria-label={`Visitar ${item.name}`}
+      >
       <div
         className={cn(
           "relative overflow-hidden",
@@ -341,6 +361,7 @@ function CarouselItemComponent({
           aria-hidden="true"
         />
       </div>
+      </a>
     </motion.article>
   );
 }
